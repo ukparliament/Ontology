@@ -39,8 +39,8 @@
 	rdfs:subClassOf :TemporalThing;
 .
 :MnisThing
-  a owl:Class ;
-  rdfs:subClassOf :ExternalThing ;
+  	a owl:Class ;
+  	rdfs:subClassOf :ExternalThing ;
 .
 :ExternalThing
 	a owl:Class ;
