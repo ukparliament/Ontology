@@ -123,15 +123,15 @@
 :GenderIdentity
 	a owl:Class;
 .
-:ContactDetails
+:ContactPoint
 	a owl:Class;
 .
-:MnisContactDetails
+:MnisContactPoint
 	a owl:Class ;
-	rdfs:subClassOf :ContactDetails ;
+	rdfs:subClassOf :ContactPoint ;
 # 	rdfs:subClassOf :MnisThing ;
 .
-:ContactDetailsType
+:ContactPointType
 	a owl:Class;
 .
 :PostalAddress
@@ -330,30 +330,30 @@
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
 .
-:contactableThingHasContactDetails
+:contactableThingHasContactPoint
 	a owl:ObjectProperty;
 	rdfs:domain :ContactableThing;
-	rdfs:range :ContactDetails;
+	rdfs:range :ContactPoint;
 .
-:contactDetailsHasContactableThing
-	owl:inverseOf :contactableThingHasContactDetails;
+:contactPointHasContactableThing
+	owl:inverseOf :contactableThingHasContactPoint;
 .
-:contactDetailsHasContactDetailsType
+:contactPointHasContactPointType
 	a owl:ObjectProperty;
-	rdfs:domain :ContactDetails;
-	rdfs:range :ContactDetailsType;
+	rdfs:domain :ContactPoint;
+	rdfs:range :ContactPointType;
 .
-:contactDetailsTypeHasContactDetails
-	owl:inverseOf :contactDetailsHasContactDetailsType;
+:contactPointTypeHasContactPoint
+	owl:inverseOf :contactPointHasContactPointType;
 .
-:contactDetailsHasPostalAddress
+:contactPointHasPostalAddress
 	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactDetails;
+	rdfs:domain :ContactPoint;
 	rdfs:range :PostalAddress;
 .
-:postalAddressHasContactDetails
+:postalAddressHasContactPoint
 	a owl:InverseFunctionalProperty;
-	owl:inverseOf :contactDetailsHasPostalAddress;
+	owl:inverseOf :contactPointHasPostalAddress;
 .
 :addressLine1
 	a owl:DatatypeProperty, owl:FunctionalProperty;
@@ -387,22 +387,22 @@
 .
 :faxNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactDetails;
+	rdfs:domain :ContactPoint;
 	rdfs:range xsd:string;
 .
 :email
 	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactDetails;
+	rdfs:domain :ContactPoint;
 	rdfs:range xsd:string;
 .
 :phoneNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactDetails;
+	rdfs:domain :ContactPoint;
 	rdfs:range xsd:string;
 .
 :contactForm
 	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactDetails;
+	rdfs:domain :ContactPoint;
 	rdfs:range xsd:string;
 .
 :partyMembershipHasPartyMember
@@ -561,18 +561,18 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
 .
-:seatIncumbencyHasContactDetails
+:seatIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:domain :SeatIncumbency ;
-	rdfs:range :ContactDetails ;
+	rdfs:range :ContactPoint ;
 .
-:contactDetailsHasSeatIncumbency
+:contactPointHasSeatIncumbency
 	a owl:ObjectProperty ;
-	owl:inverseOf :seatIncumbencyHasContactDetails ;
+	owl:inverseOf :seatIncumbencyHasContactPoint ;
 .
-:contactDetailsMnisId
+:contactPointMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :MnisContactDetails ;
+	rdfs:domain :MnisContactPoint ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
 .
