@@ -3,7 +3,6 @@
 
 #################################PREFIXES################################
 
-
 @prefix : <http://id.ukpds.org/schema/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -19,8 +18,6 @@
 @prefix wikidata: <https://www.wikidata.org/wiki/> .
 @prefix wikipedia: <https://en.wikipedia.org/wiki/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-
 
 #################################ONTOLOGY#################################
 
