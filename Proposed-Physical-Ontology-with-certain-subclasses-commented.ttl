@@ -265,7 +265,7 @@
 	rdfs:range xsd:date;
 	rdfs:comment "By convention, endDate is only used after the date.";
 .
-:personBirthDate
+:personDateOfBirth
 	a owl:DatatypeProperty, owl:FunctionalProperty;
 	rdfs:subPropertyOf :startDate;
 	rdfs:domain :Person;
