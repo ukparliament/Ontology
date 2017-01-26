@@ -577,13 +577,14 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :mnisId ;
 .
 :latitude
-	a owl:DatatypeProperty ;
-	a owl:FunctionalProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :GeographicalThing ;
+	rdfs:range xsd:decimal ;
 .
 :longitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :GeographicalThing ;
+	rdfs:range xsd:decimal ;
 .
 :partyMembershipStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
