@@ -316,16 +316,19 @@
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :name ;
 .
 :personGivenName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :name ;
 .
 :personOtherNames
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :name ;
 .
 :contactableThingHasContactPoint
 	a owl:ObjectProperty;
@@ -613,31 +616,37 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :name;
 .
 :houseName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name;
 	rdfs:domain :House ;
 	rdfs:range xsd:string ;
 .
 :houseSeatName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name;
 	rdfs:domain :HouseSeat ;
 	rdfs:range xsd:string ;
 .
 :houseSeatTypeName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range xsd:string ;
 .
 :genderName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name;
 	rdfs:domain :Gender ;
 	rdfs:range xsd:string ;
 .
 :electionName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name;
 	rdfs:domain :Election ;
 	rdfs:range xsd:string ;
 .
 :electionTypeName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name;
 	rdfs:domain :ElectionType ;
 	rdfs:range xsd:string ;
