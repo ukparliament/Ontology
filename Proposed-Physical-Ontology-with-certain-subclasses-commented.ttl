@@ -129,7 +129,7 @@
 # 	rdfs:subClassOf :MnisThing ;
 .
 :ContactPointType
-	a owl:Class;
+	a owl:Class ;
 .
 :MnisContactPointType
 	a owl:Class ;
@@ -137,20 +137,20 @@
 # 	rdfs:subClassOf :MnisThing ;
 .
 :PostalAddress
-	a owl:Class;
+	a owl:Class ;
 .
 :Candidate
-	a owl:Class;
+	a owl:Class ;
 	rdfs:subClassOf :Person;
 .
 :Candidacy
-	a owl:Class;
+	a owl:Class ;
 .
 :CandidacyResult
-	a owl:Class;
+	a owl:Class ;
 .
 :Party
-	a owl:Class;
+	a owl:Class ;
 .
 :MnisParty
 	a owl:Class ;
@@ -170,10 +170,15 @@
 #  	rdfs:subClassOf :PastThing ;
 .
 :Election
-	a owl:Class;
+	a owl:Class ;
 .
 :ElectionType
-	a owl:Class;
+	a owl:Class ;
+.
+:MnisElectionType
+	a owl:Class ;
+	rdfs:subClassOf :ElectionType ;
+#  	rdfs:subClassOf :MnisThing ;
 .
 :Electorate
 	a owl:Class;
@@ -612,6 +617,12 @@ geosparql:wktLiteral
 :partyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisParty ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :mnisId ;
+.
+:electionTypeMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisElectionType ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
 .
