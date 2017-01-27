@@ -115,13 +115,13 @@
 #  	rdfs:subClassOf :PastThing ;
 .
 :Gender
-	a owl:Class;
+	a owl:Class ;
 .
 :GenderIdentity
-	a owl:Class;
+	a owl:Class ;
 .
 :ContactPoint
-	a owl:Class;
+	a owl:Class ;
 .
 :MnisContactPoint
 	a owl:Class ;
@@ -130,6 +130,11 @@
 .
 :ContactPointType
 	a owl:Class;
+.
+:MnisContactPointType
+	a owl:Class ;
+	rdfs:subClassOf :ContactPointType ;
+# 	rdfs:subClassOf :MnisThing ;
 .
 :PostalAddress
 	a owl:Class;
@@ -573,6 +578,12 @@ geosparql:wktLiteral
 :contactPointMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisContactPoint ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :mnisId ;
+.
+:contactPointTypeMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisContactPointType ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
 .
