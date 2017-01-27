@@ -109,11 +109,6 @@
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :ContactableThing ; 
 .
-:PastMember
-	a owl:Class ;
-	rdfs:subClassOf :Member ;
-#  	rdfs:subClassOf :PastThing ;
-.
 :Gender
 	a owl:Class ;
 .
