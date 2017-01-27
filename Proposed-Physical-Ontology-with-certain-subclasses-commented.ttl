@@ -128,14 +128,6 @@
 	rdfs:subClassOf :ContactPoint ;
 # 	rdfs:subClassOf :MnisThing ;
 .
-:ContactPointType
-	a owl:Class ;
-.
-:MnisContactPointType
-	a owl:Class ;
-	rdfs:subClassOf :ContactPointType ;
-# 	rdfs:subClassOf :MnisThing ;
-.
 :PostalAddress
 	a owl:Class ;
 .
@@ -347,14 +339,6 @@
 .
 :contactPointHasContactableThing
 	owl:inverseOf :contactableThingHasContactPoint ;
-.
-:contactPointHasContactPointType
-	a owl:ObjectProperty ;
-	rdfs:domain :ContactPoint ;
-	rdfs:range :ContactPointType ;
-.
-:contactPointTypeHasContactPoint
-	owl:inverseOf :contactPointHasContactPointType ;
 .
 :contactPointHasPostalAddress
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -586,12 +570,6 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
 .
-:contactPointTypeMnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :MnisContactPointType ;
-	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :mnisId ;
-.
 :latitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :GeographicalThing ;
@@ -679,10 +657,4 @@ geosparql:wktLiteral
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
-.
-:contactPointTypeName
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
-	rdfs:domain :ContactPointType ;
-	rdfs:range xsd:string ;
 .
