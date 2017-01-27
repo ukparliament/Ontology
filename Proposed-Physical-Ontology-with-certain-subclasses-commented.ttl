@@ -297,8 +297,14 @@
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasGender ;
 .
+:externalIdentifier
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ExternalThing ;
+	rdfs:range xsd:string ;
+.
 :mnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
 .
@@ -546,6 +552,7 @@ geosparql:wktLiteral
 .
 :onsCode
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :OnsThing ;
 	rdfs:range xsd:string ;
 .
@@ -676,3 +683,5 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
 .
+
+
