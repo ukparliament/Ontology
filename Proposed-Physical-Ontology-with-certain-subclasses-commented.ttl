@@ -564,6 +564,24 @@ geosparql:wktLiteral
 	a owl:ObjectProperty ;
 	owl:inverseOf :seatIncumbencyHasContactPoint ;
 .
+:electoralIncumbencyHasContactPoint
+	a owl:ObjectProperty ;
+	rdfs:domain :ElectoralIncumbency ;
+	rdfs:range :ContactPoint ;
+.
+:contactPointHasElectoralIncumbency
+	a owl:ObjectProperty ;
+	owl:inverseOf :electoralIncumbencyHasContactPoint ;
+.
+:personHasContactPoint
+	a owl:ObjectProperty ;
+	rdfs:domain :Person ;
+	rdfs:range :ContactPoint ;
+.
+:contactPointHasPerson
+	a owl:ObjectProperty ;
+	owl:inverseOf :personHasContactPoint ;
+.
 :contactPointMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisContactPoint ;
