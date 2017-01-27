@@ -28,12 +28,12 @@
 #################################CLASSES##################################
 
 :TemporalThing
-	a owl:Class;
+	a owl:Class ;
 	rdfs:subClassOf owl:Thing ;
 .
 :PastThing
-	a owl:Class;
-	rdfs:subClassOf :TemporalThing;
+	a owl:Class ;
+	rdfs:subClassOf :TemporalThing ;
 .
 :MnisThing
   	a owl:Class ;
@@ -51,32 +51,32 @@
 	a owl:Class ;
 .
 :ContactableThing
-	a owl:Class;
+	a owl:Class ;
 .
 :House
-	a owl:Class;
+	a owl:Class ;
 .
 :HouseSeat
-	a owl:Class;
+	a owl:Class ;
 .
 :HouseSeatType
 	a owl:Class ;
 .
 :PastHouseSeat
-	a owl:Class;
-	rdfs:subClassOf :HouseSeat;
+	a owl:Class ;
+	rdfs:subClassOf :HouseSeat ;
 #	rdfs:subClassOf :PastThing ;
 .
 :ConstituencyGroup
-	a owl:Class;
+	a owl:Class ;
 .
 :ConstituencyArea
 	a owl:Class ;
 .
 :MnisConstituencyGroup
 	a owl:Class;
-	rdfs:subClassOf :ConstituencyGroup;
-#	rdfs:subClassOf :MnisThing;
+	rdfs:subClassOf :ConstituencyGroup ;
+#	rdfs:subClassOf :MnisThing ;
 .
 :PastConstituencyGroup
 	a owl:Class ;
@@ -84,30 +84,30 @@
 #  	rdfs:subClassOf :PastThing ;
 .
 :SeatIncumbency
-	a owl:Class;
+	a owl:Class ;
 .
 :PastSeatIncumbency
 	a owl:Class;
-	rdfs:subClassOf :SeatIncumbency;
+	rdfs:subClassOf :SeatIncumbency ;
 #	rdfs:subClassOf :PastThing ;
 .
 :Person
-	a owl:Class;
+	a owl:Class ;
 .
 :MnisPerson
-	a owl:Class;
-	rdfs:subClassOf :Person;
-#	rdfs:subClassOf :MnisThing;
+	a owl:Class ;
+	rdfs:subClassOf :Person ;
+#	rdfs:subClassOf :MnisThing ;
 .
 :DeceasedPerson
 	a owl:Class;
-	rdfs:subClassOf :Person;
-#	rdfs:subClassOf :PastThing;
+	rdfs:subClassOf :Person ;
+#	rdfs:subClassOf :PastThing ;
 .
 :Member
-	a owl:Class;
-	rdfs:subClassOf :Person;
-#	rdfs:subClassOf :ContactableThing; 
+	a owl:Class ;
+	rdfs:subClassOf :Person ;
+#	rdfs:subClassOf :ContactableThing ; 
 .
 :PastMember
 	a owl:Class ;
@@ -141,7 +141,7 @@
 .
 :Candidate
 	a owl:Class ;
-	rdfs:subClassOf :Person;
+	rdfs:subClassOf :Person ;
 .
 :Candidacy
 	a owl:Class ;
@@ -158,8 +158,8 @@
 #  	rdfs:subClassOf :MnisThing ;
 .
 :PartyMember
-	a owl:Class;
-	rdfs:subClassOf :Person;
+	a owl:Class ;
+	rdfs:subClassOf :Person ;
 .
 :PartyMembership
 	a owl:Class ;
@@ -181,11 +181,11 @@
 #  	rdfs:subClassOf :MnisThing ;
 .
 :Electorate
-	a owl:Class;
+	a owl:Class ;
 .
 :ElectoralIncumbency
-	a owl:Class;
-	rdfs:subClassOf :SeatIncumbency;
+	a owl:Class ;
+	rdfs:subClassOf :SeatIncumbency ;
 .
 :OnsConstituencyGroup
 	a owl:Class ;
@@ -196,131 +196,131 @@
 #################################PROPERTIES##############################
 
 :houseSeatHasHouse
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :HouseSeat;
-	rdfs:range :House;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :HouseSeat ;
+	rdfs:range :House ;
 .
 :houseHasHouseSeat
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :houseSeatHasHouse;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :houseSeatHasHouse ;
 .
 :houseSeatHasConstituencyGroup
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :HouseSeat;
-	rdfs:range :ConstituencyGroup;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :HouseSeat ;
+	rdfs:range :ConstituencyGroup ;
 .
 :constituencyGroupHasHouseSeat
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :houseSeatHasConstituencyGroup;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :houseSeatHasConstituencyGroup ;
 .
 :houseSeatHasHouseSeatType
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :HouseSeat;
-	rdfs:range :HouseSeatType;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :HouseSeat ;
+	rdfs:range :HouseSeatType ;
 .
 :houseSeatTypeHasHouseSeat
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :houseSeatHasHouseSeatType;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :houseSeatHasHouseSeatType ;
 .
 :seatIncumbencyHasHouseSeat
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :SeatIncumbency;
-	rdfs:range :HouseSeat;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :SeatIncumbency ;
+	rdfs:range :HouseSeat ;
 .
 :houseSeatHasSeatIncumbency
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :seatIncumbencyHasHouseSeat;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :seatIncumbencyHasHouseSeat ;
 .
 :seatIncumbencyHasMember
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :SeatIncumbency;
-	rdfs:range :Member;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :SeatIncumbency ;
+	rdfs:range :Member ;
 .
 :memberHasSeatIncumbency
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :seatIncumbencyHasMember;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :seatIncumbencyHasMember ;
 .
 :seatIncumbencyStartDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :startDate;
-	rdfs:domain :SeatIncumbency;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :SeatIncumbency ;
 	rdfs:range xsd:date ;
 .
 :houseSeatStartDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :startDate;
-	rdfs:domain :HouseSeat;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :HouseSeat ;
 	rdfs:range xsd:date ;
 .
 :seatIncumbencyEndDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :endDate;
-	rdfs:domain :PastSeatIncumbency;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :PastSeatIncumbency ;
 	rdfs:range xsd:date ;
 .
 :houseSeatEndDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :endDate;
-	rdfs:domain :PastHouseSeat;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :PastHouseSeat ;
 	rdfs:range xsd:date ;
 .
 :startDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :TemporalThing;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :TemporalThing ;
 	rdfs:range xsd:date ;
 .
 :endDate
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PastThing;
-	rdfs:range xsd:date;
-	rdfs:comment "By convention, endDate is only used after the date.";
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PastThing ;
+	rdfs:range xsd:date ;
+	rdfs:comment "By convention, endDate is only used after the date." ;
 .
 :personDateOfBirth
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :startDate;
-	rdfs:domain :Person;
-	rdfs:range xsd:date;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :Person ;
+	rdfs:range xsd:date ;
 .
 :personDateOfDeath
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :endDate;
-	rdfs:domain :DeceasedPerson;
-	rdfs:range xsd:date;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :DeceasedPerson ;
+	rdfs:range xsd:date ;
 .
 :genderIdentityHasPerson
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :GenderIdentity;
-	rdfs:range :Person;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :GenderIdentity ;
+	rdfs:range :Person ;
 .
 :personHasGenderIdentity
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :genderIdentityHasPerson;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :genderIdentityHasPerson ;
 .
 :genderIdentityHasGender
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :GenderIdentity;
-	rdfs:range :Gender;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :GenderIdentity ;
+	rdfs:range :Gender ;
 .
 :genderHasGenderIdentity
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :genderIdentityHasGender;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :genderIdentityHasGender ;
 .
 :mnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :MnisThing;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisThing ;
+	rdfs:range xsd:string ;
 .
 :personMnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :mnisId;
-	rdfs:domain :MnisPerson;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisPerson ;
+	rdfs:range xsd:string ;
 .
 :constituencyGroupMnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:subPropertyOf :mnisId;
-	rdfs:domain :MnisConstituencyGroup;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisConstituencyGroup ;
+	rdfs:range xsd:string ;
 .
 :personFamilyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -341,193 +341,193 @@
 	rdfs:subPropertyOf :name ;
 .
 :contactableThingHasContactPoint
-	a owl:ObjectProperty;
-	rdfs:domain :ContactableThing;
-	rdfs:range :ContactPoint;
+	a owl:ObjectProperty ;
+	rdfs:domain :ContactableThing ;
+	rdfs:range :ContactPoint ;
 .
 :contactPointHasContactableThing
-	owl:inverseOf :contactableThingHasContactPoint;
+	owl:inverseOf :contactableThingHasContactPoint ;
 .
 :contactPointHasContactPointType
-	a owl:ObjectProperty;
-	rdfs:domain :ContactPoint;
-	rdfs:range :ContactPointType;
+	a owl:ObjectProperty ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :ContactPointType ;
 .
 :contactPointTypeHasContactPoint
-	owl:inverseOf :contactPointHasContactPointType;
+	owl:inverseOf :contactPointHasContactPointType ;
 .
 :contactPointHasPostalAddress
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactPoint;
-	rdfs:range :PostalAddress;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :PostalAddress ;
 .
 :postalAddressHasContactPoint
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :contactPointHasPostalAddress;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :contactPointHasPostalAddress ;
 .
 :addressLine1
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PostalAddress;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range xsd:string ;
 .
 :addressLine2
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PostalAddress;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range xsd:string ;
 .
 :addressLine3
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PostalAddress;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range xsd:string ;
 .
 :addressLine4
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PostalAddress;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range xsd:string ;
 .
 :addressLine5
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PostalAddress;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range xsd:string ; 
 .
 :postCode
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :PostalAddress;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range xsd:string ;
 .
 :faxNumber
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactPoint;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range xsd:string ;
 .
 :email
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactPoint;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range xsd:string ;
 .
 :phoneNumber
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactPoint;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range xsd:string ;
 .
 :contactForm
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :ContactPoint;
-	rdfs:range xsd:string;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range xsd:string ;
 .
 :partyMembershipHasPartyMember
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :PartyMembership;
-	rdfs:range :PartyMember;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :PartyMembership ;
+	rdfs:range :PartyMember ;
 .
 :partyMemberHasPartyMembership
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :partyMembershipHasPartyMember;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :partyMembershipHasPartyMember ;
 .
 :partyMembershipHasParty
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :PartyMembership;
-	rdfs:range :Party;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :PartyMembership ;
+	rdfs:range :Party ;
 .
 :partyHasPartyMembership
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :partyMembershipHasParty;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :partyMembershipHasParty ;
 .
 :candidacyHasCandidate
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Candidacy;
-	rdfs:range :Candidate;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Candidacy ;
+	rdfs:range :Candidate ;
 .
 :candidateHasCandidacy
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :candidacyHasCandidate;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :candidacyHasCandidate ;
 .
 :candidacyHasParty
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Candidacy;
-	rdfs:range :Party;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Candidacy ;
+	rdfs:range :Party ;
 .
 :partyhasCandidacy
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :candidacyHasParty;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :candidacyHasParty ;
 .
 :candidacyHasCandidacyResult
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Candidacy;
-	rdfs:range :CandidacyResult;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Candidacy ;
+	rdfs:range :CandidacyResult ;
 .
 :candidacyResultHasCandidacy
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	owl:inverseOf :candidacyHasCandidacyResult;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :candidacyHasCandidacyResult ;
 .
 :candidacyHasElection
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Candidacy;
-	rdfs:range :Election;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Candidacy ;
+	rdfs:range :Election ;
 .
 :electionHasCandidacy
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :candidacyHasElection;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :candidacyHasElection ;
 .
 :electionIsPartOfElection
-	a owl:ObjectProperty;
-	rdfs:domain :Election;
-	rdfs:range :Election;
+	a owl:ObjectProperty ;
+	rdfs:domain :Election ;
+	rdfs:range :Election ;
 .
 :electionHasElectorate
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Election;
-	rdfs:range :Electorate;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Election ;
+	rdfs:range :Electorate ;
 .
 :electorateHasElection
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :electionHasElectorate;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :electionHasElectorate ;
 .
 :electionHasElectionType
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Election;
-	rdfs:range :ElectionType;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Election ;
+	rdfs:range :ElectionType ;
 .
 :electionTypeHasElection
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :electionHasElectionType;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :electionHasElectionType ;
 .
 :electorateHasConstitutencyGroup
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :Electorate;
-	rdfs:range :ConstituencyGroup;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Electorate ;
+	rdfs:range :ConstituencyGroup ;
 .
 :constituencyGroupHasElectorate
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :electorateHasConstitutencyGroup;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :electorateHasConstitutencyGroup ;
 .
 :electoralIncumbencyHasCandidacyResult
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :ElectoralIncumbency;
-	rdfs:range :CandidacyResult;
+	a owl:ObjectProperty, owl:FunctionalProperty  ;
+	rdfs:domain :ElectoralIncumbency ;
+	rdfs:range :CandidacyResult ;
 .
 :candidacyResultHasElectoralIncumbency
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :electoralIncumbencyHasCandidacyResult;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :electoralIncumbencyHasCandidacyResult ;
 .
 :voteCount
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :CandidacyResult;
-	rdfs:range xsd:integer;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :CandidacyResult ;
+	rdfs:range xsd:integer ;
 .
 :resultPosition
-	a owl:DatatypeProperty, owl:FunctionalProperty;
-	rdfs:domain :CandidacyResult;
-	rdfs:range xsd:integer;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :CandidacyResult ;
+	rdfs:range xsd:integer ;
 .
 :constituencyGroupHasConstituencyArea
-	a owl:ObjectProperty, owl:FunctionalProperty;
-	rdfs:domain :ConstituencyGroup;
-	rdfs:range :ConstituencyArea;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :ConstituencyGroup ;
+	rdfs:range :ConstituencyArea ;
 .
 :constituencyAreaHasConstituencyGroup
-	a owl:InverseFunctionalProperty;
-	owl:inverseOf :constituencyGroupHasConstituencyArea;
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :constituencyGroupHasConstituencyArea ;
 .
 :constituencyGroupEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -627,7 +627,7 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :mnisId ;
 .
 :name
-	a owl:DatatypeProperty, owl:FunctionalProperty;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :NamedThing ;
 	rdfs:range xsd:string ;
   	rdfs:subPropertyOf rdfs:label ;
@@ -636,41 +636,41 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Party ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 .
 :houseName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :House ;
 	rdfs:range xsd:string ;
 .
 :houseSeatName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range xsd:string ;
 .
 :houseSeatTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range xsd:string ;
 .
 :genderName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Gender ;
 	rdfs:range xsd:string ;
 .
 :electionName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Election ;
 	rdfs:range xsd:string ;
 .
 :electionTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :ElectionType ;
 	rdfs:range xsd:string ;
 .
@@ -678,11 +678,11 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 .
 :contactPointTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :ContactPointType ;
 	rdfs:range xsd:string ;
 .
