@@ -62,11 +62,6 @@
 :HouseSeatType
 	a owl:Class ;
 .
-:PastHouseSeat
-	a owl:Class ;
-	rdfs:subClassOf :HouseSeat ;
-#	rdfs:subClassOf :PastThing ;
-.
 :ConstituencyGroup
 	a owl:Class ;
 .
@@ -233,22 +228,10 @@
 	rdfs:domain :SeatIncumbency ;
 	rdfs:range xsd:date ;
 .
-:houseSeatStartDate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :startDate ;
-	rdfs:domain :HouseSeat ;
-	rdfs:range xsd:date ;
-.
 :seatIncumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastSeatIncumbency ;
-	rdfs:range xsd:date ;
-.
-:houseSeatEndDate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :endDate ;
-	rdfs:domain :PastHouseSeat ;
 	rdfs:range xsd:date ;
 .
 :startDate
