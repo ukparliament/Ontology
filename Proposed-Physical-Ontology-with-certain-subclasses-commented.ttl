@@ -252,7 +252,7 @@
 	rdfs:range xsd:date ;
 .
 :personDateOfDeath
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty, owl:ObjectProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :DeceasedPerson ;
 	rdfs:range xsd:date ;
