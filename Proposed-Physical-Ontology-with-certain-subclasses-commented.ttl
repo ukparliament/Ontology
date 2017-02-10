@@ -177,6 +177,11 @@
 :Role
 	a owl:Class ;
 .
+:PastRole
+	a owl:Class ;
+	rdfs:subClassOf :Role ;
+#  	rdfs:subClassOf :PastThing ;
+.
 :Position
 	a owl:Class ;
 .
@@ -686,4 +691,15 @@ geosparql:wktLiteral
 :roleHasPosition
 	owl:inverseOf :positionHasRole ;
 .
-
+:roleStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Role ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :startDate ;
+.
+:roleEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PastRole ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :endDate ;
+.
