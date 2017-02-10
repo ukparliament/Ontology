@@ -670,5 +670,20 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
 .
-
+:personHasRole
+	a owl:ObjectProperty ;
+	rdfs:domain :Person ;
+	rdfs:range :Role ;
+.
+:roleHasPerson
+	owl:inverseOf :personHasRole ;
+.
+:positionHasRole
+	a owl:ObjectProperty ;
+	rdfs:domain :Position ;
+	rdfs:range :Role ;
+.
+:roleHasPosition
+	owl:inverseOf :positionHasRole ;
+.
 
