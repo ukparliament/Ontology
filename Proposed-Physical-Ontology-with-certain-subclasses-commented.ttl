@@ -675,6 +675,12 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
 .
+:positionName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Position ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :name ;
+.
 :personHasRole
 	a owl:ObjectProperty ;
 	rdfs:domain :Person ;
