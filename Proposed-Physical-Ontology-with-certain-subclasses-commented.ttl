@@ -242,7 +242,7 @@
 .
 :memberHasIncumbency
 	a owl:InverseFunctionalProperty ;
-	owl:inverseOf :seatIncumbencyHasMember ;
+	owl:inverseOf :incumbencyHasMember ;
 .
 :seatIncumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
