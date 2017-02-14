@@ -189,6 +189,7 @@
 :HouseIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
+	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
 .
 :Incumbency
 	a owl:Class ;
