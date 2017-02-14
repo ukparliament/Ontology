@@ -244,10 +244,10 @@
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :incumbencyHasMember ;
 .
-:seatIncumbencyStartDate
+:incumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
-	rdfs:domain :SeatIncumbency ;
+	rdfs:domain :Incumbency ;
 	rdfs:range xsd:date ;
 .
 :seatIncumbencyEndDate
