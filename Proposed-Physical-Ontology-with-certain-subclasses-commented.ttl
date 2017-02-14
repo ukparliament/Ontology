@@ -729,3 +729,12 @@ geosparql:wktLiteral
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseIncumbencyHasHouseIncumbencyType ;
 .
+:houseIncumbencyHasHouse
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :HouseIncumbency ;
+	rdfs:range :House ;
+.
+:houseHasHouseIncumbency
+	a owl:InverseFunctionalProperty ;
+	owl:inverseOf :houseIncumbencyHasHouse ;
+.
