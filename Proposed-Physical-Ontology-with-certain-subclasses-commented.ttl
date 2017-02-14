@@ -235,12 +235,12 @@
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :seatIncumbencyHasHouseSeat ;
 .
-:seatIncumbencyHasMember
+:incumbencyHasMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :SeatIncumbency ;
+	rdfs:domain :Incumbency ;
 	rdfs:range :Member ;
 .
-:memberHasSeatIncumbency
+:memberHasIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :seatIncumbencyHasMember ;
 .
