@@ -562,15 +562,15 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
 .
-:seatIncumbencyHasContactPoint
+:incumbencyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
-	rdfs:domain :SeatIncumbency ;
+	rdfs:domain :Incumbency ;
 	rdfs:range :ContactPoint ;
 .
-:contactPointHasSeatIncumbency
+:contactPointHasIncumbency
 	a owl:ObjectProperty ;
-	owl:inverseOf :seatIncumbencyHasContactPoint ;
+	owl:inverseOf :incumbencyHasContactPoint ;
 .
 :electoralIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
