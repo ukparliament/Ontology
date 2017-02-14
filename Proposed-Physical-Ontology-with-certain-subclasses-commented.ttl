@@ -197,6 +197,11 @@
 :HouseIncumbencyType
 	a owl:Class ;
 .
+:PastHouseIncumbency
+	a owl:Class;
+	rdfs:subClassOf :HouseIncumbency ;
+#	rdfs:subClassOf :PastThing ;
+.
 
 #################################PROPERTIES##############################
 
@@ -738,4 +743,10 @@ geosparql:wktLiteral
 :houseHasHouseIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseIncumbencyHasHouse ;
+.
+:houseIncumbencyEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :PastHouseIncumbency ;
+	rdfs:range xsd:date ;
 .
