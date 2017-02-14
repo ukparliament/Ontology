@@ -80,6 +80,7 @@
 .
 :SeatIncumbency
 	a owl:Class ;
+	rdfs:subClassOf :Incumbency ;
 .
 :PastSeatIncumbency
 	a owl:Class;
@@ -183,6 +184,13 @@
 #  	rdfs:subClassOf :PastThing ;
 .
 :Position
+	a owl:Class ;
+.
+:HouseIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :Incumbency ;
+.
+:Incumbency
 	a owl:Class ;
 .
 
