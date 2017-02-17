@@ -108,6 +108,11 @@
 :Gender
 	a owl:Class ;
 .
+:MnisGender
+	a owl:Class ;
+	rdfs:subClassOf :Gender ;
+# 	rdfs:subClassOf :MnisThing ;
+.
 :GenderIdentity
 	a owl:Class ;
 .
@@ -673,6 +678,12 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Gender ;
 	rdfs:range xsd:string ;
+.
+:genderMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisGender ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :mnisId ;
 .
 :electionName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
