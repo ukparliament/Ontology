@@ -28,182 +28,182 @@
 #################################CLASSES##################################
 
 :TemporalThing
-#	a owl:Class ;
-#	rdfs:subClassOf owl:Thing ;
+	a owl:Class ;
+	rdfs:subClassOf owl:Thing ;
 .
 :PastThing
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :TemporalThing ;
 .
 :MnisThing
- # 	a owl:Class ;
+ 	a owl:Class ;
   	rdfs:subClassOf :ExternalThing ;
 .
 :ExternalThing
-#	a owl:Class ;
-#	rdfs:subClassOf owl:Thing ;
+	a owl:Class ;
+	rdfs:subClassOf owl:Thing ;
 .
 :OnsThing
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
 .
 :GeographicalThing
-#	a owl:Class ;
+	a owl:Class ;
 .
 :ContactableThing
-#	a owl:Class ;
+	a owl:Class ;
 .
 :House
-#	a owl:Class ;
+	a owl:Class ;
 .
 :HouseSeat
-#	a owl:Class ;
+	a owl:Class ;
 .
 :HouseSeatType
-#	a owl:Class ;
+	a owl:Class ;
 .
 :ConstituencyGroup
-#	a owl:Class ;
+	a owl:Class ;
 .
 :ConstituencyArea
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisConstituencyGroup
-#	a owl:Class;
+	a owl:Class;
 	rdfs:subClassOf :ConstituencyGroup ;
 #	rdfs:subClassOf :MnisThing ;
 .
 :PastConstituencyGroup
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :ConstituencyGroup ;
 #  	rdfs:subClassOf :PastThing ;
 .
 :SeatIncumbency
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
 .
 :Person
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisPerson
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :MnisThing ;
 .
 :DeceasedPerson
-#	a owl:Class;
+	a owl:Class;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :PastThing ;
 .
 :Member
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :ContactableThing ; 
 .
 :Gender
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisGender
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Gender ;
 # 	rdfs:subClassOf :MnisThing ;
 .
 :GenderIdentity
-#	a owl:Class ;
+	a owl:Class ;
 .
 :ContactPoint
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisContactPoint
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :ContactPoint ;
 # 	rdfs:subClassOf :MnisThing ;
 .
 :PostalAddress
-#	a owl:Class ;
+	a owl:Class ;
 .
 :Candidate
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Person ;
 .
 :Candidacy
-#	a owl:Class ;
+	a owl:Class ;
 .
 :CandidacyResult
-#	a owl:Class ;
+	a owl:Class ;
 .
 :Party
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisParty
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Party ;
 #  	rdfs:subClassOf :MnisThing ;
 .
 :PartyMember
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Person ;
 .
 :PartyMembership
-#	a owl:Class ;
+	a owl:Class ;
 .
 :PastPartyMembership
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :PartyMembership ;
 #  	rdfs:subClassOf :PastThing ;
 .
 :Election
-#	a owl:Class ;
+	a owl:Class ;
 .
 :ElectionType
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisElectionType
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :ElectionType ;
 #  	rdfs:subClassOf :MnisThing ;
 .
 :Electorate
-#	a owl:Class ;
+	a owl:Class ;
 .
 :ElectoralIncumbency
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :SeatIncumbency ;
 .
 :OnsConstituencyGroup
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:seeAlso <http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency> ;
 	rdfs:subClassOf :ConstituencyGroup, :OnsThing ;
 .
 :Role
-#	a owl:Class ;
+	a owl:Class ;
 .
 :PastRole
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Role ;
 #  	rdfs:subClassOf :PastThing ;
 .
 :Position
-#	a owl:Class ;
+	a owl:Class ;
 .
 :HouseIncumbency
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
 	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
 .
 :Incumbency
-#	a owl:Class ;
+	a owl:Class ;
 .
 :PastIncumbency
-#	a owl:Class;
+	a owl:Class;
 	rdfs:subClassOf :Incumbency ;
 #	rdfs:subClassOf :PastThing ;
 .
 :HouseIncumbencyType
-#	a owl:Class ;
+	a owl:Class ;
 .
 :MnisHouseIncumbencyType
-#	a owl:Class ;
+	a owl:Class ;
 	rdfs:subClassOf :HouseIncumbencyType ;
 #  	rdfs:subClassOf :MnisThing ;
 .
