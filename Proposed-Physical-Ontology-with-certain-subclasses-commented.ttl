@@ -203,6 +203,11 @@
 :HouseIncumbencyType
 	a owl:Class ;
 .
+:MnisHouseIncumbencyType
+	a owl:Class ;
+	rdfs:subClassOf :HouseIncumbencyType ;
+#  	rdfs:subClassOf :MnisThing ;
+.
 
 #################################PROPERTIES##############################
 
@@ -756,4 +761,10 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseIncumbencyType ;
 	rdfs:range xsd:string ;
+.
+:houseIncumbencyTypeMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisHouseIncumbencyType ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :mnisId ;
 .
