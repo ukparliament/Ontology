@@ -29,7 +29,7 @@
 
 :TemporalThing
 	a owl:Class ;
-	rdfs:subClassOf owl:Thing ;
+#	rdfs:subClassOf owl:Thing ;
 .
 :PastThing
 	a owl:Class ;
@@ -41,7 +41,7 @@
 .
 :ExternalThing
 	a owl:Class ;
-	rdfs:subClassOf owl:Thing ;
+#	rdfs:subClassOf owl:Thing ;
 .
 :OnsThing
 	a owl:Class ;
@@ -82,7 +82,6 @@
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
 .
-
 :Person
 	a owl:Class ;
 .
