@@ -43,6 +43,10 @@
 	a owl:Class ;
 	rdfs:subClassOf owl:Thing ;
 .
+:NamedThing
+	a owl:Class ;
+	rdfs:subClassOf owl:Thing ;
+.
 :OnsThing
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
