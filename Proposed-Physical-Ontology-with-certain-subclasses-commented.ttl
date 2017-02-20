@@ -751,3 +751,9 @@ geosparql:wktLiteral
 	rdfs:domain :PastIncumbency ;
 	rdfs:range xsd:date ;
 .
+:houseIncumbencyTypeName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :HouseIncumbencyType ;
+	rdfs:range xsd:string ;
+.
