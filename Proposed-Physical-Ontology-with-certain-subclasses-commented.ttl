@@ -464,11 +464,6 @@
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasElection ;
 .
-:electionIsPartOfElection
-	a owl:ObjectProperty ;
-	rdfs:domain :Election ;
-	rdfs:range :Election ;
-.
 :electionHasElectorate
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Election ;
