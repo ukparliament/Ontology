@@ -257,12 +257,6 @@
 	rdfs:domain :Incumbency ;
 	rdfs:range xsd:date ;
 .
-:seatIncumbencyEndDate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :endDate ;
-	rdfs:domain :PastSeatIncumbency ;
-	rdfs:range xsd:date ;
-.
 :startDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :TemporalThing ;
@@ -751,9 +745,9 @@ geosparql:wktLiteral
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseIncumbencyHasHouse ;
 .
-:houseIncumbencyEndDate
+:incumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
-	rdfs:domain :PastHouseIncumbency ;
+	rdfs:domain :PastIncumbency ;
 	rdfs:range xsd:date ;
 .
