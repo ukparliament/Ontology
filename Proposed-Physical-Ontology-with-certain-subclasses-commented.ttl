@@ -82,11 +82,7 @@
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
 .
-:PastSeatIncumbency
-	a owl:Class;
-	rdfs:subClassOf :SeatIncumbency ;
-#	rdfs:subClassOf :PastThing ;
-.
+
 :Person
 	a owl:Class ;
 .
@@ -199,13 +195,13 @@
 :Incumbency
 	a owl:Class ;
 .
+:PastIncumbency
+	a owl:Class;
+	rdfs:subClassOf :Incumbency ;
+#	rdfs:subClassOf :PastThing ;
+.
 :HouseIncumbencyType
 	a owl:Class ;
-.
-:PastHouseIncumbency
-	a owl:Class;
-	rdfs:subClassOf :HouseIncumbency ;
-#	rdfs:subClassOf :PastThing ;
 .
 
 #################################PROPERTIES##############################
