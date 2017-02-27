@@ -222,6 +222,8 @@
 :houseHasHouseSeat
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :HouseSeat ;
 .
 :houseSeatHasConstituencyGroup
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -231,6 +233,8 @@
 :constituencyGroupHasHouseSeat
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasConstituencyGroup ;
+	rdfs:domain :ConstituencyGroup ;
+	rdfs:range :HouseSeat ;
 .
 :houseSeatHasHouseSeatType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -240,6 +244,8 @@
 :houseSeatTypeHasHouseSeat
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasHouseSeatType ;
+	rdfs:domain :HouseSeatType ;
+	rdfs:range :HouseSeat ;
 .
 :seatIncumbencyHasHouseSeat
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -249,6 +255,8 @@
 :houseSeatHasSeatIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :seatIncumbencyHasHouseSeat ;
+	rdfs:domain :HouseSeat ;
+	rdfs:range :SeatIncumbency ;
 .
 :incumbencyHasMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -258,6 +266,8 @@
 :memberHasIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :incumbencyHasMember ;
+	rdfs:domain :Member ;
+	rdfs:range :Incumbency ;
 .
 :incumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -296,6 +306,8 @@
 :personHasGenderIdentity
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasPerson ;
+	rdfs:domain :Person ;
+	rdfs:range :GenderIdentity ;
 .
 :genderIdentityHasGender
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -305,6 +317,8 @@
 :genderHasGenderIdentity
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasGender ;
+	rdfs:domain :Gender ;
+	rdfs:range :GenderIdentity ;
 .
 :externalIdentifier
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -354,6 +368,8 @@
 .
 :contactPointHasContactableThing
 	owl:inverseOf :contactableThingHasContactPoint ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :ContactableThing ;
 .
 :contactPointHasPostalAddress
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -363,6 +379,8 @@
 :postalAddressHasContactPoint
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :contactPointHasPostalAddress ;
+	rdfs:domain :PostalAddress ;
+	rdfs:range :ContactPoint ;
 .
 :addressLine1
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -422,6 +440,8 @@
 :partyMemberHasPartyMembership
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :partyMembershipHasPartyMember ;
+	rdfs:domain :PartyMember ;
+	rdfs:range :PartyMembership ;
 .
 :partyMembershipHasParty
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -431,6 +451,8 @@
 :partyHasPartyMembership
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :partyMembershipHasParty ;
+	rdfs:domain :Party ;
+	rdfs:range :PartyMembership ;
 .
 :candidacyHasCandidate
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -440,6 +462,8 @@
 :candidateHasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasCandidate ;
+	rdfs:domain :Candidate ;
+	rdfs:range :Candidacy ;
 .
 :candidacyHasParty
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -449,6 +473,8 @@
 :partyhasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasParty ;
+	rdfs:domain :Party ;
+	rdfs:range :Candidacy ;
 .
 :candidacyHasCandidacyResult
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -458,6 +484,8 @@
 :candidacyResultHasCandidacy
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :candidacyHasCandidacyResult ;
+	rdfs:domain :CandidacyResult ;
+	rdfs:range :Candidacy ;
 .
 :candidacyHasElection
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -467,6 +495,8 @@
 :electionHasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasElection ;
+	rdfs:domain :Election ;
+	rdfs:range :Candidacy ;
 .
 :electionHasElectorate
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -476,6 +506,8 @@
 :electorateHasElection
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electionHasElectorate ;
+	rdfs:domain :Electorate ;
+	rdfs:range :Election ;
 .
 :electionHasElectionType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -485,6 +517,8 @@
 :electionTypeHasElection
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electionHasElectionType ;
+	rdfs:domain :ElectionType ;
+	rdfs:range :Election ;
 .
 :electorateHasConstitutencyGroup
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -494,6 +528,8 @@
 :constituencyGroupHasElectorate
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electorateHasConstitutencyGroup ;
+	rdfs:domain :ConstituencyGroup ;
+	rdfs:range :Electorate ;
 .
 :electoralIncumbencyHasCandidacyResult
 	a owl:ObjectProperty, owl:FunctionalProperty  ;
@@ -503,6 +539,8 @@
 :candidacyResultHasElectoralIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electoralIncumbencyHasCandidacyResult ;
+	rdfs:domain :CandidacyResult ;
+	rdfs:range :ElectoralIncumbency ;
 .
 :voteCount
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -522,6 +560,8 @@
 :constituencyAreaHasConstituencyGroup
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :constituencyGroupHasConstituencyArea ;
+	rdfs:domain :ConstituencyArea ;
+	rdfs:range :ConstituencyGroup ;
 .
 :constituencyGroupEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -575,6 +615,8 @@ geosparql:wktLiteral
 :contactPointHasIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :incumbencyHasContactPoint ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :Incumbency ;
 .
 :electoralIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
@@ -585,6 +627,8 @@ geosparql:wktLiteral
 :contactPointHasElectoralIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :electoralIncumbencyHasContactPoint ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :ElectoralIncumbency ;
 .
 :personHasContactPoint
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
@@ -595,6 +639,8 @@ geosparql:wktLiteral
 :contactPointHasPerson
 	a owl:ObjectProperty ;
 	owl:inverseOf :personHasContactPoint ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :Person ;
 .
 :contactPointMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -709,6 +755,8 @@ geosparql:wktLiteral
 .
 :roleHasPerson
 	owl:inverseOf :personHasRole ;
+	rdfs:domain :Role ;
+	rdfs:range :Person ;
 .
 :positionHasRole
 	a owl:ObjectProperty ;
@@ -717,6 +765,8 @@ geosparql:wktLiteral
 .
 :roleHasPosition
 	owl:inverseOf :positionHasRole ;
+	rdfs:domain :Role ;
+	rdfs:range :Position ;
 .
 :roleStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -738,6 +788,8 @@ geosparql:wktLiteral
 :houseIncumbencyTypeHasHouseIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseIncumbencyHasHouseIncumbencyType ;
+	rdfs:domain :HouseIncumbencyType ;
+	rdfs:range :HouseIncumbency ;
 .
 :houseIncumbencyHasHouse
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -747,6 +799,8 @@ geosparql:wktLiteral
 :houseHasHouseIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseIncumbencyHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :HouseIncumbency ;
 .
 :incumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
