@@ -39,6 +39,14 @@
  	a owl:Class ;
   	rdfs:subClassOf :ExternalThing ;
 .
+:DodsThing
+ 	a owl:Class ;
+  	rdfs:subClassOf :ExternalThing ;
+.
+:PimsThing
+ 	a owl:Class ;
+  	rdfs:subClassOf :ExternalThing ;
+.
 :ExternalThing
 	a owl:Class ;
 	rdfs:subClassOf owl:Thing ;
@@ -93,6 +101,16 @@
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :MnisThing ;
+.
+:DodsPerson
+	a owl:Class ;
+	rdfs:subClassOf :Person ;
+#	rdfs:subClassOf :DodsThing ;
+.
+:PimsPerson
+	a owl:Class ;
+	rdfs:subClassOf :Person ;
+#	rdfs:subClassOf :PimsThing ;
 .
 :DeceasedPerson
 	a owl:Class;
@@ -341,6 +359,30 @@
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisConstituencyGroup ;
+	rdfs:range xsd:string ;
+.
+:pimsId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :externalIdentifier ;
+	rdfs:domain :PimsThing ;
+	rdfs:range xsd:string ;
+.
+:dodsId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :externalIdentifier ;
+	rdfs:domain :DodsThing ;
+	rdfs:range xsd:string ;
+.
+:personPimsId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :pimsId ;
+	rdfs:domain :PimsPerson ;
+	rdfs:range xsd:string ;
+.
+:personDodsId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :dodsId ;
+	rdfs:domain :DodsPerson ;
 	rdfs:range xsd:string ;
 .
 :personFamilyName
