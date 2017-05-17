@@ -283,7 +283,7 @@
 	rdfs:range :SeatIncumbency ;
 .
 :parliamentPeriodHasImmediatelyPreviousParliamentPeriod
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :ParliamentPeriod ;
 .
@@ -865,7 +865,7 @@ geosparql:wktLiteral
 :parliamentPeriodNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ParliamentPeriod ;
-	rdfs:range xsd:string ;
+	rdfs:range xsd:integer ;
 .
 :houseIncumbencyHasHouseIncumbencyType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
