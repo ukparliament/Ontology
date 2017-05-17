@@ -192,6 +192,12 @@
 	a owl:Class ;
 	rdfs:subClassOf :SeatIncumbency ;
 .
+:ParliamentPeriod
+	a owl:Class ;
+.
+:PastParliamentPeriod
+	rdfs:subClassOf :ParliamentPeriod ;
+.	
 :OnsConstituencyGroup
 	a owl:Class ;
 	rdfs:seeAlso <http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency> ;
@@ -274,6 +280,28 @@
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :seatIncumbencyHasHouseSeat ;
 	rdfs:domain :HouseSeat ;
+	rdfs:range :SeatIncumbency ;
+.
+:parliamentPeriodHasImmediatelyPreviousParliamentPeriod
+	a owl:ObjectProperty ;
+	rdfs:domain :ParliamentPeriod ;
+	rdfs:range :ParliamentPeriod ;
+.
+:parliamentPeriodHasImmediatelyFollowingParliamentPeriod
+	a owl:ObjectProperty ;
+	owl:inverseOf :parliamentPeriodHasImmediatelyPreviousParliamentPeriod ;
+	rdfs:domain :ParliamentPeriod ;
+	rdfs:range :ParliamentPeriod ;
+.
+:seatIncumbencyHasParliamentPeriod
+	a owl:ObjectProperty ;
+	rdfs:domain :SeatIncumbency ;
+	rdfs:range :ParliamentPeriod ;
+.
+:parliamentPeriodHasSeatIncumbency
+	a owl:ObjectProperty ;
+	owl:inverseOf :seatIncumbencyHasParliamentPeriod ;
+	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :SeatIncumbency ;
 .
 :incumbencyHasMember
@@ -821,6 +849,23 @@ geosparql:wktLiteral
 	rdfs:domain :PastRole ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
+.
+:parliamentPeriodStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ParliamentPeriod ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :startDate ;
+.
+:parliamentPeriodEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PastParliamentPeriod ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :endDate ;
+.
+:parliamentPeriodNumber
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ParliamentPeriod ;
+	rdfs:range xsd:string ;
 .
 :houseIncumbencyHasHouseIncumbencyType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
