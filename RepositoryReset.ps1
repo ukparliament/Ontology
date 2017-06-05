@@ -3,13 +3,13 @@
 Resets GraphDB respository.
 
 .DESCRIPTION
-Resets GraphDB respository: adds Ontology, Houses and Genders.
+Resets GraphDB respository: adds Ontology, Houses, Genders and Parliamentary Periods.
 
-.PARAMETER APIManagementName
-Name of the API Management.
+.PARAMETER APIResourceGroupName
+Name of the Resource Group where the API Management is.
 
-.PARAMETER DataBaseUri
-Uri (scheme, host and forward slash only) of the data service.
+.PARAMETER SchemaNamespace
+Namespace for ontology.
 
 .PARAMETER OntologyFileLocation
 Location of the file with ontology (sparql).
@@ -20,7 +20,6 @@ This script is for use as a part of deployment in VSTS only.
 
 Param(
     [Parameter(Mandatory=$true)] [string] $APIResourceGroupName,
-    [Parameter(Mandatory=$true)] [string] $APIManagementName,
     [Parameter(Mandatory=$true)] [string] $SchemaNamespace,
     [Parameter(Mandatory=$true)] [string] $OntologyFileLocation
 )
@@ -31,13 +30,18 @@ function Log([Parameter(Mandatory=$true)][string]$LogText){
     Write-Host ("{0} - {1}" -f (Get-Date -Format "HH:mm:ss.fff"), $LogText)
 }
 
+Log "Get API Management"
+$apiManagement=Find-AzureRmResource -ResourceGroupNameEquals $APIResourceGroupName -ResourceType "Microsoft.ApiManagement/service"
 Log "Get API Management context"
-$management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $APIManagementName
+$management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $apiManagement.Name
 Log "Get product id"
 $apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "Parliament - Release").ProductId
 Log "Retrives subscription"
 $subscription=Get-AzureRmApiManagementSubscription -Context $management -ProductId $apiReleaseProductId
 $subscriptionKey=$subscription.PrimaryKey
+
+$api="https://$($apiManagement.Name).azure-api.net"
+$header=@{"Ocp-Apim-Subscription-Key"="$subscriptionKey"}
 
 Log "Setting initial data"
 $ttls=@(
@@ -106,9 +110,6 @@ $parliamentPeriods=@(
     "<{0}> a parl:ParliamentPeriod; parl:parliamentPeriodStartDate ""2015-05-18""^^xsd:date; parl:parliamentPeriodEndDate ""2017-05-03""^^xsd:date; parl:parliamentPeriodNumber ""56""^^xsd:integer; parl:parliamentPeriodHasImmediatelyPreviousParliamentPeriod <{1}>; parl:parliamentPeriodHasImmediatelyFollowingParliamentPeriod <{2}>.",
     "<{0}> a parl:ParliamentPeriod; parl:parliamentPeriodStartDate ""2017-06-13""^^xsd:date; parl:parliamentPeriodNumber ""57""^^xsd:integer; ; parl:parliamentPeriodHasImmediatelyPreviousParliamentPeriod <{1}>."
 )
-
-$api="https://$APIManagementName.azure-api.net"
-$header=@{"Ocp-Apim-Subscription-Key"="$subscriptionKey"}
 
 Log "Generating ids"
 $ttl="PREFIX parl:<{0}> " -f $SchemaNamespace;
