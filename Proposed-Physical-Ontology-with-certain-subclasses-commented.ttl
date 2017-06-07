@@ -30,7 +30,6 @@
 
 :TemporalThing
 	a owl:Class ;
-	rdfs:subClassOf owl:Thing ;
 .
 :PastThing
 	a owl:Class ;
@@ -57,16 +56,15 @@
   	rdfs:subClassOf :ExternalThing ;
 .
 :WikidataParliamentPeriod
+ 	a owl:Class ;
   	rdfs:subClassOf :ParliamentPeriod ;
 #  	rdfs:subClassOf :WikidataThing ;
 .
 :ExternalThing
 	a owl:Class ;
-	rdfs:subClassOf owl:Thing ;
 .
 :NamedThing
 	a owl:Class ;
-	rdfs:subClassOf owl:Thing ;
 .
 :OnsThing
 	a owl:Class ;
@@ -92,6 +90,7 @@
 .
 :ConstituencyArea
 	a owl:Class ;
+	rdfs:subClassOf :Place ;
 .
 :Country
 	a owl:Class ;
@@ -214,7 +213,7 @@
 .
 :PastParliamentPeriod
 	rdfs:subClassOf :ParliamentPeriod ;
-	#  	rdfs:subClassOf :PastThing ;
+#  	rdfs:subClassOf :PastThing ;
 .	
 :OnsConstituencyGroup
 	a owl:Class ;
@@ -268,7 +267,7 @@
 :Threshold 
 	a owl:Class ;
 .
-:ModerationState 
+:Moderation 
 	a owl:Class ;
 .
 :Debate 
@@ -284,15 +283,20 @@
 	a owl:Class ;
 	rdfs:subClassOf :GeographicalThing ;
 .
-:Moderation 
+:ModerationOption
 	a owl:Class ;
 .
 :Rejection 
 	a owl:Class ;
-	rdfs:subClassOf :Moderation ;
+	rdfs:subClassOf :ModerationOption ;
 .
 :RejectionCode 
 	a owl:Class ;
+.
+:Approval 
+	a owl:Class ;
+	rdfs:subClassOf :ModerationOption ;
+	rdfs:comment "Only one instance of this class, that exists essentially to say that the petition was not rejected, with nothing further to say" ;
 .
 :ConceptualisedThing
 	a owl:Class ;
@@ -705,14 +709,14 @@
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range :EPetition ;
 .
-:ePetitionHasModerationState 
+:ePetitionHasModeration 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :EPetition ;
-	rdfs:range :ModerationState ;
+	rdfs:range :Moderation ;
 .
-:moderationStateHasEPetition
-	owl:inverseOf :ePetitionHasModerationState ;
-	rdfs:domain :ModerationState ;
+:moderationHasEPetition
+	owl:inverseOf :ePetitionHasModeration ;
+	rdfs:domain :Moderation ;
 	rdfs:range :EPetition ;
 .
 :ePetitionHasLocatedSignatureCount 
@@ -726,6 +730,7 @@
 	rdfs:range :EPetition ;
 .
 :locatedSignatureCountHasPlace 
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range :Place ;
 .
@@ -734,23 +739,15 @@
 	rdfs:domain :Place ;
 	rdfs:range :LocatedSignatureCount ;
 .
-:moderationStateHasModeration 
-	rdfs:domain :ModerationState ;
-	rdfs:range :Moderation ;
-.
-:moderationHasModerationState
-	owl:inverseOf :moderationStateHasModeration; 
+:moderationHasModerationOption
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Moderation ;
-	rdfs:range :ModerationState ;
+	rdfs:range :ModerationOption ;
 .
-:rejectionHasRejectionCode
-	rdfs:domain :Rejection ;
-	rdfs:range :RejectionCode ;
-.
-:rejectionCodeHasRejection
-	owl:inverseOf :rejectionHasRejectionCode; 
-	rdfs:domain :RejectionCode ;
-	rdfs:range :Rejection ;
+:moderationOptionHasModeration
+	owl:inverseOf :moderationHasModerationOption; 
+	rdfs:domain :ModerationOption ;
+	rdfs:range :Moderation ;
 .
 :containedByPlace 
 	rdf:type owl:ObjectProperty ;
@@ -765,16 +762,28 @@
 	rdfs:range :Place ;
 .
 :constituencyAreaHasCountry
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :containedByPlace ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range :Country ;
 .
-:countryHasCconstituencyArea
-	owl:inverseOf :constituencyAreaHasCountry; 
+:countryHasConstituencyArea
+	owl:inverseOf :constituencyAreaHasCountry ; 
 	rdfs:subPropertyOf :containsPlace ;
 	rdfs:domain :Country ;
 	rdfs:range :ConstituencyArea ;
 .
+:rejectionHasRejectionCode
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Rejection ;
+	rdfs:range :RejectionCode ;	
+.
+:rejectionCodeHasRejection
+	owl:inverseOf :rejectionHasRejectionCode ; 
+	rdfs:domain :RejectionCode ;
+	rdfs:range :Rejection ;	
+.
+
 ########################DATATYPE PROPERTIES##############################
 
 
@@ -872,7 +881,7 @@
 	rdfs:domain :DodsPerson ;
 	rdfs:range xsd:string ;
 .
-:epetitionUkgapId
+:ePetitionUkgapId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :ukgapId ;
 	rdfs:domain :UkgapEPetition ;
@@ -1134,96 +1143,124 @@ geosparql:wktLiteral
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range xsd:integer ;
 .
-:dateOfThresholdAttainment 
+:thresholdAttainmentAt 
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ThresholdAttainment ;
 	rdfs:range xsd:dateTime ;
 .
 :action 
+	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:string ;
 .
 :background 
+	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:string ;
 .
 :additionalDetails 
+	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:string ;
 .
-:openedAt 
+:createdAt 
+	a owl:DatatypeProperty ;
+	rdfs:domain :EPetition ;
+	rdfs:range xsd:dateTime ;
+.
+:updatedAt 
+	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:dateTime ;
 .
 :closedAt 
+	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:dateTime ;
 .
 :signatureCount 
+	a owl:DatatypeProperty ;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range xsd:integer ;
 .
 :signatureCountRetrievedAt 
+	a owl:DatatypeProperty ;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range xsd:dateTime ;
 .
 :thresholdName
+	a owl:DatatypeProperty ;
 	rdfs:domain :Threshold ;
 	rdfs:range xsd:string ;
 .	
-:thresholdCount
+:thresholdSignatureNumber
+	a owl:DatatypeProperty ;
 	rdfs:domain :Threshold ;
 	rdfs:range xsd:integer ;
 .
 :governmentResponseSummary
+	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:string ;
 .
 :governmentResponseDetails
+	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:string ;
 .
 :governmentResponseCreatedAt
+	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:dateTime ;
 .
 :governmentResponseUpdatedAt
+	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:dateTime ;
 .
-:moderationStateName
+:moderatedAt
+	a owl:DatatypeProperty ;
 	rdfs:domain :Moderation ;
-	rdfs:range xsd:string ;
-.	
-:moderationStateChange
-	rdfs:domain :ModerationState ;
 	rdfs:range xsd:dateTime ;
 .
 :rejectionDetails
+	a owl:DatatypeProperty ;
 	rdfs:domain :Rejection ;
 	rdfs:range xsd:string ;
 .
+#:rejectionName
+#	a owl:DatatypeProperty ;
+#	rdfs:domain :Rejection ;
+#	rdfs:range xsd:string ;
+#.
 :rejectionCodeName
+	a owl:DatatypeProperty ;
 	rdfs:domain :RejectionCode ;
 	rdfs:range xsd:string ;
 .
 :debateDate
+	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:date ;
 .
 :debateProposedDate
+	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :proposedStartDate ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:date ;
 .
 :debateTranscriptUrl
+	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:string ;
 .
 :debateVideoUrl
+	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:string ;
 .
 :debateOverview
+	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:string ;
 .		
@@ -1293,13 +1330,13 @@ geosparql:wktLiteral
 :govRegisterCountryEndDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :endDate ;
-	rdfs:domain :GovRegisterTerritory ;
+	rdfs:domain :GovRegisterCountry ;
 	rdfs:range xsd:date ;
 .
 :territoryGovRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :govRegisterId ;
-	rdfs:domain :GovRegisterCountry ;
+	rdfs:domain :GovRegisterTerritory ;
 	rdfs:range xsd:string ;
 .
 :territoryName
@@ -1326,3 +1363,27 @@ geosparql:wktLiteral
 	rdfs:domain :GovRegisterTerritory ;
 	rdfs:range xsd:date ;
 .
+
+##########################THE COMMENTED ZONE#############################
+
+# 	:WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
+#	:MnisConstituencyGroup	rdfs:subClassOf :MnisThing .
+#	:PastConstituencyGroup rdfs:subClassOf :PastThing .
+# 	:MnisPerson rdfs:subClassOf :MnisThing .
+# 	:DodsPerson rdfs:subClassOf :DodsThing .
+#	:PimsPerson rdfs:subClassOf :PimsThing .
+#	:DeceasedPerson rdfs:subClassOf :PastThing .
+#	:Member rdfs:subClassOf :ContactableThing .
+#	:MnisGender rdfs:subClassOf :MnisThing .
+# 	:MnisContactPoint rdfs:subClassOf :MnisThing .
+#	:MnisParty rdfs:subClassOf :MnisThing .
+#	:PastPartyMembership rdfs:subClassOf :PastThing .
+#	:MnisElectionType rdfs:subClassOf :MnisThing .
+#	:PastParliamentPeriod rdfs:subClassOf :PastThing .	
+#	:OnsConstituencyGroup rdfs:subClassOf :OnsThing .
+#	:PastRole rdfs:subClassOf :PastThing .
+#	:PastIncumbency rdfs:subClassOf :PastThing .
+#	:MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
+#	:UkgapEPetition rdfs:subClassOf :UkgapThing .
+#	:GovRegisterCountry	rdfs:subClassOf :GovRegisterThing .
+#	:GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
