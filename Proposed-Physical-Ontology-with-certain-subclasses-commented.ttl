@@ -293,7 +293,6 @@
 :Approval 
 	a owl:Class ;
 	rdfs:subClassOf :Moderation ;
-	rdfs:comment "Only one instance of this class, that exists essentially to say that the petition was not rejected, with nothing further to say" ;
 .
 :ConceptualisedThing
 	a owl:Class ;
@@ -1206,8 +1205,20 @@ geosparql:wktLiteral
 	rdfs:range xsd:dateTime ;
 .
 :moderatedAt
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Moderation ;
+	rdfs:range xsd:dateTime ;
+.
+:approvedAt
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :moderatedAt ;
+	rdfs:domain :Approval ;
+	rdfs:range xsd:dateTime ;
+.
+:rejectedAt
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :moderatedAt ;
+	rdfs:domain :Rejection ;
 	rdfs:range xsd:dateTime ;
 .
 :rejectionDetails
