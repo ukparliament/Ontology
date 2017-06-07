@@ -283,19 +283,16 @@
 	a owl:Class ;
 	rdfs:subClassOf :GeographicalThing ;
 .
-:ModerationOption
-	a owl:Class ;
-.
 :Rejection 
 	a owl:Class ;
-	rdfs:subClassOf :ModerationOption ;
+	rdfs:subClassOf :Moderation ;
 .
 :RejectionCode 
 	a owl:Class ;
 .
 :Approval 
 	a owl:Class ;
-	rdfs:subClassOf :ModerationOption ;
+	rdfs:subClassOf :Moderation ;
 	rdfs:comment "Only one instance of this class, that exists essentially to say that the petition was not rejected, with nothing further to say" ;
 .
 :ConceptualisedThing
@@ -738,16 +735,6 @@
 	owl:inverseOf :locatedSignatureCountHasPlace; 
 	rdfs:domain :Place ;
 	rdfs:range :LocatedSignatureCount ;
-.
-:moderationHasModerationOption
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :Moderation ;
-	rdfs:range :ModerationOption ;
-.
-:moderationOptionHasModeration
-	owl:inverseOf :moderationHasModerationOption; 
-	rdfs:domain :ModerationOption ;
-	rdfs:range :Moderation ;
 .
 :containedByPlace 
 	rdf:type owl:ObjectProperty ;
