@@ -256,6 +256,15 @@
 :EPetition 
 	a owl:Class ;
 .
+:RejectedEPetition 
+	a owl:Class ;
+	rdfs:subClassOf :EPetition ;
+
+.
+:ApprovedEPetition 
+	a owl:Class ;
+	rdfs:subClassOf :EPetition ;
+	.
 :UkgapEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
@@ -714,6 +723,30 @@
 	owl:inverseOf :ePetitionHasModeration ;
 	rdfs:domain :Moderation ;
 	rdfs:range :EPetition ;
+.
+:rejectedEPetitionHasRejection 
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	rdfs:subPropertyOf :ePetitionHasModeration ;
+	rdfs:domain :RejectedEPetition ;
+	rdfs:range :Rejection ;
+.
+:rejectionHasRejectedEPetition 
+	owl:inverseOf :rejectedEPetitionHasRejection ;
+	rdfs:subPropertyOf :moderationHasEPetition ;
+	rdfs:domain :Rejection ;
+	rdfs:range :RejectedEPetition ;
+.
+:approvedEPetitionHasApproval 
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	rdfs:subPropertyOf :ePetitionHasModeration ;
+	rdfs:domain :ApprovedEPetition ;
+	rdfs:range :Approval ;
+.
+:approvalHasApprovedEPetition 
+	owl:inverseOf :approvedEPetitionHasApproval ;
+	rdfs:subPropertyOf :moderationHasEPetition ;
+	rdfs:domain :Approval ;
+	rdfs:range :ApprovedEPetition ;
 .
 :ePetitionHasLocatedSignatureCount 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
