@@ -143,8 +143,9 @@ for($i=0;$i -lt $parliamentPeriods.Length;$i++){
     }
 }
 
+#SPARQL below removes ALL DATA and ontology
 $clearOntologySparql="DELETE{?s ?p ?o}INSERT{[] <http://www.ontotext.com/owlim/system#schemaTransaction> [].}WHERE {?s ?p ?o}"
-Log "Removing old ontology"
+Log "Removing data and old ontology"
 Invoke-RestMethod -Uri "$api/rdf4j/master-0/repositories/Master/statements" -ContentType "application/x-www-form-urlencoded" -Method POST -Body @{update=$clearOntologySparql;} -Headers $header
 
 $sparql=Get-Content -Path $OntologyFileLocation -Raw
