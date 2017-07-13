@@ -253,12 +253,11 @@ INSERT {
 :RejectedEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
-
 .
 :ApprovedEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
-	.
+.
 :UkgapEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
@@ -324,9 +323,93 @@ INSERT {
 	a owl:Class ;
 	rdfs:subClassOf :Place ;
 .
+:Image
+	a owl:Class ;
+.
+:PersonImage
+	a owl:Class ;
+	rdfs:subClassOf :Image ;
+	rdfs:comment "An image of a Person" ;
+.	
+:MemberImage
+	a owl:Class ;
+	rdfs:subClassOf :PersonImage ;
+	rdfs:comment "An image of a Member" ;
+.	
+:Logo
+	a owl:Class ;
+.
+:LogoImage
+	a owl:Class ;
+	rdfs:subClassOf :Image ;
+	rdfs:comment "An image of a Logo" ;
+.
+:ThingWithLogo
+	a owl:Class ;
+.
+:ImageSubject
+	a owl:Class ;
+	rdfs:comment "The person or thing an image is of, which is depicted in the Image" ;
+.
 
 ##########################OBJECT PROPERTIES##############################
 
+:imageHasImageSubject
+	a owl:ObjectProperty ;
+	rdfs:domain :Image ;
+	rdfs:range :ImageSubject ;
+.
+:imageSubjectHasImage
+	a owl:ObjectProperty ;
+	owl:inverseOf :imageHasImageSubject ;
+	rdfs:domain :ImageSubject ;
+	rdfs:range :Image ;
+.
+:personImageHasPerson
+	a owl:ObjectProperty ;
+	rdfs:domain :PersonImage ;
+	rdfs:range :Person ;
+.
+:personHasPersonImage
+	a owl:ObjectProperty ;
+	owl:inverseOf :personImageHasPerson ;
+	rdfs:domain :Person ;
+	rdfs:range :PersonImage ;
+.
+:logoImageHasLogo
+	a owl:ObjectProperty ;
+	rdfs:domain :LogoImage ;
+	rdfs:range :Logo ;
+.
+:logoHasLogoImage
+	a owl:ObjectProperty ;
+	owl:inverseOf :logoImageHasLogo ;
+	rdfs:domain :Logo ;
+	rdfs:range :LogoImage ;
+.
+:memberImageHasMember
+	a owl:ObjectProperty ;
+	rdfs:domain :MemberImage ;
+	rdfs:range :Member ;
+.
+:memberHasMemberImage
+	a owl:ObjectProperty ;
+	owl:inverseOf :memberImageHasMember ;
+	rdfs:domain :Member ;
+	rdfs:range :MemberImage ;
+.
+:thingWithLogoHasLogo
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf foaf:hasLogo ;
+	rdfs:domain :ThingWithLogo ;
+	rdfs:range :Logo ;
+.
+:logoHasThingWithLogo
+	a owl:ObjectProperty ;
+	owl:inverseOf :thingWithLogoHasLogo ;
+	rdfs:domain :Logo ;
+	rdfs:range :ThingWithLogo ;
+.
 :houseSeatHasHouse
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :HouseSeat ;
@@ -1388,6 +1471,14 @@ geosparql:wktLiteral
 	rdfs:domain :GovRegisterTerritory ;
 	rdfs:range xsd:date ;
 .
+:personImageFaceCentrePoint
+	a owl:DatatypeProperty ;
+	rdfs:domain :PersonImage ;
+	rdfs:range geosparql:wktLiteral ; 
+	rdfs:comment "The coordinates within an image marking the centrepoint of the face, for use in cropping" ;
+.
+
+
 
 
  	:WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
