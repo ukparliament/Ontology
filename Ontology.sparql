@@ -352,6 +352,10 @@ INSERT {
 	rdfs:comment "The person or thing an image is of, which is depicted in the Image" ;
 .
 
+skos:Concept
+	a owl:Class ;
+.
+
 ##########################OBJECT PROPERTIES##############################
 
 :imageHasImageSubject
