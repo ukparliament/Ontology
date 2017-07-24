@@ -206,6 +206,7 @@ INSERT {
 	a owl:Class ;
 .
 :PastParliamentPeriod
+	a owl:Class ;
 	rdfs:subClassOf :ParliamentPeriod ;
 #  	rdfs:subClassOf :PastThing ;
 .	
@@ -303,6 +304,7 @@ INSERT {
 	a owl:Class ;
 .
 :Concept
+	a owl:Class ;
 	rdfs:subClassOf skos:Concept ;
 .
 :GovRegisterThing
