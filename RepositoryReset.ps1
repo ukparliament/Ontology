@@ -49,6 +49,9 @@ $ttls=@(
     "<{0}> a parl:House;parl:houseName ""House of Lords"".",
     "<{0}> a parl:Gender;parl:genderName ""Female"";parl:genderMnisId ""F"".",
     "<{0}> a parl:Gender;parl:genderName ""Male"";parl:genderMnisId ""M""."
+	"<{0}> a parl:Threshold;parl:thresholdName ""Moderation""."
+	"<{0}> a parl:Threshold;parl:thresholdName ""Response""."
+	"<{0}> a parl:Threshold;parl:thresholdName ""Debate""."
 )
 
 $parliamentPeriods=@(
