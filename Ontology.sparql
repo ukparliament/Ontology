@@ -1074,7 +1074,7 @@ skos:Concept
 	rdfs:subPropertyOf :endDate ;
 .
 :constituencyAreaExtent
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	a owl:DatatypeProperty ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range geosparql:wktLiteral ; 
 	rdfs:seeAlso schema:polygon ;
