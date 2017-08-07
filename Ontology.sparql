@@ -1085,11 +1085,13 @@ geosparql:wktLiteral
 :constituencyAreaLatitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyArea ;
+	rdfs:range xsd:decimal ;
 	rdfs:subPropertyOf :latitude ;
 .
 :constituencyAreaLongitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyArea ;
+	rdfs:range xsd:decimal ;
 	rdfs:subPropertyOf :longitude ;
 .
 :constituencyGroupOnsCode
