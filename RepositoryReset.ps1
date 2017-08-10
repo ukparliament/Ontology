@@ -52,6 +52,14 @@ $ttls=@(
 	"<{0}> a parl:Threshold;parl:thresholdName ""Moderation""."
 	"<{0}> a parl:Threshold;parl:thresholdName ""Response""."
 	"<{0}> a parl:Threshold;parl:thresholdName ""Debate""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""no-action""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""irrelevant""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""honours""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""foi""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""fake-name""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""duplicate""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""libellous""."
+	"<{0}> a parl:RejectionCode;parl:rejectionCodeName ""offensive""."
 )
 
 $parliamentPeriods=@(
