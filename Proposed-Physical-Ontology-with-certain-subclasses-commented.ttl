@@ -359,13 +359,75 @@
 	a owl:Class ;
 	rdfs:comment "The person or thing an image is of, which is depicted in the Image" ;
 .
-
+:WebLink
+	a owl:Class ;
+.
+:WebLinkedThing
+	a owl:Class ;
+.
+:PersonWebLink
+	a owl:Class ;
+	rdfs:subClassOf :WebLink;
+.
+:FormalBody
+	a owl:Class ;
+.
+:PastFormalBody
+	a owl:Class ;
+	rdfs:subClassOf :FormalBody ;
+#  	rdfs:subClassOf :PastThing ;
+.
+:PastFormalBodyMembership
+	a owl:Class ;
+	rdfs:subClassOf :FormalBodyMembership ;
+#  	rdfs:subClassOf :PastThing ;
+.
+:MnisFormalBody
+	a owl:Class ;
+	rdfs:subClassOf :FormalBody ;
+#	rdfs:subClassOf :MnisThing ;
+.
+:FormalBodyMembership
+	a owl:Class ;
+.
 skos:Concept
 	a owl:Class ;
 .
-
 ##########################OBJECT PROPERTIES##############################
 
+:formalBodyHasHouse
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :House ;
+.
+:houseHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :FormalBody ;
+.
+:memberHasFormalBodyMembership
+	a owl:ObjectProperty ;
+	rdfs:domain :Member ;
+	rdfs:range :FormalBodyMembership ;
+.
+:formalBodyMembershipHasMember
+	a owl:ObjectProperty ;
+	owl:inverseOf :memberHasFormalBodyMembership ;
+	rdfs:domain :FormalBodyMembership ;
+	rdfs:range :Member ;
+.
+:formalBodyMembershipHasFormalBody
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBodyMembership ;
+	rdfs:range :FormalBody ;
+.
+:formalBodyHasFormalBodyMembership
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyMembershipHasFormalBody ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBodyMembership ;
+.
 :imageHasImageSubject
 	a owl:ObjectProperty ;
 	rdfs:domain :Image ;
@@ -891,9 +953,47 @@ skos:Concept
 	rdfs:domain :RejectionCode ;
 	rdfs:range :Rejection ;	
 .
+:personHasPersonWebLink
+	a owl:ObjectProperty ;
+	rdfs:domain :Person ;
+	rdfs:range :PersonWebLink ;
+	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
+.
+:personWebLinkHasPerson
+	a owl:ObjectProperty ;
+	owl:inverseOf :personHasPersonWebLink ;
+	rdfs:domain :PersonWebLink ;
+	rdfs:range :Person ;
+	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
+
+.
+:webLinkedThingHasWebLink
+	a owl:ObjectProperty ;
+	rdfs:domain :WebLinkedThing ;
+	rdfs:range :WebLink ;
+.
+:webLinkHasWebLinkedThing
+	a owl:ObjectProperty ;
+	owl:inverseOf :webLinkedThingHasWebLink ;
+	rdfs:domain :WebLink ;
+	rdfs:range :WebLinkedThing ;
+.
 
 ########################DATATYPE PROPERTIES##############################
 
+:formalBodyName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :FormalBody ;
+	rdfs:range xsd:string ;
+.
+
+:formalBodyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisFormalBody ;
+	rdfs:range xsd:string ;
+.
 
 :incumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -1140,9 +1240,33 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
 .
+:formalBodyMembershipStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBodyMembership ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :startDate ;
+.
+:formalBodyStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :startDate ;
+.
 :partyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastPartyMembership ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :endDate ;
+.
+:formalBodyMembershipEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PastFormalBodyMembership ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :endDate ;
+.
+:formalBodyEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :PastFormalBody ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
 .
