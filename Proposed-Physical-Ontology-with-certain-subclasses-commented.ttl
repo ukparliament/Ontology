@@ -222,14 +222,6 @@
 	rdfs:subClassOf :ConstituencyGroup ;
 #	rdfs:subClassOf :OnsThing ;
 .
-:Role
-	a owl:Class ;
-.
-:PastRole
-	a owl:Class ;
-	rdfs:subClassOf :Role ;
-#  	rdfs:subClassOf :PastThing ;
-.
 :Position
 	a owl:Class ;
 .
@@ -390,11 +382,94 @@
 :FormalBodyMembership
 	a owl:Class ;
 .
+:ExOfficioMembership
+	rdfs:subClassOf :FormalBodyMembership ;
+	a owl:Class ;
+.
+:AlternateMembership
+	rdfs:subClassOf :FormalBodyMembership ;
+	a owl:Class ;
+.
+:FormalBodyPositionIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :Incumbency ;
+.
+:FormalBodyPosition
+	a owl:Class ;
+	rdfs:subClassOf :Position ;
+.
+:FormalBodyChairIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :FormalBodyPositionIncumbency ;
+.
+:FormalBodyChairPosition
+	a owl:Class ;
+	rdfs:subClassOf :FormalBodyPosition ;
+.
 skos:Concept
 	a owl:Class ;
 .
 ##########################OBJECT PROPERTIES##############################
 
+:personHasFormalBodyPositionIncumbency
+	a owl:ObjectProperty ;
+	rdfs:domain :Person ;
+	rdfs:range :FormalBodyPositionIncumbency ;
+.
+:formalBodyPositionIncumbencyHasPerson
+	owl:inverseOf :personHasFormalBodyPositionIncumbency ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBodyPositionIncumbency ;
+	rdfs:range :Person ;
+.
+:memberHasFormalBodyChairIncumbency
+	a owl:ObjectProperty ;
+	rdfs:domain :Member ;
+	rdfs:range :FormalBodyChairIncumbency ;
+	rdfs:subPropertyOf :personHasFormalBodyPositionIncumbency ;
+.
+:formalBodyChairIncumbencyHasMember
+	owl:inverseOf :memberHasFormalBodyChairIncumbency ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBodyChairIncumbency ;
+	rdfs:range :Member ;
+	rdfs:subPropertyOf :formalBodyPositionIncumbencyHasPerson ;
+.
+:formalBodyChairIncumbencyHasFormalBodyChairPosition 
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBodyChairIncumbency ;
+	rdfs:range :FormalBodyChairPosition ;
+	rdfs:subPropertyOf :incumbencyHasPosition ;
+.
+:formalBodyChairPositionHasFormalBodyChairIncumbency
+	owl:inverseOf :formalBodyChairIncumbencyHasFormalBodyChairPosition ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBodyChairPosition ;
+	rdfs:range :FormalBodyChairIncumbency ;
+	rdfs:subPropertyOf :positionHasIncumbency ;
+.
+:incumbencyHasPosition
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Incumbency ;
+	rdfs:range :Position ;
+.
+:positionHasIncumbency
+	owl:inverseOf :incumbencyHasPosition ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Position ;
+	rdfs:range :Incumbency ;
+.
+:formalBodyChairPositionHasFormalBody
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBodyChairPosition ;
+	rdfs:range :FormalBody ;
+.
+:formalBodyHasFormalBodyChairPosition
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyChairPositionHasFormalBody ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBodyChairPosition ;
+.
 :formalBodyHasHouse
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
@@ -406,19 +481,45 @@ skos:Concept
 	rdfs:domain :House ;
 	rdfs:range :FormalBody ;
 .
-:memberHasFormalBodyMembership
+:personHasFormalBodyMembership
 	a owl:ObjectProperty ;
-	rdfs:domain :Member ;
+	rdfs:domain :Person ;
 	rdfs:range :FormalBodyMembership ;
 .
-:formalBodyMembershipHasMember
-	a owl:ObjectProperty ;
-	owl:inverseOf :memberHasFormalBodyMembership ;
+:formalBodyMembershipHasPerson
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :personHasFormalBodyMembership ;
 	rdfs:domain :FormalBodyMembership ;
+	rdfs:range :Person ;
+.
+:memberHasExOfficioMembership
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :personHasFormalBodyMembership ;
+	rdfs:domain :Member ;
+	rdfs:range :ExOfficioMembership ;
+.
+:exOfficioMembershipHasMember 
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :memberHasExOfficioMembership ;
+	rdfs:subPropertyOf :formalBodyMembershipHasPerson ;
+	rdfs:domain :ExOfficioMembership ;
+	rdfs:range :Member ;
+.
+:memberHasAlternateMembership
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :personHasFormalBodyMembership ;
+	rdfs:domain :Member ;
+	rdfs:range :AlternateMembership ;
+.
+:alternateMembershipHasMember 
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :memberHasAlternateMembership ;
+	rdfs:subPropertyOf :formalBodyMembershipHasPerson ;
+	rdfs:domain :AlternateMembership ;
 	rdfs:range :Member ;
 .
 :formalBodyMembershipHasFormalBody
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBodyMembership ;
 	rdfs:range :FormalBody ;
 .
@@ -428,6 +529,11 @@ skos:Concept
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyMembership ;
 .
+
+
+
+
+
 :imageHasImageSubject
 	a owl:ObjectProperty ;
 	rdfs:domain :Image ;
@@ -761,26 +867,6 @@ skos:Concept
 	rdfs:domain :ContactPoint ;
 	rdfs:range :Person ;
 .
-:personHasRole
-	a owl:ObjectProperty ;
-	rdfs:domain :Person ;
-	rdfs:range :Role ;
-.
-:roleHasPerson
-	owl:inverseOf :personHasRole ;
-	rdfs:domain :Role ;
-	rdfs:range :Person ;
-.
-:positionHasRole
-	a owl:ObjectProperty ;
-	rdfs:domain :Position ;
-	rdfs:range :Role ;
-.
-:roleHasPosition
-	owl:inverseOf :positionHasRole ;
-	rdfs:domain :Role ;
-	rdfs:range :Position ;
-.
 :houseIncumbencyHasHouseIncumbencyType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :HouseIncumbency ;
@@ -987,7 +1073,6 @@ skos:Concept
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:string ;
 .
-
 :formalBodyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
@@ -1348,18 +1433,6 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
 .
-:roleStartDate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :Role ;
-	rdfs:range xsd:date ;
-	rdfs:subPropertyOf :startDate ;
-.
-:roleEndDate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :PastRole ;
-	rdfs:range xsd:date ;
-	rdfs:subPropertyOf :endDate ;
-.
 :parliamentPeriodStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ParliamentPeriod ;
@@ -1621,24 +1694,26 @@ geosparql:wktLiteral
 
 ##########################THE COMMENTED ZONE#############################
 
-# 	:WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
-#	:MnisConstituencyGroup	rdfs:subClassOf :MnisThing .
-#	:PastConstituencyGroup rdfs:subClassOf :PastThing .
-# 	:MnisPerson rdfs:subClassOf :MnisThing .
-# 	:DodsPerson rdfs:subClassOf :DodsThing .
-#	:PimsPerson rdfs:subClassOf :PimsThing .
-#	:DeceasedPerson rdfs:subClassOf :PastThing .
-#	:Member rdfs:subClassOf :ContactableThing .
-#	:MnisGender rdfs:subClassOf :MnisThing .
-# 	:MnisContactPoint rdfs:subClassOf :MnisThing .
-#	:MnisParty rdfs:subClassOf :MnisThing .
-#	:PastPartyMembership rdfs:subClassOf :PastThing .
-#	:MnisElectionType rdfs:subClassOf :MnisThing .
-#	:PastParliamentPeriod rdfs:subClassOf :PastThing .	
-#	:OnsConstituencyGroup rdfs:subClassOf :OnsThing .
-#	:PastRole rdfs:subClassOf :PastThing .
-#	:PastIncumbency rdfs:subClassOf :PastThing .
-#	:MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
-#	:UkgapEPetition rdfs:subClassOf :UkgapThing .
-#	:GovRegisterCountry	rdfs:subClassOf :GovRegisterThing .
-#	:GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
+#   :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
+#   :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
+#   :PastConstituencyGroup a owl:Class rdfs:subClassOf :PastThing .
+#   :MnisPerson rdfs:subClassOf :MnisThing .
+#   :DodsPerson rdfs:subClassOf :DodsThing .
+#   :PimsPerson rdfs:subClassOf :PimsThing .
+#   :DeceasedPerson rdfs:subClassOf :PastThing .
+#   :Member rdfs:subClassOf :ContactableThing .
+#   :MnisGender a owl:Class rdfs:subClassOf :MnisThing .
+#   :MnisContactPoint rdfs:subClassOf :MnisThing .
+#   :MnisParty rdfs:subClassOf :MnisThing .
+#   :PastPartyMembership rdfs:subClassOf :PastThing .
+#   :MnisElectionType rdfs:subClassOf :MnisThing .
+#   :PastParliamentPeriod rdfs:subClassOf :PastThing .	
+#   :OnsConstituencyGroup rdfs:subClassOf :OnsThing .
+#   :PastIncumbency rdfs:subClassOf :PastThing .
+#   :MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
+#   :UkgapEPetition rdfs:subClassOf :UkgapThing .
+#   :GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
+#   :GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
+#   :PastFormalBody rdfs:subClassOf :PastThing .
+#   :PastFormalBodyMembership rdfs:subClassOf :PastThing .
+#   :MnisFormalBody rdfs:subClassOf :MnisThing .
