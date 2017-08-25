@@ -390,86 +390,11 @@
 	rdfs:subClassOf :FormalBodyMembership ;
 	a owl:Class ;
 .
-:FormalBodyPositionIncumbency
-	a owl:Class ;
-	rdfs:subClassOf :Incumbency ;
-.
-:FormalBodyPosition
-	a owl:Class ;
-	rdfs:subClassOf :Position ;
-.
-:FormalBodyChairIncumbency
-	a owl:Class ;
-	rdfs:subClassOf :FormalBodyPositionIncumbency ;
-.
-:FormalBodyChairPosition
-	a owl:Class ;
-	rdfs:subClassOf :FormalBodyPosition ;
-.
 skos:Concept
 	a owl:Class ;
 .
 ##########################OBJECT PROPERTIES##############################
 
-:personHasFormalBodyPositionIncumbency
-	a owl:ObjectProperty ;
-	rdfs:domain :Person ;
-	rdfs:range :FormalBodyPositionIncumbency ;
-.
-:formalBodyPositionIncumbencyHasPerson
-	owl:inverseOf :personHasFormalBodyPositionIncumbency ;
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :FormalBodyPositionIncumbency ;
-	rdfs:range :Person ;
-.
-:memberHasFormalBodyChairIncumbency
-	a owl:ObjectProperty ;
-	rdfs:domain :Member ;
-	rdfs:range :FormalBodyChairIncumbency ;
-	rdfs:subPropertyOf :personHasFormalBodyPositionIncumbency ;
-.
-:formalBodyChairIncumbencyHasMember
-	owl:inverseOf :memberHasFormalBodyChairIncumbency ;
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :FormalBodyChairIncumbency ;
-	rdfs:range :Member ;
-	rdfs:subPropertyOf :formalBodyPositionIncumbencyHasPerson ;
-.
-:formalBodyChairIncumbencyHasFormalBodyChairPosition 
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :FormalBodyChairIncumbency ;
-	rdfs:range :FormalBodyChairPosition ;
-	rdfs:subPropertyOf :incumbencyHasPosition ;
-.
-:formalBodyChairPositionHasFormalBodyChairIncumbency
-	owl:inverseOf :formalBodyChairIncumbencyHasFormalBodyChairPosition ;
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :FormalBodyChairPosition ;
-	rdfs:range :FormalBodyChairIncumbency ;
-	rdfs:subPropertyOf :positionHasIncumbency ;
-.
-:incumbencyHasPosition
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :Incumbency ;
-	rdfs:range :Position ;
-.
-:positionHasIncumbency
-	owl:inverseOf :incumbencyHasPosition ;
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :Position ;
-	rdfs:range :Incumbency ;
-.
-:formalBodyChairPositionHasFormalBody
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :FormalBodyChairPosition ;
-	rdfs:range :FormalBody ;
-.
-:formalBodyHasFormalBodyChairPosition
-	a owl:ObjectProperty ;
-	owl:inverseOf :formalBodyChairPositionHasFormalBody ;
-	rdfs:domain :FormalBody ;
-	rdfs:range :FormalBodyChairPosition ;
-.
 :formalBodyHasHouse
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
@@ -529,9 +454,6 @@ skos:Concept
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyMembership ;
 .
-
-
-
 
 
 :imageHasImageSubject
