@@ -1618,13 +1618,13 @@ geosparql:wktLiteral
 
 #   :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
 #   :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
-#   :PastConstituencyGroup a owl:Class rdfs:subClassOf :PastThing .
+#   :PastConstituencyGroup rdfs:subClassOf :PastThing .
 #   :MnisPerson rdfs:subClassOf :MnisThing .
 #   :DodsPerson rdfs:subClassOf :DodsThing .
 #   :PimsPerson rdfs:subClassOf :PimsThing .
 #   :DeceasedPerson rdfs:subClassOf :PastThing .
 #   :Member rdfs:subClassOf :ContactableThing .
-#   :MnisGender a owl:Class rdfs:subClassOf :MnisThing .
+#   :MnisGender rdfs:subClassOf :MnisThing .
 #   :MnisContactPoint rdfs:subClassOf :MnisThing .
 #   :MnisParty rdfs:subClassOf :MnisThing .
 #   :PastPartyMembership rdfs:subClassOf :PastThing .
