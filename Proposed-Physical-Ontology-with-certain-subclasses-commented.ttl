@@ -379,6 +379,11 @@
 	rdfs:subClassOf :FormalBody ;
 #	rdfs:subClassOf :MnisThing ;
 .
+:MnisFormalBodyMembership
+	a owl:Class ;
+	rdfs:subClassOf :FormalBodyMembership ;
+#	rdfs:subClassOf :MnisThing ;
+.
 :FormalBodyMembership
 	a owl:Class ;
 .
@@ -1001,7 +1006,12 @@ skos:Concept
 	rdfs:domain :MnisFormalBody ;
 	rdfs:range xsd:string ;
 .
-
+:formalBodyMembershipMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisFormalBodyMembership ;
+	rdfs:range xsd:string ;
+.
 :incumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
@@ -1639,3 +1649,4 @@ geosparql:wktLiteral
 #   :PastFormalBody rdfs:subClassOf :PastThing .
 #   :PastFormalBodyMembership rdfs:subClassOf :PastThing .
 #   :MnisFormalBody rdfs:subClassOf :MnisThing .
+#   :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
