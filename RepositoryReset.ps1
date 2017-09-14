@@ -21,7 +21,8 @@ This script is for use as a part of deployment in VSTS only.
 Param(
     [Parameter(Mandatory=$true)] [string] $APIResourceGroupName,
     [Parameter(Mandatory=$true)] [string] $SchemaNamespace,
-    [Parameter(Mandatory=$true)] [string] $OntologyFileLocation
+    [Parameter(Mandatory=$true)] [string] $OntologyFileLocation,
+	[Parameter(Mandatory=$true)] [string] $APIPrefix	
 )
 
 $ErrorActionPreference = "Stop"
@@ -35,7 +36,7 @@ $apiManagement=Find-AzureRmResource -ResourceGroupNameEquals $APIResourceGroupNa
 Log "Get API Management context"
 $management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $apiManagement.Name
 Log "Get product id"
-$apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "Parliament - Release").ProductId
+$apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "$($APIPrefix)Parliament - Release").ProductId
 Log "Retrives subscription"
 $subscription=Get-AzureRmApiManagementSubscription -Context $management -ProductId $apiReleaseProductId
 $subscriptionKey=$subscription.PrimaryKey
