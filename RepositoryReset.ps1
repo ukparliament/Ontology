@@ -20,6 +20,7 @@ This script is for use as a part of deployment in VSTS only.
 
 Param(
     [Parameter(Mandatory=$true)] [string] $APIResourceGroupName,
+	[Parameter(Mandatory=$true)] [string] $APIManagementName,
     [Parameter(Mandatory=$true)] [string] $SchemaNamespace,
     [Parameter(Mandatory=$true)] [string] $OntologyFileLocation,
 	[Parameter(Mandatory=$true)] [string] $APIPrefix	
@@ -31,10 +32,8 @@ function Log([Parameter(Mandatory=$true)][string]$LogText){
     Write-Host ("{0} - {1}" -f (Get-Date -Format "HH:mm:ss.fff"), $LogText)
 }
 
-Log "Get API Management"
-$apiManagement=Find-AzureRmResource -ResourceGroupNameEquals $APIResourceGroupName -ResourceType "Microsoft.ApiManagement/service"
 Log "Get API Management context"
-$management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $apiManagement.Name
+$management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $APIManagementName
 Log "Get product id"
 $apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "$APIPrefix - Parliament [Release]").ProductId
 Log "Retrives subscription"
