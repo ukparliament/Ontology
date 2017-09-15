@@ -36,7 +36,7 @@ $apiManagement=Find-AzureRmResource -ResourceGroupNameEquals $APIResourceGroupNa
 Log "Get API Management context"
 $management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $apiManagement.Name
 Log "Get product id"
-$apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "$($APIPrefix)Parliament - Release").ProductId
+$apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "$APIPrefix - Parliament [Release]").ProductId
 Log "Retrives subscription"
 $subscription=Get-AzureRmApiManagementSubscription -Context $management -ProductId $apiReleaseProductId
 $subscriptionKey=$subscription.PrimaryKey
