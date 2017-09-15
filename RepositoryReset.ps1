@@ -40,7 +40,7 @@ Log "Retrives subscription"
 $subscription=Get-AzureRmApiManagementSubscription -Context $management -ProductId $apiReleaseProductId
 $subscriptionKey=$subscription.PrimaryKey
 
-$api="https://$APIManagementName.azure-api.net"
+$api="https://$APIManagementName.azure-api.net/$APIPrefix"
 $header=@{"Ocp-Apim-Subscription-Key"="$subscriptionKey"}
 
 Log "Setting initial data"
