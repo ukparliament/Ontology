@@ -40,7 +40,7 @@ Log "Retrives subscription"
 $subscription=Get-AzureRmApiManagementSubscription -Context $management -ProductId $apiReleaseProductId
 $subscriptionKey=$subscription.PrimaryKey
 
-$api="https://$($apiManagement.Name).azure-api.net"
+$api="https://$APIManagementName.azure-api.net"
 $header=@{"Ocp-Apim-Subscription-Key"="$subscriptionKey"}
 
 Log "Setting initial data"
@@ -157,13 +157,13 @@ for($i=0;$i -lt $parliamentPeriods.Length;$i++){
 #SPARQL below removes ALL DATA and ontology
 $clearOntologySparql="DELETE{?s ?p ?o}INSERT{[] <http://www.ontotext.com/owlim/system#schemaTransaction> [].}WHERE {?s ?p ?o}"
 Log "Removing data and old ontology"
-Invoke-RestMethod -Uri "$api/rdf4j/master-0/repositories/Master/statements" -ContentType "application/x-www-form-urlencoded" -Method POST -Body @{update=$clearOntologySparql;} -Headers $header
+Invoke-RestMethod -Uri "$api/rdf4j/master/repositories/Master/statements" -ContentType "application/x-www-form-urlencoded" -Method POST -Body @{update=$clearOntologySparql;} -Headers $header
 
 $sparql=Get-Content -Path $OntologyFileLocation -Raw
 Log "Posting ontology"
-Invoke-RestMethod -Uri "$api/rdf4j/master-0/repositories/Master/statements" -ContentType "application/x-www-form-urlencoded" -Method POST -Body @{update=$sparql;} -Headers $header
+Invoke-RestMethod -Uri "$api/rdf4j/master/repositories/Master/statements" -ContentType "application/x-www-form-urlencoded" -Method POST -Body @{update=$sparql;} -Headers $header
 
 Log "Posting data"
-Invoke-RestMethod -Uri "$api/rdf4j/master-0/repositories/Master/statements" -ContentType "application/x-turtle" -Method POST -Body $ttl -Headers $header
+Invoke-RestMethod -Uri "$api/rdf4j/master/repositories/Master/statements" -ContentType "application/x-turtle" -Method POST -Body $ttl -Headers $header
 
 Log "Job well done!"
