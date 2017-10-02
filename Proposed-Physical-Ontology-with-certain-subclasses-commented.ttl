@@ -109,6 +109,7 @@
 :SeatIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
+	rdfs:subClassOf :ParliamentaryIncumbency ;
 .
 :Person
 	a owl:Class ;
@@ -227,8 +228,11 @@
 .
 :HouseIncumbency
 	a owl:Class ;
-	rdfs:subClassOf :Incumbency ;
+	rdfs:subClassOf :ParliamentaryIncumbency ;
 	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
+.
+:ParliamentaryIncumbency
+	a owl:Class ;
 .
 :Incumbency
 	a owl:Class ;
@@ -236,6 +240,11 @@
 :PastIncumbency
 	a owl:Class;
 	rdfs:subClassOf :Incumbency ;
+#	rdfs:subClassOf :PastThing ;
+.
+:PastParliamentaryIncumbency
+	a owl:Class;
+	rdfs:subClassOf :ParliamentaryIncumbency ;
 #	rdfs:subClassOf :PastThing ;
 .
 :HouseIncumbencyType
@@ -459,8 +468,6 @@ skos:Concept
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyMembership ;
 .
-
-
 :imageHasImageSubject
 	a owl:ObjectProperty ;
 	rdfs:domain :Image ;
@@ -583,16 +590,16 @@ skos:Concept
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :SeatIncumbency ;
 .
-:incumbencyHasMember
+:parliamentaryIncumbencyHasMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :Incumbency ;
+	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :Member ;
 .
-:memberHasIncumbency
+:memberHasParliamentaryIncumbency
 	a owl:InverseFunctionalProperty ;
-	owl:inverseOf :incumbencyHasMember ;
+	owl:inverseOf :parliamentaryIncumbencyHasMember ;
 	rdfs:domain :Member ;
-	rdfs:range :Incumbency ;
+	rdfs:range :ParliamentaryIncumbency ;
 .
 :genderIdentityHasPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -758,17 +765,17 @@ skos:Concept
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range :ConstituencyGroup ;
 .
-:incumbencyHasContactPoint
+:parliamentaryIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
-	rdfs:domain :Incumbency ;
+	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :ContactPoint ;
 .
-:contactPointHasIncumbency
+:contactPointHasParliamentaryIncumbency
 	a owl:ObjectProperty ;
-	owl:inverseOf :incumbencyHasContactPoint ;
+	owl:inverseOf :parliamentaryIncumbencyHasContactPoint ;
 	rdfs:domain :ContactPoint ;
-	rdfs:range :Incumbency ;
+	rdfs:range :ParliamentaryIncumbency ;
 .
 :electoralIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
@@ -1016,6 +1023,12 @@ skos:Concept
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :Incumbency ;
+	rdfs:range xsd:date ;
+.
+:parliamentaryIncumbencyStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
 .
 :startDate
@@ -1529,6 +1542,12 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastIncumbency ;
+	rdfs:range xsd:date ;
+.
+:parliamentaryIncumbencyEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :PastParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
 .
 :houseIncumbencyTypeName
