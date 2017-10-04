@@ -103,6 +103,7 @@ INSERT {
 :SeatIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
+	rdfs:subClassOf :ParliamentaryIncumbency ;
 .
 :Person
 	a owl:Class ;
@@ -221,8 +222,11 @@ INSERT {
 .
 :HouseIncumbency
 	a owl:Class ;
-	rdfs:subClassOf :Incumbency ;
+	rdfs:subClassOf :ParliamentaryIncumbency ;
 	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
+.
+:ParliamentaryIncumbency
+	a owl:Class ;
 .
 :Incumbency
 	a owl:Class ;
@@ -230,6 +234,11 @@ INSERT {
 :PastIncumbency
 	a owl:Class;
 	rdfs:subClassOf :Incumbency ;
+#	rdfs:subClassOf :PastThing ;
+.
+:PastParliamentaryIncumbency
+	a owl:Class;
+	rdfs:subClassOf :ParliamentaryIncumbency ;
 #	rdfs:subClassOf :PastThing ;
 .
 :HouseIncumbencyType
@@ -453,8 +462,6 @@ skos:Concept
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyMembership ;
 .
-
-
 :imageHasImageSubject
 	a owl:ObjectProperty ;
 	rdfs:domain :Image ;
@@ -577,16 +584,16 @@ skos:Concept
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :SeatIncumbency ;
 .
-:incumbencyHasMember
+:parliamentaryIncumbencyHasMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :Incumbency ;
+	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :Member ;
 .
-:memberHasIncumbency
+:memberHasParliamentaryIncumbency
 	a owl:InverseFunctionalProperty ;
-	owl:inverseOf :incumbencyHasMember ;
+	owl:inverseOf :parliamentaryIncumbencyHasMember ;
 	rdfs:domain :Member ;
-	rdfs:range :Incumbency ;
+	rdfs:range :ParliamentaryIncumbency ;
 .
 :genderIdentityHasPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -752,17 +759,17 @@ skos:Concept
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range :ConstituencyGroup ;
 .
-:incumbencyHasContactPoint
+:parliamentaryIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
-	rdfs:domain :Incumbency ;
+	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :ContactPoint ;
 .
-:contactPointHasIncumbency
+:contactPointHasParliamentaryIncumbency
 	a owl:ObjectProperty ;
-	owl:inverseOf :incumbencyHasContactPoint ;
+	owl:inverseOf :parliamentaryIncumbencyHasContactPoint ;
 	rdfs:domain :ContactPoint ;
-	rdfs:range :Incumbency ;
+	rdfs:range :ParliamentaryIncumbency ;
 .
 :electoralIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
@@ -1010,6 +1017,12 @@ skos:Concept
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :Incumbency ;
+	rdfs:range xsd:date ;
+.
+:parliamentaryIncumbencyStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
 .
 :startDate
@@ -1525,6 +1538,12 @@ geosparql:wktLiteral
 	rdfs:domain :PastIncumbency ;
 	rdfs:range xsd:date ;
 .
+:parliamentaryIncumbencyEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :PastParliamentaryIncumbency ;
+	rdfs:range xsd:date ;
+.
 :houseIncumbencyTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
@@ -1618,30 +1637,31 @@ geosparql:wktLiteral
 
 
 
-  :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
-  :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
-  :PastConstituencyGroup rdfs:subClassOf :PastThing .
-  :MnisPerson rdfs:subClassOf :MnisThing .
-  :DodsPerson rdfs:subClassOf :DodsThing .
-  :PimsPerson rdfs:subClassOf :PimsThing .
-  :DeceasedPerson rdfs:subClassOf :PastThing .
-  :Member rdfs:subClassOf :ContactableThing .
-  :MnisGender rdfs:subClassOf :MnisThing .
-  :MnisContactPoint rdfs:subClassOf :MnisThing .
-  :MnisParty rdfs:subClassOf :MnisThing .
-  :PastPartyMembership rdfs:subClassOf :PastThing .
-  :MnisElectionType rdfs:subClassOf :MnisThing .
-  :PastParliamentPeriod rdfs:subClassOf :PastThing .	
-  :OnsConstituencyGroup rdfs:subClassOf :OnsThing .
-  :PastIncumbency rdfs:subClassOf :PastThing .
-  :MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
-  :UkgapEPetition rdfs:subClassOf :UkgapThing .
-  :GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
-  :GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
-  :PastFormalBody rdfs:subClassOf :PastThing .
-  :PastFormalBodyMembership rdfs:subClassOf :PastThing .
-  :MnisFormalBody rdfs:subClassOf :MnisThing .
-  :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
+   :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
+   :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
+   :PastConstituencyGroup rdfs:subClassOf :PastThing .
+   :MnisPerson rdfs:subClassOf :MnisThing .
+   :DodsPerson rdfs:subClassOf :DodsThing .
+   :PimsPerson rdfs:subClassOf :PimsThing .
+   :DeceasedPerson rdfs:subClassOf :PastThing .
+   :Member rdfs:subClassOf :ContactableThing .
+   :MnisGender rdfs:subClassOf :MnisThing .
+   :MnisContactPoint rdfs:subClassOf :MnisThing .
+   :MnisParty rdfs:subClassOf :MnisThing .
+   :PastPartyMembership rdfs:subClassOf :PastThing .
+   :MnisElectionType rdfs:subClassOf :MnisThing .
+   :PastParliamentPeriod rdfs:subClassOf :PastThing .	
+   :OnsConstituencyGroup rdfs:subClassOf :OnsThing .
+   :PastIncumbency rdfs:subClassOf :PastThing .
+   :MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
+   :UkgapEPetition rdfs:subClassOf :UkgapThing .
+   :GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
+   :GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
+   :PastFormalBody rdfs:subClassOf :PastThing .
+   :PastFormalBodyMembership rdfs:subClassOf :PastThing .
+   :MnisFormalBody rdfs:subClassOf :MnisThing .
+   :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
+
 
 
 }
