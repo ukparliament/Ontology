@@ -1,9 +1,9 @@
-# baseURI: http://id.parliament.uk/schema/
+# baseURI: https://id.parliament.uk/schema/
 # imports: http://spinrdf.org/spin
 
 #################################PREFIXES################################
 
-@prefix : <http://id.parliament.uk/schema/> .
+@prefix : <https://id.parliament.uk/schema/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
