@@ -110,6 +110,11 @@
 	rdfs:subClassOf :Incumbency ;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
 .
+:MnisSeatIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :SeatIncumbency ;
+#  	rdfs:subClassOf :MnisThing ;
+.
 :Person
 	a owl:Class ;
 .
@@ -185,6 +190,11 @@
 :PartyMembership
 	a owl:Class ;
 .
+:MnisPartyMembership
+	a owl:Class ;
+	rdfs:subClassOf :PartyMembership ;
+#  	rdfs:subClassOf :MnisThing ;
+.
 :PastPartyMembership
 	a owl:Class ;
 	rdfs:subClassOf :PartyMembership ;
@@ -229,6 +239,11 @@
 	a owl:Class ;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
 	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
+.
+:MnisHouseIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :HouseIncumbency ;
+#  	rdfs:subClassOf :MnisThing ;
 .
 :ParliamentaryIncumbency
 	a owl:Class ;
@@ -1695,6 +1710,24 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
 .
+:seatIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisSeatIncumbency ;
+	rdfs:range xsd:string ;
+.
+:houseIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisHouseIncumbency ;
+	rdfs:range xsd:string ;
+.
+:partyMembershipMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisPartyMembership ;
+	rdfs:range xsd:string ;
+.
 
 ##########################THE COMMENTED ZONE#############################
 
@@ -1722,3 +1755,7 @@ geosparql:wktLiteral
 #   :PastFormalBodyMembership rdfs:subClassOf :PastThing .
 #   :MnisFormalBody rdfs:subClassOf :MnisThing .
 #   :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
+#	:MnisPartyMembership rdfs:subClassOf :MnisThing .
+#	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
+#	:MnisHouseIncumbency rdfs:subClassOf :MnisThing .
+
