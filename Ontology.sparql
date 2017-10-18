@@ -21,6 +21,8 @@ INSERT {
   a owl:Ontology;
 .
 
+#################################CLASSES##################################
+
 :TemporalThing
 	a owl:Class ;
 .
@@ -104,6 +106,11 @@ INSERT {
 	rdfs:subClassOf :Incumbency ;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
 .
+:MnisSeatIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :SeatIncumbency ;
+#  	rdfs:subClassOf :MnisThing ;
+.
 :Person
 	a owl:Class ;
 .
@@ -179,6 +186,11 @@ INSERT {
 :PartyMembership
 	a owl:Class ;
 .
+:MnisPartyMembership
+	a owl:Class ;
+	rdfs:subClassOf :PartyMembership ;
+#  	rdfs:subClassOf :MnisThing ;
+.
 :PastPartyMembership
 	a owl:Class ;
 	rdfs:subClassOf :PartyMembership ;
@@ -223,6 +235,11 @@ INSERT {
 	a owl:Class ;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
 	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
+.
+:MnisHouseIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :HouseIncumbency ;
+#  	rdfs:subClassOf :MnisThing ;
 .
 :ParliamentaryIncumbency
 	a owl:Class ;
@@ -1689,34 +1706,57 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
 .
+:seatIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisSeatIncumbency ;
+	rdfs:range xsd:string ;
+.
+:houseIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisHouseIncumbency ;
+	rdfs:range xsd:string ;
+.
+:partyMembershipMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisPartyMembership ;
+	rdfs:range xsd:string ;
+.
 
-:WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
-:MnisConstituencyGroup rdfs:subClassOf :MnisThing .
-:PastConstituencyGroup rdfs:subClassOf :PastThing .
-:MnisPerson rdfs:subClassOf :MnisThing .
-:DodsPerson rdfs:subClassOf :DodsThing .
-:PimsPerson rdfs:subClassOf :PimsThing .
-:DeceasedPerson rdfs:subClassOf :PastThing .
-:Member rdfs:subClassOf :ContactableThing .
-:MnisGender rdfs:subClassOf :MnisThing .
-:MnisContactPoint rdfs:subClassOf :MnisThing .
-:MnisParty rdfs:subClassOf :MnisThing .
-:PastPartyMembership rdfs:subClassOf :PastThing .
-:MnisElectionType rdfs:subClassOf :MnisThing .
-:PastParliamentPeriod rdfs:subClassOf :PastThing .	
-:OnsConstituencyGroup rdfs:subClassOf :OnsThing .
-:PastIncumbency rdfs:subClassOf :PastThing .
-:MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
-:UkgapEPetition rdfs:subClassOf :UkgapThing .
-:GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
-:GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
-:PastFormalBody rdfs:subClassOf :PastThing .
-:PastFormalBodyMembership rdfs:subClassOf :PastThing .
-:MnisFormalBody rdfs:subClassOf :MnisThing .
-:MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
+##########################THE COMMENTED ZONE#############################
 
-
-
+	:WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
+	:MnisConstituencyGroup rdfs:subClassOf :MnisThing .
+	:PastConstituencyGroup rdfs:subClassOf :PastThing .
+	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
+	:MnisPerson rdfs:subClassOf :MnisThing .
+	:DodsPerson rdfs:subClassOf :DodsThing .
+	:PimsPerson rdfs:subClassOf :PimsThing .
+	:DeceasedPerson rdfs:subClassOf :PastThing .
+	:Member rdfs:subClassOf :ContactableThing .
+	:MnisGender rdfs:subClassOf :MnisThing .
+	:MnisContactPoint rdfs:subClassOf :MnisThing .
+	:MnisParty rdfs:subClassOf :MnisThing .
+	:MnisPartyMembership rdfs:subClassOf :MnisThing .
+	:PastPartyMembership rdfs:subClassOf :PastThing .
+	:MnisElectionType rdfs:subClassOf :MnisThing .
+	:PastParliamentPeriod rdfs:subClassOf :PastThing .	
+	:OnsConstituencyGroup rdfs:subClassOf :OnsThing .
+	:MnisHouseIncumbency rdfs:subClassOf :MnisThing .
+	:PastIncumbency rdfs:subClassOf :PastThing .
+	:PastParliamentaryIncumbency rdfs:subClassOf :PastThing .
+	:MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
+	:UkgapEPetition rdfs:subClassOf :UkgapThing .
+	:GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
+	:GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
+	:PastFormalBody rdfs:subClassOf :PastThing .
+	:PastFormalBodyMembership rdfs:subClassOf :PastThing .
+	:MnisFormalBody rdfs:subClassOf :MnisThing .
+	:MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
+	:MnisGovernmentPosition rdfs:subClassOf :MnisThing .
+	:MnisGovernmentIncumbency rdfs:subClassOf :MnisThing .
 
 }
 WHERE { }
