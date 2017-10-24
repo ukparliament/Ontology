@@ -440,6 +440,28 @@
 	rdfs:subClassOf :Person ;
 	a owl:Class ;
 .
+:OppositionPosition
+	rdfs:subClassOf :Position ;
+	a owl:Class ;
+.	
+:MnisOppositionPosition
+	a owl:Class;
+	rdfs:subClassOf :OppositionPosition ;
+#	rdfs:subClassOf :MnisThing ;
+.
+:OppositionIncumbency
+	rdfs:subClassOf :Incumbency ;
+	a owl:Class ;
+.
+:MnisOppositionIncumbency
+	a owl:Class;
+	rdfs:subClassOf :OppositionIncumbency ;
+#	rdfs:subClassOf :MnisThing ;
+.
+:OppositionPerson
+	rdfs:subClassOf :Person ;
+	a owl:Class ;
+.
 skos:Concept
 	a owl:Class ;
 .
@@ -467,7 +489,28 @@ skos:Concept
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
 .
-
+:oppositionIncumbencyHasOppositionPosition
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :OppositionIncumbency ;
+	rdfs:range :OppositionPosition ;
+.
+:oppositionPositionHasOppositionIncumbency
+	a owl:ObjectProperty ;
+	owl:inverseOf :oppositionIncumbencyHasOppositionPosition ;
+	rdfs:domain :OppositionPosition ;
+	rdfs:range :OppositionIncumbency ;
+.
+:oppositionIncumbencyHasOppositionPerson
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :OppositionIncumbency ;
+	rdfs:range :OppositionPerson ;
+.
+:oppositionPersonHasOppositionIncumbency
+	a owl:ObjectProperty ;
+	owl:inverseOf :oppositionIncumbencyHasOppositionPerson ;
+	rdfs:domain :OppositionPerson ;
+	rdfs:range :OppositionIncumbency ;
+.
 :formalBodyHasHouse
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
@@ -1710,6 +1753,18 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
 .
+:oppositionIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisOppositionIncumbency ;
+	rdfs:range xsd:string ;
+.
+:oppositionPositionMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisOppositionPosition ;
+	rdfs:range xsd:string ;
+.
 :seatIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
@@ -1761,5 +1816,6 @@ geosparql:wktLiteral
 #   :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
 #   :MnisGovernmentPosition rdfs:subClassOf :MnisThing .
 #   :MnisGovernmentIncumbency rdfs:subClassOf :MnisThing .
-
+#   :MnisOppositionPosition rdfs:subClassOf :MnisThing .
+#   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
 
