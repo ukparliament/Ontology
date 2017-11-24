@@ -80,6 +80,10 @@ INSERT {
 :HouseSeatType
 	a owl:Class ;
 .
+:MnisHouseSeatType
+	a owl:Class ;
+#	rdfs:subClassOf :MnisThing ;
+.
 :ConstituencyGroup
 	a owl:Class ;
 .
@@ -1440,6 +1444,17 @@ geosparql:wktLiteral
 	rdfs:domain :HouseSeatType ;
 	rdfs:range xsd:string ;
 .
+:houseSeatTypeDescription
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :HouseSeatType ;
+	rdfs:range xsd:string ;
+.
+:houseSeatTypeMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisHouseSeatType ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :mnisId ;
+.
 :genderName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
@@ -1780,6 +1795,7 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 .
 
+
 #########################THE COMMENTED ZONE#############################
 
    :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
@@ -1814,7 +1830,6 @@ geosparql:wktLiteral
    :MnisGovernmentIncumbency rdfs:subClassOf :MnisThing .
    :MnisOppositionPosition rdfs:subClassOf :MnisThing .
    :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
-
-
+   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
 }
 WHERE { }
