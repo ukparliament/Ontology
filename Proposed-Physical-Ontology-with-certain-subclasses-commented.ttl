@@ -86,6 +86,7 @@
 .
 :MnisHouseSeatType
 	a owl:Class ;
+	rdfs:subClassOf :HouseSeatType ;
 #	rdfs:subClassOf :MnisThing ;
 .
 :ConstituencyGroup
