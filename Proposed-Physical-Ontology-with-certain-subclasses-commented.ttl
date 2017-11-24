@@ -1833,4 +1833,5 @@ geosparql:wktLiteral
 #   :MnisGovernmentIncumbency rdfs:subClassOf :MnisThing .
 #   :MnisOppositionPosition rdfs:subClassOf :MnisThing .
 #   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
+#   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
 
