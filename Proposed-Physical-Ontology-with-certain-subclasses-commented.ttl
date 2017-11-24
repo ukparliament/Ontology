@@ -84,6 +84,9 @@
 :HouseSeatType
 	a owl:Class ;
 .
+:MnisHouseSeatType
+	a owl:Class ;
+.
 :ConstituencyGroup
 	a owl:Class ;
 .
@@ -1443,6 +1446,17 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range xsd:string ;
+.
+:houseSeatTypeDescription
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :HouseSeatType ;
+	rdfs:range xsd:string ;
+.
+:houseSeatTypeMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :MnisHouseSeatType ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf :mnisId ;
 .
 :genderName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
