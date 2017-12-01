@@ -1777,7 +1777,13 @@ geosparql:wktLiteral
 	rdfs:domain :MnisOppositionPosition ;
 	rdfs:range xsd:string ;
 .
-:seatIncumbencyMnisId
+:commonsSeatIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisSeatIncumbency ;
+	rdfs:range xsd:string ;
+.
+:lordsSeatIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisSeatIncumbency ;
