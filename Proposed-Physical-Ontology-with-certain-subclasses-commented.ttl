@@ -1146,7 +1146,6 @@ skos:Concept
 :endDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastThing ;
-	rdfs:domain :Thing ;
 	rdfs:range xsd:date ;
 	rdfs:comment "By convention, endDate is only used after the date." ;
 .
@@ -1160,7 +1159,6 @@ skos:Concept
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :DeceasedPerson ;
-	rdfs:domain :Person ;
 	rdfs:range xsd:date ;
 .
 :externalIdentifier
@@ -1315,7 +1313,6 @@ skos:Concept
 :constituencyGroupEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastConstituencyGroup ;
-	rdfs:domain :ConstituencyGroup ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
 .
@@ -1395,21 +1392,18 @@ geosparql:wktLiteral
 :partyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastPartyMembership ;
-	rdfs:domain :PartyMembership ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
 .
 :formalBodyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastFormalBodyMembership ;
-	rdfs:domain :FormalBodyMembership ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
 .
 :formalBodyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastFormalBody ;
-	rdfs:domain :FormalBody ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
 .
@@ -1511,7 +1505,6 @@ geosparql:wktLiteral
 :parliamentPeriodEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastParliamentPeriod ;
-	rdfs:domain :ParliamentPeriod ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
 .
@@ -1667,14 +1660,12 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastIncumbency ;
-	rdfs:domain :Incumbency ;
 	rdfs:range xsd:date ;
 .
 :parliamentaryIncumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastParliamentaryIncumbency ;
-	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
 .
 :houseIncumbencyTypeName
