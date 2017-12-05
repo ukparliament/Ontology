@@ -426,10 +426,18 @@
 :GovernmentPosition
 	rdfs:subClassOf :Position ;
 	a owl:Class ;
-.	
+.
 :MnisGovernmentPosition
 	a owl:Class;
 	rdfs:subClassOf :GovernmentPosition ;
+#	rdfs:subClassOf :MnisThing ;
+.
+:GovernmentDepartment
+	a owl:Class ;
+.
+:MnisGovernmentDepartment
+	a owl:Class;
+	rdfs:subClassOf :GovernmentDepartment ;
 #	rdfs:subClassOf :MnisThing ;
 .
 :GovernmentIncumbency
@@ -493,6 +501,17 @@ skos:Concept
 	owl:inverseOf :governmentIncumbencyHasGovernmentPerson ;
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
+.
+:governmentPositionHasGovernmentDepartment
+	a owl:ObjectProperty;
+	rdfs:domain :GovernmentPosition ;
+	rdfs:range :GovernmentDepartment ;
+.
+:governmentDepartmentHasGovernmentPosition
+	a owl:ObjectProperty;
+	owl:inverseOf :governmentPositionHasGovernmentDepartment ;
+	rdfs:domain :GovernmentDepartment ;
+	rdfs:range :GovernmentPosition ;
 .
 :oppositionIncumbencyHasOppositionPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -1769,6 +1788,12 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
 .
+:governmentDepartmentMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisGovernmentDepartment ;
+	rdfs:range xsd:string ;
+.
 :oppositionIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
@@ -1841,4 +1866,5 @@ geosparql:wktLiteral
 #   :MnisOppositionPosition rdfs:subClassOf :MnisThing .
 #   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
 #   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
+#	:MnisGovernmentDepartment rdfs:subClassOf :MnisThing .
 
