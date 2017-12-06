@@ -1794,6 +1794,12 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentDepartment ;
 	rdfs:range xsd:string ;
 .
+:governmentDepartmentName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :GovernmentDepartment ;
+	rdfs:range xsd:string ;
+.
 :oppositionIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
