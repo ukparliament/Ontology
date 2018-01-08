@@ -1158,7 +1158,7 @@ skos:Concept
 	rdfs:range xsd:date ;
 .
 :externalIdentifier
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	a owl:DatatypeProperty ;
 	rdfs:domain :ExternalThing ;
 	rdfs:range xsd:string ;
 .
