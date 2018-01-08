@@ -240,16 +240,6 @@
 :Position
 	a owl:Class ;
 .
-:HouseIncumbency
-	a owl:Class ;
-	rdfs:subClassOf :ParliamentaryIncumbency ;
-	rdfs:comment "Exists to provide connection between a house member and their house where seat information is not available.  e.g. House of Lords as of 14th February 2017" ;
-.
-:MnisHouseIncumbency
-	a owl:Class ;
-	rdfs:subClassOf :HouseIncumbency ;
-#  	rdfs:subClassOf :MnisThing ;
-.
 :ParliamentaryIncumbency
 	a owl:Class ;
 .
@@ -265,14 +255,6 @@
 	a owl:Class;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
 #	rdfs:subClassOf :PastThing ;
-.
-:HouseIncumbencyType
-	a owl:Class ;
-.
-:MnisHouseIncumbencyType
-	a owl:Class ;
-	rdfs:subClassOf :HouseIncumbencyType ;
-#  	rdfs:subClassOf :MnisThing ;
 .
 :EPetition 
 	a owl:Class ;
@@ -926,28 +908,6 @@ skos:Concept
 	owl:inverseOf :personHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :Person ;
-.
-:houseIncumbencyHasHouseIncumbencyType
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :HouseIncumbency ;
-	rdfs:range :HouseIncumbencyType ;
-.
-:houseIncumbencyTypeHasHouseIncumbency
-	a owl:InverseFunctionalProperty ;
-	owl:inverseOf :houseIncumbencyHasHouseIncumbencyType ;
-	rdfs:domain :HouseIncumbencyType ;
-	rdfs:range :HouseIncumbency ;
-.
-:houseIncumbencyHasHouse
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :HouseIncumbency ;
-	rdfs:range :House ;
-.
-:houseHasHouseIncumbency
-	a owl:InverseFunctionalProperty ;
-	owl:inverseOf :houseIncumbencyHasHouse ;
-	rdfs:domain :House ;
-	rdfs:range :HouseIncumbency ;
 .
 :conceptualisedThingHasConcept
 	a owl:ObjectProperty ; 
@@ -1687,18 +1647,6 @@ geosparql:wktLiteral
 	rdfs:domain :PastParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
 .
-:houseIncumbencyTypeName
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
-	rdfs:domain :HouseIncumbencyType ;
-	rdfs:range xsd:string ;
-.
-:houseIncumbencyTypeMnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :MnisHouseIncumbencyType ;
-	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :mnisId ;
-.
 :govRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
@@ -1824,12 +1772,6 @@ geosparql:wktLiteral
 	rdfs:domain :MnisSeatIncumbency ;
 	rdfs:range xsd:string ;
 .
-:houseIncumbencyMnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :mnisId ;
-	rdfs:domain :MnisHouseIncumbency ;
-	rdfs:range xsd:string ;
-.
 :partyMembershipMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
@@ -1856,10 +1798,8 @@ geosparql:wktLiteral
 #   :MnisElectionType rdfs:subClassOf :MnisThing .
 #   :PastParliamentPeriod rdfs:subClassOf :PastThing .	
 #   :OnsConstituencyGroup rdfs:subClassOf :OnsThing .
-#	:MnisHouseIncumbency rdfs:subClassOf :MnisThing .
 #   :PastIncumbency rdfs:subClassOf :PastThing .
 #   :PastParliamentaryIncumbency rdfs:subClassOf :PastThing .
-#   :MnisHouseIncumbencyType rdfs:subClassOf :MnisThing .
 #   :UkgapEPetition rdfs:subClassOf :UkgapThing .
 #   :GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
 #   :GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
