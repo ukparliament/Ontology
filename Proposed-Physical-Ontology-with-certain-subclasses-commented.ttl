@@ -414,12 +414,12 @@
 	rdfs:subClassOf :GovernmentPosition ;
 #	rdfs:subClassOf :MnisThing ;
 .
-:GovernmentDepartment
+:GovernmentOrganisation
 	a owl:Class ;
 .
-:MnisGovernmentDepartment
+:MnisGovernmentOrganisation
 	a owl:Class;
-	rdfs:subClassOf :GovernmentDepartment ;
+	rdfs:subClassOf :GovernmentOrganisation ;
 #	rdfs:subClassOf :MnisThing ;
 .
 :GovernmentIncumbency
@@ -484,15 +484,15 @@ skos:Concept
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
 .
-:governmentPositionHasGovernmentDepartment
+:governmentPositionHasGovernmentOrganisation
 	a owl:ObjectProperty;
 	rdfs:domain :GovernmentPosition ;
-	rdfs:range :GovernmentDepartment ;
+	rdfs:range :GovernmentOrganisation ;
 .
-:governmentDepartmentHasGovernmentPosition
+:governmentOrganisationHasGovernmentPosition
 	a owl:ObjectProperty;
-	owl:inverseOf :governmentPositionHasGovernmentDepartment ;
-	rdfs:domain :GovernmentDepartment ;
+	owl:inverseOf :governmentPositionHasGovernmentOrganisation ;
+	rdfs:domain :GovernmentOrganisation ;
 	rdfs:range :GovernmentPosition ;
 .
 :oppositionIncumbencyHasOppositionPosition
@@ -1736,16 +1736,16 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
 .
-:governmentDepartmentMnisId
+:governmentOrganisationMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
-	rdfs:domain :MnisGovernmentDepartment ;
+	rdfs:domain :MnisGovernmentOrganisation ;
 	rdfs:range xsd:string ;
 .
-:governmentDepartmentName
+:governmentOrganisationName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
-	rdfs:domain :GovernmentDepartment ;
+	rdfs:domain :GovernmentOrganisation ;
 	rdfs:range xsd:string ;
 .
 :oppositionIncumbencyMnisId
@@ -1812,5 +1812,5 @@ geosparql:wktLiteral
 #   :MnisOppositionPosition rdfs:subClassOf :MnisThing .
 #   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
 #   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
-#	:MnisGovernmentDepartment rdfs:subClassOf :MnisThing .
+#	:MnisGovernmentOrganisation rdfs:subClassOf :MnisThing .
 
