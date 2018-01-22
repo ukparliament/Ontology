@@ -371,8 +371,12 @@
 	a owl:Class ;
 	rdfs:subClassOf :WebLink;
 .
+:Group 
+	a owl:Class ;
+.
 :FormalBody
 	a owl:Class ;
+	rdfs:subClassOf :Group;
 .
 :PastFormalBody
 	a owl:Class ;
@@ -413,6 +417,11 @@
 	a owl:Class;
 	rdfs:subClassOf :GovernmentPosition ;
 #	rdfs:subClassOf :MnisThing ;
+.
+:GovRegisterGovernmentPosition
+	a owl:Class;
+	rdfs:subClassOf :GovernmentPosition ;
+#	rdfs:subClassOf :GovRegisterThing ;
 .
 :GovernmentOrganisation
 	a owl:Class ;
@@ -462,6 +471,17 @@ skos:Concept
 .
 ##########################OBJECT PROPERTIES##############################
 
+:positionHasGroup
+	a owl:ObjectProperty;
+	rdfs:domain :Position ;
+	rdfs:range :Group ;
+.
+:groupHasPosition
+	a owl:ObjectProperty;
+	owl:inverseOf :positionHasGroup ;
+	rdfs:domain :Group ;
+	rdfs:range :Position ;
+.
 :governmentIncumbencyHasGovernmentPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :GovernmentIncumbency ;
@@ -483,17 +503,6 @@ skos:Concept
 	owl:inverseOf :governmentIncumbencyHasGovernmentPerson ;
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
-.
-:governmentPositionHasGovernmentOrganisation
-	a owl:ObjectProperty;
-	rdfs:domain :GovernmentPosition ;
-	rdfs:range :GovernmentOrganisation ;
-.
-:governmentOrganisationHasGovernmentPosition
-	a owl:ObjectProperty;
-	owl:inverseOf :governmentPositionHasGovernmentOrganisation ;
-	rdfs:domain :GovernmentOrganisation ;
-	rdfs:range :GovernmentPosition ;
 .
 :oppositionIncumbencyHasOppositionPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -1745,6 +1754,12 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisGovernmentOrganisation ;
+	rdfs:range xsd:string ;
+.
+:governmentOrganisationGovRegisterId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :govRegisterId ;
+	rdfs:domain :GovRegisterGovernmentOrganisation ;
 	rdfs:range xsd:string ;
 .
 :governmentOrganisationName
