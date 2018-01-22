@@ -367,8 +367,12 @@ INSERT {
 	a owl:Class ;
 	rdfs:subClassOf :WebLink;
 .
+:Group 
+	a owl:Class ;
+.
 :FormalBody
 	a owl:Class ;
+	rdfs:subClassOf :Group;
 .
 :PastFormalBody
 	a owl:Class ;
@@ -410,8 +414,14 @@ INSERT {
 	rdfs:subClassOf :GovernmentPosition ;
 #	rdfs:subClassOf :MnisThing ;
 .
+:GovRegisterGovernmentOrganisation
+	a owl:Class;
+	rdfs:subClassOf :GovernmentOrganisation ;
+#	rdfs:subClassOf :GovRegisterThing ;
+.
 :GovernmentOrganisation
 	a owl:Class ;
+	rdfs:subClassOf :Group ;
 .
 :MnisGovernmentOrganisation
 	a owl:Class;
@@ -458,6 +468,17 @@ skos:Concept
 .
 ##########################OBJECT PROPERTIES##############################
 
+:positionHasGroup
+	a owl:ObjectProperty;
+	rdfs:domain :Position ;
+	rdfs:range :Group ;
+.
+:groupHasPosition
+	a owl:ObjectProperty;
+	owl:inverseOf :positionHasGroup ;
+	rdfs:domain :Group ;
+	rdfs:range :Position ;
+.
 :governmentIncumbencyHasGovernmentPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :GovernmentIncumbency ;
@@ -479,17 +500,6 @@ skos:Concept
 	owl:inverseOf :governmentIncumbencyHasGovernmentPerson ;
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
-.
-:governmentPositionHasGovernmentOrganisation
-	a owl:ObjectProperty;
-	rdfs:domain :GovernmentPosition ;
-	rdfs:range :GovernmentOrganisation ;
-.
-:governmentOrganisationHasGovernmentPosition
-	a owl:ObjectProperty;
-	owl:inverseOf :governmentPositionHasGovernmentOrganisation ;
-	rdfs:domain :GovernmentOrganisation ;
-	rdfs:range :GovernmentPosition ;
 .
 :oppositionIncumbencyHasOppositionPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -517,6 +527,11 @@ skos:Concept
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :House ;
+.
+:formalBodyHasParentFormalBody
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBody ;
 .
 :houseHasFormalBody
 	a owl:ObjectProperty ;
@@ -1738,6 +1753,12 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentOrganisation ;
 	rdfs:range xsd:string ;
 .
+:governmentOrganisationGovRegisterId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :govRegisterId ;
+	rdfs:domain :GovRegisterGovernmentOrganisation ;
+	rdfs:range xsd:string ;
+.
 :governmentOrganisationName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
@@ -1776,11 +1797,11 @@ geosparql:wktLiteral
 .
 
 ##########################THE COMMENTED ZONE#############################
-
+ 
     :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
     :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
     :PastConstituencyGroup rdfs:subClassOf :PastThing .
-	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
+ 	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
     :MnisPerson rdfs:subClassOf :MnisThing .
     :DodsPerson rdfs:subClassOf :DodsThing .
     :PimsPerson rdfs:subClassOf :PimsThing .
@@ -1803,11 +1824,12 @@ geosparql:wktLiteral
     :PastFormalBodyMembership rdfs:subClassOf :PastThing .
     :MnisFormalBody rdfs:subClassOf :MnisThing .
     :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
-	:MnisGovernmentPosition rdfs:subClassOf :MnisThing .
+    :MnisGovernmentPosition rdfs:subClassOf :MnisThing .
     :MnisGovernmentIncumbency rdfs:subClassOf :MnisThing .
     :MnisOppositionPosition rdfs:subClassOf :MnisThing .
     :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
     :MnisHouseSeatType rdfs:subClassOf :MnisThing .
  	:MnisGovernmentOrganisation rdfs:subClassOf :MnisThing .
+ 	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
 }
 WHERE { }

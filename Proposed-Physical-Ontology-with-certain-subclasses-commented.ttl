@@ -418,13 +418,14 @@
 	rdfs:subClassOf :GovernmentPosition ;
 #	rdfs:subClassOf :MnisThing ;
 .
-:GovRegisterGovernmentPosition
+:GovRegisterGovernmentOrganisation
 	a owl:Class;
-	rdfs:subClassOf :GovernmentPosition ;
+	rdfs:subClassOf :GovernmentOrganisation ;
 #	rdfs:subClassOf :GovRegisterThing ;
 .
 :GovernmentOrganisation
 	a owl:Class ;
+	rdfs:subClassOf :Group ;
 .
 :MnisGovernmentOrganisation
 	a owl:Class;
@@ -1833,4 +1834,4 @@ geosparql:wktLiteral
 #   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
 #   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
 #	:MnisGovernmentOrganisation rdfs:subClassOf :MnisThing .
-
+#	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
