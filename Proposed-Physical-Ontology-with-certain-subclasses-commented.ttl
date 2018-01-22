@@ -522,6 +522,11 @@ skos:Concept
 	rdfs:domain :FormalBody ;
 	rdfs:range :House ;
 .
+:formalBodyHasParentFormalBody
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBody ;
+.
 :houseHasFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasHouse ;
