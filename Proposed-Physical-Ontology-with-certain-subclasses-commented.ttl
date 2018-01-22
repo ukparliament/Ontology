@@ -374,6 +374,16 @@
 :Group 
 	a owl:Class ;
 .
+:PastGroup
+	a owl:Class ;
+	rdfs:subClassOf :Group ;
+.
+:MnisDepartmentGroup
+	a owl:Class ;
+	rdfs:subClassOf :Group ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:comment "This is any group that has an ID from the MNIS Departments table.  Said table sadly doesn't only contain Departments, or even Government Organisations" ;	
+.
 :FormalBody
 	a owl:Class ;
 	rdfs:subClassOf :Group;
@@ -426,11 +436,6 @@
 :GovernmentOrganisation
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
-.
-:MnisGovernmentOrganisation
-	a owl:Class;
-	rdfs:subClassOf :GovernmentOrganisation ;
-#	rdfs:subClassOf :MnisThing ;
 .
 :GovernmentIncumbency
 	rdfs:subClassOf :Incumbency ;
@@ -1126,6 +1131,12 @@ skos:Concept
 	rdfs:domain :Incumbency ;
 	rdfs:range xsd:date ;
 .
+:groupStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :Group ;
+	rdfs:range xsd:date ;
+.
 :parliamentaryIncumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
@@ -1381,7 +1392,7 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:date ;
-	rdfs:subPropertyOf :startDate ;
+	rdfs:subPropertyOf :groupStartDate ;
 .
 :partyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -1399,7 +1410,7 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastFormalBody ;
 	rdfs:range xsd:date ;
-	rdfs:subPropertyOf :endDate ;
+	rdfs:subPropertyOf :groupEndDate ;
 .
 :partyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -1656,6 +1667,12 @@ geosparql:wktLiteral
 	rdfs:domain :PastIncumbency ;
 	rdfs:range xsd:date ;
 .
+:groupEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :PastGroup ;
+	rdfs:range xsd:date ;
+.
 :parliamentaryIncumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
@@ -1751,22 +1768,10 @@ geosparql:wktLiteral
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
 .
-:governmentOrganisationMnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :mnisId ;
-	rdfs:domain :MnisGovernmentOrganisation ;
-	rdfs:range xsd:string ;
-.
 :governmentOrganisationGovRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :govRegisterId ;
 	rdfs:domain :GovRegisterGovernmentOrganisation ;
-	rdfs:range xsd:string ;
-.
-:governmentOrganisationName
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
-	rdfs:domain :GovernmentOrganisation ;
 	rdfs:range xsd:string ;
 .
 :oppositionIncumbencyMnisId
@@ -1797,6 +1802,18 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisPartyMembership ;
+	rdfs:range xsd:string ;
+.
+:groupName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :Group ;
+	rdfs:range xsd:string ;
+.
+:mnisDepartmentId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisDepartmentGroup ;
 	rdfs:range xsd:string ;
 .
 
@@ -1833,5 +1850,5 @@ geosparql:wktLiteral
 #   :MnisOppositionPosition rdfs:subClassOf :MnisThing .
 #   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
 #   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
-#	:MnisGovernmentOrganisation rdfs:subClassOf :MnisThing .
 #	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
+#   :MnisDepartmentGroup rdfs:subClassOf :MnisThing .
