@@ -1091,7 +1091,6 @@ skos:Concept
 	rdfs:domain :PersonWebLink ;
 	rdfs:range :Person ;
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
-
 .
 :webLinkedThingHasWebLink
 	a owl:ObjectProperty ;
@@ -1104,7 +1103,20 @@ skos:Concept
 	rdfs:domain :WebLink ;
 	rdfs:range :WebLinkedThing ;
 .
-
+:conceptHasBroaderConcept
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf skos:broader ;
+	rdfs:domain :Concept ;
+	rdfs:range :Concept ;
+.
+:conceptHasNarrowerConcept
+	a owl:ObjectProperty ;
+	owl:inverseOf :conceptHasBroaderConcept ;
+	rdfs:subPropertyOf skos:narrower ;
+	a owl:ObjectProperty ;
+	rdfs:domain :Concept ;
+	rdfs:range :Concept ;
+.
 ########################DATATYPE PROPERTIES##############################
 
 :formalBodyName
