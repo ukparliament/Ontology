@@ -415,6 +415,12 @@ INSERT {
 	rdfs:subClassOf :FormalBodyMembership ;
 	a owl:Class ;
 .
+:FormalBodyPosition
+	rdfs:subClassOf :Position ;
+.
+:FormalBodyChair
+	rdfs:subClassOf :FormalBodyPosition ;
+.
 :GovernmentPosition
 	rdfs:subClassOf :Position ;
 	a owl:Class ;
@@ -472,7 +478,39 @@ skos:Concept
 	a owl:Class ;
 .
 ##########################OBJECT PROPERTIES##############################
-
+:formalBodyHasFormalBodyChair
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBodyChair ;
+.
+:formalBodyChairHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasFormalBodyChair ;
+	rdfs:domain :FormalBodyChair ;
+	rdfs:range :FormalBody ;
+.
+:incumbencyHasPosition
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Incumbency ;
+	rdfs:range :Position ;
+.
+:positionHasIncumbency
+	a owl:ObjectProperty ;
+	owl:inverseOf :incumbencyHasPosition ;
+	rdfs:domain :Position ;
+	rdfs:range :Incumbency ;
+.
+:incumbencyHasPerson
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Incumbency ;
+	rdfs:range :Person ;
+.
+:personHasIncumbency
+	a owl:ObjectProperty ;
+	owl:inverseOf :incumbencyHasPerson ;
+	rdfs:domain :Person ;
+	rdfs:range :Incumbency ;
+.
 :positionHasGroup
 	a owl:ObjectProperty;
 	rdfs:domain :Position ;
@@ -1113,7 +1151,6 @@ skos:Concept
 	rdfs:domain :Concept ;
 	rdfs:range :Concept ;
 .
-
 ########################DATATYPE PROPERTIES##############################
 
 :formalBodyName
