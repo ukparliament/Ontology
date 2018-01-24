@@ -242,6 +242,11 @@ INSERT {
 :Incumbency
 	a owl:Class ;
 .
+:MnisFormalBodyChairIncumbency
+	a owl:Class ;
+	rdfs:subClassOf :Incumbency ;
+#	rdfs:subClassOf :MnisThing ;
+.
 :PastIncumbency
 	a owl:Class;
 	rdfs:subClassOf :Incumbency ;
@@ -422,6 +427,9 @@ INSERT {
 :FormalBodyChair
 	a owl:Class ;
 	rdfs:subClassOf :FormalBodyPosition ;
+.
+:MnisFormalBodyChair
+	a owl:Class
 .
 :GovernmentPosition
 	rdfs:subClassOf :Position ;
@@ -1883,6 +1891,12 @@ geosparql:wktLiteral
 	rdfs:domain :MnisDepartmentGroup ;
 	rdfs:range xsd:string ;
 .
+:FormalBodyChairIncumbencyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :MnisId ;
+	rdfs:domain :MnisFormalBodyChairIncumbency ;
+	rdfs:range xsd:string ;
+.
 
 ##########################THE COMMENTED ZONE#############################
 
@@ -1919,6 +1933,7 @@ geosparql:wktLiteral
     :MnisHouseSeatType rdfs:subClassOf :MnisThing .
  	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
     :MnisDepartmentGroup rdfs:subClassOf :MnisThing .
+ 	:MnisFormalBodyChairIncumbency rdfs:subClassOf :MnisThing .
 
 }
 WHERE { }
