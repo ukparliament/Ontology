@@ -1891,9 +1891,9 @@ geosparql:wktLiteral
 	rdfs:domain :MnisDepartmentGroup ;
 	rdfs:range xsd:string ;
 .
-:FormalBodyChairIncumbencyMnisId
+:formalBodyChairIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :MnisId ;
+	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisFormalBodyChairIncumbency ;
 	rdfs:range xsd:string ;
 .
