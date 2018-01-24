@@ -416,9 +416,11 @@ INSERT {
 	a owl:Class ;
 .
 :FormalBodyPosition
+	a owl:Class ;
 	rdfs:subClassOf :Position ;
 .
 :FormalBodyChair
+	a owl:Class ;
 	rdfs:subClassOf :FormalBodyPosition ;
 .
 :GovernmentPosition
@@ -574,6 +576,19 @@ skos:Concept
 :houseHasFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :FormalBody ;
+.
+:formalBodyHasLeadHouse
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :formalBodyHasHouse ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :House ;
+.
+:leadHouseHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasLeadHouse ;
+	rdfs:subPropertyOf :houseHasFormalBody ;
 	rdfs:domain :House ;
 	rdfs:range :FormalBody ;
 .
