@@ -27,6 +27,7 @@
 
 #################################CLASSES##################################
 
+
 :TemporalThing
 	a owl:Class ;
 .
@@ -491,7 +492,27 @@
 skos:Concept
 	a owl:Class ;
 .
+:SesThing
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+.
+:SesConcept
+	a owl:Class ;
+#	rdfs:subClassOf :SesThing ;
+	rdfs:subClassOf :Concept ;
+.
 ##########################OBJECT PROPERTIES##############################
+:formalBodyHasContactPoint
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :ContactPoint ;
+.
+:contactPointHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasContactPoint ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :FormalBody ;
+.
 :formalBodyHasFormalBodyChair
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBody ;
@@ -1191,6 +1212,12 @@ skos:Concept
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:string ;
+.
+:formalBodyRemit
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range xsd:string ;
+	rdfs:comment "An atemporal description of the Formal Body's remit" ;
 .
 :formalBodyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -1895,10 +1922,34 @@ geosparql:wktLiteral
 	rdfs:domain :MnisDepartmentGroup ;
 	rdfs:range xsd:string ;
 .
-:FormalBodyChairIncumbencyMnisId
+:formalBodyChairIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :MnisId ;
+	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisFormalBodyChairIncumbency ;
+	rdfs:range xsd:string ;
+.
+:conceptLabel
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:string ;
+.
+:conceptSesId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :sesId ;
+	rdfs:domain :SesConcept ;
+	rdfs:range xsd:string ;
+.
+:sesId
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :sesId ;
+	rdfs:domain :SesThing ;
+	rdfs:range xsd:string ;
+.
+:conceptScopeNote
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
 .
 
@@ -1938,3 +1989,4 @@ geosparql:wktLiteral
 #	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
 #   :MnisDepartmentGroup rdfs:subClassOf :MnisThing .
 #	:MnisFormalBodyChairIncumbency rdfs:subClassOf :MnisThing .
+#	:SesConcept rdfs:subClassOf :SesThing .
