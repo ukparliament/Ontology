@@ -124,7 +124,7 @@
 :Person
 	a owl:Class ;
 .
-:MnisLayPerson
+:MnisFormalBodyLayPerson
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :MnisThing ;
@@ -1288,10 +1288,10 @@ skos:Concept
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
 .
-:layPersonMnisId
+:formalBodyLayPersonMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
-	rdfs:domain :MnisLayPerson ;
+	rdfs:domain :MnisFormalBodyLayPerson ;
 	rdfs:range xsd:string ;
 .
 :memberMnisId
@@ -1970,7 +1970,7 @@ geosparql:wktLiteral
 #   :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
 #   :PastConstituencyGroup rdfs:subClassOf :PastThing .
 #	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
-#   :MnisLayPerson rdfs:subClassOf :MnisThing .
+#   :MnisFormalBodyLayPerson rdfs:subClassOf :MnisThing .
 #   :DodsPerson rdfs:subClassOf :DodsThing .
 #   :PimsPerson rdfs:subClassOf :PimsThing .
 #   :DeceasedPerson rdfs:subClassOf :PastThing .
