@@ -503,16 +503,32 @@ skos:Concept
 	rdfs:subClassOf :Concept ;
 .
 ##########################OBJECT PROPERTIES##############################
+
 :formalBodyHasContactPoint
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :contactableThingHasContactPoint ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :ContactPoint ;
 .
 :contactPointHasFormalBody
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
 	owl:inverseOf :formalBodyHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :FormalBody ;
+.
+:houseHasContactPoint
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :contactableThingHasContactPoint ;
+	rdfs:domain :House ;
+	rdfs:range :ContactPoint ;
+.
+:contactPointHasHouse
+	a owl:ObjectProperty ;
+	owl:inverseOf :houseHasContactPoint ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :House ;
 .
 :formalBodyHasFormalBodyChair
 	a owl:ObjectProperty, owl:FunctionalProperty ;
