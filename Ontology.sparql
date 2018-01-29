@@ -120,7 +120,7 @@ INSERT {
 :Person
 	a owl:Class ;
 .
-:MnisPerson
+:MnisLayPerson
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :MnisThing ;
@@ -144,6 +144,11 @@ INSERT {
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :ContactableThing ; 
+.
+:MnisMember
+	a owl:Class ;
+	rdfs:subClassOf :Member ;
+# 	rdfs:subClassOf :MnisThing ;
 .
 :Gender
 	a owl:Class ;
@@ -1279,10 +1284,16 @@ skos:Concept
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
 .
-:personMnisId
+:layPersonMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
-	rdfs:domain :MnisPerson ;
+	rdfs:domain :MnisLayPerson ;
+	rdfs:range xsd:string ;
+.
+:memberMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisMember ;
 	rdfs:range xsd:string ;
 .
 :constituencyGroupMnisId
@@ -1955,7 +1966,7 @@ geosparql:wktLiteral
     :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
     :PastConstituencyGroup rdfs:subClassOf :PastThing .
  	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
-    :MnisPerson rdfs:subClassOf :MnisThing .
+    :MnisLayPerson rdfs:subClassOf :MnisThing .
     :DodsPerson rdfs:subClassOf :DodsThing .
     :PimsPerson rdfs:subClassOf :PimsThing .
     :DeceasedPerson rdfs:subClassOf :PastThing .
@@ -1986,6 +1997,7 @@ geosparql:wktLiteral
     :MnisDepartmentGroup rdfs:subClassOf :MnisThing .
  	:MnisFormalBodyChairIncumbency rdfs:subClassOf :MnisThing .
  	:SesConcept rdfs:subClassOf :SesThing .
+ 	:MnisMember	rdfs:subClassOf :MnisThing .
 
 }
 WHERE { }
