@@ -502,8 +502,52 @@ skos:Concept
 #	rdfs:subClassOf :SesThing ;
 	rdfs:subClassOf :Concept ;
 .
+:FocusPeriod
+	a owl:Class ;
+	rdfs:comment "The period during which a thing is focussed upon" ;	
+.
+:Focus
+	a owl:Class ;
+	rdfs:comment "A thing which is focussed upon, for example the thing that a Formal Body scrutineses during a Focus Period" ;	
+.
+:FormalBodyType
+	a owl:Class ;
+.
 ##########################OBJECT PROPERTIES##############################
 
+:formalBodyHasFocusPeriod
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FocusPeriod ;
+.
+:focusPeriodHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasFocusPeriod ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range :FormalBody ;
+.
+:formalBodyHasFormalBodyType
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBodyType ;
+.
+:formalBodyTypeHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasFormalBodyType ;
+	rdfs:domain :FormalBodyType ;
+	rdfs:range :FormalBody ;
+.
+:focusPeriodHasFocus
+	a owl:ObjectProperty ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range :Focus ;
+.
+:focusHasFocusPeriod
+	a owl:ObjectProperty ;
+	owl:inverseOf :focusPeriodHasFocus ;
+	rdfs:domain :Focus ;
+	rdfs:range :FocusPeriod ;
+.
 :formalBodyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
@@ -630,7 +674,7 @@ skos:Concept
 	rdfs:range :FormalBody ;
 .
 :formalBodyHasLeadHouse
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :formalBodyHasHouse ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :House ;
@@ -1523,6 +1567,18 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :groupStartDate ;
 .
+:focusPeriodStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :startDate ;
+.
+:focusPeriodEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :endDate ;
+.
 :partyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastPartyMembership ;
@@ -1581,6 +1637,12 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeatType ;
+	rdfs:range xsd:string ;
+.
+:formalBodyTypeName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :FormalBodyType ;
 	rdfs:range xsd:string ;
 .
 :houseSeatTypeDescription
