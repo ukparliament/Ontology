@@ -23,7 +23,6 @@ INSERT {
 
 #################################CLASSES##################################
 
-
 :TemporalThing
 	a owl:Class ;
 .
@@ -2034,6 +2033,12 @@ geosparql:wktLiteral
 :conceptScopeNote
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:string ;
+.
+:conceptDefinition
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:definition ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
 .

@@ -2041,6 +2041,12 @@ geosparql:wktLiteral
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
 .
+:conceptDefinition
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:definition ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:string ;
+.
 
 ##########################THE COMMENTED ZONE#############################
 
