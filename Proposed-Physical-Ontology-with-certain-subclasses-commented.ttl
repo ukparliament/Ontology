@@ -1274,7 +1274,7 @@ skos:Concept
 
 :formalBodyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
+	rdfs:subPropertyOf :groupName ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:string ;
 .
