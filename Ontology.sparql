@@ -1805,11 +1805,6 @@ geosparql:wktLiteral
 	rdfs:domain :Rejection ;
 	rdfs:range xsd:string ;
 .
-#:rejectionName
-#	a owl:DatatypeProperty ;
-#	rdfs:domain :Rejection ;
-#	rdfs:range xsd:string ;
-#.
 :rejectionCodeName
 	a owl:DatatypeProperty ;
 	rdfs:domain :RejectionCode ;
