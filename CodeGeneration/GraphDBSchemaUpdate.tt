@@ -1,0 +1,33 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".sparql" #>
+
+<#string filePath=this.Host.ResolvePath("..\\Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl");
+bool isLastPrefix=false;
+bool hasSeenPrefix=false;
+foreach(string line in System.IO.File.ReadLines(filePath))
+{
+if (line.StartsWith("@prefix"))
+{
+hasSeenPrefix=true;
+isLastPrefix=false;
+#>
+<#= line.Replace("@prefix","PREFIX") #>
+<#}
+else
+{
+if ((isLastPrefix==false) && (hasSeenPrefix==true))
+{
+	isLastPrefix=true;#>
+INSERT {
+  [] <http://www.ontotext.com/owlim/system#schemaTransaction> [] .
+<#}
+if (line.StartsWith("#"))
+{#>
+<#= line.Remove(0,1) #>
+<#}
+else
+{#>
+<#= line #>
+<#}}}#>
+}
+WHERE { }
