@@ -11,7 +11,7 @@ if (line.StartsWith("@prefix"))
 hasSeenPrefix=true;
 isLastPrefix=false;
 #>
-<#= line.Replace("@prefix","PREFIX") #>
+<#= line.Replace("@prefix","PREFIX").Remove(line.LastIndexOf('.')-1) #>
 <#}
 else
 {
