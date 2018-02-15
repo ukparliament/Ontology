@@ -27,6 +27,7 @@
 
 #################################CLASSES##################################
 
+
 :TemporalThing
 	a owl:Class ;
 .
@@ -123,7 +124,7 @@
 :Person
 	a owl:Class ;
 .
-:MnisPerson
+:MnisFormalBodyLayPerson
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :MnisThing ;
@@ -147,6 +148,11 @@
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :ContactableThing ; 
+.
+:MnisMember
+	a owl:Class ;
+	rdfs:subClassOf :Member ;
+# 	rdfs:subClassOf :MnisThing ;
 .
 :Gender
 	a owl:Class ;
@@ -491,7 +497,87 @@
 skos:Concept
 	a owl:Class ;
 .
+:SesThing
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+.
+:SesConcept
+	a owl:Class ;
+#	rdfs:subClassOf :SesThing ;
+	rdfs:subClassOf :Concept ;
+.
+:FocusPeriod
+	a owl:Class ;
+	rdfs:comment "The period during which a thing is focussed upon" ;	
+.
+:Focus
+	a owl:Class ;
+	rdfs:comment "A thing which is focussed upon, for example the thing that a Formal Body scrutineses during a Focus Period" ;	
+.
+:FormalBodyType
+	a owl:Class ;
+.
 ##########################OBJECT PROPERTIES##############################
+
+:formalBodyHasFocusPeriod
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FocusPeriod ;
+.
+:focusPeriodHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasFocusPeriod ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range :FormalBody ;
+.
+:formalBodyHasFormalBodyType
+	a owl:ObjectProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :FormalBodyType ;
+.
+:formalBodyTypeHasFormalBody
+	a owl:ObjectProperty ;
+	owl:inverseOf :formalBodyHasFormalBodyType ;
+	rdfs:domain :FormalBodyType ;
+	rdfs:range :FormalBody ;
+.
+:focusPeriodHasFocus
+	a owl:ObjectProperty ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range :Focus ;
+.
+:focusHasFocusPeriod
+	a owl:ObjectProperty ;
+	owl:inverseOf :focusPeriodHasFocus ;
+	rdfs:domain :Focus ;
+	rdfs:range :FocusPeriod ;
+.
+:formalBodyHasContactPoint
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :contactableThingHasContactPoint ;
+	rdfs:domain :FormalBody ;
+	rdfs:range :ContactPoint ;
+.
+:contactPointHasFormalBody
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
+	owl:inverseOf :formalBodyHasContactPoint ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :FormalBody ;
+.
+:houseHasContactPoint
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :contactableThingHasContactPoint ;
+	rdfs:domain :House ;
+	rdfs:range :ContactPoint ;
+.
+:contactPointHasHouse
+	a owl:ObjectProperty ;
+	owl:inverseOf :houseHasContactPoint ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
+	rdfs:domain :ContactPoint ;
+	rdfs:range :House ;
+.
 :formalBodyHasFormalBodyChair
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBody ;
@@ -592,7 +678,7 @@ skos:Concept
 	rdfs:range :FormalBody ;
 .
 :formalBodyHasLeadHouse
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :formalBodyHasHouse ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :House ;
@@ -1188,9 +1274,15 @@ skos:Concept
 
 :formalBodyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
+	rdfs:subPropertyOf :groupName ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:string ;
+.
+:formalBodyRemit
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FormalBody ;
+	rdfs:range xsd:string ;
+	rdfs:comment "An atemporal description of the Formal Body's remit" ;
 .
 :formalBodyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -1256,10 +1348,16 @@ skos:Concept
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
 .
-:personMnisId
+:formalBodyLayPersonMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
-	rdfs:domain :MnisPerson ;
+	rdfs:domain :MnisFormalBodyLayPerson ;
+	rdfs:range xsd:string ;
+.
+:memberMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisMember ;
 	rdfs:range xsd:string ;
 .
 :constituencyGroupMnisId
@@ -1473,6 +1571,18 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :groupStartDate ;
 .
+:focusPeriodStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :startDate ;
+.
+:focusPeriodEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :FocusPeriod ;
+	rdfs:range xsd:date ;
+	rdfs:subPropertyOf :endDate ;
+.
 :partyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastPartyMembership ;
@@ -1531,6 +1641,12 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeatType ;
+	rdfs:range xsd:string ;
+.
+:formalBodyTypeName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :FormalBodyType ;
 	rdfs:range xsd:string ;
 .
 :houseSeatTypeDescription
@@ -1694,11 +1810,6 @@ geosparql:wktLiteral
 	rdfs:domain :Rejection ;
 	rdfs:range xsd:string ;
 .
-#:rejectionName
-#	a owl:DatatypeProperty ;
-#	rdfs:domain :Rejection ;
-#	rdfs:range xsd:string ;
-#.
 :rejectionCodeName
 	a owl:DatatypeProperty ;
 	rdfs:domain :RejectionCode ;
@@ -1901,6 +2012,36 @@ geosparql:wktLiteral
 	rdfs:domain :MnisFormalBodyChairIncumbency ;
 	rdfs:range xsd:string ;
 .
+:conceptLabel
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:string ;
+.
+:conceptSesId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :sesId ;
+	rdfs:domain :SesConcept ;
+	rdfs:range xsd:string ;
+.
+:sesId
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :sesId ;
+	rdfs:domain :SesThing ;
+	rdfs:range xsd:string ;
+.
+:conceptScopeNote
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:string ;
+.
+:conceptDefinition
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:definition ;
+	rdfs:domain :Concept ;
+	rdfs:range xsd:string ;
+.
 
 ##########################THE COMMENTED ZONE#############################
 
@@ -1908,7 +2049,7 @@ geosparql:wktLiteral
 #   :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
 #   :PastConstituencyGroup rdfs:subClassOf :PastThing .
 #	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
-#   :MnisPerson rdfs:subClassOf :MnisThing .
+#   :MnisFormalBodyLayPerson rdfs:subClassOf :MnisThing .
 #   :DodsPerson rdfs:subClassOf :DodsThing .
 #   :PimsPerson rdfs:subClassOf :PimsThing .
 #   :DeceasedPerson rdfs:subClassOf :PastThing .
@@ -1938,3 +2079,5 @@ geosparql:wktLiteral
 #	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
 #   :MnisDepartmentGroup rdfs:subClassOf :MnisThing .
 #	:MnisFormalBodyChairIncumbency rdfs:subClassOf :MnisThing .
+#	:SesConcept rdfs:subClassOf :SesThing .
+#	:MnisMember	rdfs:subClassOf :MnisThing .
