@@ -1,6 +1,3 @@
-# baseURI: https://id.parliament.uk/schema/
-# imports: http://spinrdf.org/spin
-
 #################################PREFIXES################################
 
 @prefix : <https://id.parliament.uk/schema/> .
@@ -2042,42 +2039,3 @@ geosparql:wktLiteral
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
 .
-
-##########################THE COMMENTED ZONE#############################
-
-#   :WikidataParliamentPeriod rdfs:subClassOf :WikidataThing .
-#   :MnisConstituencyGroup rdfs:subClassOf :MnisThing .
-#   :PastConstituencyGroup rdfs:subClassOf :PastThing .
-#	:MnisSeatIncumbency rdfs:subClassOf :MnisThing .
-#   :MnisFormalBodyLayPerson rdfs:subClassOf :MnisThing .
-#   :DodsPerson rdfs:subClassOf :DodsThing .
-#   :PimsPerson rdfs:subClassOf :PimsThing .
-#   :DeceasedPerson rdfs:subClassOf :PastThing .
-#   :Member rdfs:subClassOf :ContactableThing .
-#   :MnisGender rdfs:subClassOf :MnisThing .
-#   :MnisContactPoint rdfs:subClassOf :MnisThing .
-#   :MnisParty rdfs:subClassOf :MnisThing .
-#	:MnisPartyMembership rdfs:subClassOf :MnisThing .
-#   :PastPartyMembership rdfs:subClassOf :PastThing .
-#   :MnisElectionType rdfs:subClassOf :MnisThing .
-#   :PastParliamentPeriod rdfs:subClassOf :PastThing .	
-#   :OnsConstituencyGroup rdfs:subClassOf :OnsThing .
-#   :PastIncumbency rdfs:subClassOf :PastThing .
-#   :PastParliamentaryIncumbency rdfs:subClassOf :PastThing .
-#   :UkgapEPetition rdfs:subClassOf :UkgapThing .
-#   :GovRegisterCountry rdfs:subClassOf :GovRegisterThing .
-#   :GovRegisterTerritory rdfs:subClassOf :GovRegisterThing .
-#   :PastFormalBody rdfs:subClassOf :PastThing .
-#   :PastFormalBodyMembership rdfs:subClassOf :PastThing .
-#   :MnisFormalBody rdfs:subClassOf :MnisThing .
-#   :MnisFormalBodyMembership rdfs:subClassOf :MnisThing .
-#   :MnisGovernmentPosition rdfs:subClassOf :MnisThing .
-#   :MnisGovernmentIncumbency rdfs:subClassOf :MnisThing .
-#   :MnisOppositionPosition rdfs:subClassOf :MnisThing .
-#   :MnisOppositionIncumbency rdfs:subClassOf :MnisThing .
-#   :MnisHouseSeatType rdfs:subClassOf :MnisThing .
-#	:GovRegisterGovernmentOrganisation rdfs:subClassOf :GovRegisterThing .
-#   :MnisDepartmentGroup rdfs:subClassOf :MnisThing .
-#	:MnisFormalBodyChairIncumbency rdfs:subClassOf :MnisThing .
-#	:SesConcept rdfs:subClassOf :SesThing .
-#	:MnisMember	rdfs:subClassOf :MnisThing .
