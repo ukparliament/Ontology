@@ -14,7 +14,8 @@
     public class UnitTest1
     {
         private const string OntologyFile = "Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl";
-        private const string OntologyUri = "https://id.parliament.uk/schema/";
+        private const string OntologyUri = "https://id.parliament.uk/schema";
+        private const string BaseUri = "https://id.parliament.uk/schema/";
 
         private static IEnumerable<object[]> OntologyResources
         {
@@ -56,7 +57,7 @@
                 return ontologyGraph
                     .Nodes
                     .UriNodes()
-                    .Where(node => new Uri(OntologyUri).IsBaseOf(node.Uri))
+                    .Where(node => new Uri(BaseUri).IsBaseOf(node.Uri))
                     .Select(node => new[] { node });
             }
         }
@@ -113,7 +114,7 @@
         [DynamicData(nameof(OntologyResources))]
         public void Resource_is_from_namespace(OntologyResource ontologyResource)
         {
-            Assert.IsTrue(new Uri(OntologyUri).IsBaseOf((ontologyResource.Resource as IUriNode).Uri));
+            Assert.IsTrue(new Uri(BaseUri).IsBaseOf((ontologyResource.Resource as IUriNode).Uri));
         }
 
         [TestMethod]
@@ -128,7 +129,7 @@
         [DynamicData(nameof(Properties))]
         public void Properties_are_camel_cased(OntologyProperty property)
         {
-            var localName = new Uri(OntologyUri).MakeRelativeUri((property.Resource as IUriNode).Uri).ToString();
+            var localName = new Uri(BaseUri).MakeRelativeUri((property.Resource as IUriNode).Uri).ToString();
 
             StringAssert.Matches(localName, new Regex(@"^[a-z]([a-z]|[A-Z]|[0-9])*$"), "Properties must be camelCased.");
 
@@ -138,7 +139,7 @@
         [DynamicData(nameof(Classes))]
         public void Classes_are_pascal_cased(OntologyClass @class)
         {
-            var localName = new Uri(OntologyUri).MakeRelativeUri((@class.Resource as IUriNode).Uri).ToString();
+            var localName = new Uri(BaseUri).MakeRelativeUri((@class.Resource as IUriNode).Uri).ToString();
 
             StringAssert.Matches(localName, new Regex(@"^[A-Z]([a-z]|[A-Z]|[0-9])*$"), "Classes must be PascalCased.");
         }
