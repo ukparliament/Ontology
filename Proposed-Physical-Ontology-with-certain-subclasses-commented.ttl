@@ -3,23 +3,19 @@
 @prefix : <https://id.parliament.uk/schema/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
-@prefix sp: <http://spinrdf.org/sp#> .
-@prefix spin: <http://spinrdf.org/spin#> .
-@prefix wikidata: <https://www.wikidata.org/wiki/> .
-@prefix wikipedia: <https://en.wikipedia.org/wiki/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 
 #################################ONTOLOGY#################################
 
 :
-  a owl:Ontology;
+	a owl:Ontology ;
+	dcterms:title "The UK Parliament vocabulary" ;
 .
 
 #################################CLASSES##################################
@@ -27,492 +23,607 @@
 
 :TemporalThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :PastThing
 	a owl:Class ;
 	rdfs:subClassOf :TemporalThing ;
+	rdfs:isDefinedBy : ;
 .
 :MnisThing
- 	a owl:Class ;
-  	rdfs:subClassOf :ExternalThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :DodsThing
- 	a owl:Class ;
-  	rdfs:subClassOf :ExternalThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :UkgapThing
- 	a owl:Class ;
-  	rdfs:subClassOf :ExternalThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :PimsThing
- 	a owl:Class ;
-  	rdfs:subClassOf :ExternalThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :WikidataThing
- 	a owl:Class ;
-  	rdfs:subClassOf :ExternalThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :WikidataParliamentPeriod
- 	a owl:Class ;
-  	rdfs:subClassOf :ParliamentPeriod ;
-#  	rdfs:subClassOf :WikidataThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ParliamentPeriod ;
+#	rdfs:subClassOf :WikidataThing ;
+	rdfs:isDefinedBy : ;
 .
 :ExternalThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :NamedThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :OnsThing
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :GeographicalThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ContactableThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :House
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :HouseSeat
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :HouseSeatType
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisHouseSeatType
 	a owl:Class ;
 	rdfs:subClassOf :HouseSeatType ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :ConstituencyGroup
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ConstituencyArea
 	a owl:Class ;
 	rdfs:subClassOf :Place ;
+	rdfs:isDefinedBy : ;
 .
 :Country
 	a owl:Class ;
 	rdfs:subClassOf :Place ;
+	rdfs:isDefinedBy : ;
 .
 :MnisConstituencyGroup
 	a owl:Class;
 	rdfs:subClassOf :ConstituencyGroup ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :PastConstituencyGroup
 	a owl:Class ;
 	rdfs:subClassOf :ConstituencyGroup ;
-#  	rdfs:subClassOf :PastThing ;
+#	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :SeatIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :MnisSeatIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :SeatIncumbency ;
-#  	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :Person
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisFormalBodyLayPerson
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :DodsPerson
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :DodsThing ;
+	rdfs:isDefinedBy : ;
 .
 :PimsPerson
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :PimsThing ;
+	rdfs:isDefinedBy : ;
 .
 :DeceasedPerson
 	a owl:Class;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :Member
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
 #	rdfs:subClassOf :ContactableThing ; 
+	rdfs:isDefinedBy : ;
 .
 :MnisMember
 	a owl:Class ;
 	rdfs:subClassOf :Member ;
-# 	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :Gender
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisGender
 	a owl:Class ;
 	rdfs:subClassOf :Gender ;
-# 	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :GenderIdentity
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ContactPoint
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisContactPoint
 	a owl:Class ;
 	rdfs:subClassOf :ContactPoint ;
-# 	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :PostalAddress
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Candidate
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
+	rdfs:isDefinedBy : ;
 .
 :Candidacy
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :CandidacyResult
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Party
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisParty
 	a owl:Class ;
 	rdfs:subClassOf :Party ;
-#  	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :PartyMember
 	a owl:Class ;
 	rdfs:subClassOf :Person ;
+	rdfs:isDefinedBy : ;
 .
 :PartyMembership
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisPartyMembership
 	a owl:Class ;
 	rdfs:subClassOf :PartyMembership ;
-#  	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :PastPartyMembership
 	a owl:Class ;
 	rdfs:subClassOf :PartyMembership ;
-#  	rdfs:subClassOf :PastThing ;
+#	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :Election
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ElectionType
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisElectionType
 	a owl:Class ;
 	rdfs:subClassOf :ElectionType ;
-#  	rdfs:subClassOf :MnisThing ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :Electorate
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ElectoralIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :SeatIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :ParliamentPeriod
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :PastParliamentPeriod
 	a owl:Class ;
 	rdfs:subClassOf :ParliamentPeriod ;
-#  	rdfs:subClassOf :PastThing ;
-.	
+#	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
+.
 :OnsConstituencyGroup
 	a owl:Class ;
 	rdfs:seeAlso <http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency> ;
 	rdfs:subClassOf :ConstituencyGroup ;
 #	rdfs:subClassOf :OnsThing ;
+	rdfs:isDefinedBy : ;
 .
 :Position
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ParliamentaryIncumbency
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Incumbency
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisFormalBodyChairIncumbency
 	a owl:Class ;
 	rdfs:subClassOf :Incumbency ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :PastIncumbency
 	a owl:Class;
 	rdfs:subClassOf :Incumbency ;
 #	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :PastParliamentaryIncumbency
 	a owl:Class;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
 #	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :EPetition 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :RejectedEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :ApprovedEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :UkgapEPetition 
 	a owl:Class ;
 	rdfs:subClassOf :EPetition ;
-#  	rdfs:subClassOf :UkgapThing ;
+#	rdfs:subClassOf :UkgapThing ;
+	rdfs:isDefinedBy : ;
 .
 :ThresholdAttainment 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Threshold 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Moderation 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Debate 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :GovernmentResponse 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :LocatedSignatureCount 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Place 
 	a owl:Class ;
 	rdfs:subClassOf :GeographicalThing ;
+	rdfs:isDefinedBy : ;
 .
 :Rejection 
 	a owl:Class ;
 	rdfs:subClassOf :Moderation ;
+	rdfs:isDefinedBy : ;
 .
 :RejectionCode 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Approval 
 	a owl:Class ;
 	rdfs:subClassOf :Moderation ;
+	rdfs:isDefinedBy : ;
 .
 :ConceptualisedThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :SubjectTaggedThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :Concept
 	a owl:Class ;
 	rdfs:subClassOf skos:Concept ;
+	rdfs:isDefinedBy : ;
 .
 :GovRegisterThing
- 	a owl:Class ;
-  	rdfs:subClassOf :ExternalThing ;
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :GovRegisterCountry
 	a owl:Class;
 	rdfs:subClassOf :Country ;
 #	rdfs:subClassOf :GovRegisterThing ;
+	rdfs:isDefinedBy : ;
 .
 :GovRegisterTerritory
 	a owl:Class;
 	rdfs:subClassOf :Territory ;
 #	rdfs:subClassOf :GovRegisterThing ;
+	rdfs:isDefinedBy : ;
 .
 :Territory
 	a owl:Class ;
 	rdfs:subClassOf :Place ;
+	rdfs:isDefinedBy : ;
 .
 :Image
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :PersonImage
 	a owl:Class ;
 	rdfs:subClassOf :Image ;
 	rdfs:comment "An image of a Person" ;
-.	
+	rdfs:isDefinedBy : ;
+.
 :MemberImage
 	a owl:Class ;
 	rdfs:subClassOf :PersonImage ;
 	rdfs:comment "An image of a Member" ;
-.	
+	rdfs:isDefinedBy : ;
+.
 :Logo
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :LogoImage
 	a owl:Class ;
 	rdfs:subClassOf :Image ;
 	rdfs:comment "An image of a Logo" ;
+	rdfs:isDefinedBy : ;
 .
 :ThingWithLogo
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ImageSubject
 	a owl:Class ;
 	rdfs:comment "The person or thing an image is of, which is depicted in the Image" ;
+	rdfs:isDefinedBy : ;
 .
 :WebLink
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :WebLinkedThing
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :PersonWebLink
 	a owl:Class ;
 	rdfs:subClassOf :WebLink;
+	rdfs:isDefinedBy : ;
 .
 :Group 
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :PastGroup
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
+	rdfs:isDefinedBy : ;
 .
 :MnisDepartmentGroup
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
 #	rdfs:subClassOf :MnisThing ;
-	rdfs:comment "This is any group that has an ID from the MNIS Departments table.  Said table sadly doesn't only contain Departments, or even Government Organisations" ;	
+	rdfs:comment "This is any group that has an ID from the MNIS Departments table. Said table sadly doesn't only contain Departments, or even Government Organisations" ;	
+	rdfs:isDefinedBy : ;
 .
 :FormalBody
 	a owl:Class ;
 	rdfs:subClassOf :Group;
+	rdfs:isDefinedBy : ;
 .
 :PastFormalBody
 	a owl:Class ;
 	rdfs:subClassOf :FormalBody ;
-#  	rdfs:subClassOf :PastThing ;
+#	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :PastFormalBodyMembership
 	a owl:Class ;
 	rdfs:subClassOf :FormalBodyMembership ;
-#  	rdfs:subClassOf :PastThing ;
+#	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy : ;
 .
 :MnisFormalBody
 	a owl:Class ;
 	rdfs:subClassOf :FormalBody ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :MnisFormalBodyMembership
 	a owl:Class ;
 	rdfs:subClassOf :FormalBodyMembership ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :FormalBodyMembership
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :ExOfficioMembership
 	rdfs:subClassOf :FormalBodyMembership ;
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :AlternateMembership
 	rdfs:subClassOf :FormalBodyMembership ;
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :FormalBodyPosition
 	a owl:Class ;
 	rdfs:subClassOf :Position ;
+	rdfs:isDefinedBy : ;
 .
 :FormalBodyChair
 	a owl:Class ;
 	rdfs:subClassOf :FormalBodyPosition ;
-.
-:MnisFormalBodyChair
-	a owl:Class
+	rdfs:isDefinedBy : ;
 .
 :GovernmentPosition
-	rdfs:subClassOf :Position ;
 	a owl:Class ;
+	rdfs:subClassOf :Position ;
+	rdfs:isDefinedBy : ;
 .
 :MnisGovernmentPosition
-	a owl:Class;
+	a owl:Class ;
 	rdfs:subClassOf :GovernmentPosition ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :GovRegisterGovernmentOrganisation
-	a owl:Class;
+	a owl:Class ;
 	rdfs:subClassOf :GovernmentOrganisation ;
 #	rdfs:subClassOf :GovRegisterThing ;
+	rdfs:isDefinedBy : ;
 .
 :GovernmentOrganisation
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
+	rdfs:isDefinedBy : ;
 .
 :GovernmentIncumbency
-	rdfs:subClassOf :Incumbency ;
 	a owl:Class ;
+	rdfs:subClassOf :Incumbency ;
+	rdfs:isDefinedBy : ;
 .
 :MnisGovernmentIncumbency
 	a owl:Class;
 	rdfs:subClassOf :GovernmentIncumbency ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :GovernmentPerson
 	rdfs:subClassOf :Person ;
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :OppositionPosition
 	rdfs:subClassOf :Position ;
 	a owl:Class ;
-.	
+	rdfs:isDefinedBy : ;
+.
 :MnisOppositionPosition
 	a owl:Class;
 	rdfs:subClassOf :OppositionPosition ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :OppositionIncumbency
 	rdfs:subClassOf :Incumbency ;
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :MnisOppositionIncumbency
 	a owl:Class;
 	rdfs:subClassOf :OppositionIncumbency ;
 #	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy : ;
 .
 :OppositionPerson
 	rdfs:subClassOf :Person ;
 	a owl:Class ;
-.
-skos:Concept
-	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 :SesThing
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy : ;
 .
 :SesConcept
 	a owl:Class ;
 #	rdfs:subClassOf :SesThing ;
 	rdfs:subClassOf :Concept ;
+	rdfs:isDefinedBy : ;
 .
 :FocusPeriod
 	a owl:Class ;
 	rdfs:comment "The period during which a thing is focussed upon" ;	
+	rdfs:isDefinedBy : ;
 .
 :Focus
 	a owl:Class ;
 	rdfs:comment "A thing which is focussed upon, for example the thing that a Formal Body scrutineses during a Focus Period" ;	
+	rdfs:isDefinedBy : ;
 .
 :FormalBodyType
 	a owl:Class ;
+	rdfs:isDefinedBy : ;
 .
 ##########################OBJECT PROPERTIES##############################
 
@@ -520,40 +631,47 @@ skos:Concept
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FocusPeriod ;
+	rdfs:isDefinedBy : ;
 .
 :focusPeriodHasFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasFocusPeriod ;
 	rdfs:domain :FocusPeriod ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasFormalBodyType
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyType ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyTypeHasFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasFormalBodyType ;
 	rdfs:domain :FormalBodyType ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :focusPeriodHasFocus
 	a owl:ObjectProperty ;
 	rdfs:domain :FocusPeriod ;
 	rdfs:range :Focus ;
+	rdfs:isDefinedBy : ;
 .
 :focusHasFocusPeriod
 	a owl:ObjectProperty ;
 	owl:inverseOf :focusPeriodHasFocus ;
 	rdfs:domain :Focus ;
 	rdfs:range :FocusPeriod ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasFormalBody
 	a owl:ObjectProperty ;
@@ -561,12 +679,14 @@ skos:Concept
 	owl:inverseOf :formalBodyHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :houseHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
 	rdfs:domain :House ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasHouse
 	a owl:ObjectProperty ;
@@ -574,111 +694,131 @@ skos:Concept
 	rdfs:subPropertyOf :contactPointHasContactableThing ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :House ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasFormalBodyChair
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyChair ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyChairHasFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasFormalBodyChair ;
 	rdfs:domain :FormalBodyChair ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :incumbencyHasPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Incumbency ;
 	rdfs:range :Position ;
+	rdfs:isDefinedBy : ;
 .
 :positionHasIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :incumbencyHasPosition ;
 	rdfs:domain :Position ;
 	rdfs:range :Incumbency ;
+	rdfs:isDefinedBy : ;
 .
 :incumbencyHasPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Incumbency ;
 	rdfs:range :Person ;
+	rdfs:isDefinedBy : ;
 .
 :personHasIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :incumbencyHasPerson ;
 	rdfs:domain :Person ;
 	rdfs:range :Incumbency ;
+	rdfs:isDefinedBy : ;
 .
 :positionHasGroup
 	a owl:ObjectProperty;
 	rdfs:domain :Position ;
 	rdfs:range :Group ;
+	rdfs:isDefinedBy : ;
 .
 :groupHasPosition
 	a owl:ObjectProperty;
 	owl:inverseOf :positionHasGroup ;
 	rdfs:domain :Group ;
 	rdfs:range :Position ;
+	rdfs:isDefinedBy : ;
 .
 :governmentIncumbencyHasGovernmentPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :GovernmentIncumbency ;
 	rdfs:range :GovernmentPosition ;
+	rdfs:isDefinedBy : ;
 .
 :governmentPositionHasGovernmentIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :governmentIncumbencyHasGovernmentPosition ;
 	rdfs:domain :GovernmentPosition ;
 	rdfs:range :GovernmentIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :governmentIncumbencyHasGovernmentPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :GovernmentIncumbency ;
 	rdfs:range :GovernmentPerson ;
+	rdfs:isDefinedBy : ;
 .
 :governmentPersonHasGovernmentIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :governmentIncumbencyHasGovernmentPerson ;
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :oppositionIncumbencyHasOppositionPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :OppositionIncumbency ;
 	rdfs:range :OppositionPosition ;
+	rdfs:isDefinedBy : ;
 .
 :oppositionPositionHasOppositionIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :oppositionIncumbencyHasOppositionPosition ;
 	rdfs:domain :OppositionPosition ;
 	rdfs:range :OppositionIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :oppositionIncumbencyHasOppositionPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :OppositionIncumbency ;
 	rdfs:range :OppositionPerson ;
+	rdfs:isDefinedBy : ;
 .
 :oppositionPersonHasOppositionIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :oppositionIncumbencyHasOppositionPerson ;
 	rdfs:domain :OppositionPerson ;
 	rdfs:range :OppositionIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasHouse
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :House ;
+	rdfs:isDefinedBy : ;
 .
 :houseHasFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasHouse ;
 	rdfs:domain :House ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasLeadHouse
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :formalBodyHasHouse ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :House ;
+	rdfs:isDefinedBy : ;
 .
 :leadHouseHasFormalBody
 	a owl:ObjectProperty ;
@@ -686,34 +826,40 @@ skos:Concept
 	rdfs:subPropertyOf :houseHasFormalBody ;
 	rdfs:domain :House ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasParentFormalBody
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasChildFormalBody
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyHasParentFormalBody ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :personHasFormalBodyMembership
 	a owl:ObjectProperty ;
 	rdfs:domain :Person ;
 	rdfs:range :FormalBodyMembership ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyMembershipHasPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :personHasFormalBodyMembership ;
 	rdfs:domain :FormalBodyMembership ;
 	rdfs:range :Person ;
+	rdfs:isDefinedBy : ;
 .
 :memberHasExOfficioMembership
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :personHasFormalBodyMembership ;
 	rdfs:domain :Member ;
 	rdfs:range :ExOfficioMembership ;
+	rdfs:isDefinedBy : ;
 .
 :exOfficioMembershipHasMember 
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -721,12 +867,14 @@ skos:Concept
 	rdfs:subPropertyOf :formalBodyMembershipHasPerson ;
 	rdfs:domain :ExOfficioMembership ;
 	rdfs:range :Member ;
+	rdfs:isDefinedBy : ;
 .
 :memberHasAlternateMembership
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :personHasFormalBodyMembership ;
 	rdfs:domain :Member ;
 	rdfs:range :AlternateMembership ;
+	rdfs:isDefinedBy : ;
 .
 :alternateMembershipHasMember 
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -734,506 +882,598 @@ skos:Concept
 	rdfs:subPropertyOf :formalBodyMembershipHasPerson ;
 	rdfs:domain :AlternateMembership ;
 	rdfs:range :Member ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyMembershipHasFormalBody
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBodyMembership ;
 	rdfs:range :FormalBody ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyHasFormalBodyMembership
 	a owl:ObjectProperty ;
 	owl:inverseOf :formalBodyMembershipHasFormalBody ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyMembership ;
+	rdfs:isDefinedBy : ;
 .
 :imageHasImageSubject
 	a owl:ObjectProperty ;
 	rdfs:domain :Image ;
 	rdfs:range :ImageSubject ;
+	rdfs:isDefinedBy : ;
 .
 :imageSubjectHasImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :imageHasImageSubject ;
 	rdfs:domain :ImageSubject ;
 	rdfs:range :Image ;
+	rdfs:isDefinedBy : ;
 .
 :personImageHasPerson
 	a owl:ObjectProperty ;
 	rdfs:domain :PersonImage ;
 	rdfs:range :Person ;
+	rdfs:isDefinedBy : ;
 .
 :personHasPersonImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :personImageHasPerson ;
 	rdfs:domain :Person ;
 	rdfs:range :PersonImage ;
+	rdfs:isDefinedBy : ;
 .
 :logoImageHasLogo
 	a owl:ObjectProperty ;
 	rdfs:domain :LogoImage ;
 	rdfs:range :Logo ;
+	rdfs:isDefinedBy : ;
 .
 :logoHasLogoImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :logoImageHasLogo ;
 	rdfs:domain :Logo ;
 	rdfs:range :LogoImage ;
+	rdfs:isDefinedBy : ;
 .
 :memberImageHasMember
 	a owl:ObjectProperty ;
 	rdfs:domain :MemberImage ;
 	rdfs:range :Member ;
+	rdfs:isDefinedBy : ;
 .
 :memberHasMemberImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :memberImageHasMember ;
 	rdfs:domain :Member ;
 	rdfs:range :MemberImage ;
+	rdfs:isDefinedBy : ;
 .
 :thingWithLogoHasLogo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf foaf:hasLogo ;
 	rdfs:domain :ThingWithLogo ;
 	rdfs:range :Logo ;
+	rdfs:isDefinedBy : ;
 .
 :logoHasThingWithLogo
 	a owl:ObjectProperty ;
 	owl:inverseOf :thingWithLogoHasLogo ;
 	rdfs:domain :Logo ;
 	rdfs:range :ThingWithLogo ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatHasHouse
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range :House ;
+	rdfs:isDefinedBy : ;
 .
 :houseHasHouseSeat
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasHouse ;
 	rdfs:domain :House ;
 	rdfs:range :HouseSeat ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatHasConstituencyGroup
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range :ConstituencyGroup ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupHasHouseSeat
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasConstituencyGroup ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range :HouseSeat ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatHasHouseSeatType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range :HouseSeatType ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatTypeHasHouseSeat
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasHouseSeatType ;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range :HouseSeat ;
+	rdfs:isDefinedBy : ;
 .
 :seatIncumbencyHasHouseSeat
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :SeatIncumbency ;
 	rdfs:range :HouseSeat ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatHasSeatIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :seatIncumbencyHasHouseSeat ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range :SeatIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodHasImmediatelyPreviousParliamentPeriod
 	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :ParliamentPeriod ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodHasImmediatelyFollowingParliamentPeriod
 	a owl:ObjectProperty ;
 	owl:inverseOf :parliamentPeriodHasImmediatelyPreviousParliamentPeriod ;
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :ParliamentPeriod ;
+	rdfs:isDefinedBy : ;
 .
 :seatIncumbencyHasParliamentPeriod
 	a owl:ObjectProperty ;
 	rdfs:domain :SeatIncumbency ;
 	rdfs:range :ParliamentPeriod ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodHasSeatIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :seatIncumbencyHasParliamentPeriod ;
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range :SeatIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentaryIncumbencyHasMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :Member ;
+	rdfs:isDefinedBy : ;
 .
 :memberHasParliamentaryIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :parliamentaryIncumbencyHasMember ;
 	rdfs:domain :Member ;
 	rdfs:range :ParliamentaryIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :genderIdentityHasPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :GenderIdentity ;
 	rdfs:range :Person ;
+	rdfs:isDefinedBy : ;
 .
 :personHasGenderIdentity
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasPerson ;
 	rdfs:domain :Person ;
 	rdfs:range :GenderIdentity ;
+	rdfs:isDefinedBy : ;
 .
 :genderIdentityHasGender
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :GenderIdentity ;
 	rdfs:range :Gender ;
+	rdfs:isDefinedBy : ;
 .
 :genderHasGenderIdentity
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasGender ;
 	rdfs:domain :Gender ;
 	rdfs:range :GenderIdentity ;
+	rdfs:isDefinedBy : ;
 .
 :contactableThingHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:domain :ContactableThing ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasContactableThing
 	owl:inverseOf :contactableThingHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :ContactableThing ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasPostalAddress
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :PostalAddress ;
+	rdfs:isDefinedBy : ;
 .
 :postalAddressHasContactPoint
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :contactPointHasPostalAddress ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :partyMembershipHasPartyMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :PartyMembership ;
 	rdfs:range :PartyMember ;
+	rdfs:isDefinedBy : ;
 .
 :partyMemberHasPartyMembership
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :partyMembershipHasPartyMember ;
 	rdfs:domain :PartyMember ;
 	rdfs:range :PartyMembership ;
+	rdfs:isDefinedBy : ;
 .
 :partyMembershipHasParty
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :PartyMembership ;
 	rdfs:range :Party ;
+	rdfs:isDefinedBy : ;
 .
 :partyHasPartyMembership
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :partyMembershipHasParty ;
 	rdfs:domain :Party ;
 	rdfs:range :PartyMembership ;
+	rdfs:isDefinedBy : ;
 .
 :candidacyHasCandidate
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Candidacy ;
 	rdfs:range :Candidate ;
+	rdfs:isDefinedBy : ;
 .
 :candidateHasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasCandidate ;
 	rdfs:domain :Candidate ;
 	rdfs:range :Candidacy ;
+	rdfs:isDefinedBy : ;
 .
 :candidacyHasParty
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Candidacy ;
 	rdfs:range :Party ;
+	rdfs:isDefinedBy : ;
 .
 :partyhasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasParty ;
 	rdfs:domain :Party ;
 	rdfs:range :Candidacy ;
+	rdfs:isDefinedBy : ;
 .
 :candidacyHasCandidacyResult
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Candidacy ;
 	rdfs:range :CandidacyResult ;
+	rdfs:isDefinedBy : ;
 .
 :candidacyResultHasCandidacy
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :candidacyHasCandidacyResult ;
 	rdfs:domain :CandidacyResult ;
 	rdfs:range :Candidacy ;
+	rdfs:isDefinedBy : ;
 .
 :candidacyHasElection
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Candidacy ;
 	rdfs:range :Election ;
+	rdfs:isDefinedBy : ;
 .
 :electionHasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasElection ;
 	rdfs:domain :Election ;
 	rdfs:range :Candidacy ;
+	rdfs:isDefinedBy : ;
 .
 :electionHasElectorate
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Election ;
 	rdfs:range :Electorate ;
+	rdfs:isDefinedBy : ;
 .
 :electorateHasElection
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electionHasElectorate ;
 	rdfs:domain :Electorate ;
 	rdfs:range :Election ;
+	rdfs:isDefinedBy : ;
 .
 :electionHasElectionType
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Election ;
 	rdfs:range :ElectionType ;
+	rdfs:isDefinedBy : ;
 .
 :electionTypeHasElection
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electionHasElectionType ;
 	rdfs:domain :ElectionType ;
 	rdfs:range :Election ;
+	rdfs:isDefinedBy : ;
 .
 :electorateHasConstitutencyGroup
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Electorate ;
 	rdfs:range :ConstituencyGroup ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupHasElectorate
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electorateHasConstitutencyGroup ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range :Electorate ;
+	rdfs:isDefinedBy : ;
 .
 :electoralIncumbencyHasCandidacyResult
-	a owl:ObjectProperty, owl:FunctionalProperty  ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :ElectoralIncumbency ;
 	rdfs:range :CandidacyResult ;
+	rdfs:isDefinedBy : ;
 .
 :candidacyResultHasElectoralIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :electoralIncumbencyHasCandidacyResult ;
 	rdfs:domain :CandidacyResult ;
 	rdfs:range :ElectoralIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupHasConstituencyArea
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range :ConstituencyArea ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyAreaHasConstituencyGroup
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :constituencyGroupHasConstituencyArea ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range :ConstituencyGroup ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentaryIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
 	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasParliamentaryIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :parliamentaryIncumbencyHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :ParliamentaryIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :electoralIncumbencyHasContactPoint
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
 	rdfs:domain :ElectoralIncumbency ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasElectoralIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :electoralIncumbencyHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :ElectoralIncumbency ;
+	rdfs:isDefinedBy : ;
 .
 :personHasContactPoint
 	rdfs:subPropertyOf :contactableThingHasContactPoint ;
 	a owl:ObjectProperty ;
 	rdfs:domain :Person ;
 	rdfs:range :ContactPoint ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointHasPerson
 	a owl:ObjectProperty ;
 	owl:inverseOf :personHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :Person ;
+	rdfs:isDefinedBy : ;
 .
 :conceptualisedThingHasConcept
 	a owl:ObjectProperty ; 
 	rdfs:subPropertyOf foaf:focus ;
 	rdfs:domain :ConceptualisedThing ;
 	rdfs:range :Concept ;
+	rdfs:isDefinedBy : ;
 .
 :conceptHasConceptualisedThing
 	owl:inverseOf :conceptualisedThingHasConcept; 
 	rdfs:domain :Concept ;
 	rdfs:range :ConceptualisedThing ;
+	rdfs:isDefinedBy : ;
 .
 :subjectTaggedThingHasConcept
 	a owl:ObjectProperty ; 
 	rdfs:subPropertyOf dcterms:subject ;
 	rdfs:domain :SubjectTaggedThing ;
 	rdfs:range :Concept ;
+	rdfs:isDefinedBy : ;
 .
 :conceptHasSubjectTaggedThing
 	owl:inverseOf :subjectTaggedThingHasConcept; 
 	rdfs:domain :Concept ;
 	rdfs:range :SubjectTaggedThing ;
+	rdfs:isDefinedBy : ;
 .
 :ePetitionHasThresholdAttainment 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range :ThresholdAttainment ;
+	rdfs:isDefinedBy : ;
 .
 :thresholdAttainmentHasEPetition 
 	owl:inverseOf :ePetitionHasThresholdAttainment ;
 	rdfs:domain :ThresholdAttainment ;
 	rdfs:range :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :thresholdAttainmentHasThreshold 
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :ThresholdAttainment ;
 	rdfs:range :Threshold ;
+	rdfs:isDefinedBy : ;
 .
 :thresholdHasThresholdAttainment 
 	owl:inverseOf :thresholdAttainmentHasThreshold ;
 	rdfs:domain :Threshold ;
 	rdfs:range :ThresholdAttainment ;
+	rdfs:isDefinedBy : ;
 .
 :ePetitionHasDebate 
 	a owl:ObjectProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range :Debate ;
+	rdfs:isDefinedBy : ;
 .
 :debateHasEPetition 
 	owl:inverseOf :ePetitionHasDebate ;
 	rdfs:domain :Debate ;
 	rdfs:range :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :ePetitionHasGovernmentResponse 
 	a owl:ObjectProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range :GovernmentResponse ;
+	rdfs:isDefinedBy : ;
 .
 :governmentResponseHasEPetition 
 	owl:inverseOf :ePetitionHasGovernmentResponse ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :ePetitionHasModeration 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range :Moderation ;
+	rdfs:isDefinedBy : ;
 .
 :moderationHasEPetition
 	owl:inverseOf :ePetitionHasModeration ;
 	rdfs:domain :Moderation ;
 	rdfs:range :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :rejectedEPetitionHasRejection 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	rdfs:subPropertyOf :ePetitionHasModeration ;
 	rdfs:domain :RejectedEPetition ;
 	rdfs:range :Rejection ;
+	rdfs:isDefinedBy : ;
 .
 :rejectionHasRejectedEPetition 
 	owl:inverseOf :rejectedEPetitionHasRejection ;
 	rdfs:subPropertyOf :moderationHasEPetition ;
 	rdfs:domain :Rejection ;
 	rdfs:range :RejectedEPetition ;
+	rdfs:isDefinedBy : ;
 .
 :approvedEPetitionHasApproval 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	rdfs:subPropertyOf :ePetitionHasModeration ;
 	rdfs:domain :ApprovedEPetition ;
 	rdfs:range :Approval ;
+	rdfs:isDefinedBy : ;
 .
 :approvalHasApprovedEPetition 
 	owl:inverseOf :approvedEPetitionHasApproval ;
 	rdfs:subPropertyOf :moderationHasEPetition ;
 	rdfs:domain :Approval ;
 	rdfs:range :ApprovedEPetition ;
+	rdfs:isDefinedBy : ;
 .
 :ePetitionHasLocatedSignatureCount 
 	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range :LocatedSignatureCount ;
+	rdfs:isDefinedBy : ;
 .
 :locatedSignatureCountHasEPetition 
 	owl:inverseOf :ePetitionHasLocatedSignatureCount; 
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range :EPetition ;
+	rdfs:isDefinedBy : ;
 .
 :locatedSignatureCountHasPlace 
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range :Place ;
+	rdfs:isDefinedBy : ;
 .
 :placeHasLocatedSignatureCount
 	owl:inverseOf :locatedSignatureCountHasPlace; 
 	rdfs:domain :Place ;
 	rdfs:range :LocatedSignatureCount ;
+	rdfs:isDefinedBy : ;
 .
 :containedByPlace 
-	rdf:type owl:ObjectProperty ;
+	a owl:ObjectProperty ;
 	rdfs:comment "Relates a place to a place it is contained by e.g. town in constituency in county in country."@en ;
 	rdfs:domain :Place ;
 	rdfs:range :Place ;
-.	
+	rdfs:isDefinedBy : ;
+.
 :containsPlace 
 	owl:inverseOf :containedByPlace; 
 	rdfs:comment "Relates a place to a place it contains by e.g. country contains constituency contains town."@en ;
 	rdfs:domain :Place ;
 	rdfs:range :Place ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyAreaHasCountry
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :containedByPlace ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range :Country ;
+	rdfs:isDefinedBy : ;
 .
 :countryHasConstituencyArea
 	owl:inverseOf :constituencyAreaHasCountry ; 
 	rdfs:subPropertyOf :containsPlace ;
 	rdfs:domain :Country ;
 	rdfs:range :ConstituencyArea ;
+	rdfs:isDefinedBy : ;
 .
 :rejectionHasRejectionCode
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Rejection ;
 	rdfs:range :RejectionCode ;	
+	rdfs:isDefinedBy : ;
 .
 :rejectionCodeHasRejection
 	owl:inverseOf :rejectionHasRejectionCode ; 
 	rdfs:domain :RejectionCode ;
 	rdfs:range :Rejection ;	
+	rdfs:isDefinedBy : ;
 .
 :personHasPersonWebLink
 	a owl:ObjectProperty ;
 	rdfs:domain :Person ;
 	rdfs:range :PersonWebLink ;
 	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
+	rdfs:isDefinedBy : ;
 .
 :personWebLinkHasPerson
 	a owl:ObjectProperty ;
@@ -1241,23 +1481,27 @@ skos:Concept
 	rdfs:domain :PersonWebLink ;
 	rdfs:range :Person ;
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
+	rdfs:isDefinedBy : ;
 .
 :webLinkedThingHasWebLink
 	a owl:ObjectProperty ;
 	rdfs:domain :WebLinkedThing ;
 	rdfs:range :WebLink ;
+	rdfs:isDefinedBy : ;
 .
 :webLinkHasWebLinkedThing
 	a owl:ObjectProperty ;
 	owl:inverseOf :webLinkedThingHasWebLink ;
 	rdfs:domain :WebLink ;
 	rdfs:range :WebLinkedThing ;
+	rdfs:isDefinedBy : ;
 .
 :conceptHasBroaderConcept
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf skos:broader ;
 	rdfs:domain :Concept ;
 	rdfs:range :Concept ;
+	rdfs:isDefinedBy : ;
 .
 :conceptHasNarrowerConcept
 	a owl:ObjectProperty ;
@@ -1266,6 +1510,7 @@ skos:Concept
 	a owl:ObjectProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range :Concept ;
+	rdfs:isDefinedBy : ;
 .
 ########################DATATYPE PROPERTIES##############################
 
@@ -1274,768 +1519,904 @@ skos:Concept
 	rdfs:subPropertyOf :groupName ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyRemit
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:string ;
 	rdfs:comment "An atemporal description of the Formal Body's remit" ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisFormalBody ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyMembershipMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisFormalBodyMembership ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :incumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :Incumbency ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :groupStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :Group ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentaryIncumbencyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :startDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :TemporalThing ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :endDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastThing ;
 	rdfs:range xsd:date ;
 	rdfs:comment "By convention, endDate is only used after the date." ;
+	rdfs:isDefinedBy : ;
 .
 :personDateOfBirth
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :personDateOfDeath
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :DeceasedPerson ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :externalIdentifier
 	a owl:DatatypeProperty ;
 	rdfs:domain :ExternalThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :mnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyLayPersonMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisFormalBodyLayPerson ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :memberMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisMember ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisConstituencyGroup ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :pimsId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :PimsThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :wikidataId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :WikidataThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodWikidataId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :wikidataId ;
 	rdfs:domain :WikidataParliamentPeriod ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :dodsId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :DodsThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :ukgapId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :UkgapThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :personPimsId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :pimsId ;
 	rdfs:domain :PimsPerson ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :personDodsId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :dodsId ;
 	rdfs:domain :DodsPerson ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :ePetitionUkgapId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :ukgapId ;
 	rdfs:domain :UkgapEPetition ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :personFamilyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
+	rdfs:isDefinedBy : ;
 .
 :personGivenName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
+	rdfs:isDefinedBy : ;
 .
 :personOtherNames
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
+	rdfs:isDefinedBy : ;
 .
 :addressLine1
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :addressLine2
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :addressLine3
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :addressLine4
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :addressLine5
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range xsd:string ; 
+	rdfs:isDefinedBy : ;
 .
 :postCode
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :faxNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :email
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :phoneNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :contactForm
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :voteCount
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :CandidacyResult ;
 	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy : ;
 .
 :resultPosition
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :CandidacyResult ;
 	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastConstituencyGroup ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyAreaExtent
 	a owl:DatatypeProperty ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range geosparql:wktLiteral ; 
 	rdfs:seeAlso schema:polygon ;
+	rdfs:isDefinedBy : ;
 .
 geosparql:wktLiteral
 	a rdfs:Datatype ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyAreaLatitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range xsd:decimal ;
 	rdfs:subPropertyOf :latitude ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyAreaLongitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range xsd:decimal ;
 	rdfs:subPropertyOf :longitude ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupOnsCode
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :onsCode ;
 	rdfs:domain :OnsConstituencyGroup ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :onsCode
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :OnsThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
+	rdfs:isDefinedBy : ;
 .
 :contactPointMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisContactPoint ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
+	rdfs:isDefinedBy : ;
 .
 :latitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :GeographicalThing ;
 	rdfs:range xsd:decimal ;
+	rdfs:isDefinedBy : ;
 .
 :longitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :GeographicalThing ;
 	rdfs:range xsd:decimal ;
+	rdfs:isDefinedBy : ;
 .
 :partyMembershipStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PartyMembership ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyMembershipStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBodyMembership ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :FormalBody ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :groupStartDate ;
+	rdfs:isDefinedBy : ;
 .
 :focusPeriodStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :FocusPeriod ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
+	rdfs:isDefinedBy : ;
 .
 :focusPeriodEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :FocusPeriod ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
+	rdfs:isDefinedBy : ;
 .
 :partyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastPartyMembership ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyMembershipEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastFormalBodyMembership ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastFormalBody ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :groupEndDate ;
+	rdfs:isDefinedBy : ;
 .
 :partyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisParty ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
+	rdfs:isDefinedBy : ;
 .
 :electionTypeMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisElectionType ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
+	rdfs:isDefinedBy : ;
 .
 :name
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :NamedThing ;
 	rdfs:range xsd:string ;
-  	rdfs:subPropertyOf rdfs:label ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:isDefinedBy : ;
 .
 :partyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Party ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
+	rdfs:isDefinedBy : ;
 .
 :houseName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :House ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :FormalBodyType ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatTypeDescription
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :houseSeatTypeMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisHouseSeatType ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
+	rdfs:isDefinedBy : ;
 .
 :genderName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Gender ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :genderMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MnisGender ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :mnisId ;
+	rdfs:isDefinedBy : ;
 .
 :electionName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Election ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :electionTypeName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :ElectionType ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :constituencyGroupName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
+	rdfs:isDefinedBy : ;
 .
 :positionName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Position ;
 	rdfs:range xsd:string ;
 	rdfs:subPropertyOf :name ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodStartDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :startDate ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :PastParliamentPeriod ;
 	rdfs:range xsd:date ;
 	rdfs:subPropertyOf :endDate ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentPeriodNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ParliamentPeriod ;
 	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy : ;
 .
 :thresholdAttainmentAt 
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ThresholdAttainment ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :action 
 	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :background 
 	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :additionalDetails 
 	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :createdAt 
 	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :updatedAt 
 	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :closedAt 
 	a owl:DatatypeProperty ;
 	rdfs:domain :EPetition ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :signatureCount 
 	a owl:DatatypeProperty ;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy : ;
 .
 :signatureCountRetrievedAt 
 	a owl:DatatypeProperty ;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :thresholdName
 	a owl:DatatypeProperty ;
 	rdfs:domain :Threshold ;
 	rdfs:range xsd:string ;
-.	
+	rdfs:isDefinedBy : ;
+.
 :thresholdSignatureNumber
 	a owl:DatatypeProperty ;
 	rdfs:domain :Threshold ;
 	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy : ;
 .
 :governmentResponseSummary
 	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :governmentResponseDetails
 	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :governmentResponseCreatedAt
 	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :governmentResponseUpdatedAt
 	a owl:DatatypeProperty ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :moderatedAt
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Moderation ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :approvedAt
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :moderatedAt ;
 	rdfs:domain :Approval ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :rejectedAt
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :moderatedAt ;
 	rdfs:domain :Rejection ;
 	rdfs:range xsd:dateTime ;
+	rdfs:isDefinedBy : ;
 .
 :rejectionDetails
 	a owl:DatatypeProperty ;
 	rdfs:domain :Rejection ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :rejectionCodeName
 	a owl:DatatypeProperty ;
 	rdfs:domain :RejectionCode ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :debateDate
 	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :debateProposedDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :proposedStartDate ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :debateTranscriptUrl
 	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :debateVideoUrl
 	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :debateOverview
 	a owl:DatatypeProperty ;
 	rdfs:domain :Debate ;
 	rdfs:range xsd:string ;
-.		
+	rdfs:isDefinedBy : ;
+.
 :proposedStartDate
 	a owl:DatatypeProperty ;
 	rdfs:domain owl:Thing ;
 	rdfs:range xsd:date ;	
+	rdfs:isDefinedBy : ;
 .
 :proposedEndDate
 	a owl:DatatypeProperty ;
 	rdfs:domain owl:Thing ;
 	rdfs:range xsd:date ;	
+	rdfs:isDefinedBy : ;
 .
 :incumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastIncumbency ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :groupEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastGroup ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :parliamentaryIncumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :govRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :GovRegisterThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :countryGovRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :govRegisterId ;
 	rdfs:domain :GovRegisterCountry ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :countryName
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Country ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :countryOfficialName
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Country ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :countryCitizenNames
 	a owl:DatatypeProperty ;
 	rdfs:domain :Country ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :govRegisterCountryStartDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :GovRegisterCountry ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :govRegisterCountryEndDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :GovRegisterCountry ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :territoryGovRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :govRegisterId ;
 	rdfs:domain :GovRegisterTerritory ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :territoryName
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Territory ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :territoryOfficialName
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Territory ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :govRegisterTerritoryStartDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :startDate ;
 	rdfs:domain :GovRegisterTerritory ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :govRegisterTerritoryEndDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :GovRegisterTerritory ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy : ;
 .
 :personImageFaceCentrePoint
 	a owl:DatatypeProperty ;
 	rdfs:domain :PersonImage ;
 	rdfs:range geosparql:wktLiteral ; 
 	rdfs:comment "The coordinates within an image marking the centrepoint of the face, for use in cropping" ;
+	rdfs:isDefinedBy : ;
 .
 :governmentIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisGovernmentIncumbency ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :governmentPositionMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisGovernmentPosition ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :governmentOrganisationGovRegisterId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :govRegisterId ;
 	rdfs:domain :GovRegisterGovernmentOrganisation ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :oppositionIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisOppositionIncumbency ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :oppositionPositionMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisOppositionPosition ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :commonsSeatIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisSeatIncumbency ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :lordsSeatIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisSeatIncumbency ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :partyMembershipMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisPartyMembership ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :groupName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
 	rdfs:domain :Group ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :mnisDepartmentId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisDepartmentGroup ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :formalBodyChairIncumbencyMnisId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisFormalBodyChairIncumbency ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :conceptLabel
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf rdfs:label ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :conceptSesId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :sesId ;
 	rdfs:domain :SesConcept ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :sesId
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :sesId ;
 	rdfs:domain :SesThing ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :conceptScopeNote
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
 :conceptDefinition
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf skos:definition ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy : ;
 .
