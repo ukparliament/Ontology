@@ -1790,7 +1790,6 @@ this:schema
 .
 geosparql:wktLiteral
 	a rdfs:Datatype ;
-	rdfs:isDefinedBy this:schema ;
 .
 :constituencyAreaLatitude
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
