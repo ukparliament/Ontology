@@ -626,6 +626,59 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .
+:Question
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:AnswerExpectation
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:OralAnswerExpectation 
+	a owl:Class ;
+	rdfs:subClassOf :AnswerExpectation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:WrittenAnswerExpectation 
+	a owl:Class ;
+	rdfs:subClassOf :AnswerExpectation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:Answer
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:OralAnswer
+	a owl:Class ;
+	rdfs:subClassOf :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:WrittenAnswer
+	a owl:Class ;
+	rdfs:subClassOf :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:AnsweringBodyAllocation 
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:AnsweringBody 
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:ParliamentaryQuestion
+	a owl:Class ;
+	rdfs:subClassOf :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:RoundRobin
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:PursuedThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
 ##########################OBJECT PROPERTIES##############################
 
 :formalBodyHasFocusPeriod
@@ -1511,6 +1564,196 @@ this:schema
 	a owl:ObjectProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range :Concept ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasPursuedThing
+	a owl:ObjectProperty ;
+	rdfs:domain :Question ;
+	rdfs:range :PursuedThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:pursuedThingHasQuestion
+	a owl:ObjectProperty ;
+	owl:inverseOf :questionHasPursuedThing ;
+	rdfs:domain :PursuedThing;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasRoundRobin
+	a owl:ObjectProperty ;
+	rdfs:domain :Question ;
+	rdfs:range :RoundRobin ;
+	rdfs:isDefinedBy this:schema ;
+.
+:roundRobinHasQuestion
+	a owl:ObjectProperty ;
+	owl:inverseOf :questionHasRoundRobin ;
+	rdfs:domain :RoundRobin;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasAnswerExpectation
+	a owl:ObjectProperty ; 
+	rdfs:domain :Question ;
+	rdfs:range :AnswerExpectation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerExpectationHasQuestion
+	a owl:ObjectProperty ; 
+	owl:inverseOf :questionHasAnswerExpectation ;
+	rdfs:domain :AnswerExpectation ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasAnsweringBodyAllocation
+	a owl:ObjectProperty ; 
+	rdfs:domain :Question ;
+	rdfs:range :AnsweringBodyAllocation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyAllocationHasQuestion
+	a owl:ObjectProperty, owl:FunctionalProperty ; 
+	owl:inverseOf :questionHasAnsweringBodyAllocation ;
+	rdfs:domain :AnsweringBodyAllocation ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyHasAnsweringBodyAllocation
+	a owl:ObjectProperty ; 
+	rdfs:domain :AnsweringBody ;
+	rdfs:range :AnsweringBodyAllocation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyAllocationHasAnsweringBody
+	a owl:ObjectProperty, owl:FunctionalProperty ; 
+	owl:inverseOf :answeringBodyHasAnsweringBodyAllocation ;
+	rdfs:domain :AnsweringBodyAllocation ;
+	rdfs:range :AnsweringBody ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyHasAnswer
+	a owl:ObjectProperty ; 
+	rdfs:domain :AnsweringBody ;
+	rdfs:range :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerHasAnsweringBody
+	a owl:ObjectProperty ; 
+	owl:inverseOf :answeringBodyHasAnswer ;
+	rdfs:domain :Answer ;
+	rdfs:range :AnsweringBody ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyHasOralAnswer
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answeringBodyHasAnswer ;
+	rdfs:domain :AnsweringBody ;
+	rdfs:range :OralAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:oralAnswerHasAnsweringBody
+	a owl:ObjectProperty ; 
+	owl:inverseOf :answeringBodyHasOralAnswer ;
+	rdfs:subPropertyOf :answerHasAnsweringBody ;
+	rdfs:domain :OralAnswer ;
+	rdfs:range :AnsweringBody ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyHasWrittenAnswer
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answeringBodyHasAnswer ;
+	rdfs:domain :AnsweringBody ;
+	rdfs:range :WrittenAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:writtenAnswerHasAnsweringBody
+	a owl:ObjectProperty ; 
+	owl:inverseOf :answeringBodyHasWrittenAnswer ;
+	rdfs:subPropertyOf :answerHasAnsweringBody ;
+	rdfs:domain :WrittenAnswer ;
+	rdfs:range :AnsweringBody ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasOralAnswerExpectation
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :questionHasAnswerExpectation ;
+	rdfs:domain :Question ;
+	rdfs:range :OralAnswerExpectation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:oralAnswerExpectationHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answerExpectationHasQuestion ;
+	owl:inverseOf :questionHasOralAnswerExpectation ;
+	rdfs:domain :OralAnswerExpectation ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasWrittenAnswerExpectation
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :questionHasAnswerExpectation ;
+	rdfs:domain :Question ;
+	rdfs:range :WrittenAnswerExpectation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:writtenAnswerExpectationHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answerExpectationHasQuestion ;
+	owl:inverseOf :questionHasWrittenAnswerExpectation ;
+	rdfs:domain :WrittenAnswerExpectation ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasAnswer
+	a owl:ObjectProperty ; 
+	rdfs:domain :Question ;
+	rdfs:range :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerHasQuestion
+	a owl:ObjectProperty ; 
+	owl:inverseOf :questionHasAnswer ;
+	rdfs:domain :Answer ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyAllocationReplacesAnsweringBodyAllocation
+	a owl:ObjectProperty ; 
+	rdfs:domain :AnsweringBodyAllocation ;
+	rdfs:range :AnsweringBodyAllocation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyAllocationReplacedByAnsweringBodyAllocation
+	a owl:ObjectProperty ; 
+	owl:inverseOf :answeringBodyAllocationReplacesAnsweringBodyAllocation ;
+	rdfs:domain :AnsweringBodyAllocation ;
+	rdfs:range :AnsweringBodyAllocation ;
+	rdfs:isDefinedBy this:schema ;
+.
+:askingPersonHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:domain :Person ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasAskingPerson
+	a owl:ObjectProperty ; 
+	owl:inverseOf :askingPersonHasQuestion ;
+	rdfs:domain :Question ;
+	rdfs:range :Person ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringPersonHasAnswer
+	a owl:ObjectProperty ; 
+	rdfs:domain :Person ;
+	rdfs:range :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerHasAnsweringPerson
+	a owl:ObjectProperty ; 
+	owl:inverseOf :answeringPersonHasAnswer ;
+	rdfs:domain :Answer ;
+	rdfs:range :Person ;
 	rdfs:isDefinedBy this:schema ;
 .
 ########################DATATYPE PROPERTIES##############################
@@ -2418,5 +2661,58 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf skos:definition ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionText
+	a owl:DatatypeProperty ; 
+	rdfs:domain :Question ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHeading
+	a owl:DatatypeProperty ;
+	rdfs:domain :Question ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionAskedAt	
+	a owl:DatatypeProperty ; 
+	rdfs:domain :Question ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerExpectationStartDate 
+	a owl:DatatypeProperty ; 
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :AnswerExpectation ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerExpectationEndDate
+	a owl:DatatypeProperty ; 
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :AnswerExpectation ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:oralAnswerExpectationSurrenderedAt
+	a owl:DatatypeProperty ; 
+	rdfs:subPropertyOf :answerExpectationEndDate ;
+	rdfs:domain :OralAnswerExpectation ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:oralAnswerExpectationTimedOutAt
+	a owl:DatatypeProperty ; 
+	rdfs:subPropertyOf :answerExpectationEndDate ;
+	rdfs:domain :OralAnswerExpectation ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:parliamentaryQuestionWithdrawnOn
+	a owl:DatatypeProperty ; 
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :ParliamentaryQuestion ;
+	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
