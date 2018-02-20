@@ -1,5 +1,5 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ output extension=".sparql" #>
+<#@ output extension=".sparql" encoding="utf-8" #>
 
 <#string filePath=this.Host.ResolvePath("..\\Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl");
 bool isLastPrefix=false;

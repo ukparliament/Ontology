@@ -39,7 +39,10 @@ $subscriptionKey=$subscription.PrimaryKey
 $api="https://$APIManagementName.azure-api.net"
 $header=@{"Ocp-Apim-Subscription-Key"="$subscriptionKey"; "Api-Version"=$APIPrefix}
 
+Log "Read file in utf-8"
+$txt=Get-Content $OntologyFileLocation -Encoding UTF8
+
 Log "Add ontology"
-Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -InFile $OntologyFileLocation -ContentType "application/sparql-update" -TimeoutSec 180 -Headers $header -Verbose
+Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $txt -ContentType "application/sparql-update" -TimeoutSec 180 -Headers $header -Verbose
 
 Log "Job done"
