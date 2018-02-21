@@ -318,6 +318,7 @@ this:schema
 :PastParliamentaryIncumbency
 	a owl:Class;
 	rdfs:subClassOf :ParliamentaryIncumbency ;
+	rdfs:subClassOf :PastIncumbency ;
 #	rdfs:subClassOf :PastThing ;
 	rdfs:isDefinedBy this:schema ;
 .
@@ -2456,7 +2457,7 @@ geosparql:wktLiteral
 .
 :parliamentaryIncumbencyEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :endDate ;
+	rdfs:subPropertyOf :incumbencyEndDate ;
 	rdfs:domain :PastParliamentaryIncumbency ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
@@ -2666,6 +2667,12 @@ geosparql:wktLiteral
 :questionText
 	a owl:DatatypeProperty ; 
 	rdfs:domain :Question ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerText
+	a owl:DatatypeProperty ; 
+	rdfs:domain :Answer ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
