@@ -820,6 +820,7 @@ this:schema
 .
 :governmentIncumbencyHasGovernmentPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :incumbencyHasPerson ;
 	rdfs:domain :GovernmentIncumbency ;
 	rdfs:range :GovernmentPerson ;
 	rdfs:isDefinedBy this:schema ;
@@ -827,18 +828,21 @@ this:schema
 :governmentPersonHasGovernmentIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :governmentIncumbencyHasGovernmentPerson ;
+	rdfs:subPropertyOf :personHasIncumbency ;
 	rdfs:domain :GovernmentPerson ;
 	rdfs:range :GovernmentIncumbency ;
 	rdfs:isDefinedBy this:schema ;
 .
 :oppositionIncumbencyHasOppositionPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :incumbencyHasPosition ;
 	rdfs:domain :OppositionIncumbency ;
 	rdfs:range :OppositionPosition ;
 	rdfs:isDefinedBy this:schema ;
 .
 :oppositionPositionHasOppositionIncumbency
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :positionHasIncumbency ;
 	owl:inverseOf :oppositionIncumbencyHasOppositionPosition ;
 	rdfs:domain :OppositionPosition ;
 	rdfs:range :OppositionIncumbency ;
@@ -846,6 +850,7 @@ this:schema
 .
 :oppositionIncumbencyHasOppositionPerson
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :incumbencyHasPerson ;
 	rdfs:domain :OppositionIncumbency ;
 	rdfs:range :OppositionPerson ;
 	rdfs:isDefinedBy this:schema ;
@@ -853,6 +858,7 @@ this:schema
 :oppositionPersonHasOppositionIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :oppositionIncumbencyHasOppositionPerson ;
+	rdfs:subPropertyOf :personHasIncumbency ;
 	rdfs:domain :OppositionPerson ;
 	rdfs:range :OppositionIncumbency ;
 	rdfs:isDefinedBy this:schema ;
