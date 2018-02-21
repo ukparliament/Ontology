@@ -805,12 +805,14 @@ this:schema
 .
 :governmentIncumbencyHasGovernmentPosition
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :incumbencyHasPosition ;
 	rdfs:domain :GovernmentIncumbency ;
 	rdfs:range :GovernmentPosition ;
 	rdfs:isDefinedBy this:schema ;
 .
 :governmentPositionHasGovernmentIncumbency
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :positionHasIncumbency ;
 	owl:inverseOf :governmentIncumbencyHasGovernmentPosition ;
 	rdfs:domain :GovernmentPosition ;
 	rdfs:range :GovernmentIncumbency ;
