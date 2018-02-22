@@ -697,6 +697,7 @@ this:schema
 .
 :formalBodyHasFormalBodyType
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :thingHasType ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyType ;
 	rdfs:isDefinedBy this:schema ;
@@ -753,12 +754,14 @@ this:schema
 .
 :formalBodyHasFormalBodyChair
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :groupHasPosition ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyChair ;
 	rdfs:isDefinedBy this:schema ;
 .
 :formalBodyChairHasFormalBody
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :positionHasGroup ;
 	owl:inverseOf :formalBodyHasFormalBodyChair ;
 	rdfs:domain :FormalBodyChair ;
 	rdfs:range :FormalBody ;
@@ -975,6 +978,7 @@ this:schema
 .
 :personImageHasPerson
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :imageHasImageSubject ;
 	rdfs:domain :PersonImage ;
 	rdfs:range :Person ;
 	rdfs:isDefinedBy this:schema ;
@@ -982,12 +986,14 @@ this:schema
 :personHasPersonImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :personImageHasPerson ;
+	rdfs:subPropertyOf :imageSubjectHasImage ;
 	rdfs:domain :Person ;
 	rdfs:range :PersonImage ;
 	rdfs:isDefinedBy this:schema ;
 .
 :logoImageHasLogo
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :imageHasImageSubject ;
 	rdfs:domain :LogoImage ;
 	rdfs:range :Logo ;
 	rdfs:isDefinedBy this:schema ;
@@ -995,12 +1001,14 @@ this:schema
 :logoHasLogoImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :logoImageHasLogo ;
+	rdfs:subPropertyOf :imageSubjectHasImage ;
 	rdfs:domain :Logo ;
 	rdfs:range :LogoImage ;
 	rdfs:isDefinedBy this:schema ;
 .
 :memberImageHasMember
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :personImageHasPerson ;
 	rdfs:domain :MemberImage ;
 	rdfs:range :Member ;
 	rdfs:isDefinedBy this:schema ;
@@ -1008,6 +1016,7 @@ this:schema
 :memberHasMemberImage
 	a owl:ObjectProperty ;
 	owl:inverseOf :memberImageHasMember ;
+	rdfs:subPropertyOf :personHasPersonImage ;
 	rdfs:domain :Member ;
 	rdfs:range :MemberImage ;
 	rdfs:isDefinedBy this:schema ;
@@ -1106,6 +1115,7 @@ this:schema
 .
 :parliamentaryIncumbencyHasMember
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :incumbencyHasPerson ;
 	rdfs:domain :ParliamentaryIncumbency ;
 	rdfs:range :Member ;
 	rdfs:isDefinedBy this:schema ;
@@ -1113,6 +1123,7 @@ this:schema
 :memberHasParliamentaryIncumbency
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :parliamentaryIncumbencyHasMember ;
+	rdfs:subPropertyOf :personHasIncumbency ;
 	rdfs:domain :Member ;
 	rdfs:range :ParliamentaryIncumbency ;
 	rdfs:isDefinedBy this:schema ;
@@ -1321,6 +1332,7 @@ this:schema
 :contactPointHasParliamentaryIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :parliamentaryIncumbencyHasContactPoint ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :ParliamentaryIncumbency ;
 	rdfs:isDefinedBy this:schema ;
@@ -1335,6 +1347,7 @@ this:schema
 :contactPointHasElectoralIncumbency
 	a owl:ObjectProperty ;
 	owl:inverseOf :electoralIncumbencyHasContactPoint ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :ElectoralIncumbency ;
 	rdfs:isDefinedBy this:schema ;
@@ -1349,6 +1362,7 @@ this:schema
 :contactPointHasPerson
 	a owl:ObjectProperty ;
 	owl:inverseOf :personHasContactPoint ;
+	rdfs:subPropertyOf :contactPointHasContactableThing ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :Person ;
 	rdfs:isDefinedBy this:schema ;
