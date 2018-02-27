@@ -680,6 +680,12 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .
+:MnisAnsweringBody 
+	a owl:Class ;
+	rdfs:subClassOf :AnsweringBody ;
+#	rdfs:subClassOf :MnisThing ;
+	rdfs:isDefinedBy this:schema ;
+.
 :ParliamentaryQuestion
 	a owl:Class ;
 	rdfs:subClassOf :Question ;
@@ -2769,6 +2775,13 @@ geosparql:wktLiteral
 	a owl:DatatypeProperty ; 
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :EqmThing ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answeringBodyMnisId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :mnisId ;
+	rdfs:domain :MnisAnsweringBody ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
