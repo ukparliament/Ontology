@@ -678,6 +678,7 @@ this:schema
 .
 :AnsweringBody 
 	a owl:Class ;
+	rdfs:subClassOf :Group ;
 	rdfs:isDefinedBy this:schema ;
 .
 :MnisAnsweringBody 
