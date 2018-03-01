@@ -2730,6 +2730,12 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
+:answerGivenDate	
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Answer ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
 :answerExpectationStartDate 
 	a owl:DatatypeProperty ; 
 	rdfs:subPropertyOf :startDate ;
