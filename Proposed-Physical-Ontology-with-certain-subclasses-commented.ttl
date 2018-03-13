@@ -700,8 +700,24 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .
+:IncumbencyInterruption
+	a owl:Class ;
+.
 ##########################OBJECT PROPERTIES##############################
 
+:incumbencyHasIncumbencyInterruption
+	a owl:ObjectProperty ;
+	rdfs:domain :Incumbency ;
+	rdfs:range :IncumbencyInterruption ;
+	rdfs:isDefinedBy this:schema ;
+.
+:incumbencyInterruptionHasIncumbency
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :incumbencyHasIncumbencyInterruption ;
+	rdfs:domain :IncumbencyInterruption ;
+	rdfs:range :Incumbency ;
+	rdfs:isDefinedBy this:schema ;
+.
 :formalBodyHasFocusPeriod
 	a owl:ObjectProperty ;
 	rdfs:domain :FormalBody ;
@@ -2790,5 +2806,19 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :mnisId ;
 	rdfs:domain :MnisAnsweringBody ;
 	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:incumbencyInterruptionStartDate	
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :IncumbencyInterruption ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:incumbencyInterruptionEndDate	
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :IncumbencyInterruption ;
+	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
