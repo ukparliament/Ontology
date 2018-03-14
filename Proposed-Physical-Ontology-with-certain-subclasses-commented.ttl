@@ -702,6 +702,7 @@ this:schema
 .
 :IncumbencyInterruption
 	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
 .
 ##########################OBJECT PROPERTIES##############################
 
