@@ -704,6 +704,12 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .
+:PastIncumbencyInterruption
+	a owl:Class ;
+	rdfs:subClassOf :IncumbencyInterruption ;
+#	rdfs:subClassOf :PastThing ;
+	rdfs:isDefinedBy this:schema ;
+.
 ##########################OBJECT PROPERTIES##############################
 
 :incumbencyHasIncumbencyInterruption
@@ -2819,7 +2825,7 @@ geosparql:wktLiteral
 :incumbencyInterruptionEndDate	
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :endDate ;
-	rdfs:domain :IncumbencyInterruption ;
+	rdfs:domain :PastIncumbencyInterruption ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
