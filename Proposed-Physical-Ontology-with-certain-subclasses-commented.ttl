@@ -489,6 +489,16 @@ this:schema
 	rdfs:subClassOf :Group;
 	rdfs:isDefinedBy this:schema ;
 .
+:ParliamentaryCommittee
+	a owl:Class ;
+	rdfs:subClassOf :FormalBody;
+	rdfs:isDefinedBy this:schema ;
+.
+:SelectCommittee
+	a owl:Class ;
+	rdfs:subClassOf :ParliamentaryCommittee;
+	rdfs:isDefinedBy this:schema ;
+.
 :PastFormalBody
 	a owl:Class ;
 	rdfs:subClassOf :FormalBody ;
@@ -2828,4 +2838,17 @@ geosparql:wktLiteral
 	rdfs:domain :PastIncumbencyInterruption ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
+.
+
+############################RESTRICTIONS################################
+
+:SelectCommittee
+	owl:equivalentClass [
+		owl:onProperty :formalBodyHasFormalBodyType ;
+		owl:someValuesFrom [
+			a owl:Restriction ;
+			owl:onProperty :formalBodyTypeName ;
+			owl:hasValue "Parliamentary - Select"
+		]
+	]
 .
