@@ -2841,14 +2841,14 @@ geosparql:wktLiteral
 .
 
 ############################RESTRICTIONS################################
-
-:SelectCommittee
-	owl:equivalentClass [
-		owl:onProperty :formalBodyHasFormalBodyType ;
-		owl:someValuesFrom [
-			a owl:Restriction ;
-			owl:onProperty :formalBodyTypeName ;
-			owl:hasValue "Parliamentary - Select"
-		]
-	]
-.
+####
+####:SelectCommittee
+####	owl:equivalentClass [
+####		owl:onProperty :formalBodyHasFormalBodyType ;
+####		owl:someValuesFrom [
+####			a owl:Restriction ;
+####			owl:onProperty :formalBodyTypeName ;
+####			owl:hasValue "Parliamentary - Select"
+####		]
+####	]
+####.
