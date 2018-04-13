@@ -740,6 +740,41 @@ this:schema
 #	rdfs:subClassOf :PastThing ;
 	rdfs:isDefinedBy this:schema ;
 .
+:WorkPackage
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:Procedure
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:ProcedureStep
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:BusinessItem
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:ProcedureRoute
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.
+:AllowedProcedureRoute
+	a owl:Class ;
+	rdfs:subClassOf :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:CausedProcedureRoute
+	a owl:Class ;
+	rdfs:subClassOf :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:PrecludedProcedureRoute
+	a owl:Class ;
+	rdfs:subClassOf :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
 ##########################OBJECT PROPERTIES##############################
 
 :incumbencyHasIncumbencyInterruption
@@ -1852,6 +1887,129 @@ this:schema
 	rdfs:range :Person ;
 	rdfs:isDefinedBy this:schema ;
 .
+:workPackageHasProcedure
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :Procedure ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureHasWorkPackage
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageHasProcedure ;
+	rdfs:domain :Procedure ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemHasProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepHasBusinessItem
+	a owl:ObjectProperty ;
+	owl:inverseOf :businessItemHasProcedureStep ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :BusinessItem ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureRouteIsToProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureRoute ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepIsFromProcedureRoute
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureRouteIsToProcedureStep ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureRouteIsFromProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureRoute ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepIsToProcedureRoute
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureRouteIsFromProcedureStep ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepCausesCausedProcedureRoute
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :CausedProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:causedProcedureRouteIsCausedByProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
+	owl:inverseOf :procedureStepCausesCausedProcedureRoute ;
+	rdfs:domain :CausedProcedureRoute ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepAllowsAllowedProcedureRoute
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :AllowedProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:allowedProcedureRouteIsAllowedByProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
+	owl:inverseOf :procedureStepAllowsAllowedProcedureRoute ;
+	rdfs:domain :AllowedProcedureRoute ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepPrecludesPrecludedProcedureRoute
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :PrecludedProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:precludedProcedureRouteIsPrecludedByProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
+	owl:inverseOf :procedureStepPrecludesPrecludedProcedureRoute ;
+	rdfs:domain :PrecludedProcedureRoute ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureRouteHasProcedure
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureRoute ;
+	rdfs:range :Procedure ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureHasProcedureRoute
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureRouteHasProcedure ;
+	rdfs:domain :Procedure ;
+	rdfs:range :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageHasBusinessItem
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :BusinessItem ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemHasWorkPackage
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageHasBusinessItem ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
 ########################DATATYPE PROPERTIES##############################
 
 :formalBodyName
@@ -2857,6 +3015,27 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :endDate ;
 	rdfs:domain :PastIncumbencyInterruption ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :Procedure ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
 
