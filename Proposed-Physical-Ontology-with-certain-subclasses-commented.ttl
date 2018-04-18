@@ -775,6 +775,10 @@ this:schema
 	rdfs:subClassOf :ProcedureRoute ;
 	rdfs:isDefinedBy this:schema ;
 .
+:Laying
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.	
 ##########################OBJECT PROPERTIES##############################
 
 :incumbencyHasIncumbencyInterruption
@@ -1997,6 +2001,19 @@ this:schema
 	rdfs:range :ProcedureRoute ;
 	rdfs:isDefinedBy this:schema ;
 .
+:procedureStepHasHouse
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :House ;
+	rdfs:isDefinedBy this:schema ;
+.
+:houseHasProcedureStep
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
 :workPackageHasBusinessItem
 	a owl:ObjectProperty ;
 	rdfs:domain :WorkPackage ;
@@ -3031,6 +3048,19 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
+:procedureStepColloquialName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepDescription
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
 :workPackageName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
@@ -3038,7 +3068,12 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
-
+:layingDate
+	a owl:DatatypeProperty ;
+	rdfs:domain :Laying ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
 ############################RESTRICTIONS################################
 
 :SelectCommittee
