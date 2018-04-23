@@ -2029,6 +2029,13 @@ this:schema
 .
 ########################DATATYPE PROPERTIES##############################
 
+:date
+	a owl:DatatypeProperty ;
+	rdfs:domain :TemporalThing ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+
 :formalBodyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :groupName ;
@@ -2080,12 +2087,14 @@ this:schema
 .
 :startDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :date ;
 	rdfs:domain :TemporalThing ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
 :endDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :date ;
 	rdfs:domain :PastThing ;
 	rdfs:range xsd:date ;
 	rdfs:comment "By convention, endDate is only used after the date." ;
@@ -3070,6 +3079,7 @@ geosparql:wktLiteral
 .
 :layingDate
 	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :date ;
 	rdfs:domain :Laying ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
