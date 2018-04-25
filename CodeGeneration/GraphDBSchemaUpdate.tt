@@ -21,6 +21,9 @@ if ((isLastPrefix==false) && (hasSeenPrefix==true))
 INSERT {
   [] <http://www.ontotext.com/owlim/system#schemaTransaction> [] .
 <#}
+if (line.StartsWith("###"))
+{#><#}
+else
 if (line.StartsWith("#"))
 {#>
 <#= line.Remove(0,1) #>
