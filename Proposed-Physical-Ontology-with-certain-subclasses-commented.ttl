@@ -637,12 +637,6 @@ this:schema
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
 .
-:SesConcept
-	a owl:Class ;
-#	rdfs:subClassOf :SesThing ;
-	rdfs:subClassOf :Concept ;
-	rdfs:isDefinedBy this:schema ;
-.
 :FocusPeriod
 	a owl:Class ;
 	rdfs:comment "The period during which a thing is focussed upon" ;	
@@ -2915,16 +2909,8 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
-:conceptSesId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :sesId ;
-	rdfs:domain :SesConcept ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
 :sesId
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :sesId ;
 	rdfs:domain :SesThing ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
