@@ -778,6 +778,21 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .	
+:WorkPackageableThing
+	a owl:Class ;
+	rdfs:comment "Any thing which is expressed as a Work Package - for example Statutory Instruments" ;		
+	rdfs:isDefinedBy this:schema ;
+.
+:StatutoryInstrument
+	a owl:Class ;
+	rdfs:subClassOf :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:ProposedStatutoryInstrument
+	a owl:Class ;
+	rdfs:subClassOf :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
 ##########################OBJECT PROPERTIES##############################
 
 :incumbencyHasIncumbencyInterruption
@@ -2041,6 +2056,19 @@ this:schema
 	rdfs:range :WorkPackage ;
 	rdfs:isDefinedBy this:schema ;
 .
+:workPackageHasWorkPackageableThing
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingHasWorkPackage
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageHasWorkPackageableThing ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
 ########################DATATYPE PROPERTIES##############################
 
 :date
@@ -3088,6 +3116,37 @@ geosparql:wktLiteral
 	rdfs:subPropertyOf :date ;
 	rdfs:domain :Laying ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :date ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:statutoryInstrumentNumber
+	a owl:DatatypeProperty ;
+	rdfs:domain :StatutoryInstrument ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingName
+	a owl:DatatypeProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingComingIntoForceDate
+	a owl:DatatypeProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingComingIntoForceNote
+	a owl:DatatypeProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
 ############################RESTRICTIONS################################
