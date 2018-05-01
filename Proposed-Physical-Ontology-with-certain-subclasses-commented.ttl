@@ -468,6 +468,11 @@ this:schema
 	rdfs:subClassOf :WebLink;
 	rdfs:isDefinedBy this:schema ;
 .
+:BusinessItemWebLink
+	a owl:Class ;
+	rdfs:subClassOf :WebLink;
+	rdfs:isDefinedBy this:schema ;
+.
 :Group 
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -1663,6 +1668,21 @@ this:schema
 	owl:inverseOf :personHasPersonWebLink ;
 	rdfs:domain :PersonWebLink ;
 	rdfs:range :Person ;
+	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemHasPersonWebLink
+	a owl:ObjectProperty ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range :BusinessItemWebLink ;
+	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemWebLinkHasBusinessItem
+	a owl:ObjectProperty ;
+	owl:inverseOf :businessItemHasPersonWebLink ;
+	rdfs:domain :BusinessItemWebLink ;
+	rdfs:range :BusinessItem ;
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
 	rdfs:isDefinedBy this:schema ;
 .
