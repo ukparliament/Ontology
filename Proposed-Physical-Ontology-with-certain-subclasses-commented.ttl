@@ -793,6 +793,11 @@ this:schema
 	rdfs:subClassOf :WorkPackageableThing ;
 	rdfs:isDefinedBy this:schema ;
 .
+:IndexingAndSearchThing
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
+	rdfs:isDefinedBy this:schema ;
+.	
 ##########################OBJECT PROPERTIES##############################
 
 :incumbencyHasIncumbencyInterruption
@@ -3189,6 +3194,12 @@ geosparql:wktLiteral
 :workPackageableThingComingIntoForceNote
 	a owl:DatatypeProperty ;
 	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:indexingAndSearchUri
+	a owl:DatatypeProperty ;
+	rdfs:domain :IndexingAndSearchThing ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
