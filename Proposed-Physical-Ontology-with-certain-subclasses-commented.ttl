@@ -2069,6 +2069,49 @@ this:schema
 	rdfs:range :WorkPackage ;
 	rdfs:isDefinedBy this:schema ;
 .
+:workPackageHasStatutoryInstrument
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageHasWorkPackageableThing ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :StatutoryInstrument ;
+	rdfs:isDefinedBy this:schema ;
+.
+:statutoryInstrumentHasWorkPackage
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageableThingHasWorkPackage ;
+	owl:inverseOf :workPackageHasStatutoryInstrument ;
+	rdfs:domain :StatutoryInstrument ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageHasProposedStatutoryInstrument
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageHasWorkPackageableThing ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :ProposedStatutoryInstrument ;
+	rdfs:isDefinedBy this:schema ;
+.
+:proposedStatutoryInstrumentHasWorkPackage
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageableThingHasWorkPackage ;
+	owl:inverseOf :workPackageHasProposedStatutoryInstrument ;
+	rdfs:domain :ProposedStatutoryInstrument ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingPrecedesWorkPackageableThing
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingFollowsWorkPackageableThing
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageableThingPrecedesWorkPackageableThing ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
 ########################DATATYPE PROPERTIES##############################
 
 :date
