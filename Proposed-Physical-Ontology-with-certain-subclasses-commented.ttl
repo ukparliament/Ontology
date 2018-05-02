@@ -473,6 +473,11 @@ this:schema
 	rdfs:subClassOf :WebLink;
 	rdfs:isDefinedBy this:schema ;
 .
+:WorkPackageableThingWebLink
+	a owl:Class ;
+	rdfs:subClassOf :WebLink;
+	rdfs:isDefinedBy this:schema ;
+.
 :Group 
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -1691,7 +1696,7 @@ this:schema
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
 	rdfs:isDefinedBy this:schema ;
 .
-:businessItemHasPersonWebLink
+:businessItemHasBusinessItemWebLink
 	a owl:ObjectProperty ;
 	rdfs:domain :BusinessItem ;
 	rdfs:range :BusinessItemWebLink ;
@@ -1703,6 +1708,21 @@ this:schema
 	owl:inverseOf :businessItemHasPersonWebLink ;
 	rdfs:domain :BusinessItemWebLink ;
 	rdfs:range :BusinessItem ;
+	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingHasWorkPackageableThingWebLink
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackageableThingWebLink ;
+	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingWebLinkHasWorkPackageableThing
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageableThingHasWorkPackageableThingWebLink ;
+	rdfs:domain :WorkPackageableThingWebLink ;
+	rdfs:range :WorkPackageableThing ;
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
 	rdfs:isDefinedBy this:schema ;
 .
