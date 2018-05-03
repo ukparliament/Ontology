@@ -47,8 +47,11 @@ Log "Size of the backup file: $($backup.Length)"
 Log "Clear repository"
 Invoke-RestMethod -Uri "$api/graph-store/repositories/Master/statements" -Method Delete -TimeoutSec 180 -Headers $header -Verbose
 
+Log "Read file in utf-8"
+$txt=Get-Content $OntologyFileLocation -Encoding UTF8
+
 Log "Add ontology"
-Invoke-RestMethod -Uri "$api/graph-store/repositories/Master/statements" -Method Post -InFile $OntologyFileLocation -ContentType "application/sparql-update" -TimeoutSec 180 -Headers $header -Verbose
+Invoke-RestMethod -Uri "$api/graph-store/repositories/Master/statements" -Method Post -Body $txt -ContentType "application/sparql-update" -TimeoutSec 180 -Headers $header -Verbose
 
 Log "Restore backup"
 Invoke-RestMethod -Uri "$api/graph-store/repositories/Master/statements" -Method Post -Body $backup -ContentType "application/x-trig" -TimeoutSec 360 -Headers $header -Verbose
