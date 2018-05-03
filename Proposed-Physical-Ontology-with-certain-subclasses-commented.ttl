@@ -781,6 +781,7 @@ this:schema
 .
 :Laying
 	a owl:Class ;
+	rdfs:subClassOf :BusinessItem ;
 	rdfs:isDefinedBy this:schema ;
 .	
 :WorkPackageableThing
@@ -790,12 +791,12 @@ this:schema
 .
 :StatutoryInstrument
 	a owl:Class ;
-	rdfs:subClassOf :WorkPackageableThing ;
+	rdfs:subClassOf :WorkPackageableThing, :LayableThing ;
 	rdfs:isDefinedBy this:schema ;
 .
 :ProposedStatutoryInstrument
 	a owl:Class ;
-	rdfs:subClassOf :WorkPackageableThing ;
+	rdfs:subClassOf :WorkPackageableThing, :LayableThing ;
 	rdfs:isDefinedBy this:schema ;
 .
 :IndexingAndSearchThing
@@ -803,8 +804,43 @@ this:schema
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
 .	
+:LayableThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.	
+:LayingBody
+	a owl:Class ;
+	rdfs:subClassOf :Group ;
+	rdfs:isDefinedBy this:schema ;
+.	
 ##########################OBJECT PROPERTIES##############################
 
+:layingHasLayingBody
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Laying ;
+	rdfs:range :LayingBody ;
+	rdfs:isDefinedBy this:schema ;
+.
+:layingBodyHasLaying
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :layingHasLayingBody ;
+	rdfs:domain :LayingBody ;
+	rdfs:range :Laying ;
+	rdfs:isDefinedBy this:schema ;
+.
+:layingHasLayableThing
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Laying ;
+	rdfs:range :LayableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:layableThingHasLaying
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :layingHasLayableThing ;
+	rdfs:domain :LayableThing ;
+	rdfs:range :Laying ;
+	rdfs:isDefinedBy this:schema ;
+.
 :incumbencyHasIncumbencyInterruption
 	a owl:ObjectProperty ;
 	rdfs:domain :Incumbency ;
@@ -1705,7 +1741,7 @@ this:schema
 .
 :businessItemWebLinkHasBusinessItem
 	a owl:ObjectProperty ;
-	owl:inverseOf :businessItemHasPersonWebLink ;
+	owl:inverseOf :businessItemHasBusinessItemWebLink ;
 	rdfs:domain :BusinessItemWebLink ;
 	rdfs:range :BusinessItem ;
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
@@ -3174,7 +3210,7 @@ geosparql:wktLiteral
 .
 :layingDate
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :date ;
+	rdfs:subPropertyOf :businessItemDate ;
 	rdfs:domain :Laying ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
@@ -3199,6 +3235,12 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 .
 :workPackageableThingComingIntoForceDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingTimeLimitForObjectionEndDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :WorkPackageableThing ;
 	rdfs:range xsd:date ;
