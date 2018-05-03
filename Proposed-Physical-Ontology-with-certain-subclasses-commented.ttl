@@ -769,6 +769,11 @@ this:schema
 	rdfs:subClassOf :ProcedureRoute ;
 	rdfs:isDefinedBy this:schema ;
 .
+:RequiredProcedureRoute
+	a owl:Class ;
+	rdfs:subClassOf :ProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
 :CausedProcedureRoute
 	a owl:Class ;
 	rdfs:subClassOf :ProcedureRoute ;
@@ -2060,6 +2065,21 @@ this:schema
 	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
 	owl:inverseOf :procedureStepAllowsAllowedProcedureRoute ;
 	rdfs:domain :AllowedProcedureRoute ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+.
+:procedureStepRequiresRequiredProcedureRoute
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :RequiredProcedureRoute ;
+	rdfs:isDefinedBy this:schema ;
+.
+:requiredProcedureRouteIsRequiredByProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
+	owl:inverseOf :procedureStepAllowsAllowedProcedureRoute ;
+	rdfs:domain :RequiredProcedureRoute ;
 	rdfs:range :ProcedureStep ;
 	rdfs:isDefinedBy this:schema ;
 .
