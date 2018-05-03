@@ -3193,7 +3193,7 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 .
 :workPackageableThingName
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :WorkPackageableThing ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
