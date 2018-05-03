@@ -3172,13 +3172,6 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
-:workPackageName
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
-	rdfs:domain :WorkPackage ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
 :layingDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :date ;
