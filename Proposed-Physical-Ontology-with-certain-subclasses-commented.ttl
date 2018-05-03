@@ -3187,7 +3187,7 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 .
 :statutoryInstrumentNumber
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :StatutoryInstrument ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
