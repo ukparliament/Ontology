@@ -468,6 +468,16 @@ this:schema
 	rdfs:subClassOf :WebLink;
 	rdfs:isDefinedBy this:schema ;
 .
+:BusinessItemWebLink
+	a owl:Class ;
+	rdfs:subClassOf :WebLink;
+	rdfs:isDefinedBy this:schema ;
+.
+:WorkPackageableThingWebLink
+	a owl:Class ;
+	rdfs:subClassOf :WebLink;
+	rdfs:isDefinedBy this:schema ;
+.
 :Group 
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -637,12 +647,6 @@ this:schema
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
 .
-:SesConcept
-	a owl:Class ;
-#	rdfs:subClassOf :SesThing ;
-	rdfs:subClassOf :Concept ;
-	rdfs:isDefinedBy this:schema ;
-.
 :FocusPeriod
 	a owl:Class ;
 	rdfs:comment "The period during which a thing is focussed upon" ;	
@@ -777,6 +781,26 @@ this:schema
 .
 :Laying
 	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+.	
+:WorkPackageableThing
+	a owl:Class ;
+	rdfs:comment "Any thing which is expressed as a Work Package - for example Statutory Instruments" ;		
+	rdfs:isDefinedBy this:schema ;
+.
+:StatutoryInstrument
+	a owl:Class ;
+	rdfs:subClassOf :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:ProposedStatutoryInstrument
+	a owl:Class ;
+	rdfs:subClassOf :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:IndexingAndSearchThing
+	a owl:Class ;
+	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
 .	
 ##########################OBJECT PROPERTIES##############################
@@ -1672,6 +1696,36 @@ this:schema
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
 	rdfs:isDefinedBy this:schema ;
 .
+:businessItemHasBusinessItemWebLink
+	a owl:ObjectProperty ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range :BusinessItemWebLink ;
+	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemWebLinkHasBusinessItem
+	a owl:ObjectProperty ;
+	owl:inverseOf :businessItemHasPersonWebLink ;
+	rdfs:domain :BusinessItemWebLink ;
+	rdfs:range :BusinessItem ;
+	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingHasWorkPackageableThingWebLink
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackageableThingWebLink ;
+	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingWebLinkHasWorkPackageableThing
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageableThingHasWorkPackageableThingWebLink ;
+	rdfs:domain :WorkPackageableThingWebLink ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
+	rdfs:isDefinedBy this:schema ;
+.
 :webLinkedThingHasWebLink
 	a owl:ObjectProperty ;
 	rdfs:domain :WebLinkedThing ;
@@ -2027,6 +2081,62 @@ this:schema
 	rdfs:range :WorkPackage ;
 	rdfs:isDefinedBy this:schema ;
 .
+:workPackageHasWorkPackageableThing
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingHasWorkPackage
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :workPackageHasWorkPackageableThing ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageHasStatutoryInstrument
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageHasWorkPackageableThing ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :StatutoryInstrument ;
+	rdfs:isDefinedBy this:schema ;
+.
+:statutoryInstrumentHasWorkPackage
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageableThingHasWorkPackage ;
+	owl:inverseOf :workPackageHasStatutoryInstrument ;
+	rdfs:domain :StatutoryInstrument ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageHasProposedStatutoryInstrument
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageHasWorkPackageableThing ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :ProposedStatutoryInstrument ;
+	rdfs:isDefinedBy this:schema ;
+.
+:proposedStatutoryInstrumentHasWorkPackage
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :workPackageableThingHasWorkPackage ;
+	owl:inverseOf :workPackageHasProposedStatutoryInstrument ;
+	rdfs:domain :ProposedStatutoryInstrument ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingPrecedesWorkPackageableThing
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingFollowsWorkPackageableThing
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageableThingPrecedesWorkPackageableThing ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range :WorkPackageableThing ;
+	rdfs:isDefinedBy this:schema ;
+.
 ########################DATATYPE PROPERTIES##############################
 
 :date
@@ -2121,7 +2231,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :mnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
@@ -2915,16 +3025,8 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
-:conceptSesId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :sesId ;
-	rdfs:domain :SesConcept ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
 :sesId
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf :sesId ;
 	rdfs:domain :SesThing ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
@@ -3070,18 +3172,48 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
-:workPackageName
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
-	rdfs:domain :WorkPackage ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
 :layingDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :date ;
 	rdfs:domain :Laying ;
 	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:businessItemDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :date ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:statutoryInstrumentNumber
+	a owl:DatatypeProperty ;
+	rdfs:domain :StatutoryInstrument ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingComingIntoForceDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+.
+:workPackageableThingComingIntoForceNote
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackageableThing ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+.
+:indexingAndSearchUri
+	a owl:DatatypeProperty ;
+	rdfs:domain :IndexingAndSearchThing ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
 ############################RESTRICTIONS################################
