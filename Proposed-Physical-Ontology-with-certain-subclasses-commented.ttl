@@ -2078,7 +2078,7 @@ this:schema
 :requiredProcedureRouteIsRequiredByProcedureStep
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
-	owl:inverseOf :procedureStepAllowsAllowedProcedureRoute ;
+	owl:inverseOf :procedureStepRequiresRequiredProcedureRoute ;
 	rdfs:domain :RequiredProcedureRoute ;
 	rdfs:range :ProcedureStep ;
 	rdfs:isDefinedBy this:schema ;
