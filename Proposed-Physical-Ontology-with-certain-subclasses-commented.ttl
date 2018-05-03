@@ -2082,13 +2082,13 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :workPackageHasWorkPackageableThing
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :WorkPackage ;
 	rdfs:range :WorkPackageableThing ;
 	rdfs:isDefinedBy this:schema ;
 .
 :workPackageableThingHasWorkPackage
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :workPackageHasWorkPackageableThing ;
 	rdfs:domain :WorkPackageableThing ;
 	rdfs:range :WorkPackage ;
@@ -2231,7 +2231,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :mnisId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf :externalIdentifier ;
 	rdfs:domain :MnisThing ;
 	rdfs:range xsd:string ;
