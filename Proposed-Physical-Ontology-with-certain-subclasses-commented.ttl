@@ -3215,13 +3215,6 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
-:procedureStepColloquialName
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :name ;
-	rdfs:domain :ProcedureStep ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
 :procedureStepDescription
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ProcedureStep ;
