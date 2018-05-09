@@ -696,6 +696,38 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .
+:CorrectingAnswer
+	a owl:Class ;
+	rdfs:comment "An answer that corrects another" ;		
+	rdfs:subClassOf :SubstantiveAnswer ;	
+	rdfs:isDefinedBy this:schema ;
+.
+:SinceCorrectedAnswer
+	a owl:Class ;
+	rdfs:comment "An answer that corrects another" ;			
+	rdfs:subClassOf :SubstantiveAnswer ;	
+	rdfs:isDefinedBy this:schema ;
+.
+:ProrogationAnswer
+	a owl:Class ;
+	rdfs:subClassOf :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:SubstantiveAnswer
+	a owl:Class ;
+	rdfs:subClassOf :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:DelegatedAnswer
+	a owl:Class ;
+	rdfs:subClassOf :SubstantiveAnswer ;	
+	rdfs:isDefinedBy this:schema ;
+.
+:HoldingAnswer
+	a owl:Class ;
+	rdfs:subClassOf :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
 :OralAnswer
 	a owl:Class ;
 	rdfs:subClassOf :Answer ;
@@ -711,6 +743,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :AnsweringBody 
+	a owl:Class ;
+	rdfs:subClassOf :Group ;
+	rdfs:isDefinedBy this:schema ;
+.
+:ArmsLengthBody 
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
 	rdfs:isDefinedBy this:schema ;
@@ -820,6 +857,49 @@ this:schema
 .	
 ##########################OBJECT PROPERTIES##############################
 
+:answerReplacesAnswer
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Answer ;
+	rdfs:range :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:answerIsReplacedByAnswer
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :answerReplacesAnswer ;
+	rdfs:domain :Answer ;
+	rdfs:range :Answer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:correctingAnswerReplacesSinceCorrectedAnswer
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :answerReplacesAnswer ;
+	rdfs:domain :CorrectingAnswer ;
+	rdfs:range :SinceCorrectedAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:sinceCorrectedAnswerIsReplacedByCorrectingAnswer
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :correctingAnswerReplacesSinceCorrectedAnswer ;
+	rdfs:subPropertyOf :answerIsReplacedByAnswer ;
+	rdfs:domain :SinceCorrectedAnswer ;
+	rdfs:range :CorrectingAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:substantiveAnswerReplacesHoldingAnswer
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :answerReplacesAnswer ;
+	rdfs:domain :SubstantiveAnswer ;
+	rdfs:range :HoldingAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:holdingAnswerIsReplacedBySubstantiveAnswer
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :substantiveAnswerReplacesHoldingAnswer ;
+	rdfs:subPropertyOf :answerIsReplacedByAnswer ;
+	rdfs:domain :HoldingAnswer ;
+	rdfs:range :SubstantiveAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
 :layingHasLayingBody
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Laying ;
@@ -1945,6 +2025,79 @@ this:schema
 	owl:inverseOf :questionHasAnswer ;
 	rdfs:domain :Answer ;
 	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasCorrectingAnswer
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :questionHasAnswer ;
+	rdfs:domain :Question ;
+	rdfs:range :CorrectingAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:correctingAnswerHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answerHasQuestion ;
+	owl:inverseOf :questionHasCorrectingAnswer ;
+	rdfs:domain :CorrectingAnswer ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasProrogationAnswer
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :questionHasAnswer ;
+	rdfs:domain :Question ;
+	rdfs:range :ProrogationAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:prorogationAnswerHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answerHasQuestion ;
+	owl:inverseOf :questionHasProrogationAnswer ;
+	rdfs:domain :ProrogationAnswer ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasSubstantiveAnswer
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :questionHasAnswer ;
+	rdfs:domain :Question ;
+	rdfs:range :SubstantiveAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:substantiveAnswerHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answerHasQuestion ;
+	owl:inverseOf :questionHasSubstantiveAnswer ;
+	rdfs:domain :SubstantiveAnswer ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:questionHasHoldingAnswer
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :questionHasAnswer ;
+	rdfs:domain :Question ;
+	rdfs:range :HoldingAnswer ;
+	rdfs:isDefinedBy this:schema ;
+.
+:holdingAnswerHasQuestion
+	a owl:ObjectProperty ; 
+	rdfs:subPropertyOf :answerHasQuestion ;
+	owl:inverseOf :questionHasHoldingAnswer ;
+	rdfs:domain :HoldingAnswer ;
+	rdfs:range :Question ;
+	rdfs:isDefinedBy this:schema ;
+.
+:delegatedAnswerHasArmsLengthBody
+	a owl:ObjectProperty ; 
+	rdfs:domain :DelegatedAnswer ;
+	rdfs:range :ArmsLengthBody ;
+	rdfs:isDefinedBy this:schema ;
+.
+:armsLengthBodyHasDelegatedAnswer
+	a owl:ObjectProperty ; 
+	owl:inverseOf :delegatedAnswerHasArmsLengthBody ;
+	rdfs:domain :ArmsLengthBody ;
+	rdfs:range :DelegatedAnswer ;
 	rdfs:isDefinedBy this:schema ;
 .
 :answeringBodyAllocationReplacesAnsweringBodyAllocation
