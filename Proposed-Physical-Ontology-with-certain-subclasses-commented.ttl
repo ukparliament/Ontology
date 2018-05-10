@@ -907,7 +907,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :layingBodyHasLaying
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:ObjectProperty ;
 	owl:inverseOf :layingHasLayingBody ;
 	rdfs:domain :LayingBody ;
 	rdfs:range :Laying ;
