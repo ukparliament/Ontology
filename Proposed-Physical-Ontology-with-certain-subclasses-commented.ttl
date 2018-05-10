@@ -3388,17 +3388,24 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
-:statutoryInstrumentNumber
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :StatutoryInstrument ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
 :statutoryInstrumentNumberPrefix
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :StatutoryInstrument ;
 	rdfs:range xsd:string ;
 	rdfs:comment "eg 'SI', 'SR'" ;
+	rdfs:isDefinedBy this:schema ;
+.
+:statutoryInstrumentNumberYear
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :StatutoryInstrument ;
+	rdfs:range xsd:integer ;
+	rdfs:comment "The year for the Statutory Instrument ID. Can be the laid year or made year" ;
+	rdfs:isDefinedBy this:schema ;
+.
+:statutoryInstrumentNumber
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :StatutoryInstrument ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
 :workPackageableThingName
