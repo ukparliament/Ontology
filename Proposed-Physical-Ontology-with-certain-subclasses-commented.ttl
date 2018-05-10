@@ -699,13 +699,13 @@ this:schema
 :CorrectingAnswer
 	a owl:Class ;
 	rdfs:comment "An answer that corrects another" ;		
-	rdfs:subClassOf :SubstantiveAnswer ;	
+	rdfs:subClassOf :Answer ;	
 	rdfs:isDefinedBy this:schema ;
 .
 :SinceCorrectedAnswer
 	a owl:Class ;
 	rdfs:comment "An answer that corrects another" ;			
-	rdfs:subClassOf :SubstantiveAnswer ;	
+	rdfs:subClassOf :Answer ;	
 	rdfs:isDefinedBy this:schema ;
 .
 :ProrogationAnswer
