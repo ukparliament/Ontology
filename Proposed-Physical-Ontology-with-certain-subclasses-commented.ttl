@@ -920,7 +920,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :layableThingHasLaying
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:ObjectProperty ;
 	owl:inverseOf :layingHasLayableThing ;
 	rdfs:domain :LayableThing ;
 	rdfs:range :Laying ;
@@ -1430,7 +1430,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 .
 :postalAddressHasContactPoint
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :contactPointHasPostalAddress ;
 	rdfs:domain :PostalAddress ;
 	rdfs:range :ContactPoint ;
