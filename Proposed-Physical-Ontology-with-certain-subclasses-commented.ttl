@@ -665,17 +665,15 @@ this:schema
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 .
-:EqmWrittenQuestion
+:IndexingAndSearchWrittenQuestion
 	a owl:Class ;
 	rdfs:subClassOf :Question ;
-#	rdfs:subClassOf :EqmThing ;
-	rdfs:comment "A written question in Parliament's EQM database" ;		
+#	rdfs:subClassOf :IndexingAndSearchThing ;
 	rdfs:isDefinedBy this:schema ;
 .
-:EqmThing
+:IndexingAndSearchThing
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
-	rdfs:comment "A thing existing in Parliament's EQM database" ;		
 	rdfs:isDefinedBy this:schema ;
 .
 :AnswerExpectation
@@ -3319,17 +3317,9 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 .
-:writtenQuestionEqmUin
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :eqmUin ;
-	rdfs:domain :EqmWrittenQuestion ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-.
-:eqmUin
-	a owl:DatatypeProperty ; 
-	rdfs:subPropertyOf :externalIdentifier ;
-	rdfs:domain :EqmThing ;
+:writtenQuestionIndexingAndSearchUin
+	a owl:DatatypeProperty ;
+	rdfs:domain :IndexingAndSearchWrittenQuestion ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 .
