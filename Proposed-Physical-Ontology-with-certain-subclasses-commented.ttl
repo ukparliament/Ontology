@@ -1734,7 +1734,6 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "candidacy has party" ;
 .
-# TODO: Name consistently
 :partyhasCandidacy
 	a owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasParty ;
