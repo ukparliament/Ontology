@@ -31,7 +31,7 @@ function Log([Parameter(Mandatory=$true)][string]$LogText){
 Log "Get API Management context"
 $management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $APIManagementName
 Log "Get product id"
-$apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "$APIPrefix - Parliament [Orchestration]").ProductId
+$apiReleaseProductId=(Get-AzureRmApiManagementProduct -Context $management -Title "$APIPrefix - Parliament [Release]").ProductId
 Log "Retrives subscription"
 $subscription=Get-AzureRmApiManagementSubscription -Context $management -ProductId $apiReleaseProductId
 $subscriptionKey=$subscription.PrimaryKey
