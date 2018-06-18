@@ -143,5 +143,17 @@
 
             StringAssert.Matches(localName, new Regex(@"^[A-Z]([a-z]|[A-Z]|[0-9])*$"), "Classes must be PascalCased.");
         }
+
+        [TestMethod]
+        [DynamicData(nameof(OntologyResources))]
+        public void Resource_has_label(OntologyResource ontologyResource)
+        {
+            var theOntology = new NodeFactory().CreateUriNode(new Uri(OntologyUri));
+
+            var labels = ontologyResource.Label;
+
+            Assert.AreEqual(1, labels.Count(), "Ontology resources must have exactly one label.");
+            Assert.IsTrue(labels.All(l => !string.IsNullOrEmpty(l.Value)), "Ontology resource labels must not be empty.");
+        }
     }
 }
