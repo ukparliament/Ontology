@@ -556,21 +556,21 @@ this:schema
 .
 :PersonWebLink
 	a owl:Class ;
-	rdfs:subClassOf :WebLink;
+#	rdfs:subClassOf :WebLink;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Person web link" ;
 .
 :BusinessItemWebLink
 	a owl:Class ;
-	rdfs:subClassOf :WebLink;
+#	rdfs:subClassOf :WebLink;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Business item web link" ;
 .
-:WorkPackageableThingWebLink
+:WorkPackagedThingWebLink
 	a owl:Class ;
-	rdfs:subClassOf :WebLink;
+#	rdfs:subClassOf :WebLink;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Work packageable thing web link" ;
+	rdfs:label "Work packaged thing web link" ;
 .
 :Group
 	a owl:Class ;
@@ -987,34 +987,59 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Laying" ;
 .
-:WorkPackageableThing
+:Withdrawal
 	a owl:Class ;
+	rdfs:subClassOf :BusinessItem ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Work packageable thing" ;
-	rdfs:comment "Any thing which is expressed as a Work Package - for example Statutory Instruments" ;		
+	rdfs:label "Withdrawal" ;
 .
-:StatutoryInstrument
+:WorkPackagedThing
 	a owl:Class ;
-	rdfs:subClassOf :WorkPackageableThing, :LayableThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Statutory instrument" ;
+	rdfs:label "Work packaged thing" ;
+	rdfs:comment "Any thing which can be the focus of a Work Package - for example statutory instrument papers." ;
 .
-:ProposedStatutoryInstrument
+:LaidThing
 	a owl:Class ;
-	rdfs:subClassOf :WorkPackageableThing, :LayableThing ;
+	rdfs:subClassOf :WorkPackagedThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Proposed statutory instrument" ;
+	rdfs:label "Laid thing" ;
 .
-:LayableThing
+:WithdrawnThing
 	a owl:Class ;
+	rdfs:subClassOf :LaidThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Layable thing" ;
+	rdfs:label "Withdrawn thing" ;
+.
+:StatutoryInstrumentPaper
+	a owl:Class ;
+	rdfs:subClassOf :LaidThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Statutory instrument paper" ;
+.
+:ProposedNegativeStatutoryInstrumentPaper
+	a owl:Class ;
+	rdfs:subClassOf :LaidThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Proposed negative statutory instrument paper" ;
+.
+:MadeStatutoryInstrumentPaper
+	a owl:Class ;
+	rdfs:subClassOf :StatutoryInstrumentPaper ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Made statutory instrument paper" ;
 .
 :LayingBody
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Laying body" ;
+.
+:LayingPerson
+	a owl:Class ;
+	rdfs:subClassOf :Person ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Laying person" ;
 .
 
 ##########################OBJECT PROPERTIES##############################
@@ -1068,8 +1093,41 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "holding answer is replaced by substantive answer" ;
 .
+:layingHasLayingPerson
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :layingPersonHasLaying ;
+	rdfs:domain :Laying ;
+	rdfs:range :LayingPerson ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "laying has laying person" ;
+.
+:layingPersonHasLaying
+	a owl:ObjectProperty ;
+	owl:inverseOf :layingHasLayingPerson ;
+	rdfs:domain :LayingPerson ;
+	rdfs:range :Laying ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "laying person has laying" ;
+.
+:businessItemHasParliamentPeriod
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :parliamentPeriodHasBusinessItem ;
+	rdfs:domain :BusinessItem ;
+	rdfs:range :ParliamentPeriod ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "business item has parliamentary period" ;
+.
+:parliamentPeriodHasBusinessItem
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	owl:inverseOf :businessItemHasParliamentPeriod ;
+	rdfs:domain :ParliamentPeriod ;
+	rdfs:range :BusinessItem ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "parliamentary period has business item" ;
+.
 :layingHasLayingBody
 	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :layingBodyHasLaying ;
 	rdfs:domain :Laying ;
 	rdfs:range :LayingBody ;
 	rdfs:isDefinedBy this:schema ;
@@ -1083,20 +1141,37 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "laying body has laying" ;
 .
-:layingHasLayableThing
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :Laying ;
-	rdfs:range :LayableThing ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "laying has layable thing" ;
-.
-:layableThingHasLaying
-	a owl:ObjectProperty ;
-	owl:inverseOf :layingHasLayableThing ;
-	rdfs:domain :LayableThing ;
+:laidThingHasLaying
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	owl:inverseOf :layingHasLaidThing ;
+	rdfs:domain :LaidThing ;
 	rdfs:range :Laying ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "layable thing has laying" ;
+	rdfs:label "laid thing has laying" ;
+.
+:layingHasLaidThing
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :laidThingHasLaying ;
+	rdfs:domain :Laying ;
+	rdfs:range :LaidThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "laying has laid thing" ;
+.
+:withdrawnThingHasWithdrawal
+	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
+	owl:inverseOf :withdrawalHasWithdrawnThing ;
+	rdfs:domain :WithdrawnThing ;
+	rdfs:range :Withdrawal ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "withdrawn thing has withdrawal" ;
+.
+:withdrawalHasWithdrawnThing
+	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
+	owl:inverseOf :withdrawnThingHasWithdrawal ;
+	rdfs:domain :Withdrawal ;
+	rdfs:range :WithdrawnThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "withdrawal has withdrawn thing" ;
 .
 :incumbencyHasIncumbencyInterruption
 	a owl:ObjectProperty ;
@@ -2138,22 +2213,22 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "business item web link has business item" ;
 .
-:workPackageableThingHasWorkPackageableThingWebLink
+:workPackagedThingHasWorkPackagedThingWebLink
 	a owl:ObjectProperty ;
-	rdfs:domain :WorkPackageableThing ;
-	rdfs:range :WorkPackageableThingWebLink ;
+	rdfs:domain :WorkPackagedThing ;
+	rdfs:range :WorkPackagedThingWebLink ;
 	rdfs:subPropertyOf :webLinkedThingHasWebLink ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing has work packageable thing web link" ;
+	rdfs:label "work packaged thing has work packaged thing web link" ;
 .
-:workPackageableThingWebLinkHasWorkPackageableThing
+:workPackagedThingWebLinkHasWorkPackagedThing
 	a owl:ObjectProperty ;
-	owl:inverseOf :workPackageableThingHasWorkPackageableThingWebLink ;
-	rdfs:domain :WorkPackageableThingWebLink ;
-	rdfs:range :WorkPackageableThing ;
+	owl:inverseOf :workPackagedThingHasWorkPackagedThingWebLink ;
+	rdfs:domain :WorkPackagedThingWebLink ;
+	rdfs:range :WorkPackagedThing ;
 	rdfs:subPropertyOf :webLinkHasWebLinkedThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing web link has work packageable thing" ;
+	rdfs:label "work packaged thing web link has work packaged thing" ;
 .
 :webLinkedThingHasWebLink
 	a owl:ObjectProperty ;
@@ -2655,76 +2730,42 @@ this:schema
 	rdfs:label "work package has business item" ;
 .
 :businessItemHasWorkPackage
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :workPackageHasBusinessItem ;
 	rdfs:domain :BusinessItem ;
 	rdfs:range :WorkPackage ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "business item has work package" ;
 .
-:workPackageHasWorkPackageableThing
+:workPackageHasWorkPackagedThing
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :WorkPackagedThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "work package has work packaged thing" ;
+.
+:workPackagedThingHasWorkPackage
 	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :WorkPackage ;
-	rdfs:range :WorkPackageableThing ;
+	owl:inverseOf :workPackageHasWorkPackagedThing ;
+	rdfs:domain :WorkPackagedThing ;
+	rdfs:range :WorkPackage ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work package has work packageable thing" ;
+	rdfs:label "work packaged thing has work package" ;
 .
-:workPackageableThingHasWorkPackage
+:proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper
 	a owl:ObjectProperty, owl:FunctionalProperty ;
-	owl:inverseOf :workPackageHasWorkPackageableThing ;
-	rdfs:domain :WorkPackageableThing ;
-	rdfs:range :WorkPackage ;
+	rdfs:domain :ProposedNegativeStatutoryInstrumentPaper ;
+	rdfs:range :StatutoryInstrumentPaper ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing has work package" ;
+	rdfs:label "proposed negative statutory instrument paper precedes statutory instrument paper" ;
 .
-:workPackageHasStatutoryInstrument
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :workPackageHasWorkPackageableThing ;
-	rdfs:domain :WorkPackage ;
-	rdfs:range :StatutoryInstrument ;
+:statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper ;
+	rdfs:domain :StatutoryInstrumentPaper ;
+	rdfs:range :ProposedNegativeStatutoryInstrumentPaper ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work package has statutory instrument" ;
-.
-:statutoryInstrumentHasWorkPackage
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :workPackageableThingHasWorkPackage ;
-	owl:inverseOf :workPackageHasStatutoryInstrument ;
-	rdfs:domain :StatutoryInstrument ;
-	rdfs:range :WorkPackage ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "statutory instrument has work package" ;
-.
-:workPackageHasProposedStatutoryInstrument
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :workPackageHasWorkPackageableThing ;
-	rdfs:domain :WorkPackage ;
-	rdfs:range :ProposedStatutoryInstrument ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work package has proposed statutory instrument" ;
-.
-:proposedStatutoryInstrumentHasWorkPackage
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :workPackageableThingHasWorkPackage ;
-	owl:inverseOf :workPackageHasProposedStatutoryInstrument ;
-	rdfs:domain :ProposedStatutoryInstrument ;
-	rdfs:range :WorkPackage ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "proposed statutory instrument has work package" ;
-.
-:workPackageableThingPrecedesWorkPackageableThing
-	a owl:ObjectProperty ;
-	rdfs:domain :WorkPackageableThing ;
-	rdfs:range :WorkPackageableThing ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing precedes work packageable thing" ;
-.
-:workPackageableThingFollowsWorkPackageableThing
-	a owl:ObjectProperty ;
-	owl:inverseOf :workPackageableThingPrecedesWorkPackageableThing ;
-	rdfs:domain :WorkPackageableThing ;
-	rdfs:range :WorkPackageableThing ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing follows work packageable thing" ;
+	rdfs:label "statutory instrument paper follows proposed negative statutory instrument paper" ;
 .
 ########################DATATYPE PROPERTIES##############################
 
@@ -3899,12 +3940,20 @@ geosparql:wktLiteral
 	rdfs:label "procedure step description" ;
 .
 :layingDate
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :businessItemDate ;
 	rdfs:domain :Laying ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "laying date" ;
+.
+:withdrawalDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :businessItemDate ;
+	rdfs:domain :Withdrawal ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "withdrawal date" ;
 .
 :businessItemDate
 	a owl:DatatypeProperty ;
@@ -3914,56 +3963,84 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "business item date" ;
 .
-:statutoryInstrumentNumberPrefix
+:workPackagedThingName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :StatutoryInstrument ;
+	rdfs:domain :WorkPackagedThing ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "statutory instrument number prefix" ;
-	rdfs:comment "eg 'SI', 'SR'" ;
+	rdfs:label "work packaged thing name" ;
 .
-:statutoryInstrumentNumberYear
+:laidThingName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :StatutoryInstrument ;
+	rdfs:subPropertyOf :workPackagedThingName ;
+	rdfs:domain :LaidThing ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "laid thing name" ;
+.
+:proposedNegativeStatutoryInstrumentPaperName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :laidThingName ;
+	rdfs:domain :ProposedNegativeStatutoryInstrumentPaper ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "proposed negative statutory instrument paper name" ;
+.
+:statutoryInstrumentPaperName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :laidThingName ;
+	rdfs:domain :StatutoryInstrumentPaper ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "statutory instrument paper name" ;
+.
+:statutoryInstrumentPaperPrefix
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :StatutoryInstrumentPaper ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "statutory instrument paper prefix" ;
+	rdfs:comment "Usually this will be SI. Other prefixes, such as for regulations include SR (NI)." ;
+.
+:statutoryInstrumentPaperYear
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :StatutoryInstrumentPaper ;
+	rdfs:range xsd:gYear ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "statutory instrument paper year" ;
+	rdfs:comment "The year of a statutory instrument paper. Usually this will be the year it was laid before Parliament. Occasionally a statutory instrument laid in one calendar year and made the following calendar year will have its SI year updated." ;
+.
+:statutoryInstrumentPaperNumber
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :StatutoryInstrumentPaper ;
 	rdfs:range xsd:integer ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "statutory instrument number year" ;
-	rdfs:comment "The year for the Statutory Instrument ID. Can be the laid year or made year" ;
-.
-:statutoryInstrumentNumber
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :StatutoryInstrument ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
 	rdfs:label "statutory instrument number" ;
+	rdfs:comment "Statutory instrument papers are given a number in the SI series which runs from number 1 each calendar year. SIs may be cited using prefix number and year e.g. SI 1986/935" ;
 .
-:workPackageableThingName
+:statutoryInstrumentPaperMadeDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :WorkPackageableThing ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing name" ;
-.
-:workPackageableThingComingIntoForceDate
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :WorkPackageableThing ;
+	rdfs:domain :MadeStatutoryInstrumentPaper ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing coming into force date" ;
+	rdfs:label "statutory instrument paper made date" ;
+	rdfs:comment "The date on which the statutory instrument was made. Note that the process of making happens outside Parliament, by the minister responsible for the statutory instrument." ;
 .
-:workPackageableThingTimeLimitForObjectionEndDate
+:statutoryInstrumentPaperComingIntoForceDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :WorkPackageableThing ;
+	rdfs:domain :StatutoryInstrumentPaper ;
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing time limit for objection end date" ;
+	rdfs:label "statutory instrument paper coming into force date" ;
+	rdfs:comment "The date on which the statutory instrument came, or is going to come, into force. Where given, this will be the date on which the whole statutory instrument comes into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate; the coming into force details will be given as a comingIntoForceNote." ;
 .
-:workPackageableThingComingIntoForceNote
+:statutoryInstrumentPaperComingIntoForceNote
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :WorkPackageableThing ;
+	rdfs:domain :StatutoryInstrumentPaper ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "work packageable thing coming into force note" ;
+	rdfs:label "statutory instrument paper coming into force note" ;
+	rdfs:comment "A note to say when the statutory instrument came, or is going to come, into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate but the coming into force details will be given as a comingIntoForceNote." ;
 .
 :indexingAndSearchUri
 	a owl:DatatypeProperty ;
