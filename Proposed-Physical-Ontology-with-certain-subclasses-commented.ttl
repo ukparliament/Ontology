@@ -1205,7 +1205,6 @@ this:schema
 .
 :formalBodyHasFormalBodyType
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :thingHasType ;
 	rdfs:domain :FormalBody ;
 	rdfs:range :FormalBodyType ;
 	rdfs:isDefinedBy this:schema ;
@@ -1736,6 +1735,7 @@ this:schema
 	rdfs:label "contactable thing has contact point" ;
 .
 :contactPointHasContactableThing
+	a owl:ObjectProperty ;
 	owl:inverseOf :contactableThingHasContactPoint ;
 	rdfs:domain :ContactPoint ;
 	rdfs:range :ContactableThing ;
@@ -1982,6 +1982,7 @@ this:schema
 	rdfs:label "conceptualised thing has concept" ;
 .
 :conceptHasConceptualisedThing
+	a owl:ObjectProperty ;
 	owl:inverseOf :conceptualisedThingHasConcept;
 	rdfs:domain :Concept ;
 	rdfs:range :ConceptualisedThing ;
@@ -1997,6 +1998,7 @@ this:schema
 	rdfs:label "subject tagged thing has concept" ;
 .
 :conceptHasSubjectTaggedThing
+	a owl:ObjectProperty ;
 	owl:inverseOf :subjectTaggedThingHasConcept;
 	rdfs:domain :Concept ;
 	rdfs:range :SubjectTaggedThing ;
@@ -2011,6 +2013,7 @@ this:schema
 	rdfs:label "e-petition has threshold attainment" ;
 .
 :thresholdAttainmentHasEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :ePetitionHasThresholdAttainment ;
 	rdfs:domain :ThresholdAttainment ;
 	rdfs:range :EPetition ;
@@ -2025,6 +2028,7 @@ this:schema
 	rdfs:label "threshold attainment has threshold" ;
 .
 :thresholdHasThresholdAttainment
+	a owl:ObjectProperty ;
 	owl:inverseOf :thresholdAttainmentHasThreshold ;
 	rdfs:domain :Threshold ;
 	rdfs:range :ThresholdAttainment ;
@@ -2039,6 +2043,7 @@ this:schema
 	rdfs:label "e-petition has debate" ;
 .
 :debateHasEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :ePetitionHasDebate ;
 	rdfs:domain :Debate ;
 	rdfs:range :EPetition ;
@@ -2053,6 +2058,7 @@ this:schema
 	rdfs:label "e-petition has government response" ;
 .
 :governmentResponseHasEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :ePetitionHasGovernmentResponse ;
 	rdfs:domain :GovernmentResponse ;
 	rdfs:range :EPetition ;
@@ -2067,6 +2073,7 @@ this:schema
 	rdfs:label "e-petition has moderation" ;
 .
 :moderationHasEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :ePetitionHasModeration ;
 	rdfs:domain :Moderation ;
 	rdfs:range :EPetition ;
@@ -2082,6 +2089,7 @@ this:schema
 	rdfs:label "rejected e-petition has rejection" ;
 .
 :rejectionHasRejectedEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :rejectedEPetitionHasRejection ;
 	rdfs:subPropertyOf :moderationHasEPetition ;
 	rdfs:domain :Rejection ;
@@ -2098,6 +2106,7 @@ this:schema
 	rdfs:label "approved e-petition has approval" ;
 .
 :approvalHasApprovedEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :approvedEPetitionHasApproval ;
 	rdfs:subPropertyOf :moderationHasEPetition ;
 	rdfs:domain :Approval ;
@@ -2113,6 +2122,7 @@ this:schema
 	rdfs:label "e-petition has located signature count" ;
 .
 :locatedSignatureCountHasEPetition
+	a owl:ObjectProperty ;
 	owl:inverseOf :ePetitionHasLocatedSignatureCount;
 	rdfs:domain :LocatedSignatureCount ;
 	rdfs:range :EPetition ;
@@ -2127,6 +2137,7 @@ this:schema
 	rdfs:label "located signature count has place" ;
 .
 :placeHasLocatedSignatureCount
+	a owl:ObjectProperty ;
 	owl:inverseOf :locatedSignatureCountHasPlace;
 	rdfs:domain :Place ;
 	rdfs:range :LocatedSignatureCount ;
@@ -2142,6 +2153,7 @@ this:schema
 	rdfs:comment "Relates a place to a place it is contained by e.g. town in constituency in county in country."@en ;
 .
 :containsPlace
+	a owl:ObjectProperty ;
 	owl:inverseOf :containedByPlace;
 	rdfs:domain :Place ;
 	rdfs:range :Place ;
@@ -2158,6 +2170,7 @@ this:schema
 	rdfs:label "constituency area has country" ;
 .
 :countryHasConstituencyArea
+	a owl:ObjectProperty ;
 	owl:inverseOf :constituencyAreaHasCountry ;
 	rdfs:subPropertyOf :containsPlace ;
 	rdfs:domain :Country ;
@@ -2173,6 +2186,7 @@ this:schema
 	rdfs:label "rejection has rejection code" ;
 .
 :rejectionCodeHasRejection
+	a owl:ObjectProperty ;
 	owl:inverseOf :rejectionHasRejectionCode ;
 	rdfs:domain :RejectionCode ;
 	rdfs:range :Rejection ;	
