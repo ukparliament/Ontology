@@ -2766,20 +2766,20 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "work packaged thing has work package" ;
 .
-:proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	rdfs:domain :ProposedNegativeStatutoryInstrumentPaper ;
-	rdfs:range :StatutoryInstrumentPaper ;
+:laidThingPrecedesLaidThing
+	a owl:ObjectProperty ;
+	rdfs:domain :LaidThing ;
+	rdfs:range :LaidThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "proposed negative statutory instrument paper precedes statutory instrument paper" ;
+	rdfs:label "laid thing precedes laid thing" ;
 .
-:statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper
-	a owl:ObjectProperty, owl:FunctionalProperty ;
-	owl:inverseOf :proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper ;
-	rdfs:domain :StatutoryInstrumentPaper ;
-	rdfs:range :ProposedNegativeStatutoryInstrumentPaper ;
+:laidThingFollowsLaidThing
+	a owl:ObjectProperty ;
+	owl:inverseOf :laidThingPrecedesLaidThing ;
+	rdfs:domain :LaidThing ;
+	rdfs:range :LaidThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "statutory instrument paper follows proposed negative statutory instrument paper" ;
+	rdfs:label "laid thing follows laid thing" ;
 .
 ########################DATATYPE PROPERTIES##############################
 
