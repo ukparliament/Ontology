@@ -2790,6 +2790,14 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "date" ;
 .
+:name
+	a owl:DatatypeProperty ;
+	rdfs:domain :NamedThing ;
+	rdfs:range xsd:string ;
+	rdfs:subPropertyOf rdfs:label ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "name" ;
+.
 :formalBodyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :groupName ;
@@ -2984,25 +2992,25 @@ this:schema
 .
 :personFamilyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "person family name" ;
 .
 :personGivenName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "person given name" ;
 .
 :personOtherNames
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Person ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "person other names" ;
 .
@@ -3252,19 +3260,11 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "election type MNIS Id" ;
 .
-:name
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:domain :NamedThing ;
-	rdfs:range xsd:string ;
-	rdfs:subPropertyOf rdfs:label ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "name" ;
-.
 :partyName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Party ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "party name" ;
 .
@@ -3349,17 +3349,17 @@ geosparql:wktLiteral
 .
 :constituencyGroupName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "constituency group name" ;
 .
 :positionName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :Position ;
 	rdfs:range xsd:string ;
-	rdfs:subPropertyOf :name ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "position name" ;
 .
@@ -3979,6 +3979,7 @@ geosparql:wktLiteral
 .
 :workPackagedThingName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
 	rdfs:domain :WorkPackagedThing ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
