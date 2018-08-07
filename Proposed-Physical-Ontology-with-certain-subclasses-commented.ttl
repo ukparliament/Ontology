@@ -50,13 +50,13 @@ this:schema
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Ukgap thing" ;
+	rdfs:label "UK Government and Parliament thing" ;
 .
 :PimsThing
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Pims thing" ;
+	rdfs:label "PIMS thing" ;
 .
 :WikidataThing
 	a owl:Class ;
@@ -85,7 +85,7 @@ this:schema
 	a owl:Class ;
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Ons thing" ;
+	rdfs:label "ONS thing" ;
 .
 :GeographicalThing
 	a owl:Class ;
@@ -313,7 +313,7 @@ this:schema
 	rdfs:subClassOf :ElectionType ;
 #	rdfs:subClassOf :MnisThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Mnis election type" ;
+	rdfs:label "MNIS election type" ;
 .
 :Electorate
 	a owl:Class ;
@@ -468,7 +468,7 @@ this:schema
 :SubjectTaggedThing
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Subject tagged thing" ;
+	rdfs:label "Subject-tagged thing" ;
 .
 :Concept
 	a owl:Class ;
@@ -552,7 +552,7 @@ this:schema
 :WebLinkedThing
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Web linked thing" ;
+	rdfs:label "Web-linked thing" ;
 .
 :PersonWebLink
 	a owl:Class ;
@@ -607,7 +607,7 @@ this:schema
 	a owl:Class ;
 	rdfs:subClassOf :FormalBody ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Informally constituted committee" ;
+	rdfs:label "Informally-constituted committee" ;
 .
 :ParliamentaryCommittee
 	a owl:Class ;
@@ -625,7 +625,7 @@ this:schema
 	a owl:Class ;
 	rdfs:subClassOf :ParliamentaryCommittee;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Non select committee" ;
+	rdfs:label "Non-select committee" ;
 .
 :GeneralCommittee
 	a owl:Class ;
@@ -841,7 +841,7 @@ this:schema
 	a owl:Class ;
 	rdfs:subClassOf :Answer ;	
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Since corrected answer" ;
+	rdfs:label "Since-corrected answer" ;
 	rdfs:comment "An answer that corrects another" ;			
 .
 :ProrogationAnswer
@@ -895,7 +895,7 @@ this:schema
 	a owl:Class ;
 	rdfs:subClassOf :Group ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Arms length body" ;
+	rdfs:label "Arm's length body" ;
 .
 :MnisAnsweringBody
 	a owl:Class ;
@@ -1059,13 +1059,13 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "answer is replaced by answer" ;
 .
-:correctingAnswerReplacesSinceCorrectedAnswer
+:correctingAnswerReplacesSince
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :answerReplacesAnswer ;
 	rdfs:domain :CorrectingAnswer ;
 	rdfs:range :SinceCorrectedAnswer ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "correcting answer replaces since corrected answer" ;
+	rdfs:label "correcting answer replaces since-corrected answer" ;
 .
 :sinceCorrectedAnswerIsReplacedByCorrectingAnswer
 	a owl:ObjectProperty, owl:FunctionalProperty ;
@@ -1074,7 +1074,7 @@ this:schema
 	rdfs:domain :SinceCorrectedAnswer ;
 	rdfs:range :CorrectingAnswer ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "since corrected answer is replaced by correcting answer" ;
+	rdfs:label "since-corrected answer is replaced by correcting answer" ;
 .
 :substantiveAnswerReplacesHoldingAnswer
 	a owl:ObjectProperty, owl:FunctionalProperty ;
