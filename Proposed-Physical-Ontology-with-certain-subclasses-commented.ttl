@@ -1059,7 +1059,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "answer is replaced by answer" ;
 .
-:correctingAnswerReplacesSince
+:correctingAnswerReplacesSinceCorrectedAnswer
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :answerReplacesAnswer ;
 	rdfs:domain :CorrectingAnswer ;
