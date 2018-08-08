@@ -1142,36 +1142,40 @@ this:schema
 	rdfs:label "laying body has laying" ;
 .
 :laidThingHasLaying
-	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :layingHasLaidThing ;
 	rdfs:domain :LaidThing ;
 	rdfs:range :Laying ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "laid thing has laying" ;
+	rdfs:comment "Laid thing can have one laying." ;
 .
 :layingHasLaidThing
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :laidThingHasLaying ;
 	rdfs:domain :Laying ;
 	rdfs:range :LaidThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "laying has laid thing" ;
+	rdfs:comment "Laying can have multiple laid things." ;
 .
 :withdrawnThingHasWithdrawal
-	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :withdrawalHasWithdrawnThing ;
 	rdfs:domain :WithdrawnThing ;
 	rdfs:range :Withdrawal ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "withdrawn thing has withdrawal" ;
+	rdfs:comment "Withdrawn thing can have one withdrawal."
 .
 :withdrawalHasWithdrawnThing
-	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :withdrawnThingHasWithdrawal ;
 	rdfs:domain :Withdrawal ;
 	rdfs:range :WithdrawnThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "withdrawal has withdrawn thing" ;
+	rdfs:comment "Withdrawal can have multiple withdrawn things. Usually a withdrawal only withdraws things laid within 1 laying." ;
 .
 :incumbencyHasIncumbencyInterruption
 	a owl:ObjectProperty ;
@@ -2752,35 +2756,38 @@ this:schema
 	rdfs:label "business item has work package" ;
 .
 :workPackageHasWorkPackagedThing
-	a owl:ObjectProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
 	rdfs:domain :WorkPackage ;
 	rdfs:range :WorkPackagedThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "work package has work packaged thing" ;
+	rdfs:comment "A work package has one focus." ;
 .
 :workPackagedThingHasWorkPackage
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :workPackageHasWorkPackagedThing ;
 	rdfs:domain :WorkPackagedThing ;
 	rdfs:range :WorkPackage ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "work packaged thing has work package" ;
+	rdfs:comment "A work packaged thing can be the focus of one work package." ;
 .
-:laidThingPrecedesLaidThing
+:proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper
 	a owl:ObjectProperty ;
-	rdfs:domain :LaidThing ;
-	rdfs:range :LaidThing ;
+	rdfs:domain :ProposedNegativeStatutoryInstrumentPaper ;
+	rdfs:range :StatutoryInstrumentPaper ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "laid thing precedes laid thing" ;
+	rdfs:label "proposed negative statutory instrument paper precedes statutory instrument paper" ;
 .
-:laidThingFollowsLaidThing
+:statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper
 	a owl:ObjectProperty ;
-	owl:inverseOf :laidThingPrecedesLaidThing ;
-	rdfs:domain :LaidThing ;
-	rdfs:range :LaidThing ;
+	owl:inverseOf :proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper ;
+	rdfs:domain :StatutoryInstrumentPaper ;
+	rdfs:range :ProposedNegativeStatutoryInstrumentPaper ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "laid thing follows laid thing" ;
+	rdfs:label "statutory instrument paper follows proposed negative statutory instrument paper" ;
 .
+
 ########################DATATYPE PROPERTIES##############################
 
 :date
@@ -4047,7 +4054,7 @@ geosparql:wktLiteral
 	rdfs:range xsd:date ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "statutory instrument paper coming into force date" ;
-	rdfs:comment "The date on which the statutory instrument came, or is going to come, into force. Where given, this will be the date on which the whole statutory instrument comes into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate; the coming into force details will be given as a comingIntoForceNote." ;
+	rdfs:comment "The date on which the statutory instrument came, or is going to come, into force. Where given, this will be the date on which the whole statutory instrument comes into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate; the coming into force details will be given as a comingIntoForceNote. Coming into force note precludes coming into force date." ;
 .
 :statutoryInstrumentPaperComingIntoForceNote
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -4055,7 +4062,7 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "statutory instrument paper coming into force note" ;
-	rdfs:comment "A note to say when the statutory instrument came, or is going to come, into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate but the coming into force details will be given as a comingIntoForceNote." ;
+	rdfs:comment "A note to say when the statutory instrument came, or is going to come, into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate but the coming into force details will be given as a comingIntoForceNote. Coming into force date precludes coming into force note." ;
 .
 :indexingAndSearchUri
 	a owl:DatatypeProperty ;
