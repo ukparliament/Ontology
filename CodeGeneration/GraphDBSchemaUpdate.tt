@@ -37,7 +37,5 @@ else
 <#}}}#>
 }
 WHERE { 
-  ?ontologyThing a ?ontologyThingType .
-  ?ontologyThing ?pred ?obj .
-  VALUES ?ontologyThingType {owl:ObjectProperty owl:DatatypeProperty owl:Class owl:Ontology} 
+  ?ontologyThing rdfs:isDefinedBy this:schema
 }
