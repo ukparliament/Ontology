@@ -18,6 +18,9 @@ else
 if ((isLastPrefix==false) && (hasSeenPrefix==true))
 {
 	isLastPrefix=true;#>
+DELETE {
+  ?ontologyThing ?pred ?obj .
+}
 INSERT {
   [] <http://www.ontotext.com/owlim/system#schemaTransaction> [] .
 <#}
@@ -33,4 +36,8 @@ else
 <#= line #>
 <#}}}#>
 }
-WHERE { }
+WHERE { 
+  ?ontologyThing a ?ontologyThingType .
+  ?ontologyThing ?pred ?obj .
+  VALUES ?ontologyThingType {owl:ObjectProperty owl:DatatypeProperty owl:Class owl:Ontology} 
+}
