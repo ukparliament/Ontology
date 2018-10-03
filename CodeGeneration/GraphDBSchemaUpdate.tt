@@ -37,5 +37,6 @@ else
 <#}}}#>
 }
 WHERE { 
-  ?ontologyThing rdfs:isDefinedBy this:schema
+  ?ontologyThing rdfs:isDefinedBy this:schema .
+  ?ontologyThing ?pred ?obj .
 }
