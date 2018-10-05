@@ -18,9 +18,6 @@ else
 if ((isLastPrefix==false) && (hasSeenPrefix==true))
 {
 	isLastPrefix=true;#>
-DELETE {
-  ?ontologyThing ?pred ?obj .
-}
 INSERT {
   [] <http://www.ontotext.com/owlim/system#schemaTransaction> [] .
 <#}
@@ -35,8 +32,4 @@ else
 {#>
 <#= line #>
 <#}}}#>
-}
-WHERE { 
-  ?ontologyThing rdfs:isDefinedBy this:schema .
-  ?ontologyThing ?pred ?obj .
 }
