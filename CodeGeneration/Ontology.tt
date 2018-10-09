@@ -3,6 +3,9 @@
 <#string filePath=this.Host.ResolvePath("..\\Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl");
 foreach(string line in System.IO.File.ReadLines(filePath))
 {
+if (line.StartsWith("###"))
+{#><#}
+else
 if (line.StartsWith("#"))
 {#>
 <#= line.Remove(0,1) #>
