@@ -47,6 +47,12 @@ $properties=Invoke-AzureRmResourceAction -ResourceGroupName $OrchestrationResour
 $base64Info=[Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $properties.properties.publishingUserName,$properties.properties.publishingPassword)))
 $masterKeyResponse=Invoke-RestMethod -Uri "https://$AzureFunctionsName.scm.azurewebsites.net/api/functions/admin/masterkey" -Headers @{Authorization=("Basic {0}" -f $base64Info)} -Method GET
 
+Log "NumberOfTriples before"
+Get-JMXAttribute -AttributeName "NumberOfTriples"
+Log "NumberOfExplicitTriples before"
+Get-JMXAttribute -AttributeName "NumberOfExplicitTriples"
+
+
 Log "Read file in utf-8"
 $txt=Get-Content $OntologyFileLocation -Encoding UTF8
 
@@ -92,5 +98,10 @@ while($result -ne 0) {
 }
 
 Get-JMXAttribute -AttributeName "NodeStatus"
+
+Log "NumberOfTriples after"
+Get-JMXAttribute -AttributeName "NumberOfTriples"
+Log "NumberOfExplicitTriples after"
+Get-JMXAttribute -AttributeName "NumberOfExplicitTriples"
 
 Log "Job done"
