@@ -4071,6 +4071,22 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Indexing & Search URI" ;
 .
+
+############################ANNOTATION PROPERTIES#######################
+
+:websiteLabel
+	a owl:AnnotationProperty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Website label" ;
+	rdfs:comment "Allows the website to display a more user-friendly equivalent to rdfs:label" ;
+.
+:websiteDescription
+	a owl:AnnotationProperty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Website description" ;
+	rdfs:comment "Allows the website to display a more user-friendly equivalent to rdfs:comment" ;
+.
+
 ############################RESTRICTIONS################################
 
 :SelectCommittee
@@ -4123,3 +4139,5 @@ geosparql:wktLiteral
 		]
 	]
 .
+
+
