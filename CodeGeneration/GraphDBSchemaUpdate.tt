@@ -1,10 +1,10 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".sparql" encoding="utf-8" #>
 
-<#string filePath=this.Host.ResolvePath("..\\Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl");
+<#string mainFilePath=this.Host.ResolvePath("..\\Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl");
 bool isLastPrefix=false;
 bool hasSeenPrefix=false;
-foreach(string line in System.IO.File.ReadLines(filePath))
+foreach(string line in System.IO.File.ReadLines(mainFilePath))
 {
 if (line.StartsWith("@prefix"))
 {
@@ -32,5 +32,6 @@ else
 {#>
 <#= line #>
 <#}}}#>
+<#= System.IO.File.ReadAllText(this.Host.ResolvePath("..\\Website-labels-and-descriptions.ttl")) #>
 }
 where {}
