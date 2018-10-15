@@ -19,8 +19,6 @@ Param(
     [Parameter(Mandatory=$true)] [string] $APIResourceGroupName,
 	[Parameter(Mandatory=$true)] [string] $APIManagementName,
     [Parameter(Mandatory=$true)] [string] $OntologyFileLocation,
-	[Parameter(Mandatory=$true)] [string] $AzureFunctionsName,
-	[Parameter(Mandatory=$true)] [string] $OrchestrationResourceGroupName,
 	[Parameter(Mandatory=$true)] [string] $APIPrefix	
 )
 
@@ -31,7 +29,7 @@ function Log([Parameter(Mandatory=$true)][string]$LogText){
 }
 
 function Get-JMXAttribute([Parameter(Mandatory=$true)][string]$AttributeName){
-    Log "Gets $AttributeName on master"
+    Log "Gets $AttributeName"
     $bodyTxt=@{
         "type"="read";
         "mbean"= "ReplicationCluster:name=ClusterInfo/Master";
@@ -42,22 +40,41 @@ function Get-JMXAttribute([Parameter(Mandatory=$true)][string]$AttributeName){
     $response.value
 }
 
-Log "Retrive trigger code for $AzureFunctionsName"
-$properties=Invoke-AzureRmResourceAction -ResourceGroupName $OrchestrationResourceGroupName -ResourceType Microsoft.Web/sites/config -ResourceName "$AzureFunctionsName/publishingcredentials" -Action list -ApiVersion 2015-08-01 -Force
-$base64Info=[Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $properties.properties.publishingUserName,$properties.properties.publishingPassword)))
-$masterKeyResponse=Invoke-RestMethod -Uri "https://$AzureFunctionsName.scm.azurewebsites.net/api/functions/admin/masterkey" -Headers @{Authorization=("Basic {0}" -f $base64Info)} -Method GET
+function Wait-NodeStatus{
+    $result=1
+    $counter=0;
+    while($result -ne 0) {
+        Log "Counter $counter"
+        $status=Get-JMXAttribute -AttributeName "NodeStatus"
+        $status
+        $result=1
+        foreach($node in $status){
+            Log "Status $node"
+            $flag=$node.Split(' ')[0]
+            if ($flag -eq "[ON]") {
+                $result=0
+                break
+            }
+        }
+        if ($result -ne 0){
+            Log "Wait 30 seconds, response ($flag)"
+            $counter++
+            Start-Sleep -Seconds 30
+        }
+        if (($counter -gt 50) -and ($result -ne 0)) {
+            throw "Invalid status of cluster"
+        }
+    }
 
-Log "NumberOfTriples before"
-Get-JMXAttribute -AttributeName "NumberOfTriples"
-Log "NumberOfExplicitTriples before"
-Get-JMXAttribute -AttributeName "NumberOfExplicitTriples"
+    Get-JMXAttribute -AttributeName "NodeStatus"
+}
 
-
-Log "Read file in utf-8"
-$txt=Get-Content $OntologyFileLocation -Encoding UTF8
-
-Log "Update schema"
-Invoke-RestMethod -Uri "https://$AzureFunctionsName.azurewebsites.net/api/GraphDBSchemaUpdate?code=$($masterKeyResponse.masterKey)" -Method Post -ContentType "text/turtle" -Body $txt -TimeoutSec 300 -Verbose
+function Check-TripleNumber([Parameter(Mandatory=$true)][string]$Message){
+    Log "NumberOfTriples - $Message"
+    Get-JMXAttribute -AttributeName "NumberOfTriples"
+    Log "NumberOfExplicitTriples - $Message"
+    Get-JMXAttribute -AttributeName "NumberOfExplicitTriples"
+}
 
 Log "Get API Management context"
 $management=New-AzureRmApiManagementContext -ResourceGroupName $APIResourceGroupName -ServiceName $APIManagementName
@@ -68,40 +85,43 @@ $subscription=Get-AzureRmApiManagementSubscription -Context $management -Product
 $subscriptionKey=$subscription.PrimaryKey
 
 $header=@{"Ocp-Apim-Subscription-Key"="$subscriptionKey";"Api-Version"="$APIPrefix"}
+$deleteSparql="PREFIX this: <https://id.parliament.uk/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+delete {
+	?s ?p ?o.
+}
+insert {
+    [] <http://www.ontotext.com/owlim/system#schemaTransaction> [].
+}
+where { 
+    ?s rdfs:isDefinedBy this:schema;
+	    ?p ?o.
+}"
 
-Log "Wait 10sec"
-Start-Sleep -Seconds 10
+Check-TripleNumber -Message "Before delete"
 
-$result=1
-$counter=0;
-while($result -ne 0) {
-    Log "Counter $counter"
-    $status=Get-JMXAttribute -AttributeName "NodeStatus"
-    $status
-    $result=1
-    foreach($node in $status){
-        Log "Status $node"
-        $flag=$node.Split(' ')[0]
-        if ($flag -eq "[ON]") {
-            $result=0
-            break
-        }
-    }
-    if ($result -ne 0){
-        Log "Wait 10 seconds, response ($flag)"
-        $counter++
-        Start-Sleep -Seconds 10
-    }
-    if (($counter -gt 20) -and ($result -ne 0)) {
-        throw "Invalid status of cluster"
-    }
+Log "Delete schema"
+try{
+    Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $deleteSparql -ContentType "application/sparql-update" -TimeoutSec 3600 -Headers $header -Verbose
+}
+catch [System.Net.WebException]{
+    Log "Expected error"
+    Log $_
+}
+Wait-NodeStatus
+Check-TripleNumber -Message "After delete"
+
+$ontology=Get-Content $OntologyFileLocation -Encoding UTF8
+Log "Add schema"
+try {
+    Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $ontology -ContentType "application/sparql-update" -TimeoutSec 1800 -Headers $header -Verbose
+}
+catch [System.Net.WebException]{
+    Log "Expected error"
+    Log $_
 }
 
-Get-JMXAttribute -AttributeName "NodeStatus"
-
-Log "NumberOfTriples after"
-Get-JMXAttribute -AttributeName "NumberOfTriples"
-Log "NumberOfExplicitTriples after"
-Get-JMXAttribute -AttributeName "NumberOfExplicitTriples"
+Wait-NodeStatus
+Check-TripleNumber -Message "After new schema"
 
 Log "Job done"
