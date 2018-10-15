@@ -1,0 +1,2324 @@
+:statutoryInstrumentPaperComingIntoForceNote
+	:websiteLabel "statutory instrument paper coming into force note" ;
+	:websiteDescription "A note to say when the statutory instrument came, or is going to come, into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate but the coming into force details will be given as a comingIntoForceNote. Coming into force date precludes coming into force note." ;
+.
+:Focus
+	:websiteLabel "Focus" ;
+	:websiteDescription "A thing which is focussed upon, for example the thing that a Formal Body scrutineses during a Focus Period" ;
+.
+:workPackageHasWorkPackagedThing
+	:websiteLabel "work package has work packaged thing" ;
+	:websiteDescription "A work package has one focus." ;
+.
+:workPackagedThingHasWorkPackage
+	:websiteLabel "work packaged thing has work package" ;
+	:websiteDescription "A work packaged thing can be the focus of one work package." ;
+.
+:CorrectingAnswer
+	:websiteLabel "Correcting answer" ;
+	:websiteDescription "An answer that corrects another" ;
+.
+:SinceCorrectedAnswer
+	:websiteLabel "Since-corrected answer" ;
+	:websiteDescription "An answer that corrects another" ;
+.
+:formalBodyRemit
+	:websiteLabel "formal body remit" ;
+	:websiteDescription "An atemporal description of the Formal Body's remit" ;
+.
+:LogoImage
+	:websiteLabel "Logo image" ;
+	:websiteDescription "An image of a Logo" ;
+.
+:MemberImage
+	:websiteLabel "Member image" ;
+	:websiteDescription "An image of a Member" ;
+.
+:PersonImage
+	:websiteLabel "Person image" ;
+	:websiteDescription "An image of a Person" ;
+.
+:WorkPackagedThing
+	:websiteLabel "Work packaged thing" ;
+	:websiteDescription "Any thing which can be the focus of a Work Package - for example statutory instrument papers." ;
+.
+:WorkPackageableThing
+	:websiteLabel "Work packageable thing" ;
+	:websiteDescription "Any thing which is expressed as a Work Package - for example Statutory Instruments" ;
+.
+:endDate
+	:websiteLabel "end date" ;
+	:websiteDescription "By convention, endDate is only used after the date." ;
+.
+:statutoryInstrumentNumberPrefix
+	:websiteLabel "statutory instrument number prefix" ;
+	:websiteDescription "eg 'SI', 'SR'" ;
+.
+:laidThingHasLaying
+	:websiteLabel "laid thing has laying" ;
+	:websiteDescription "Laid thing can have one laying." ;
+.
+:layingHasLaidThing
+	:websiteLabel "laying has laid thing" ;
+	:websiteDescription "Laying can have multiple laid things." ;
+.
+:containsPlace
+	:websiteLabel "contains place" ;
+	:websiteDescription "Relates a place to a place it contains by e.g. country contains constituency contains town." ;
+.
+:containedByPlace
+	:websiteLabel "contained by place" ;
+	:websiteDescription "Relates a place to a place it is contained by e.g. town in constituency in county in country." ;
+.
+:statutoryInstrumentPaperNumber
+	:websiteLabel "statutory instrument number" ;
+	:websiteDescription "Statutory instrument papers are given a number in the SI series which runs from number 1 each calendar year. SIs may be cited using prefix number and year e.g. SI 1986/935" ;
+.
+:personImageFaceCentrePoint
+	:websiteLabel "person image face centre point" ;
+	:websiteDescription "The coordinates within an image marking the centrepoint of the face, for use in cropping" ;
+.
+:statutoryInstrumentPaperComingIntoForceDate
+	:websiteLabel "statutory instrument paper coming into force date" ;
+	:websiteDescription "The date on which the statutory instrument came, or is going to come,  into force. Where given,  this will be the date on which the whole statutory instrument comes into force. Sometimes coming into force will be fuzzier than a given date e.g. different schedules within the SI will come into force at different times. In these cases there'll be no comingIntoForceDate; the coming into force details will be given as a comingIntoForceNote. Coming into force note precludes coming into force date." ;
+.
+:statutoryInstrumentPaperMadeDate
+	:websiteLabel "statutory instrument paper made date" ;
+	:websiteDescription "The date on which the statutory instrument was made. Note that the process of making happens outside Parliament, by the minister responsible for the statutory instrument." ;
+.
+:FocusPeriod
+	:websiteLabel "Focus period" ;
+	:websiteDescription "The period during which a thing is focussed upon" ;
+.
+:ImageSubject
+	:websiteLabel "Image subject" ;
+	:websiteDescription "The person or thing an image is of, which is depicted in the Image" ;
+.
+:statutoryInstrumentNumberYear
+	:websiteLabel "statutory instrument number year" ;
+	:websiteDescription "The year for the Statutory Instrument ID. Can be the laid year or made year" ;
+.
+:statutoryInstrumentPaperYear
+	:websiteLabel "statutory instrument paper year" ;
+	:websiteDescription "The year of a statutory instrument paper. Usually this will be the year it was laid before Parliament. Occasionally a statutory instrument laid in one calendar year and made the following calendar year will have its SI year updated." ;
+.
+:MnisDepartmentGroup
+	:websiteLabel "MNIS department group" ;
+	:websiteDescription "This is any group that has an ID from the MNIS Departments table. Said table sadly doesn't only contain Departments, or even Government Organisations" ;
+.
+:statutoryInstrumentPaperPrefix
+	:websiteLabel "statutory instrument paper prefix" ;
+	:websiteDescription "Usually this will be SI. Other prefixes, such as for regulations include SR (NI)." ;
+.
+:withdrawalHasWithdrawnThing
+	:websiteLabel "withdrawal has withdrawn thing" ;
+	:websiteDescription "Withdrawal can have multiple withdrawn things. Usually a withdrawal only withdraws things laid within 1 laying." ;
+.
+:withdrawnThingHasWithdrawal
+	:websiteLabel "withdrawn thing has withdrawal" ;
+	:websiteDescription "Withdrawn thing can have one withdrawal." ;
+.
+:action
+	:websiteLabel "action" ;
+	:websiteDescription ":action no website description provided" ;
+.
+:additionalDetails
+	:websiteLabel "additional details" ;
+	:websiteDescription ":additionalDetails no website description provided" ;
+.
+:addressLine1
+	:websiteLabel "address line 1" ;
+	:websiteDescription ":addressLine1 no website description provided" ;
+.
+:addressLine2
+	:websiteLabel "address line 2" ;
+	:websiteDescription ":addressLine2 no website description provided" ;
+.
+:addressLine3
+	:websiteLabel "address line 3" ;
+	:websiteDescription ":addressLine3 no website description provided" ;
+.
+:addressLine4
+	:websiteLabel "address line 4" ;
+	:websiteDescription ":addressLine4 no website description provided" ;
+.
+:addressLine5
+	:websiteLabel "address line 5" ;
+	:websiteDescription ":addressLine5 no website description provided" ;
+.
+:AllowedProcedureRoute
+	:websiteLabel "Allowed procedure route" ;
+	:websiteDescription ":AllowedProcedureRoute no website description provided" ;
+.
+:allowedProcedureRouteIsAllowedByProcedureStep
+	:websiteLabel "allowed procedure route is allowed by procedure step" ;
+	:websiteDescription ":allowedProcedureRouteIsAllowedByProcedureStep no website description provided" ;
+.
+:AlternateMembership
+	:websiteLabel "Alternate membership" ;
+	:websiteDescription ":AlternateMembership no website description provided" ;
+.
+:alternateMembershipHasMember
+	:websiteLabel "alternate membership has member" ;
+	:websiteDescription ":alternateMembershipHasMember no website description provided" ;
+.
+:Answer
+	:websiteLabel "Answer" ;
+	:websiteDescription ":Answer no website description provided" ;
+.
+:AnswerExpectation
+	:websiteLabel "Answer expectation" ;
+	:websiteDescription ":AnswerExpectation no website description provided" ;
+.
+:answerExpectationEndDate
+	:websiteLabel "answer expectation end date" ;
+	:websiteDescription ":answerExpectationEndDate no website description provided" ;
+.
+:answerExpectationHasQuestion
+	:websiteLabel "answer expectation has question" ;
+	:websiteDescription ":answerExpectationHasQuestion no website description provided" ;
+.
+:answerExpectationStartDate
+	:websiteLabel "answer expectation start date" ;
+	:websiteDescription ":answerExpectationStartDate no website description provided" ;
+.
+:answerGivenDate
+	:websiteLabel "answer given date" ;
+	:websiteDescription ":answerGivenDate no website description provided" ;
+.
+:answerHasAnsweringBody
+	:websiteLabel "answer has answering body" ;
+	:websiteDescription ":answerHasAnsweringBody no website description provided" ;
+.
+:answerHasAnsweringPerson
+	:websiteLabel "answer has answering person" ;
+	:websiteDescription ":answerHasAnsweringPerson no website description provided" ;
+.
+:answerHasQuestion
+	:websiteLabel "answer has question" ;
+	:websiteDescription ":answerHasQuestion no website description provided" ;
+.
+:answerIsReplacedByAnswer
+	:websiteLabel "answer is replaced by answer" ;
+	:websiteDescription ":answerIsReplacedByAnswer no website description provided" ;
+.
+:answerReplacesAnswer
+	:websiteLabel "answer replaces answer" ;
+	:websiteDescription ":answerReplacesAnswer no website description provided" ;
+.
+:answerText
+	:websiteLabel "answer text" ;
+	:websiteDescription ":answerText no website description provided" ;
+.
+:AnsweringBody
+	:websiteLabel "Answering body" ;
+	:websiteDescription ":AnsweringBody no website description provided" ;
+.
+:AnsweringBodyAllocation
+	:websiteLabel "Answering body allocation" ;
+	:websiteDescription ":AnsweringBodyAllocation no website description provided" ;
+.
+:answeringBodyAllocationHasAnsweringBody
+	:websiteLabel "answering body allocation has answering body" ;
+	:websiteDescription ":answeringBodyAllocationHasAnsweringBody no website description provided" ;
+.
+:answeringBodyAllocationHasQuestion
+	:websiteLabel "answering body allocation has question" ;
+	:websiteDescription ":answeringBodyAllocationHasQuestion no website description provided" ;
+.
+:answeringBodyAllocationReplacedByAnsweringBodyAllocation
+	:websiteLabel "answering body allocation replaced by answering body allocation" ;
+	:websiteDescription ":answeringBodyAllocationReplacedByAnsweringBodyAllocation no website description provided" ;
+.
+:answeringBodyAllocationReplacesAnsweringBodyAllocation
+	:websiteLabel "answering body allocation replaces answering body allocation" ;
+	:websiteDescription ":answeringBodyAllocationReplacesAnsweringBodyAllocation no website description provided" ;
+.
+:answeringBodyHasAnswer
+	:websiteLabel "answering body has answer" ;
+	:websiteDescription ":answeringBodyHasAnswer no website description provided" ;
+.
+:answeringBodyHasAnsweringBodyAllocation
+	:websiteLabel "answering body has answering body allocation" ;
+	:websiteDescription ":answeringBodyHasAnsweringBodyAllocation no website description provided" ;
+.
+:answeringBodyHasOralAnswer
+	:websiteLabel "answering body has oral answer" ;
+	:websiteDescription ":answeringBodyHasOralAnswer no website description provided" ;
+.
+:answeringBodyHasWrittenAnswer
+	:websiteLabel "answering body has written answer" ;
+	:websiteDescription ":answeringBodyHasWrittenAnswer no website description provided" ;
+.
+:answeringBodyMnisId
+	:websiteLabel "answering body MNIS Id" ;
+	:websiteDescription ":answeringBodyMnisId no website description provided" ;
+.
+:answeringPersonHasAnswer
+	:websiteLabel "answering person has answer" ;
+	:websiteDescription ":answeringPersonHasAnswer no website description provided" ;
+.
+:Approval
+	:websiteLabel "Approval" ;
+	:websiteDescription ":Approval no website description provided" ;
+.
+:approvalHasApprovedEPetition
+	:websiteLabel "approval has approved e-petition" ;
+	:websiteDescription ":approvalHasApprovedEPetition no website description provided" ;
+.
+:approvedAt
+	:websiteLabel "approved at" ;
+	:websiteDescription ":approvedAt no website description provided" ;
+.
+:ApprovedEPetition
+	:websiteLabel "Approved e-petition" ;
+	:websiteDescription ":ApprovedEPetition no website description provided" ;
+.
+:approvedEPetitionHasApproval
+	:websiteLabel "approved e-petition has approval" ;
+	:websiteDescription ":approvedEPetitionHasApproval no website description provided" ;
+.
+:ArmsLengthBody
+	:websiteLabel "Arm's length body" ;
+	:websiteDescription ":ArmsLengthBody no website description provided" ;
+.
+:armsLengthBodyHasDelegatedAnswer
+	:websiteLabel "arms length body has delegated answer" ;
+	:websiteDescription ":armsLengthBodyHasDelegatedAnswer no website description provided" ;
+.
+:askingPersonHasQuestion
+	:websiteLabel "asking person has question" ;
+	:websiteDescription ":askingPersonHasQuestion no website description provided" ;
+.
+:background
+	:websiteLabel "background" ;
+	:websiteDescription ":background no website description provided" ;
+.
+:BusinessItem
+	:websiteLabel "Business item" ;
+	:websiteDescription ":BusinessItem no website description provided" ;
+.
+:businessItemDate
+	:websiteLabel "business item date" ;
+	:websiteDescription ":businessItemDate no website description provided" ;
+.
+:businessItemHasBusinessItemWebLink
+	:websiteLabel "business item has business item web link" ;
+	:websiteDescription ":businessItemHasBusinessItemWebLink no website description provided" ;
+.
+:businessItemHasParliamentPeriod
+	:websiteLabel "business item has parliamentary period" ;
+	:websiteDescription ":businessItemHasParliamentPeriod no website description provided" ;
+.
+:businessItemHasProcedureStep
+	:websiteLabel "business item has procedure step" ;
+	:websiteDescription ":businessItemHasProcedureStep no website description provided" ;
+.
+:businessItemHasWorkPackage
+	:websiteLabel "business item has work package" ;
+	:websiteDescription ":businessItemHasWorkPackage no website description provided" ;
+.
+:BusinessItemWebLink
+	:websiteLabel "Business item web link" ;
+	:websiteDescription ":BusinessItemWebLink no website description provided" ;
+.
+:businessItemWebLinkHasBusinessItem
+	:websiteLabel "business item web link has business item" ;
+	:websiteDescription ":businessItemWebLinkHasBusinessItem no website description provided" ;
+.
+:Candidacy
+	:websiteLabel "Candidacy" ;
+	:websiteDescription ":Candidacy no website description provided" ;
+.
+:candidacyHasCandidacyResult
+	:websiteLabel "candidacy has candidacy result" ;
+	:websiteDescription ":candidacyHasCandidacyResult no website description provided" ;
+.
+:candidacyHasCandidate
+	:websiteLabel "candidacy has candidate" ;
+	:websiteDescription ":candidacyHasCandidate no website description provided" ;
+.
+:candidacyHasElection
+	:websiteLabel "candidacy has election" ;
+	:websiteDescription ":candidacyHasElection no website description provided" ;
+.
+:candidacyHasParty
+	:websiteLabel "candidacy has party" ;
+	:websiteDescription ":candidacyHasParty no website description provided" ;
+.
+:CandidacyResult
+	:websiteLabel "Candidacy result" ;
+	:websiteDescription ":CandidacyResult no website description provided" ;
+.
+:candidacyResultHasCandidacy
+	:websiteLabel "candidacy result has candidacy" ;
+	:websiteDescription ":candidacyResultHasCandidacy no website description provided" ;
+.
+:candidacyResultHasElectoralIncumbency
+	:websiteLabel "candidacy result has electoral incumbency" ;
+	:websiteDescription ":candidacyResultHasElectoralIncumbency no website description provided" ;
+.
+:Candidate
+	:websiteLabel "Candidate" ;
+	:websiteDescription ":Candidate no website description provided" ;
+.
+:candidateHasCandidacy
+	:websiteLabel "candidate has candidacy" ;
+	:websiteDescription ":candidateHasCandidacy no website description provided" ;
+.
+:CausedProcedureRoute
+	:websiteLabel "Caused procedure route" ;
+	:websiteDescription ":CausedProcedureRoute no website description provided" ;
+.
+:causedProcedureRouteIsCausedByProcedureStep
+	:websiteLabel "caused procedure route is caused by procedure step" ;
+	:websiteDescription ":causedProcedureRouteIsCausedByProcedureStep no website description provided" ;
+.
+:closedAt
+	:websiteLabel "closed at" ;
+	:websiteDescription ":closedAt no website description provided" ;
+.
+:commonsSeatIncumbencyMnisId
+	:websiteLabel "commons seat incumbency MNIS Id" ;
+	:websiteDescription ":commonsSeatIncumbencyMnisId no website description provided" ;
+.
+:Concept
+	:websiteLabel "Concept" ;
+	:websiteDescription ":Concept no website description provided" ;
+.
+:conceptDefinition
+	:websiteLabel "concept definition" ;
+	:websiteDescription ":conceptDefinition no website description provided" ;
+.
+:conceptHasBroaderConcept
+	:websiteLabel "concept has broader concept" ;
+	:websiteDescription ":conceptHasBroaderConcept no website description provided" ;
+.
+:conceptHasConceptualisedThing
+	:websiteLabel "concept has conceptualised thing" ;
+	:websiteDescription ":conceptHasConceptualisedThing no website description provided" ;
+.
+:conceptHasNarrowerConcept
+	:websiteLabel "concept has narrower concept" ;
+	:websiteDescription ":conceptHasNarrowerConcept no website description provided" ;
+.
+:conceptHasSubjectTaggedThing
+	:websiteLabel "concept has subject tagged thing" ;
+	:websiteDescription ":conceptHasSubjectTaggedThing no website description provided" ;
+.
+:conceptLabel
+	:websiteLabel "concept label" ;
+	:websiteDescription ":conceptLabel no website description provided" ;
+.
+:conceptScopeNote
+	:websiteLabel "concept scope note" ;
+	:websiteDescription ":conceptScopeNote no website description provided" ;
+.
+:ConceptualisedThing
+	:websiteLabel "Conceptualised thing" ;
+	:websiteDescription ":ConceptualisedThing no website description provided" ;
+.
+:conceptualisedThingHasConcept
+	:websiteLabel "conceptualised thing has concept" ;
+	:websiteDescription ":conceptualisedThingHasConcept no website description provided" ;
+.
+:ConstituencyArea
+	:websiteLabel "Constituency area" ;
+	:websiteDescription ":ConstituencyArea no website description provided" ;
+.
+:constituencyAreaExtent
+	:websiteLabel "constituency area extent" ;
+	:websiteDescription ":constituencyAreaExtent no website description provided" ;
+.
+:constituencyAreaHasConstituencyGroup
+	:websiteLabel "constituency area has constituency group" ;
+	:websiteDescription ":constituencyAreaHasConstituencyGroup no website description provided" ;
+.
+:constituencyAreaHasCountry
+	:websiteLabel "constituency area has country" ;
+	:websiteDescription ":constituencyAreaHasCountry no website description provided" ;
+.
+:constituencyAreaLatitude
+	:websiteLabel "constituency area latitude" ;
+	:websiteDescription ":constituencyAreaLatitude no website description provided" ;
+.
+:constituencyAreaLongitude
+	:websiteLabel "constituency area longitude" ;
+	:websiteDescription ":constituencyAreaLongitude no website description provided" ;
+.
+:ConstituencyGroup
+	:websiteLabel "Constituency group" ;
+	:websiteDescription ":ConstituencyGroup no website description provided" ;
+.
+:constituencyGroupEndDate
+	:websiteLabel "constituency group end date" ;
+	:websiteDescription ":constituencyGroupEndDate no website description provided" ;
+.
+:constituencyGroupHasConstituencyArea
+	:websiteLabel "constituency group has constituency area" ;
+	:websiteDescription ":constituencyGroupHasConstituencyArea no website description provided" ;
+.
+:constituencyGroupHasElectorate
+	:websiteLabel "constituency group has electorate" ;
+	:websiteDescription ":constituencyGroupHasElectorate no website description provided" ;
+.
+:constituencyGroupHasHouseSeat
+	:websiteLabel "constituency group has house seat" ;
+	:websiteDescription ":constituencyGroupHasHouseSeat no website description provided" ;
+.
+:constituencyGroupMnisId
+	:websiteLabel "constituency group MNIS Id" ;
+	:websiteDescription ":constituencyGroupMnisId no website description provided" ;
+.
+:constituencyGroupName
+	:websiteLabel "constituency group name" ;
+	:websiteDescription ":constituencyGroupName no website description provided" ;
+.
+:constituencyGroupOnsCode
+	:websiteLabel "constituency group ONS code" ;
+	:websiteDescription ":constituencyGroupOnsCode no website description provided" ;
+.
+:constituencyGroupStartDate
+	:websiteLabel "constituency group start date" ;
+	:websiteDescription ":constituencyGroupStartDate no website description provided" ;
+.
+:contactForm
+	:websiteLabel "contact form" ;
+	:websiteDescription ":contactForm no website description provided" ;
+.
+:ContactPoint
+	:websiteLabel "Contact point" ;
+	:websiteDescription ":ContactPoint no website description provided" ;
+.
+:contactPointHasContactableThing
+	:websiteLabel "contact point has contactable thing" ;
+	:websiteDescription ":contactPointHasContactableThing no website description provided" ;
+.
+:contactPointHasElectoralIncumbency
+	:websiteLabel "contact point has electoral incumbency" ;
+	:websiteDescription ":contactPointHasElectoralIncumbency no website description provided" ;
+.
+:contactPointHasFormalBody
+	:websiteLabel "contact point has formal body" ;
+	:websiteDescription ":contactPointHasFormalBody no website description provided" ;
+.
+:contactPointHasHouse
+	:websiteLabel "contact point has house" ;
+	:websiteDescription ":contactPointHasHouse no website description provided" ;
+.
+:contactPointHasParliamentaryIncumbency
+	:websiteLabel "contact point has parliamentary incumbency" ;
+	:websiteDescription ":contactPointHasParliamentaryIncumbency no website description provided" ;
+.
+:contactPointHasPerson
+	:websiteLabel "contact point has person" ;
+	:websiteDescription ":contactPointHasPerson no website description provided" ;
+.
+:contactPointHasPostalAddress
+	:websiteLabel "contact point has postal address" ;
+	:websiteDescription ":contactPointHasPostalAddress no website description provided" ;
+.
+:contactPointMnisId
+	:websiteLabel "contact point MNIS Id" ;
+	:websiteDescription ":contactPointMnisId no website description provided" ;
+.
+:ContactableThing
+	:websiteLabel "Contactable thing" ;
+	:websiteDescription ":ContactableThing no website description provided" ;
+.
+:contactableThingHasContactPoint
+	:websiteLabel "contactable thing has contact point" ;
+	:websiteDescription ":contactableThingHasContactPoint no website description provided" ;
+.
+:correctingAnswerHasQuestion
+	:websiteLabel "correcting answer has question" ;
+	:websiteDescription ":correctingAnswerHasQuestion no website description provided" ;
+.
+:correctingAnswerReplacesSinceCorrectedAnswer
+	:websiteLabel "correcting answer replaces since-corrected answer" ;
+	:websiteDescription ":correctingAnswerReplacesSinceCorrectedAnswer no website description provided" ;
+.
+:Country
+	:websiteLabel "Country" ;
+	:websiteDescription ":Country no website description provided" ;
+.
+:countryCitizenNames
+	:websiteLabel "country citizen names" ;
+	:websiteDescription ":countryCitizenNames no website description provided" ;
+.
+:countryGovRegisterId
+	:websiteLabel "country GOV.UK Registers Id" ;
+	:websiteDescription ":countryGovRegisterId no website description provided" ;
+.
+:countryHasConstituencyArea
+	:websiteLabel "country has constituency area" ;
+	:websiteDescription ":countryHasConstituencyArea no website description provided" ;
+.
+:countryName
+	:websiteLabel "country name" ;
+	:websiteDescription ":countryName no website description provided" ;
+.
+:countryOfficialName
+	:websiteLabel "country official name" ;
+	:websiteDescription ":countryOfficialName no website description provided" ;
+.
+:createdAt
+	:websiteLabel "created at" ;
+	:websiteDescription ":createdAt no website description provided" ;
+.
+:date
+	:websiteLabel "date" ;
+	:websiteDescription ":date no website description provided" ;
+.
+:Debate
+	:websiteLabel "Debate" ;
+	:websiteDescription ":Debate no website description provided" ;
+.
+:debateDate
+	:websiteLabel "debate date" ;
+	:websiteDescription ":debateDate no website description provided" ;
+.
+:debateHasEPetition
+	:websiteLabel "debate has e-petition" ;
+	:websiteDescription ":debateHasEPetition no website description provided" ;
+.
+:debateOverview
+	:websiteLabel "debate overview" ;
+	:websiteDescription ":debateOverview no website description provided" ;
+.
+:debateProposedDate
+	:websiteLabel "debate proposed date" ;
+	:websiteDescription ":debateProposedDate no website description provided" ;
+.
+:debateTranscriptUrl
+	:websiteLabel "debate transcript url" ;
+	:websiteDescription ":debateTranscriptUrl no website description provided" ;
+.
+:debateVideoUrl
+	:websiteLabel "debate video url" ;
+	:websiteDescription ":debateVideoUrl no website description provided" ;
+.
+:DeceasedPerson
+	:websiteLabel "Deceased person" ;
+	:websiteDescription ":DeceasedPerson no website description provided" ;
+.
+:DelegatedAnswer
+	:websiteLabel "Delegated answer" ;
+	:websiteDescription ":DelegatedAnswer no website description provided" ;
+.
+:delegatedAnswerHasArmsLengthBody
+	:websiteLabel "delegated answer has arms length body" ;
+	:websiteDescription ":delegatedAnswerHasArmsLengthBody no website description provided" ;
+.
+:dodsId
+	:websiteLabel "Dods Id" ;
+	:websiteDescription ":dodsId no website description provided" ;
+.
+:DodsPerson
+	:websiteLabel "Dods person" ;
+	:websiteDescription ":DodsPerson no website description provided" ;
+.
+:DodsThing
+	:websiteLabel "Dods thing" ;
+	:websiteDescription ":DodsThing no website description provided" ;
+.
+:Election
+	:websiteLabel "Election" ;
+	:websiteDescription ":Election no website description provided" ;
+.
+:electionHasCandidacy
+	:websiteLabel "election has candidacy" ;
+	:websiteDescription ":electionHasCandidacy no website description provided" ;
+.
+:electionHasElectionType
+	:websiteLabel "election has election type" ;
+	:websiteDescription ":electionHasElectionType no website description provided" ;
+.
+:electionHasElectorate
+	:websiteLabel "election has electorate" ;
+	:websiteDescription ":electionHasElectorate no website description provided" ;
+.
+:electionName
+	:websiteLabel "election name" ;
+	:websiteDescription ":electionName no website description provided" ;
+.
+:ElectionType
+	:websiteLabel "Election type" ;
+	:websiteDescription ":ElectionType no website description provided" ;
+.
+:electionTypeHasElection
+	:websiteLabel "election type has election" ;
+	:websiteDescription ":electionTypeHasElection no website description provided" ;
+.
+:electionTypeMnisId
+	:websiteLabel "election type MNIS Id" ;
+	:websiteDescription ":electionTypeMnisId no website description provided" ;
+.
+:electionTypeName
+	:websiteLabel "election type name" ;
+	:websiteDescription ":electionTypeName no website description provided" ;
+.
+:ElectoralIncumbency
+	:websiteLabel "Electoral incumbency" ;
+	:websiteDescription ":ElectoralIncumbency no website description provided" ;
+.
+:electoralIncumbencyHasCandidacyResult
+	:websiteLabel "electoral incumbency has candidacy result" ;
+	:websiteDescription ":electoralIncumbencyHasCandidacyResult no website description provided" ;
+.
+:electoralIncumbencyHasContactPoint
+	:websiteLabel "electoral incumbency has contact point" ;
+	:websiteDescription ":electoralIncumbencyHasContactPoint no website description provided" ;
+.
+:Electorate
+	:websiteLabel "Electorate" ;
+	:websiteDescription ":Electorate no website description provided" ;
+.
+:electorateHasConstitutencyGroup
+	:websiteLabel "electorate has constitutency group" ;
+	:websiteDescription ":electorateHasConstitutencyGroup no website description provided" ;
+.
+:electorateHasElection
+	:websiteLabel "electorate has election" ;
+	:websiteDescription ":electorateHasElection no website description provided" ;
+.
+:email
+	:websiteLabel "email" ;
+	:websiteDescription ":email no website description provided" ;
+.
+:EPetition
+	:websiteLabel "E-petition" ;
+	:websiteDescription ":EPetition no website description provided" ;
+.
+:ePetitionHasDebate
+	:websiteLabel "e-petition has debate" ;
+	:websiteDescription ":ePetitionHasDebate no website description provided" ;
+.
+:ePetitionHasGovernmentResponse
+	:websiteLabel "e-petition has government response" ;
+	:websiteDescription ":ePetitionHasGovernmentResponse no website description provided" ;
+.
+:ePetitionHasLocatedSignatureCount
+	:websiteLabel "e-petition has located signature count" ;
+	:websiteDescription ":ePetitionHasLocatedSignatureCount no website description provided" ;
+.
+:ePetitionHasModeration
+	:websiteLabel "e-petition has moderation" ;
+	:websiteDescription ":ePetitionHasModeration no website description provided" ;
+.
+:ePetitionHasThresholdAttainment
+	:websiteLabel "e-petition has threshold attainment" ;
+	:websiteDescription ":ePetitionHasThresholdAttainment no website description provided" ;
+.
+:ePetitionUkgapId
+	:websiteLabel "e-petition UK Government and Parliament Id" ;
+	:websiteDescription ":ePetitionUkgapId no website description provided" ;
+.
+:ExOfficioMembership
+	:websiteLabel "Ex officio membership" ;
+	:websiteDescription ":ExOfficioMembership no website description provided" ;
+.
+:exOfficioMembershipHasMember
+	:websiteLabel "ex officio membership has member" ;
+	:websiteDescription ":exOfficioMembershipHasMember no website description provided" ;
+.
+:externalIdentifier
+	:websiteLabel "external identifier" ;
+	:websiteDescription ":externalIdentifier no website description provided" ;
+.
+:ExternalThing
+	:websiteLabel "External thing" ;
+	:websiteDescription ":ExternalThing no website description provided" ;
+.
+:faxNumber
+	:websiteLabel "fax number" ;
+	:websiteDescription ":faxNumber no website description provided" ;
+.
+:focusHasFocusPeriod
+	:websiteLabel "focus has focus period" ;
+	:websiteDescription ":focusHasFocusPeriod no website description provided" ;
+.
+:focusPeriodEndDate
+	:websiteLabel "focus period end date" ;
+	:websiteDescription ":focusPeriodEndDate no website description provided" ;
+.
+:focusPeriodHasFocus
+	:websiteLabel "focus period has focus" ;
+	:websiteDescription ":focusPeriodHasFocus no website description provided" ;
+.
+:focusPeriodHasFormalBody
+	:websiteLabel "focus period has formal body" ;
+	:websiteDescription ":focusPeriodHasFormalBody no website description provided" ;
+.
+:focusPeriodStartDate
+	:websiteLabel "focus period start date" ;
+	:websiteDescription ":focusPeriodStartDate no website description provided" ;
+.
+:FormalBody
+	:websiteLabel "Formal body" ;
+	:websiteDescription ":FormalBody no website description provided" ;
+.
+:FormalBodyChair
+	:websiteLabel "Formal body chair" ;
+	:websiteDescription ":FormalBodyChair no website description provided" ;
+.
+:formalBodyChairHasFormalBody
+	:websiteLabel "formal body chair has formal body" ;
+	:websiteDescription ":formalBodyChairHasFormalBody no website description provided" ;
+.
+:formalBodyChairIncumbencyMnisId
+	:websiteLabel "formal body chair incumbency MNIS Id" ;
+	:websiteDescription ":formalBodyChairIncumbencyMnisId no website description provided" ;
+.
+:formalBodyEndDate
+	:websiteLabel "formal body end date" ;
+	:websiteDescription ":formalBodyEndDate no website description provided" ;
+.
+:formalBodyHasChildFormalBody
+	:websiteLabel "formal body has child formal body" ;
+	:websiteDescription ":formalBodyHasChildFormalBody no website description provided" ;
+.
+:formalBodyHasContactPoint
+	:websiteLabel "formal body has contact point" ;
+	:websiteDescription ":formalBodyHasContactPoint no website description provided" ;
+.
+:formalBodyHasFocusPeriod
+	:websiteLabel "formal body has focus period" ;
+	:websiteDescription ":formalBodyHasFocusPeriod no website description provided" ;
+.
+:formalBodyHasFormalBodyChair
+	:websiteLabel "formal body has formal body chair" ;
+	:websiteDescription ":formalBodyHasFormalBodyChair no website description provided" ;
+.
+:formalBodyHasFormalBodyMembership
+	:websiteLabel "formal body has formal body membership" ;
+	:websiteDescription ":formalBodyHasFormalBodyMembership no website description provided" ;
+.
+:formalBodyHasFormalBodyType
+	:websiteLabel "formal body has formal body type" ;
+	:websiteDescription ":formalBodyHasFormalBodyType no website description provided" ;
+.
+:formalBodyHasHouse
+	:websiteLabel "formal body has house" ;
+	:websiteDescription ":formalBodyHasHouse no website description provided" ;
+.
+:formalBodyHasLeadHouse
+	:websiteLabel "formal body has lead house" ;
+	:websiteDescription ":formalBodyHasLeadHouse no website description provided" ;
+.
+:formalBodyHasParentFormalBody
+	:websiteLabel "formal body has parent formal body" ;
+	:websiteDescription ":formalBodyHasParentFormalBody no website description provided" ;
+.
+:formalBodyLayPersonMnisId
+	:websiteLabel "formal body lay person MNIS Id" ;
+	:websiteDescription ":formalBodyLayPersonMnisId no website description provided" ;
+.
+:FormalBodyMembership
+	:websiteLabel "Formal body membership" ;
+	:websiteDescription ":FormalBodyMembership no website description provided" ;
+.
+:formalBodyMembershipEndDate
+	:websiteLabel "formal body membership end date" ;
+	:websiteDescription ":formalBodyMembershipEndDate no website description provided" ;
+.
+:formalBodyMembershipHasFormalBody
+	:websiteLabel "formal body membership has formal body" ;
+	:websiteDescription ":formalBodyMembershipHasFormalBody no website description provided" ;
+.
+:formalBodyMembershipHasPerson
+	:websiteLabel "formal body membership has person" ;
+	:websiteDescription ":formalBodyMembershipHasPerson no website description provided" ;
+.
+:formalBodyMembershipMnisId
+	:websiteLabel "formal body membership MNIS Id" ;
+	:websiteDescription ":formalBodyMembershipMnisId no website description provided" ;
+.
+:formalBodyMembershipStartDate
+	:websiteLabel "formal body membership start date" ;
+	:websiteDescription ":formalBodyMembershipStartDate no website description provided" ;
+.
+:formalBodyMnisId
+	:websiteLabel "formal body MNIS Id" ;
+	:websiteDescription ":formalBodyMnisId no website description provided" ;
+.
+:formalBodyName
+	:websiteLabel "formal body name" ;
+	:websiteDescription ":formalBodyName no website description provided" ;
+.
+:FormalBodyPosition
+	:websiteLabel "Formal body position" ;
+	:websiteDescription ":FormalBodyPosition no website description provided" ;
+.
+:formalBodyStartDate
+	:websiteLabel "formal body start date" ;
+	:websiteDescription ":formalBodyStartDate no website description provided" ;
+.
+:FormalBodyType
+	:websiteLabel "Formal body type" ;
+	:websiteDescription ":FormalBodyType no website description provided" ;
+.
+:formalBodyTypeHasFormalBody
+	:websiteLabel "formal body type has formal body" ;
+	:websiteDescription ":formalBodyTypeHasFormalBody no website description provided" ;
+.
+:formalBodyTypeName
+	:websiteLabel "formal body type name" ;
+	:websiteDescription ":formalBodyTypeName no website description provided" ;
+.
+:Gender
+	:websiteLabel "Gender" ;
+	:websiteDescription ":Gender no website description provided" ;
+.
+:genderHasGenderIdentity
+	:websiteLabel "gender has gender identity" ;
+	:websiteDescription ":genderHasGenderIdentity no website description provided" ;
+.
+:GenderIdentity
+	:websiteLabel "Gender identity" ;
+	:websiteDescription ":GenderIdentity no website description provided" ;
+.
+:genderIdentityHasGender
+	:websiteLabel "gender identity has gender" ;
+	:websiteDescription ":genderIdentityHasGender no website description provided" ;
+.
+:genderIdentityHasPerson
+	:websiteLabel "gender identity has person" ;
+	:websiteDescription ":genderIdentityHasPerson no website description provided" ;
+.
+:genderMnisId
+	:websiteLabel "gender MNIS Id" ;
+	:websiteDescription ":genderMnisId no website description provided" ;
+.
+:genderName
+	:websiteLabel "gender name" ;
+	:websiteDescription ":genderName no website description provided" ;
+.
+:GeneralCommittee
+	:websiteLabel "General committee" ;
+	:websiteDescription ":GeneralCommittee no website description provided" ;
+.
+:GeographicalThing
+	:websiteLabel "Geographical thing" ;
+	:websiteDescription ":GeographicalThing no website description provided" ;
+.
+:GovRegisterCountry
+	:websiteLabel "GOV.UK Registers country" ;
+	:websiteDescription ":GovRegisterCountry no website description provided" ;
+.
+:govRegisterCountryEndDate
+	:websiteLabel "GOV.UK Registers country end date" ;
+	:websiteDescription ":govRegisterCountryEndDate no website description provided" ;
+.
+:govRegisterCountryStartDate
+	:websiteLabel "GOV.UK Registers country start date" ;
+	:websiteDescription ":govRegisterCountryStartDate no website description provided" ;
+.
+:GovRegisterGovernmentOrganisation
+	:websiteLabel "GOV.UK Registers government organisation" ;
+	:websiteDescription ":GovRegisterGovernmentOrganisation no website description provided" ;
+.
+:govRegisterId
+	:websiteLabel "GOV.UK Registers Id" ;
+	:websiteDescription ":govRegisterId no website description provided" ;
+.
+:GovRegisterTerritory
+	:websiteLabel "GOV.UK Registers territory" ;
+	:websiteDescription ":GovRegisterTerritory no website description provided" ;
+.
+:govRegisterTerritoryEndDate
+	:websiteLabel "GOV.UK Registers territory end date" ;
+	:websiteDescription ":govRegisterTerritoryEndDate no website description provided" ;
+.
+:govRegisterTerritoryStartDate
+	:websiteLabel "GOV.UK Registers territory start date" ;
+	:websiteDescription ":govRegisterTerritoryStartDate no website description provided" ;
+.
+:GovRegisterThing
+	:websiteLabel "GOV.UK Registers thing" ;
+	:websiteDescription ":GovRegisterThing no website description provided" ;
+.
+:GovernmentIncumbency
+	:websiteLabel "Government incumbency" ;
+	:websiteDescription ":GovernmentIncumbency no website description provided" ;
+.
+:governmentIncumbencyHasGovernmentPerson
+	:websiteLabel "government incumbency has government person" ;
+	:websiteDescription ":governmentIncumbencyHasGovernmentPerson no website description provided" ;
+.
+:governmentIncumbencyHasGovernmentPosition
+	:websiteLabel "government incumbency has government position" ;
+	:websiteDescription ":governmentIncumbencyHasGovernmentPosition no website description provided" ;
+.
+:governmentIncumbencyMnisId
+	:websiteLabel "government incumbency MNIS Id" ;
+	:websiteDescription ":governmentIncumbencyMnisId no website description provided" ;
+.
+:GovernmentOrganisation
+	:websiteLabel "Government organisation" ;
+	:websiteDescription ":GovernmentOrganisation no website description provided" ;
+.
+:governmentOrganisationGovRegisterId
+	:websiteLabel "government organisation GOV.UK Registers Id" ;
+	:websiteDescription ":governmentOrganisationGovRegisterId no website description provided" ;
+.
+:GovernmentPerson
+	:websiteLabel "Government person" ;
+	:websiteDescription ":GovernmentPerson no website description provided" ;
+.
+:governmentPersonHasGovernmentIncumbency
+	:websiteLabel "government person has government incumbency" ;
+	:websiteDescription ":governmentPersonHasGovernmentIncumbency no website description provided" ;
+.
+:GovernmentPosition
+	:websiteLabel "Government position" ;
+	:websiteDescription ":GovernmentPosition no website description provided" ;
+.
+:governmentPositionHasGovernmentIncumbency
+	:websiteLabel "government position has government incumbency" ;
+	:websiteDescription ":governmentPositionHasGovernmentIncumbency no website description provided" ;
+.
+:governmentPositionMnisId
+	:websiteLabel "government position MNIS Id" ;
+	:websiteDescription ":governmentPositionMnisId no website description provided" ;
+.
+:GovernmentResponse
+	:websiteLabel "Government response" ;
+	:websiteDescription ":GovernmentResponse no website description provided" ;
+.
+:governmentResponseCreatedAt
+	:websiteLabel "government response created at" ;
+	:websiteDescription ":governmentResponseCreatedAt no website description provided" ;
+.
+:governmentResponseDetails
+	:websiteLabel "government response details" ;
+	:websiteDescription ":governmentResponseDetails no website description provided" ;
+.
+:governmentResponseHasEPetition
+	:websiteLabel "government response has e-petition" ;
+	:websiteDescription ":governmentResponseHasEPetition no website description provided" ;
+.
+:governmentResponseSummary
+	:websiteLabel "government response summary" ;
+	:websiteDescription ":governmentResponseSummary no website description provided" ;
+.
+:governmentResponseUpdatedAt
+	:websiteLabel "government response updated at" ;
+	:websiteDescription ":governmentResponseUpdatedAt no website description provided" ;
+.
+:Group
+	:websiteLabel "Group" ;
+	:websiteDescription ":Group no website description provided" ;
+.
+:groupEndDate
+	:websiteLabel "group end date" ;
+	:websiteDescription ":groupEndDate no website description provided" ;
+.
+:groupHasPosition
+	:websiteLabel "group has position" ;
+	:websiteDescription ":groupHasPosition no website description provided" ;
+.
+:groupName
+	:websiteLabel "group name" ;
+	:websiteDescription ":groupName no website description provided" ;
+.
+:groupStartDate
+	:websiteLabel "group start date" ;
+	:websiteDescription ":groupStartDate no website description provided" ;
+.
+:HoldingAnswer
+	:websiteLabel "Holding answer" ;
+	:websiteDescription ":HoldingAnswer no website description provided" ;
+.
+:holdingAnswerHasQuestion
+	:websiteLabel "holding answer has question" ;
+	:websiteDescription ":holdingAnswerHasQuestion no website description provided" ;
+.
+:holdingAnswerIsReplacedBySubstantiveAnswer
+	:websiteLabel "holding answer is replaced by substantive answer" ;
+	:websiteDescription ":holdingAnswerIsReplacedBySubstantiveAnswer no website description provided" ;
+.
+:House
+	:websiteLabel "House" ;
+	:websiteDescription ":House no website description provided" ;
+.
+:houseHasContactPoint
+	:websiteLabel "house has contact point" ;
+	:websiteDescription ":houseHasContactPoint no website description provided" ;
+.
+:houseHasFormalBody
+	:websiteLabel "house has formal body" ;
+	:websiteDescription ":houseHasFormalBody no website description provided" ;
+.
+:houseHasHouseSeat
+	:websiteLabel "house has house seat" ;
+	:websiteDescription ":houseHasHouseSeat no website description provided" ;
+.
+:houseHasProcedureStep
+	:websiteLabel "house has procedure step" ;
+	:websiteDescription ":houseHasProcedureStep no website description provided" ;
+.
+:houseName
+	:websiteLabel "house name" ;
+	:websiteDescription ":houseName no website description provided" ;
+.
+:HouseSeat
+	:websiteLabel "House seat" ;
+	:websiteDescription ":HouseSeat no website description provided" ;
+.
+:houseSeatHasConstituencyGroup
+	:websiteLabel "house seat has constituency group" ;
+	:websiteDescription ":houseSeatHasConstituencyGroup no website description provided" ;
+.
+:houseSeatHasHouse
+	:websiteLabel "house seat has house" ;
+	:websiteDescription ":houseSeatHasHouse no website description provided" ;
+.
+:houseSeatHasHouseSeatType
+	:websiteLabel "house seat has house seat type" ;
+	:websiteDescription ":houseSeatHasHouseSeatType no website description provided" ;
+.
+:houseSeatHasSeatIncumbency
+	:websiteLabel "house seat has seat incumbency" ;
+	:websiteDescription ":houseSeatHasSeatIncumbency no website description provided" ;
+.
+:houseSeatName
+	:websiteLabel "house seat name" ;
+	:websiteDescription ":houseSeatName no website description provided" ;
+.
+:HouseSeatType
+	:websiteLabel "House seat type" ;
+	:websiteDescription ":HouseSeatType no website description provided" ;
+.
+:houseSeatTypeDescription
+	:websiteLabel "house seat type description" ;
+	:websiteDescription ":houseSeatTypeDescription no website description provided" ;
+.
+:houseSeatTypeHasHouseSeat
+	:websiteLabel "house seat type has house seat" ;
+	:websiteDescription ":houseSeatTypeHasHouseSeat no website description provided" ;
+.
+:houseSeatTypeMnisId
+	:websiteLabel "house seat type MNIS Id" ;
+	:websiteDescription ":houseSeatTypeMnisId no website description provided" ;
+.
+:houseSeatTypeName
+	:websiteLabel "house seat type name" ;
+	:websiteDescription ":houseSeatTypeName no website description provided" ;
+.
+:Image
+	:websiteLabel "Image" ;
+	:websiteDescription ":Image no website description provided" ;
+.
+:imageHasImageSubject
+	:websiteLabel "image has image subject" ;
+	:websiteDescription ":imageHasImageSubject no website description provided" ;
+.
+:imageSubjectHasImage
+	:websiteLabel "image subject has image" ;
+	:websiteDescription ":imageSubjectHasImage no website description provided" ;
+.
+:Incumbency
+	:websiteLabel "Incumbency" ;
+	:websiteDescription ":Incumbency no website description provided" ;
+.
+:incumbencyEndDate
+	:websiteLabel "incumbency end date" ;
+	:websiteDescription ":incumbencyEndDate no website description provided" ;
+.
+:incumbencyHasIncumbencyInterruption
+	:websiteLabel "incumbency has incumbency interruption" ;
+	:websiteDescription ":incumbencyHasIncumbencyInterruption no website description provided" ;
+.
+:incumbencyHasPerson
+	:websiteLabel "incumbency has person" ;
+	:websiteDescription ":incumbencyHasPerson no website description provided" ;
+.
+:incumbencyHasPosition
+	:websiteLabel "incumbency has position" ;
+	:websiteDescription ":incumbencyHasPosition no website description provided" ;
+.
+:IncumbencyInterruption
+	:websiteLabel "Incumbency interruption" ;
+	:websiteDescription ":IncumbencyInterruption no website description provided" ;
+.
+:incumbencyInterruptionEndDate
+	:websiteLabel "incumbency interruption end date" ;
+	:websiteDescription ":incumbencyInterruptionEndDate no website description provided" ;
+.
+:incumbencyInterruptionHasIncumbency
+	:websiteLabel "incumbency interruption has incumbency" ;
+	:websiteDescription ":incumbencyInterruptionHasIncumbency no website description provided" ;
+.
+:incumbencyInterruptionStartDate
+	:websiteLabel "incumbency interruption start date" ;
+	:websiteDescription ":incumbencyInterruptionStartDate no website description provided" ;
+.
+:incumbencyStartDate
+	:websiteLabel "incumbency start date" ;
+	:websiteDescription ":incumbencyStartDate no website description provided" ;
+.
+:IndexingAndSearchThing
+	:websiteLabel "Indexing & Search thing" ;
+	:websiteDescription ":IndexingAndSearchThing no website description provided" ;
+.
+:indexingAndSearchUri
+	:websiteLabel "Indexing & Search URI" ;
+	:websiteDescription ":indexingAndSearchUri no website description provided" ;
+.
+:IndexingAndSearchWrittenQuestion
+	:websiteLabel "Indexing & Search written question" ;
+	:websiteDescription ":IndexingAndSearchWrittenQuestion no website description provided" ;
+.
+:InformallyConstitutedCommittee
+	:websiteLabel "Informally-constituted committee" ;
+	:websiteDescription ":InformallyConstitutedCommittee no website description provided" ;
+.
+:LaidThing
+	:websiteLabel "Laid thing" ;
+	:websiteDescription ":LaidThing no website description provided" ;
+.
+:laidThingName
+	:websiteLabel "laid thing name" ;
+	:websiteDescription ":laidThingName no website description provided" ;
+.
+:latitude
+	:websiteLabel "latitude" ;
+	:websiteDescription ":latitude no website description provided" ;
+.
+:LayableThing
+	:websiteLabel "Layable thing" ;
+	:websiteDescription ":LayableThing no website description provided" ;
+.
+:layableThingHasLaying
+	:websiteLabel "layable thing has laying" ;
+	:websiteDescription ":layableThingHasLaying no website description provided" ;
+.
+:Laying
+	:websiteLabel "Laying" ;
+	:websiteDescription ":Laying no website description provided" ;
+.
+:LayingBody
+	:websiteLabel "Laying body" ;
+	:websiteDescription ":LayingBody no website description provided" ;
+.
+:layingBodyHasLaying
+	:websiteLabel "laying body has laying" ;
+	:websiteDescription ":layingBodyHasLaying no website description provided" ;
+.
+:layingDate
+	:websiteLabel "laying date" ;
+	:websiteDescription ":layingDate no website description provided" ;
+.
+:layingHasLayableThing
+	:websiteLabel "laying has layable thing" ;
+	:websiteDescription ":layingHasLayableThing no website description provided" ;
+.
+:layingHasLayingBody
+	:websiteLabel "laying has laying body" ;
+	:websiteDescription ":layingHasLayingBody no website description provided" ;
+.
+:layingHasLayingPerson
+	:websiteLabel "laying has laying person" ;
+	:websiteDescription ":layingHasLayingPerson no website description provided" ;
+.
+:LayingPerson
+	:websiteLabel "Laying person" ;
+	:websiteDescription ":LayingPerson no website description provided" ;
+.
+:layingPersonHasLaying
+	:websiteLabel "laying person has laying" ;
+	:websiteDescription ":layingPersonHasLaying no website description provided" ;
+.
+:leadHouseHasFormalBody
+	:websiteLabel "lead house has formal body" ;
+	:websiteDescription ":leadHouseHasFormalBody no website description provided" ;
+.
+:LocatedSignatureCount
+	:websiteLabel "Located signature count" ;
+	:websiteDescription ":LocatedSignatureCount no website description provided" ;
+.
+:locatedSignatureCountHasEPetition
+	:websiteLabel "located signature count has e-petition" ;
+	:websiteDescription ":locatedSignatureCountHasEPetition no website description provided" ;
+.
+:locatedSignatureCountHasPlace
+	:websiteLabel "located signature count has place" ;
+	:websiteDescription ":locatedSignatureCountHasPlace no website description provided" ;
+.
+:Logo
+	:websiteLabel "Logo" ;
+	:websiteDescription ":Logo no website description provided" ;
+.
+:logoHasLogoImage
+	:websiteLabel "logo has logo image" ;
+	:websiteDescription ":logoHasLogoImage no website description provided" ;
+.
+:logoHasThingWithLogo
+	:websiteLabel "logo has thing with logo" ;
+	:websiteDescription ":logoHasThingWithLogo no website description provided" ;
+.
+:logoImageHasLogo
+	:websiteLabel "logo image has logo" ;
+	:websiteDescription ":logoImageHasLogo no website description provided" ;
+.
+:longitude
+	:websiteLabel "longitude" ;
+	:websiteDescription ":longitude no website description provided" ;
+.
+:lordsSeatIncumbencyMnisId
+	:websiteLabel "lords seat incumbency MNIS Id" ;
+	:websiteDescription ":lordsSeatIncumbencyMnisId no website description provided" ;
+.
+:MadeStatutoryInstrumentPaper
+	:websiteLabel "Made statutory instrument paper" ;
+	:websiteDescription ":MadeStatutoryInstrumentPaper no website description provided" ;
+.
+:Member
+	:websiteLabel "Member" ;
+	:websiteDescription ":Member no website description provided" ;
+.
+:memberHasAlternateMembership
+	:websiteLabel "member has alternate membership" ;
+	:websiteDescription ":memberHasAlternateMembership no website description provided" ;
+.
+:memberHasExOfficioMembership
+	:websiteLabel "member has ex officio membership" ;
+	:websiteDescription ":memberHasExOfficioMembership no website description provided" ;
+.
+:memberHasMemberImage
+	:websiteLabel "member has member image" ;
+	:websiteDescription ":memberHasMemberImage no website description provided" ;
+.
+:memberHasParliamentaryIncumbency
+	:websiteLabel "member has parliamentary incumbency" ;
+	:websiteDescription ":memberHasParliamentaryIncumbency no website description provided" ;
+.
+:memberImageHasMember
+	:websiteLabel "member image has member" ;
+	:websiteDescription ":memberImageHasMember no website description provided" ;
+.
+:memberMnisId
+	:websiteLabel "member MNIS Id" ;
+	:websiteDescription ":memberMnisId no website description provided" ;
+.
+:MnisAnsweringBody
+	:websiteLabel "MNIS answering body" ;
+	:websiteDescription ":MnisAnsweringBody no website description provided" ;
+.
+:MnisConstituencyGroup
+	:websiteLabel "MNIS constituency group" ;
+	:websiteDescription ":MnisConstituencyGroup no website description provided" ;
+.
+:MnisContactPoint
+	:websiteLabel "MNIS contact point" ;
+	:websiteDescription ":MnisContactPoint no website description provided" ;
+.
+:mnisDepartmentId
+	:websiteLabel "MNIS department Id" ;
+	:websiteDescription ":mnisDepartmentId no website description provided" ;
+.
+:MnisElectionType
+	:websiteLabel "MNIS election type" ;
+	:websiteDescription ":MnisElectionType no website description provided" ;
+.
+:MnisFormalBody
+	:websiteLabel "MNIS formal body" ;
+	:websiteDescription ":MnisFormalBody no website description provided" ;
+.
+:MnisFormalBodyChairIncumbency
+	:websiteLabel "MNIS formal body chair incumbency" ;
+	:websiteDescription ":MnisFormalBodyChairIncumbency no website description provided" ;
+.
+:MnisFormalBodyLayPerson
+	:websiteLabel "MNIS formal body layperson" ;
+	:websiteDescription ":MnisFormalBodyLayPerson no website description provided" ;
+.
+:MnisFormalBodyMembership
+	:websiteLabel "MNIS formal body membership" ;
+	:websiteDescription ":MnisFormalBodyMembership no website description provided" ;
+.
+:MnisGender
+	:websiteLabel "MNIS gender" ;
+	:websiteDescription ":MnisGender no website description provided" ;
+.
+:MnisGovernmentIncumbency
+	:websiteLabel "MNIS government incumbency" ;
+	:websiteDescription ":MnisGovernmentIncumbency no website description provided" ;
+.
+:MnisGovernmentPosition
+	:websiteLabel "MNIS government position" ;
+	:websiteDescription ":MnisGovernmentPosition no website description provided" ;
+.
+:MnisHouseSeatType
+	:websiteLabel "MNIS house seat type" ;
+	:websiteDescription ":MnisHouseSeatType no website description provided" ;
+.
+:mnisId
+	:websiteLabel "MNIS Id" ;
+	:websiteDescription ":mnisId no website description provided" ;
+.
+:MnisMember
+	:websiteLabel "MNIS member" ;
+	:websiteDescription ":MnisMember no website description provided" ;
+.
+:MnisOppositionIncumbency
+	:websiteLabel "MNIS opposition incumbency" ;
+	:websiteDescription ":MnisOppositionIncumbency no website description provided" ;
+.
+:MnisOppositionPosition
+	:websiteLabel "MNIS opposition position" ;
+	:websiteDescription ":MnisOppositionPosition no website description provided" ;
+.
+:MnisParty
+	:websiteLabel "MNIS party" ;
+	:websiteDescription ":MnisParty no website description provided" ;
+.
+:MnisPartyMembership
+	:websiteLabel "MNIS party membership" ;
+	:websiteDescription ":MnisPartyMembership no website description provided" ;
+.
+:MnisSeatIncumbency
+	:websiteLabel "MNIS seat incumbency" ;
+	:websiteDescription ":MnisSeatIncumbency no website description provided" ;
+.
+:MnisThing
+	:websiteLabel "MNIS thing" ;
+	:websiteDescription ":MnisThing no website description provided" ;
+.
+:moderatedAt
+	:websiteLabel "moderated at" ;
+	:websiteDescription ":moderatedAt no website description provided" ;
+.
+:Moderation
+	:websiteLabel "Moderation" ;
+	:websiteDescription ":Moderation no website description provided" ;
+.
+:moderationHasEPetition
+	:websiteLabel "moderation has e-petition" ;
+	:websiteDescription ":moderationHasEPetition no website description provided" ;
+.
+:name
+	:websiteLabel "name" ;
+	:websiteDescription ":name no website description provided" ;
+.
+:NamedThing
+	:websiteLabel "Named thing" ;
+	:websiteDescription ":NamedThing no website description provided" ;
+.
+:NonSelectCommittee
+	:websiteLabel "Non-select committee" ;
+	:websiteDescription ":NonSelectCommittee no website description provided" ;
+.
+:onsCode
+	:websiteLabel "ONS code" ;
+	:websiteDescription ":onsCode no website description provided" ;
+.
+:OnsConstituencyGroup
+	:websiteLabel "ONS constituency group" ;
+	:websiteDescription ":OnsConstituencyGroup no website description provided" ;
+.
+:OnsThing
+	:websiteLabel "ONS thing" ;
+	:websiteDescription ":OnsThing no website description provided" ;
+.
+:OppositionIncumbency
+	:websiteLabel "Opposition incumbency" ;
+	:websiteDescription ":OppositionIncumbency no website description provided" ;
+.
+:oppositionIncumbencyHasOppositionPerson
+	:websiteLabel "opposition incumbency has opposition person" ;
+	:websiteDescription ":oppositionIncumbencyHasOppositionPerson no website description provided" ;
+.
+:oppositionIncumbencyHasOppositionPosition
+	:websiteLabel "opposition incumbency has opposition position" ;
+	:websiteDescription ":oppositionIncumbencyHasOppositionPosition no website description provided" ;
+.
+:oppositionIncumbencyMnisId
+	:websiteLabel "opposition incumbency MNIS Id" ;
+	:websiteDescription ":oppositionIncumbencyMnisId no website description provided" ;
+.
+:OppositionPerson
+	:websiteLabel "Opposition person" ;
+	:websiteDescription ":OppositionPerson no website description provided" ;
+.
+:oppositionPersonHasOppositionIncumbency
+	:websiteLabel "opposition person has opposition incumbency" ;
+	:websiteDescription ":oppositionPersonHasOppositionIncumbency no website description provided" ;
+.
+:OppositionPosition
+	:websiteLabel "Opposition position" ;
+	:websiteDescription ":OppositionPosition no website description provided" ;
+.
+:oppositionPositionHasOppositionIncumbency
+	:websiteLabel "opposition position has opposition incumbency" ;
+	:websiteDescription ":oppositionPositionHasOppositionIncumbency no website description provided" ;
+.
+:oppositionPositionMnisId
+	:websiteLabel "opposition position MNIS Id" ;
+	:websiteDescription ":oppositionPositionMnisId no website description provided" ;
+.
+:OralAnswer
+	:websiteLabel "Oral answer" ;
+	:websiteDescription ":OralAnswer no website description provided" ;
+.
+:OralAnswerExpectation
+	:websiteLabel "Oral answer expectation" ;
+	:websiteDescription ":OralAnswerExpectation no website description provided" ;
+.
+:oralAnswerExpectationHasQuestion
+	:websiteLabel "oral answer expectation has question" ;
+	:websiteDescription ":oralAnswerExpectationHasQuestion no website description provided" ;
+.
+:oralAnswerExpectationSurrenderedAt
+	:websiteLabel "oral answer expectation surrendered at" ;
+	:websiteDescription ":oralAnswerExpectationSurrenderedAt no website description provided" ;
+.
+:oralAnswerExpectationTimedOutAt
+	:websiteLabel "oral answer expectation timed out at" ;
+	:websiteDescription ":oralAnswerExpectationTimedOutAt no website description provided" ;
+.
+:oralAnswerHasAnsweringBody
+	:websiteLabel "oral answer has answering body" ;
+	:websiteDescription ":oralAnswerHasAnsweringBody no website description provided" ;
+.
+:ParliamentPeriod
+	:websiteLabel "Parliament period" ;
+	:websiteDescription ":ParliamentPeriod no website description provided" ;
+.
+:parliamentPeriodEndDate
+	:websiteLabel "parliament period end date" ;
+	:websiteDescription ":parliamentPeriodEndDate no website description provided" ;
+.
+:parliamentPeriodHasImmediatelyFollowingParliamentPeriod
+	:websiteLabel "parliament period has immediately following parliament period" ;
+	:websiteDescription ":parliamentPeriodHasImmediatelyFollowingParliamentPeriod no website description provided" ;
+.
+:parliamentPeriodHasImmediatelyPreviousParliamentPeriod
+	:websiteLabel "parliament period has immediately previous parliament period" ;
+	:websiteDescription ":parliamentPeriodHasImmediatelyPreviousParliamentPeriod no website description provided" ;
+.
+:parliamentPeriodHasSeatIncumbency
+	:websiteLabel "parliament period has seat incumbency" ;
+	:websiteDescription ":parliamentPeriodHasSeatIncumbency no website description provided" ;
+.
+:parliamentPeriodNumber
+	:websiteLabel "parliament period number" ;
+	:websiteDescription ":parliamentPeriodNumber no website description provided" ;
+.
+:parliamentPeriodStartDate
+	:websiteLabel "parliament period start date" ;
+	:websiteDescription ":parliamentPeriodStartDate no website description provided" ;
+.
+:parliamentPeriodWikidataId
+	:websiteLabel "parliament period Wikidata Id" ;
+	:websiteDescription ":parliamentPeriodWikidataId no website description provided" ;
+.
+:ParliamentaryCommittee
+	:websiteLabel "Parliamentary committee" ;
+	:websiteDescription ":ParliamentaryCommittee no website description provided" ;
+.
+:ParliamentaryIncumbency
+	:websiteLabel "Parliamentary incumbency" ;
+	:websiteDescription ":ParliamentaryIncumbency no website description provided" ;
+.
+:parliamentaryIncumbencyEndDate
+	:websiteLabel "parliamentary incumbency end date" ;
+	:websiteDescription ":parliamentaryIncumbencyEndDate no website description provided" ;
+.
+:parliamentaryIncumbencyHasContactPoint
+	:websiteLabel "parliamentary incumbency has contact point" ;
+	:websiteDescription ":parliamentaryIncumbencyHasContactPoint no website description provided" ;
+.
+:parliamentaryIncumbencyHasMember
+	:websiteLabel "parliamentary incumbency has member" ;
+	:websiteDescription ":parliamentaryIncumbencyHasMember no website description provided" ;
+.
+:parliamentaryIncumbencyStartDate
+	:websiteLabel "parliamentary incumbency start date" ;
+	:websiteDescription ":parliamentaryIncumbencyStartDate no website description provided" ;
+.
+:parliamentPeriodHasBusinessItem
+	:websiteLabel "parliamentary period has business item" ;
+	:websiteDescription ":parliamentPeriodHasBusinessItem no website description provided" ;
+.
+:ParliamentaryQuestion
+	:websiteLabel "Parliamentary question" ;
+	:websiteDescription ":ParliamentaryQuestion no website description provided" ;
+.
+:parliamentaryQuestionWithdrawnOn
+	:websiteLabel "parliamentary question withdrawn on" ;
+	:websiteDescription ":parliamentaryQuestionWithdrawnOn no website description provided" ;
+.
+:Party
+	:websiteLabel "Party" ;
+	:websiteDescription ":Party no website description provided" ;
+.
+:partyhasCandidacy
+	:websiteLabel "party has candidacy" ;
+	:websiteDescription ":partyhasCandidacy no website description provided" ;
+.
+:partyHasPartyMembership
+	:websiteLabel "party has party membership" ;
+	:websiteDescription ":partyHasPartyMembership no website description provided" ;
+.
+:PartyMember
+	:websiteLabel "Party member" ;
+	:websiteDescription ":PartyMember no website description provided" ;
+.
+:partyMemberHasPartyMembership
+	:websiteLabel "party member has party membership" ;
+	:websiteDescription ":partyMemberHasPartyMembership no website description provided" ;
+.
+:PartyMembership
+	:websiteLabel "Party membership" ;
+	:websiteDescription ":PartyMembership no website description provided" ;
+.
+:partyMembershipEndDate
+	:websiteLabel "party membership end date" ;
+	:websiteDescription ":partyMembershipEndDate no website description provided" ;
+.
+:partyMembershipHasParty
+	:websiteLabel "party membership has party" ;
+	:websiteDescription ":partyMembershipHasParty no website description provided" ;
+.
+:partyMembershipHasPartyMember
+	:websiteLabel "party membership has party member" ;
+	:websiteDescription ":partyMembershipHasPartyMember no website description provided" ;
+.
+:partyMembershipMnisId
+	:websiteLabel "party membership MNIS Id" ;
+	:websiteDescription ":partyMembershipMnisId no website description provided" ;
+.
+:partyMembershipStartDate
+	:websiteLabel "party membership start date" ;
+	:websiteDescription ":partyMembershipStartDate no website description provided" ;
+.
+:partyMnisId
+	:websiteLabel "party MNIS Id" ;
+	:websiteDescription ":partyMnisId no website description provided" ;
+.
+:partyName
+	:websiteLabel "party name" ;
+	:websiteDescription ":partyName no website description provided" ;
+.
+:PastConstituencyGroup
+	:websiteLabel "Past constituency group" ;
+	:websiteDescription ":PastConstituencyGroup no website description provided" ;
+.
+:PastFormalBody
+	:websiteLabel "Past formal body" ;
+	:websiteDescription ":PastFormalBody no website description provided" ;
+.
+:PastFormalBodyMembership
+	:websiteLabel "Past formal body membership" ;
+	:websiteDescription ":PastFormalBodyMembership no website description provided" ;
+.
+:PastGroup
+	:websiteLabel "Past group" ;
+	:websiteDescription ":PastGroup no website description provided" ;
+.
+:PastIncumbency
+	:websiteLabel "Past incumbency" ;
+	:websiteDescription ":PastIncumbency no website description provided" ;
+.
+:PastIncumbencyInterruption
+	:websiteLabel "Past incumbency interruption" ;
+	:websiteDescription ":PastIncumbencyInterruption no website description provided" ;
+.
+:PastParliamentPeriod
+	:websiteLabel "Past parliament period" ;
+	:websiteDescription ":PastParliamentPeriod no website description provided" ;
+.
+:PastParliamentaryIncumbency
+	:websiteLabel "Past parliamentary incumbency" ;
+	:websiteDescription ":PastParliamentaryIncumbency no website description provided" ;
+.
+:PastPartyMembership
+	:websiteLabel "Past party membership" ;
+	:websiteDescription ":PastPartyMembership no website description provided" ;
+.
+:PastThing
+	:websiteLabel "Past thing" ;
+	:websiteDescription ":PastThing no website description provided" ;
+.
+:Person
+	:websiteLabel "Person" ;
+	:websiteDescription ":Person no website description provided" ;
+.
+:personDateOfBirth
+	:websiteLabel "person date of birth" ;
+	:websiteDescription ":personDateOfBirth no website description provided" ;
+.
+:personDateOfDeath
+	:websiteLabel "person date of death" ;
+	:websiteDescription ":personDateOfDeath no website description provided" ;
+.
+:personDodsId
+	:websiteLabel "person Dods Id" ;
+	:websiteDescription ":personDodsId no website description provided" ;
+.
+:personFamilyName
+	:websiteLabel "person family name" ;
+	:websiteDescription ":personFamilyName no website description provided" ;
+.
+:personGivenName
+	:websiteLabel "person given name" ;
+	:websiteDescription ":personGivenName no website description provided" ;
+.
+:personHasContactPoint
+	:websiteLabel "person has contact point" ;
+	:websiteDescription ":personHasContactPoint no website description provided" ;
+.
+:personHasFormalBodyMembership
+	:websiteLabel "person has formal body membership" ;
+	:websiteDescription ":personHasFormalBodyMembership no website description provided" ;
+.
+:personHasGenderIdentity
+	:websiteLabel "person has gender identity" ;
+	:websiteDescription ":personHasGenderIdentity no website description provided" ;
+.
+:personHasIncumbency
+	:websiteLabel "person has incumbency" ;
+	:websiteDescription ":personHasIncumbency no website description provided" ;
+.
+:personHasPersonImage
+	:websiteLabel "person has person image" ;
+	:websiteDescription ":personHasPersonImage no website description provided" ;
+.
+:personHasPersonWebLink
+	:websiteLabel "person has person web link" ;
+	:websiteDescription ":personHasPersonWebLink no website description provided" ;
+.
+:personImageHasPerson
+	:websiteLabel "person image has person" ;
+	:websiteDescription ":personImageHasPerson no website description provided" ;
+.
+:personOtherNames
+	:websiteLabel "person other names" ;
+	:websiteDescription ":personOtherNames no website description provided" ;
+.
+:personPimsId
+	:websiteLabel "person PIMS Id" ;
+	:websiteDescription ":personPimsId no website description provided" ;
+.
+:PersonWebLink
+	:websiteLabel "Person web link" ;
+	:websiteDescription ":PersonWebLink no website description provided" ;
+.
+:personWebLinkHasPerson
+	:websiteLabel "person web link has person" ;
+	:websiteDescription ":personWebLinkHasPerson no website description provided" ;
+.
+:phoneNumber
+	:websiteLabel "phone number" ;
+	:websiteDescription ":phoneNumber no website description provided" ;
+.
+:pimsId
+	:websiteLabel "PIMS Id" ;
+	:websiteDescription ":pimsId no website description provided" ;
+.
+:PimsPerson
+	:websiteLabel "PIMS person" ;
+	:websiteDescription ":PimsPerson no website description provided" ;
+.
+:PimsThing
+	:websiteLabel "PIMS thing" ;
+	:websiteDescription ":PimsThing no website description provided" ;
+.
+:Place
+	:websiteLabel "Place" ;
+	:websiteDescription ":Place no website description provided" ;
+.
+:placeHasLocatedSignatureCount
+	:websiteLabel "place has located signature count" ;
+	:websiteDescription ":placeHasLocatedSignatureCount no website description provided" ;
+.
+:Position
+	:websiteLabel "Position" ;
+	:websiteDescription ":Position no website description provided" ;
+.
+:positionHasGroup
+	:websiteLabel "position has group" ;
+	:websiteDescription ":positionHasGroup no website description provided" ;
+.
+:positionHasIncumbency
+	:websiteLabel "position has incumbency" ;
+	:websiteDescription ":positionHasIncumbency no website description provided" ;
+.
+:positionName
+	:websiteLabel "position name" ;
+	:websiteDescription ":positionName no website description provided" ;
+.
+:PostalAddress
+	:websiteLabel "Postal address" ;
+	:websiteDescription ":PostalAddress no website description provided" ;
+.
+:postalAddressHasContactPoint
+	:websiteLabel "postal address has contact point" ;
+	:websiteDescription ":postalAddressHasContactPoint no website description provided" ;
+.
+:postCode
+	:websiteLabel "postcode" ;
+	:websiteDescription ":postCode no website description provided" ;
+.
+:PrecludedProcedureRoute
+	:websiteLabel "Precluded procedure route" ;
+	:websiteDescription ":PrecludedProcedureRoute no website description provided" ;
+.
+:precludedProcedureRouteIsPrecludedByProcedureStep
+	:websiteLabel "precluded procedure route is precluded by procedure step" ;
+	:websiteDescription ":precludedProcedureRouteIsPrecludedByProcedureStep no website description provided" ;
+.
+:Procedure
+	:websiteLabel "Procedure" ;
+	:websiteDescription ":Procedure no website description provided" ;
+.
+:procedureHasProcedureRoute
+	:websiteLabel "procedure has procedure route" ;
+	:websiteDescription ":procedureHasProcedureRoute no website description provided" ;
+.
+:procedureHasWorkPackage
+	:websiteLabel "procedure has work package" ;
+	:websiteDescription ":procedureHasWorkPackage no website description provided" ;
+.
+:procedureName
+	:websiteLabel "procedure name" ;
+	:websiteDescription ":procedureName no website description provided" ;
+.
+:ProcedureRoute
+	:websiteLabel "Procedure route" ;
+	:websiteDescription ":ProcedureRoute no website description provided" ;
+.
+:procedureRouteHasProcedure
+	:websiteLabel "procedure route has procedure" ;
+	:websiteDescription ":procedureRouteHasProcedure no website description provided" ;
+.
+:procedureRouteIsFromProcedureStep
+	:websiteLabel "procedure route is from procedure step" ;
+	:websiteDescription ":procedureRouteIsFromProcedureStep no website description provided" ;
+.
+:procedureRouteIsToProcedureStep
+	:websiteLabel "procedure route is to procedure step" ;
+	:websiteDescription ":procedureRouteIsToProcedureStep no website description provided" ;
+.
+:ProcedureStep
+	:websiteLabel "Procedure step" ;
+	:websiteDescription ":ProcedureStep no website description provided" ;
+.
+:procedureStepAllowsAllowedProcedureRoute
+	:websiteLabel "procedure step allows allowed procedure route" ;
+	:websiteDescription ":procedureStepAllowsAllowedProcedureRoute no website description provided" ;
+.
+:procedureStepCausesCausedProcedureRoute
+	:websiteLabel "procedure step causes caused procedure route" ;
+	:websiteDescription ":procedureStepCausesCausedProcedureRoute no website description provided" ;
+.
+:procedureStepDescription
+	:websiteLabel "procedure step description" ;
+	:websiteDescription ":procedureStepDescription no website description provided" ;
+.
+:procedureStepHasBusinessItem
+	:websiteLabel "procedure step has business item" ;
+	:websiteDescription ":procedureStepHasBusinessItem no website description provided" ;
+.
+:procedureStepHasHouse
+	:websiteLabel "procedure step has house" ;
+	:websiteDescription ":procedureStepHasHouse no website description provided" ;
+.
+:procedureStepIsFromProcedureRoute
+	:websiteLabel "procedure step is from procedure route" ;
+	:websiteDescription ":procedureStepIsFromProcedureRoute no website description provided" ;
+.
+:procedureStepIsToProcedureRoute
+	:websiteLabel "procedure step is to procedure route" ;
+	:websiteDescription ":procedureStepIsToProcedureRoute no website description provided" ;
+.
+:procedureStepName
+	:websiteLabel "procedure step name" ;
+	:websiteDescription ":procedureStepName no website description provided" ;
+.
+:procedureStepPrecludesPrecludedProcedureRoute
+	:websiteLabel "procedure step precludes precluded procedure route" ;
+	:websiteDescription ":procedureStepPrecludesPrecludedProcedureRoute no website description provided" ;
+.
+:procedureStepRequiresRequiredProcedureRoute
+	:websiteLabel "procedure step requires required procedure route" ;
+	:websiteDescription ":procedureStepRequiresRequiredProcedureRoute no website description provided" ;
+.
+:proposedEndDate
+	:websiteLabel "proposed end date" ;
+	:websiteDescription ":proposedEndDate no website description provided" ;
+.
+:ProposedNegativeStatutoryInstrumentPaper
+	:websiteLabel "Proposed negative statutory instrument paper" ;
+	:websiteDescription ":ProposedNegativeStatutoryInstrumentPaper no website description provided" ;
+.
+:proposedNegativeStatutoryInstrumentPaperName
+	:websiteLabel "proposed negative statutory instrument paper name" ;
+	:websiteDescription ":proposedNegativeStatutoryInstrumentPaperName no website description provided" ;
+.
+:proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper
+	:websiteLabel "proposed negative statutory instrument paper precedes statutory instrument paper" ;
+	:websiteDescription ":proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper no website description provided" ;
+.
+:proposedStartDate
+	:websiteLabel "proposed start date" ;
+	:websiteDescription ":proposedStartDate no website description provided" ;
+.
+:ProposedStatutoryInstrument
+	:websiteLabel "Proposed statutory instrument" ;
+	:websiteDescription ":ProposedStatutoryInstrument no website description provided" ;
+.
+:proposedStatutoryInstrumentHasWorkPackage
+	:websiteLabel "proposed statutory instrument has work package" ;
+	:websiteDescription ":proposedStatutoryInstrumentHasWorkPackage no website description provided" ;
+.
+:ProrogationAnswer
+	:websiteLabel "Prorogation answer" ;
+	:websiteDescription ":ProrogationAnswer no website description provided" ;
+.
+:prorogationAnswerHasQuestion
+	:websiteLabel "prorogation answer has question" ;
+	:websiteDescription ":prorogationAnswerHasQuestion no website description provided" ;
+.
+:PursuedThing
+	:websiteLabel "Pursued thing" ;
+	:websiteDescription ":PursuedThing no website description provided" ;
+.
+:pursuedThingHasQuestion
+	:websiteLabel "pursued thing has question" ;
+	:websiteDescription ":pursuedThingHasQuestion no website description provided" ;
+.
+:Question
+	:websiteLabel "Question" ;
+	:websiteDescription ":Question no website description provided" ;
+.
+:questionAskedAt
+	:websiteLabel "question asked at" ;
+	:websiteDescription ":questionAskedAt no website description provided" ;
+.
+:questionHasAnswer
+	:websiteLabel "question has answer" ;
+	:websiteDescription ":questionHasAnswer no website description provided" ;
+.
+:questionHasAnswerExpectation
+	:websiteLabel "question has answer expectation" ;
+	:websiteDescription ":questionHasAnswerExpectation no website description provided" ;
+.
+:questionHasAnsweringBodyAllocation
+	:websiteLabel "question has answering body allocation" ;
+	:websiteDescription ":questionHasAnsweringBodyAllocation no website description provided" ;
+.
+:questionHasAskingPerson
+	:websiteLabel "question has asking person" ;
+	:websiteDescription ":questionHasAskingPerson no website description provided" ;
+.
+:questionHasCorrectingAnswer
+	:websiteLabel "question has correcting answer" ;
+	:websiteDescription ":questionHasCorrectingAnswer no website description provided" ;
+.
+:questionHasHoldingAnswer
+	:websiteLabel "question has holding answer" ;
+	:websiteDescription ":questionHasHoldingAnswer no website description provided" ;
+.
+:questionHasOralAnswerExpectation
+	:websiteLabel "question has oral answer expectation" ;
+	:websiteDescription ":questionHasOralAnswerExpectation no website description provided" ;
+.
+:questionHasProrogationAnswer
+	:websiteLabel "question has prorogation answer" ;
+	:websiteDescription ":questionHasProrogationAnswer no website description provided" ;
+.
+:questionHasPursuedThing
+	:websiteLabel "question has pursued thing" ;
+	:websiteDescription ":questionHasPursuedThing no website description provided" ;
+.
+:questionHasRoundRobin
+	:websiteLabel "question has round robin" ;
+	:websiteDescription ":questionHasRoundRobin no website description provided" ;
+.
+:questionHasSubstantiveAnswer
+	:websiteLabel "question has substantive answer" ;
+	:websiteDescription ":questionHasSubstantiveAnswer no website description provided" ;
+.
+:questionHasWrittenAnswerExpectation
+	:websiteLabel "question has written answer expectation" ;
+	:websiteDescription ":questionHasWrittenAnswerExpectation no website description provided" ;
+.
+:questionHeading
+	:websiteLabel "question heading" ;
+	:websiteDescription ":questionHeading no website description provided" ;
+.
+:questionText
+	:websiteLabel "question text" ;
+	:websiteDescription ":questionText no website description provided" ;
+.
+:rejectedAt
+	:websiteLabel "rejected at" ;
+	:websiteDescription ":rejectedAt no website description provided" ;
+.
+:RejectedEPetition
+	:websiteLabel "Rejected e-petition" ;
+	:websiteDescription ":RejectedEPetition no website description provided" ;
+.
+:rejectedEPetitionHasRejection
+	:websiteLabel "rejected e-petition has rejection" ;
+	:websiteDescription ":rejectedEPetitionHasRejection no website description provided" ;
+.
+:Rejection
+	:websiteLabel "Rejection" ;
+	:websiteDescription ":Rejection no website description provided" ;
+.
+:RejectionCode
+	:websiteLabel "Rejection code" ;
+	:websiteDescription ":RejectionCode no website description provided" ;
+.
+:rejectionCodeHasRejection
+	:websiteLabel "rejection code has rejection" ;
+	:websiteDescription ":rejectionCodeHasRejection no website description provided" ;
+.
+:rejectionCodeName
+	:websiteLabel "rejection code name" ;
+	:websiteDescription ":rejectionCodeName no website description provided" ;
+.
+:rejectionDetails
+	:websiteLabel "rejection details" ;
+	:websiteDescription ":rejectionDetails no website description provided" ;
+.
+:rejectionHasRejectedEPetition
+	:websiteLabel "rejection has rejected e-petition" ;
+	:websiteDescription ":rejectionHasRejectedEPetition no website description provided" ;
+.
+:rejectionHasRejectionCode
+	:websiteLabel "rejection has rejection code" ;
+	:websiteDescription ":rejectionHasRejectionCode no website description provided" ;
+.
+:RequiredProcedureRoute
+	:websiteLabel "Required procedure route" ;
+	:websiteDescription ":RequiredProcedureRoute no website description provided" ;
+.
+:requiredProcedureRouteIsRequiredByProcedureStep
+	:websiteLabel "required procedure route is required by procedure step" ;
+	:websiteDescription ":requiredProcedureRouteIsRequiredByProcedureStep no website description provided" ;
+.
+:resultPosition
+	:websiteLabel "result position" ;
+	:websiteDescription ":resultPosition no website description provided" ;
+.
+:RoundRobin
+	:websiteLabel "Round robin" ;
+	:websiteDescription ":RoundRobin no website description provided" ;
+.
+:roundRobinHasQuestion
+	:websiteLabel "round robin has question" ;
+	:websiteDescription ":roundRobinHasQuestion no website description provided" ;
+.
+:SeatIncumbency
+	:websiteLabel "Seat incumbency" ;
+	:websiteDescription ":SeatIncumbency no website description provided" ;
+.
+:seatIncumbencyHasHouseSeat
+	:websiteLabel "seat incumbency has house seat" ;
+	:websiteDescription ":seatIncumbencyHasHouseSeat no website description provided" ;
+.
+:seatIncumbencyHasParliamentPeriod
+	:websiteLabel "seat incumbency has parliament period" ;
+	:websiteDescription ":seatIncumbencyHasParliamentPeriod no website description provided" ;
+.
+:SelectCommittee
+	:websiteLabel "Select committee" ;
+	:websiteDescription ":SelectCommittee no website description provided" ;
+.
+:sesId
+	:websiteLabel "SES Id" ;
+	:websiteDescription ":sesId no website description provided" ;
+.
+:SesThing
+	:websiteLabel "SES thing" ;
+	:websiteDescription ":SesThing no website description provided" ;
+.
+:signatureCount
+	:websiteLabel "signature count" ;
+	:websiteDescription ":signatureCount no website description provided" ;
+.
+:signatureCountRetrievedAt
+	:websiteLabel "signature count retrieved at" ;
+	:websiteDescription ":signatureCountRetrievedAt no website description provided" ;
+.
+:sinceCorrectedAnswerIsReplacedByCorrectingAnswer
+	:websiteLabel "since-corrected answer is replaced by correcting answer" ;
+	:websiteDescription ":sinceCorrectedAnswerIsReplacedByCorrectingAnswer no website description provided" ;
+.
+:startDate
+	:websiteLabel "start date" ;
+	:websiteDescription ":startDate no website description provided" ;
+.
+:StatutoryCommittee
+	:websiteLabel "Statutory committee" ;
+	:websiteDescription ":StatutoryCommittee no website description provided" ;
+.
+:StatutoryInstrument
+	:websiteLabel "Statutory instrument" ;
+	:websiteDescription ":StatutoryInstrument no website description provided" ;
+.
+:statutoryInstrumentHasWorkPackage
+	:websiteLabel "statutory instrument has work package" ;
+	:websiteDescription ":statutoryInstrumentHasWorkPackage no website description provided" ;
+.
+:statutoryInstrumentNumber
+	:websiteLabel "statutory instrument number" ;
+	:websiteDescription ":statutoryInstrumentNumber no website description provided" ;
+.
+:StatutoryInstrumentPaper
+	:websiteLabel "Statutory instrument paper" ;
+	:websiteDescription ":StatutoryInstrumentPaper no website description provided" ;
+.
+:statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper
+	:websiteLabel "statutory instrument paper follows proposed negative statutory instrument paper" ;
+	:websiteDescription ":statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper no website description provided" ;
+.
+:statutoryInstrumentPaperName
+	:websiteLabel "statutory instrument paper name" ;
+	:websiteDescription ":statutoryInstrumentPaperName no website description provided" ;
+.
+:subjectTaggedThingHasConcept
+	:websiteLabel "subject tagged thing has concept" ;
+	:websiteDescription ":subjectTaggedThingHasConcept no website description provided" ;
+.
+:SubjectTaggedThing
+	:websiteLabel "Subject-tagged thing" ;
+	:websiteDescription ":SubjectTaggedThing no website description provided" ;
+.
+:SubstantiveAnswer
+	:websiteLabel "Substantive answer" ;
+	:websiteDescription ":SubstantiveAnswer no website description provided" ;
+.
+:substantiveAnswerHasQuestion
+	:websiteLabel "substantive answer has question" ;
+	:websiteDescription ":substantiveAnswerHasQuestion no website description provided" ;
+.
+:substantiveAnswerReplacesHoldingAnswer
+	:websiteLabel "substantive answer replaces holding answer" ;
+	:websiteDescription ":substantiveAnswerReplacesHoldingAnswer no website description provided" ;
+.
+:TemporalThing
+	:websiteLabel "Temporal thing" ;
+	:websiteDescription ":TemporalThing no website description provided" ;
+.
+:Territory
+	:websiteLabel "Territory" ;
+	:websiteDescription ":Territory no website description provided" ;
+.
+:territoryGovRegisterId
+	:websiteLabel "territory GOV.UK Registers Id" ;
+	:websiteDescription ":territoryGovRegisterId no website description provided" ;
+.
+:territoryName
+	:websiteLabel "territory name" ;
+	:websiteDescription ":territoryName no website description provided" ;
+.
+:territoryOfficialName
+	:websiteLabel "territory official name" ;
+	:websiteDescription ":territoryOfficialName no website description provided" ;
+.
+:ThingWithLogo
+	:websiteLabel "Thing with logo" ;
+	:websiteDescription ":ThingWithLogo no website description provided" ;
+.
+:thingWithLogoHasLogo
+	:websiteLabel "thing with logo has logo" ;
+	:websiteDescription ":thingWithLogoHasLogo no website description provided" ;
+.
+:Threshold
+	:websiteLabel "Threshold" ;
+	:websiteDescription ":Threshold no website description provided" ;
+.
+:ThresholdAttainment
+	:websiteLabel "Threshold attainment" ;
+	:websiteDescription ":ThresholdAttainment no website description provided" ;
+.
+:thresholdAttainmentAt
+	:websiteLabel "threshold attainment at" ;
+	:websiteDescription ":thresholdAttainmentAt no website description provided" ;
+.
+:thresholdAttainmentHasEPetition
+	:websiteLabel "threshold attainment has e-petition" ;
+	:websiteDescription ":thresholdAttainmentHasEPetition no website description provided" ;
+.
+:thresholdAttainmentHasThreshold
+	:websiteLabel "threshold attainment has threshold" ;
+	:websiteDescription ":thresholdAttainmentHasThreshold no website description provided" ;
+.
+:thresholdHasThresholdAttainment
+	:websiteLabel "threshold has threshold attainment" ;
+	:websiteDescription ":thresholdHasThresholdAttainment no website description provided" ;
+.
+:thresholdName
+	:websiteLabel "threshold name" ;
+	:websiteDescription ":thresholdName no website description provided" ;
+.
+:thresholdSignatureNumber
+	:websiteLabel "threshold signature number" ;
+	:websiteDescription ":thresholdSignatureNumber no website description provided" ;
+.
+:UkgapEPetition
+	:websiteLabel "UK Government and Parliament e-petition" ;
+	:websiteDescription ":UkgapEPetition no website description provided" ;
+.
+:ukgapId
+	:websiteLabel "UK Government and Parliament Id" ;
+	:websiteDescription ":ukgapId no website description provided" ;
+.
+:UkgapThing
+	:websiteLabel "UK Government and Parliament thing" ;
+	:websiteDescription ":UkgapThing no website description provided" ;
+.
+:updatedAt
+	:websiteLabel "updated at" ;
+	:websiteDescription ":updatedAt no website description provided" ;
+.
+:voteCount
+	:websiteLabel "vote count" ;
+	:websiteDescription ":voteCount no website description provided" ;
+.
+:WebLink
+	:websiteLabel "Web link" ;
+	:websiteDescription ":WebLink no website description provided" ;
+.
+:webLinkHasWebLinkedThing
+	:websiteLabel "web link has web linked thing" ;
+	:websiteDescription ":webLinkHasWebLinkedThing no website description provided" ;
+.
+:webLinkedThingHasWebLink
+	:websiteLabel "web linked thing has web link" ;
+	:websiteDescription ":webLinkedThingHasWebLink no website description provided" ;
+.
+:WebLinkedThing
+	:websiteLabel "Web-linked thing" ;
+	:websiteDescription ":WebLinkedThing no website description provided" ;
+.
+:wikidataId
+	:websiteLabel "Wikidata Id" ;
+	:websiteDescription ":wikidataId no website description provided" ;
+.
+:WikidataParliamentPeriod
+	:websiteLabel "Wikidata parliament period" ;
+	:websiteDescription ":WikidataParliamentPeriod no website description provided" ;
+.
+:WikidataThing
+	:websiteLabel "Wikidata thing" ;
+	:websiteDescription ":WikidataThing no website description provided" ;
+.
+:Withdrawal
+	:websiteLabel "Withdrawal" ;
+	:websiteDescription ":Withdrawal no website description provided" ;
+.
+:withdrawalDate
+	:websiteLabel "withdrawal date" ;
+	:websiteDescription ":withdrawalDate no website description provided" ;
+.
+:WithdrawnThing
+	:websiteLabel "Withdrawn thing" ;
+	:websiteDescription ":WithdrawnThing no website description provided" ;
+.
+:WorkPackage
+	:websiteLabel "Work package" ;
+	:websiteDescription ":WorkPackage no website description provided" ;
+.
+:workPackageHasBusinessItem
+	:websiteLabel "work package has business item" ;
+	:websiteDescription ":workPackageHasBusinessItem no website description provided" ;
+.
+:workPackageHasProcedure
+	:websiteLabel "work package has procedure" ;
+	:websiteDescription ":workPackageHasProcedure no website description provided" ;
+.
+:workPackageHasProposedStatutoryInstrument
+	:websiteLabel "work package has proposed statutory instrument" ;
+	:websiteDescription ":workPackageHasProposedStatutoryInstrument no website description provided" ;
+.
+:workPackageHasStatutoryInstrument
+	:websiteLabel "work package has statutory instrument" ;
+	:websiteDescription ":workPackageHasStatutoryInstrument no website description provided" ;
+.
+:workPackageHasWorkPackageableThing
+	:websiteLabel "work package has work packageable thing" ;
+	:websiteDescription ":workPackageHasWorkPackageableThing no website description provided" ;
+.
+:workPackageableThingComingIntoForceDate
+	:websiteLabel "work packageable thing coming into force date" ;
+	:websiteDescription ":workPackageableThingComingIntoForceDate no website description provided" ;
+.
+:workPackageableThingComingIntoForceNote
+	:websiteLabel "work packageable thing coming into force note" ;
+	:websiteDescription ":workPackageableThingComingIntoForceNote no website description provided" ;
+.
+:workPackageableThingFollowsWorkPackageableThing
+	:websiteLabel "work packageable thing follows work packageable thing" ;
+	:websiteDescription ":workPackageableThingFollowsWorkPackageableThing no website description provided" ;
+.
+:workPackageableThingHasWorkPackage
+	:websiteLabel "work packageable thing has work package" ;
+	:websiteDescription ":workPackageableThingHasWorkPackage no website description provided" ;
+.
+:workPackageableThingHasWorkPackageableThingWebLink
+	:websiteLabel "work packageable thing has work packageable thing web link" ;
+	:websiteDescription ":workPackageableThingHasWorkPackageableThingWebLink no website description provided" ;
+.
+:workPackageableThingName
+	:websiteLabel "work packageable thing name" ;
+	:websiteDescription ":workPackageableThingName no website description provided" ;
+.
+:workPackageableThingPrecedesWorkPackageableThing
+	:websiteLabel "work packageable thing precedes work packageable thing" ;
+	:websiteDescription ":workPackageableThingPrecedesWorkPackageableThing no website description provided" ;
+.
+:workPackageableThingTimeLimitForObjectionEndDate
+	:websiteLabel "work packageable thing time limit for objection end date" ;
+	:websiteDescription ":workPackageableThingTimeLimitForObjectionEndDate no website description provided" ;
+.
+:WorkPackageableThingWebLink
+	:websiteLabel "Work packageable thing web link" ;
+	:websiteDescription ":WorkPackageableThingWebLink no website description provided" ;
+.
+:workPackageableThingWebLinkHasWorkPackageableThing
+	:websiteLabel "work packageable thing web link has work packageable thing" ;
+	:websiteDescription ":workPackageableThingWebLinkHasWorkPackageableThing no website description provided" ;
+.
+:workPackagedThingHasWorkPackagedThingWebLink
+	:websiteLabel "work packaged thing has work packaged thing web link" ;
+	:websiteDescription ":workPackagedThingHasWorkPackagedThingWebLink no website description provided" ;
+.
+:workPackagedThingName
+	:websiteLabel "work packaged thing name" ;
+	:websiteDescription ":workPackagedThingName no website description provided" ;
+.
+:WorkPackagedThingWebLink
+	:websiteLabel "Work packaged thing web link" ;
+	:websiteDescription ":WorkPackagedThingWebLink no website description provided" ;
+.
+:workPackagedThingWebLinkHasWorkPackagedThing
+	:websiteLabel "work packaged thing web link has work packaged thing" ;
+	:websiteDescription ":workPackagedThingWebLinkHasWorkPackagedThing no website description provided" ;
+.
+:WrittenAnswer
+	:websiteLabel "Written answer" ;
+	:websiteDescription ":WrittenAnswer no website description provided" ;
+.
+:WrittenAnswerExpectation
+	:websiteLabel "Written answer expectation" ;
+	:websiteDescription ":WrittenAnswerExpectation no website description provided" ;
+.
+:writtenAnswerExpectationHasQuestion
+	:websiteLabel "written answer expectation has question" ;
+	:websiteDescription ":writtenAnswerExpectationHasQuestion no website description provided" ;
+.
+:writtenAnswerHasAnsweringBody
+	:websiteLabel "written answer has answering body" ;
+	:websiteDescription ":writtenAnswerHasAnsweringBody no website description provided" ;
+.
+:writtenQuestionIndexingAndSearchUin
+	:websiteLabel "written question Indexing & Search UIN" ;
+	:websiteDescription ":writtenQuestionIndexingAndSearchUin no website description provided" ;
+.
