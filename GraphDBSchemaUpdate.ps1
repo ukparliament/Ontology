@@ -23,6 +23,7 @@ Param(
 )
 
 $ErrorActionPreference = "Stop"
+$api="https://api.parliament.uk"
 
 function Log([Parameter(Mandatory=$true)][string]$LogText){
     Write-Host ("{0} - {1}" -f (Get-Date -Format "HH:mm:ss.fff"), $LogText)
@@ -36,7 +37,7 @@ function Get-JMXAttribute([Parameter(Mandatory=$true)][string]$AttributeName){
         "attribute"= "$AttributeName";
     }
     $bodyJson=ConvertTo-Json $bodyTxt
-    $response=Invoke-RestMethod -Uri "https://$APIManagementName.azure-api.net/jmx" -Method Post -ContentType "application/json" -Body $bodyJson -Headers $header -TimeoutSec 15
+    $response=Invoke-RestMethod -Uri "$api/jmx" -Method Post -ContentType "application/json" -Body $bodyJson -Headers $header -TimeoutSec 15
     $response.value
 }
 
