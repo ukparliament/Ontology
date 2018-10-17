@@ -2242,50 +2242,6 @@
 	:websiteLabel "work package has statutory instrument" ;
 	:websiteDescription ":workPackageHasStatutoryInstrument no website description provided" ;
 .
-:workPackageHasWorkPackageableThing
-	:websiteLabel "work package has work packageable thing" ;
-	:websiteDescription ":workPackageHasWorkPackageableThing no website description provided" ;
-.
-:workPackageableThingComingIntoForceDate
-	:websiteLabel "work packageable thing coming into force date" ;
-	:websiteDescription ":workPackageableThingComingIntoForceDate no website description provided" ;
-.
-:workPackageableThingComingIntoForceNote
-	:websiteLabel "work packageable thing coming into force note" ;
-	:websiteDescription ":workPackageableThingComingIntoForceNote no website description provided" ;
-.
-:workPackageableThingFollowsWorkPackageableThing
-	:websiteLabel "work packageable thing follows work packageable thing" ;
-	:websiteDescription ":workPackageableThingFollowsWorkPackageableThing no website description provided" ;
-.
-:workPackageableThingHasWorkPackage
-	:websiteLabel "work packageable thing has work package" ;
-	:websiteDescription ":workPackageableThingHasWorkPackage no website description provided" ;
-.
-:workPackageableThingHasWorkPackageableThingWebLink
-	:websiteLabel "work packageable thing has work packageable thing web link" ;
-	:websiteDescription ":workPackageableThingHasWorkPackageableThingWebLink no website description provided" ;
-.
-:workPackageableThingName
-	:websiteLabel "work packageable thing name" ;
-	:websiteDescription ":workPackageableThingName no website description provided" ;
-.
-:workPackageableThingPrecedesWorkPackageableThing
-	:websiteLabel "work packageable thing precedes work packageable thing" ;
-	:websiteDescription ":workPackageableThingPrecedesWorkPackageableThing no website description provided" ;
-.
-:workPackageableThingTimeLimitForObjectionEndDate
-	:websiteLabel "work packageable thing time limit for objection end date" ;
-	:websiteDescription ":workPackageableThingTimeLimitForObjectionEndDate no website description provided" ;
-.
-:WorkPackageableThingWebLink
-	:websiteLabel "Work packageable thing web link" ;
-	:websiteDescription ":WorkPackageableThingWebLink no website description provided" ;
-.
-:workPackageableThingWebLinkHasWorkPackageableThing
-	:websiteLabel "work packageable thing web link has work packageable thing" ;
-	:websiteDescription ":workPackageableThingWebLinkHasWorkPackageableThing no website description provided" ;
-.
 :workPackagedThingHasWorkPackagedThingWebLink
 	:websiteLabel "work packaged thing has work packaged thing web link" ;
 	:websiteDescription ":workPackagedThingHasWorkPackagedThingWebLink no website description provided" ;
