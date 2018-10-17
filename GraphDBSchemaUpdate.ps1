@@ -103,7 +103,7 @@ Check-TripleNumber -Message "Before delete"
 
 Log "Delete schema"
 try{
-    Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $deleteSparql -ContentType "application/sparql-update" -TimeoutSec 3600 -Headers $header -Verbose
+    Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $deleteSparql -ContentType "application/sparql-update" -TimeoutSec 180 -Headers $header -Verbose
 }
 catch [System.Net.WebException]{
     Log "Expected error"
@@ -115,7 +115,7 @@ Check-TripleNumber -Message "After delete"
 $ontology=Get-Content $OntologyFileLocation -Encoding UTF8
 Log "Add schema"
 try {
-    Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $ontology -ContentType "application/sparql-update" -TimeoutSec 1800 -Headers $header -Verbose
+    Invoke-RestMethod -Uri "$api/rdf4j/repositories/Master/statements" -Method Post -Body $ontology -ContentType "application/sparql-update" -TimeoutSec 180 -Headers $header -Verbose
 }
 catch [System.Net.WebException]{
     Log "Expected error"
