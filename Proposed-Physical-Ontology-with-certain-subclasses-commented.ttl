@@ -602,12 +602,16 @@ this:schema
 	rdfs:subClassOf :FormalBody ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Statutory committee" ;
+	owl:onProperty :formalBodyHasFormalBodyType ;
+	owl:someValuesFrom :StatutoryCommitteeType ;
 .
 :InformallyConstitutedCommittee
 	a owl:Class ;
 	rdfs:subClassOf :FormalBody ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Informally-constituted committee" ;
+	owl:onProperty :formalBodyHasFormalBodyType ;
+	owl:someValuesFrom :InformallyConstitutedCommitteeType ;
 .
 :ParliamentaryCommittee
 	a owl:Class ;
@@ -620,18 +624,24 @@ this:schema
 	rdfs:subClassOf :ParliamentaryCommittee;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Select committee" ;
+	owl:onProperty :formalBodyHasFormalBodyType ;
+	owl:someValuesFrom :SelectCommitteeType ;
 .
 :NonSelectCommittee
 	a owl:Class ;
 	rdfs:subClassOf :ParliamentaryCommittee;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Non-select committee" ;
+	owl:onProperty :formalBodyHasFormalBodyType ;
+	owl:someValuesFrom :NonSelectCommitteeType ;
 .
 :GeneralCommittee
 	a owl:Class ;
 	rdfs:subClassOf :ParliamentaryCommittee;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "General committee" ;
+	owl:onProperty :formalBodyHasFormalBodyType ;
+	owl:someValuesFrom :GeneralCommitteeType ;
 .
 :PastFormalBody
 	a owl:Class ;
@@ -4089,55 +4099,39 @@ geosparql:wktLiteral
 
 ############################RESTRICTIONS################################
 
-:SelectCommittee
-	owl:equivalentClass [
-		owl:onProperty :formalBodyHasFormalBodyType ;
-		owl:someValuesFrom [
-			a owl:Restriction ;
-			owl:onProperty :formalBodyTypeName ;
-			owl:hasValue "Parliamentary - Select"
-		]
-	]
-.
-:GeneralCommittee
-	owl:equivalentClass [
-		owl:onProperty :formalBodyHasFormalBodyType ;
-		owl:someValuesFrom [
-			a owl:Restriction ;
-			owl:onProperty :formalBodyTypeName ;
-			owl:hasValue "Parliamentary - General"
-		]
-	]
-.
-:NonSelectCommittee
-	owl:equivalentClass [
-		owl:onProperty :formalBodyHasFormalBodyType ;
-		owl:someValuesFrom [
-			a owl:Restriction ;
-			owl:onProperty :formalBodyTypeName ;
-			owl:hasValue "Parliamentary - NonSelect"
-		]
-	]
-.
-:StatutoryCommittee
-	owl:equivalentClass [
-		owl:onProperty :formalBodyHasFormalBodyType ;
-		owl:someValuesFrom [
-			a owl:Restriction ;
-			owl:onProperty :formalBodyTypeName ;
-			owl:hasValue "Statutory Committee"
-		]
-	]
-.
-:InformallyConstitutedCommittee
-	owl:equivalentClass [
-		owl:onProperty :formalBodyHasFormalBodyType ;
-		owl:someValuesFrom [
-			a owl:Restriction ;
-			owl:onProperty :formalBodyTypeName ;
-			owl:hasValue "Informally Constituted"
-		]
-	]
-.
 
-
+:SelectCommitteeType
+	a owl:Restriction ;
+	rdfs:isDefinedBy this:schema ;
+	owl:onProperty :formalBodyTypeName ;
+	owl:hasValue "Parliamentary - Select" ;
+	rdfs:label "Select committee type" ;
+.
+:GeneralCommitteeType
+	a owl:Restriction ;
+	rdfs:isDefinedBy this:schema ;
+	owl:onProperty :formalBodyTypeName ;
+	owl:hasValue "Parliamentary - General" ;
+	rdfs:label "General committee type" ;
+.
+:NonSelectCommitteeType
+	a owl:Restriction ;
+	rdfs:isDefinedBy this:schema ;
+	owl:onProperty :formalBodyTypeName ;
+	owl:hasValue "Parliamentary - NonSelect" ;
+	rdfs:label "Non-select committee type" ;
+.
+:StatutoryCommitteeType
+	a owl:Restriction ;
+	rdfs:isDefinedBy this:schema ;
+	owl:onProperty :formalBodyTypeName ;
+	owl:hasValue "Statutory Committee" ;
+	rdfs:label "Statutory committee type" ;
+.
+:InformallyConstitutedCommitteeType
+	a owl:Restriction ;
+	rdfs:isDefinedBy this:schema ;
+	owl:onProperty :formalBodyTypeName ;
+	owl:hasValue "Informally Constituted" ;
+	rdfs:label "Informally-constituted committee type" ;
+.
