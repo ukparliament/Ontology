@@ -1052,6 +1052,16 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Laying person" ;
 .
+:WebsiteLabelledThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Website Labelled Thing" ;
+.
+:WebsiteDescribedThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Website Described Thing" ;
+.
 
 ##########################OBJECT PROPERTIES##############################
 
@@ -1153,7 +1163,7 @@ this:schema
 	rdfs:label "laying body has laying" ;
 .
 :laidThingHasLaying
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :layingHasLaidThing ;
 	rdfs:domain :LaidThing ;
 	rdfs:range :Laying ;
@@ -1162,7 +1172,7 @@ this:schema
 	rdfs:comment "Laid thing can have one laying." ;
 .
 :layingHasLaidThing
-	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :laidThingHasLaying ;
 	rdfs:domain :Laying ;
 	rdfs:range :LaidThing ;
@@ -4087,12 +4097,16 @@ geosparql:wktLiteral
 
 :websiteLabel
 	a owl:AnnotationProperty ;
+	rdfs:domain :WebsiteLabelledThing ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Website label" ;
 	rdfs:comment "Allows the website to display a more user-friendly equivalent to rdfs:label" ;
 .
 :websiteDescription
 	a owl:AnnotationProperty ;
+	rdfs:domain :WebsiteDescribedThing ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Website description" ;
 	rdfs:comment "Allows the website to display a more user-friendly equivalent to rdfs:comment" ;
