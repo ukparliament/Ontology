@@ -1051,6 +1051,16 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Laying person" ;
 .
+:WebsiteLabelledThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Website Labelled Thing" ;
+.
+:WebsiteDescribedThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Website Described Thing" ;
+.
 
 ##########################OBJECT PROPERTIES##############################
 
@@ -4086,12 +4096,16 @@ geosparql:wktLiteral
 
 :websiteLabel
 	a owl:AnnotationProperty ;
+	rdfs:domain :WebsiteLabelledThing ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Website label" ;
 	rdfs:comment "Allows the website to display a more user-friendly equivalent to rdfs:label" ;
 .
 :websiteDescription
 	a owl:AnnotationProperty ;
+	rdfs:domain :WebsiteDescribedThing ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Website description" ;
 	rdfs:comment "Allows the website to display a more user-friendly equivalent to rdfs:comment" ;
