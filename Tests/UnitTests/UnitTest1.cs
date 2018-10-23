@@ -17,11 +17,19 @@
         private const string OntologyUri = "https://id.parliament.uk/schema";
         private const string BaseUri = "https://id.parliament.uk/schema/";
 
+        private static IEnumerable<object[]> AllResources
+        {
+            get
+            {
+                return OntologyResources.Union(Ontologies);
+            }
+        }
+
         private static IEnumerable<object[]> OntologyResources
         {
             get
             {
-                return Properties.Union(Classes);
+                return Classes.Union(Properties).Union(Restrictions);
             }
         }
 
@@ -47,6 +55,28 @@
             }
         }
 
+        private static IEnumerable<object[]> Restrictions
+        {
+            get
+            {
+                var ontologyGraph = new OntologyGraph();
+                ontologyGraph.LoadFromFile(OntologyFile);
+
+                return ontologyGraph.Restrictions.Select(r => new[] { r });
+            }
+        }
+
+        private static IEnumerable<object[]> Ontologies
+        {
+            get
+            {
+                var ontologyGraph = new OntologyGraph();
+                ontologyGraph.LoadFromFile(OntologyFile);
+
+                return ontologyGraph.Ontologies.Select(r => new[] { r });
+            }
+        }
+
         private static IEnumerable<object[]> NamespaceResources
         {
             get
@@ -69,23 +99,20 @@
         }
 
         [TestMethod]
-        public void Ontology_has_correct_uri()
+        [DynamicData(nameof(Ontologies))]
+        public void Ontology_has_correct_uri(OntologyResource ontology)
         {
-            using (var ontologyGraph = new Graph())
-            {
-                ontologyGraph.LoadFromFile(OntologyFile);
-
-                var actualOntologyUri = ontologyGraph.GetTriplesWithPredicateObject(
-                    ontologyGraph.CreateUriNode(new Uri(RdfSpecsHelper.RdfType)),
-                    ontologyGraph.GetUriNode(new Uri(OntologyHelper.OwlOntology))
-                ).Single().Subject.ToString();
-
-                Assert.AreEqual(OntologyUri, actualOntologyUri);
-            }
+            Assert.AreEqual(OntologyUri, ((IUriNode)ontology.Resource).Uri.AbsoluteUri);
         }
 
         [TestMethod]
-        [DynamicData(nameof(OntologyResources))]
+        public void Only_one_ontology()
+        {
+            Assert.AreEqual(1, Ontologies.Count());
+        }
+
+        [TestMethod]
+        [DynamicData(nameof(AllResources))]
         public void Resource_is_defined_by_ontology(OntologyResource ontologyResource)
         {
             var theOntology = new NodeFactory().CreateUriNode(new Uri(OntologyUri));
@@ -95,7 +122,6 @@
             Assert.AreEqual(1, definingResource.Count(), "Ontology resources must be defined by exactly one ontology.");
             Assert.AreEqual(theOntology, definingResource.Single(), "Ontology resources must be defined by the correct ontology.");
         }
-
 
         [TestMethod]
         [DynamicData(nameof(NamespaceResources))]
@@ -145,7 +171,7 @@
         }
 
         [TestMethod]
-        [DynamicData(nameof(OntologyResources))]
+        [DynamicData(nameof(AllResources))]
         public void Resource_has_label(OntologyResource ontologyResource)
         {
             var theOntology = new NodeFactory().CreateUriNode(new Uri(OntologyUri));

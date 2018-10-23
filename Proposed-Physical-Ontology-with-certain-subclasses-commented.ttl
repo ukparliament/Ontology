@@ -16,6 +16,7 @@
 
 this:schema
 	a owl:Ontology ;
+	rdfs:isDefinedBy this:schema ;
 	dcterms:title "The UK Parliament vocabulary" ;
 	rdfs:label "The UK Parliament vocabulary" ;
 .
