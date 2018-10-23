@@ -1,4 +1,4 @@
-﻿namespace UnitTests
+﻿namespace OntologyTests
 {
     using VDS.RDF;
     using VDS.RDF.Ontology;

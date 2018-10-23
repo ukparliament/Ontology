@@ -1,4 +1,4 @@
-﻿namespace UnitTests
+﻿namespace OntologyTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
@@ -11,9 +11,9 @@
     using VDS.RDF.Parsing.Handlers;
 
     [TestClass]
-    public class UnitTest1
+    public class OntologyTests
     {
-        private const string OntologyFile = "Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl";
+        private const string OntologyFile = "Ontology.ttl";
         private const string OntologyUri = "https://id.parliament.uk/schema";
         private const string BaseUri = "https://id.parliament.uk/schema/";
 

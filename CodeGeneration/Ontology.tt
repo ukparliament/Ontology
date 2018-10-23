@@ -1,6 +1,6 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".ttl" #>
-<#string filePath=this.Host.ResolvePath("..\\Proposed-Physical-Ontology-with-certain-subclasses-commented.ttl");
+<#string filePath=this.Host.ResolvePath("..\\Ontology.ttl");
 foreach(string line in System.IO.File.ReadLines(filePath))
 {
 if (line.StartsWith("###"))
