@@ -1152,7 +1152,7 @@ this:schema
 	rdfs:label "laying body has laying" ;
 .
 :laidThingHasLaying
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :layingHasLaidThing ;
 	rdfs:domain :LaidThing ;
 	rdfs:range :Laying ;
@@ -1161,7 +1161,7 @@ this:schema
 	rdfs:comment "Laid thing can have one laying." ;
 .
 :layingHasLaidThing
-	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:FunctionalProperty ;
 	owl:inverseOf :laidThingHasLaying ;
 	rdfs:domain :Laying ;
 	rdfs:range :LaidThing ;
