@@ -42,17 +42,9 @@
 	:websiteLabel "Work packaged thing" ;
 	:websiteDescription "Any thing which can be the focus of a Work Package - for example statutory instrument papers." ;
 .
-:WorkPackageableThing
-	:websiteLabel "Work packageable thing" ;
-	:websiteDescription "Any thing which is expressed as a Work Package - for example Statutory Instruments" ;
-.
 :endDate
 	:websiteLabel "end date" ;
 	:websiteDescription "By convention, endDate is only used after the date." ;
-.
-:statutoryInstrumentNumberPrefix
-	:websiteLabel "statutory instrument number prefix" ;
-	:websiteDescription "eg 'SI', 'SR'" ;
 .
 :laidThingHasLaying
 	:websiteLabel "laid thing has laying" ;
@@ -93,10 +85,6 @@
 :ImageSubject
 	:websiteLabel "Image subject" ;
 	:websiteDescription "The person or thing an image is of, which is depicted in the Image" ;
-.
-:statutoryInstrumentNumberYear
-	:websiteLabel "statutory instrument number year" ;
-	:websiteDescription "The year for the Statutory Instrument ID. Can be the laid year or made year" ;
 .
 :statutoryInstrumentPaperYear
 	:websiteLabel "statutory instrument paper year" ;
@@ -1186,14 +1174,6 @@
 	:websiteLabel "latitude" ;
 	:websiteDescription ":latitude no website description provided" ;
 .
-:LayableThing
-	:websiteLabel "Layable thing" ;
-	:websiteDescription ":LayableThing no website description provided" ;
-.
-:layableThingHasLaying
-	:websiteLabel "layable thing has laying" ;
-	:websiteDescription ":layableThingHasLaying no website description provided" ;
-.
 :Laying
 	:websiteLabel "Laying" ;
 	:websiteDescription ":Laying no website description provided" ;
@@ -1209,10 +1189,6 @@
 :layingDate
 	:websiteLabel "laying date" ;
 	:websiteDescription ":layingDate no website description provided" ;
-.
-:layingHasLayableThing
-	:websiteLabel "laying has layable thing" ;
-	:websiteDescription ":layingHasLayableThing no website description provided" ;
 .
 :layingHasLayingBody
 	:websiteLabel "laying has laying body" ;
@@ -1866,14 +1842,6 @@
 	:websiteLabel "proposed start date" ;
 	:websiteDescription ":proposedStartDate no website description provided" ;
 .
-:ProposedStatutoryInstrument
-	:websiteLabel "Proposed statutory instrument" ;
-	:websiteDescription ":ProposedStatutoryInstrument no website description provided" ;
-.
-:proposedStatutoryInstrumentHasWorkPackage
-	:websiteLabel "proposed statutory instrument has work package" ;
-	:websiteDescription ":proposedStatutoryInstrumentHasWorkPackage no website description provided" ;
-.
 :ProrogationAnswer
 	:websiteLabel "Prorogation answer" ;
 	:websiteDescription ":ProrogationAnswer no website description provided" ;
@@ -2062,14 +2030,6 @@
 	:websiteLabel "Statutory instrument" ;
 	:websiteDescription ":StatutoryInstrument no website description provided" ;
 .
-:statutoryInstrumentHasWorkPackage
-	:websiteLabel "statutory instrument has work package" ;
-	:websiteDescription ":statutoryInstrumentHasWorkPackage no website description provided" ;
-.
-:statutoryInstrumentNumber
-	:websiteLabel "statutory instrument number" ;
-	:websiteDescription ":statutoryInstrumentNumber no website description provided" ;
-.
 :StatutoryInstrumentPaper
 	:websiteLabel "Statutory instrument paper" ;
 	:websiteDescription ":StatutoryInstrumentPaper no website description provided" ;
@@ -2233,14 +2193,6 @@
 :workPackageHasProcedure
 	:websiteLabel "work package has procedure" ;
 	:websiteDescription ":workPackageHasProcedure no website description provided" ;
-.
-:workPackageHasProposedStatutoryInstrument
-	:websiteLabel "work package has proposed statutory instrument" ;
-	:websiteDescription ":workPackageHasProposedStatutoryInstrument no website description provided" ;
-.
-:workPackageHasStatutoryInstrument
-	:websiteLabel "work package has statutory instrument" ;
-	:websiteDescription ":workPackageHasStatutoryInstrument no website description provided" ;
 .
 :workPackagedThingHasWorkPackagedThingWebLink
 	:websiteLabel "work packaged thing has work packaged thing web link" ;
