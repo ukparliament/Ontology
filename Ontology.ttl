@@ -3966,6 +3966,13 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure name" ;
 .
+:procedureDescription
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Procedure ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure description" ;
+.
 :procedureStepName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :name ;
