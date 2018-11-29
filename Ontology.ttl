@@ -14,7 +14,6 @@
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
 
-
 #################################ONTOLOGY#################################
 
 this:schema
