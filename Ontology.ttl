@@ -11,6 +11,9 @@
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+
 
 #################################ONTOLOGY#################################
 
@@ -64,18 +67,20 @@ this:schema
 	rdfs:subClassOf :ExternalThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Wikidata thing" ;
+	rdfs:comment "A thing which lives in our database and has an id.parliament.uk URI which has a counterpoint on Wikidata.  Not necessarily something which is orchestrated from Wikidata, which the [Source]Thing class name tends to indicate in our schema. A more unwieldy name might be ':WikidataEquivalentHavingThing'. Hopefully this comment ameliorates the slight inconsistency" ;
 .
-:WikidataParliamentPeriod
+:WikidataResource
 	a owl:Class ;
-	rdfs:subClassOf :ParliamentPeriod ;
-#	rdfs:subClassOf :WikidataThing ;
+	rdfs:subClassOf wd:Q35120 ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Wikidata parliament period" ;
+	rdfs:label "Wikidata resource" ;
+	rdfs:comment "Something with a URI from Wikidata, equivalent to a :WikidataThing with an https://id.parliament.uk/ URI" ;
 .
 :ExternalThing
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "External thing" ;
+	rdfs:comment "A thing which lives in our database but which we link to an external database by the inclusion of foreign identifiers" ;
 .
 :NamedThing
 	a owl:Class ;
@@ -341,7 +346,7 @@ this:schema
 .
 :OnsConstituencyGroup
 	a owl:Class ;
-	rdfs:seeAlso <http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency> ;
+	rdfs:seeAlso admingeo:WestminsterConstituency ;
 	rdfs:subClassOf :ConstituencyGroup ;
 #	rdfs:subClassOf :OnsThing ;
 	rdfs:isDefinedBy this:schema ;
@@ -2808,6 +2813,23 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "statutory instrument paper follows proposed negative statutory instrument paper" ;
 .
+:wikidataThingHasEquivalentWikidataResource
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf rdfs:seeAlso ;
+	rdfs:domain :WikidataThing ;
+	rdfs:range :WikidataResource ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Wikidata thing has equivalent Wikidata resource" ;
+.
+:wikidataResourceHasEquivalentWikidataThing
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf rdfs:seeAlso ;
+	owl:inverseOf :wikidataThingHasEquivalentWikidataResource ;
+	rdfs:domain :WikidataResource ;
+	rdfs:range :WikidataThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Wikidata resource has equivalent Wikidata thing" ;
+.
 
 ########################DATATYPE PROPERTIES##############################
 
@@ -2961,22 +2983,6 @@ this:schema
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "PIMS Id" ;
-.
-:wikidataId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :externalIdentifier ;
-	rdfs:domain :WikidataThing ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Wikidata Id" ;
-.
-:parliamentPeriodWikidataId
-	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf :wikidataId ;
-	rdfs:domain :WikidataParliamentPeriod ;
-	rdfs:range xsd:string ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "parliament period Wikidata Id" ;
 .
 :dodsId
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
