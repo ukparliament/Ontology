@@ -3,17 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "OntologyTests\OntologyTests.csproj", "{A8CEB3BF-9042-48D8-8DEE-EBC960A07E08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OntologyTests", "OntologyTests\OntologyTests.csproj", "{A8CEB3BF-9042-48D8-8DEE-EBC960A07E08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGeneration", "CodeGeneration\CodeGeneration.csproj", "{91F8DB46-28AA-41E6-BB23-BECAB51FAA8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{626C32C4-556A-431A-919A-A785BAD0A531}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		LICENSE = LICENSE
 		Ontology.ttl = Ontology.ttl
-		Website-labels-and-descriptions.ttl = Website-labels-and-descriptions.ttl
 		README.md = README.md
 		RepositoryReset.ps1 = RepositoryReset.ps1
+		Website-labels-and-descriptions.ttl = Website-labels-and-descriptions.ttl
 	EndProjectSection
 EndProject
 Global
