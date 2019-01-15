@@ -1032,6 +1032,13 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Statutory instrument paper" ;
 .
+:Treaty
+	a owl:Class ;
+	rdfs:subClassOf :LaidThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Treaty" ;
+	rdfs:label "Treaty" ;
+.
 :ProposedNegativeStatutoryInstrumentPaper
 	a owl:Class ;
 	rdfs:subClassOf :LaidThing ;
@@ -4048,6 +4055,14 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "statutory instrument paper name" ;
+.
+:treatyName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :laidThingName ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty name" ;
 .
 :statutoryInstrumentPaperPrefix
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
