@@ -4072,6 +4072,13 @@ geosparql:wktLiteral
 	rdfs:label "statutory instrument paper prefix" ;
 	rdfs:comment "Usually this will be SI. Other prefixes, such as for regulations include SR (NI)." ;
 .
+:treatyPrefix
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty prefix" ;
+.
 :statutoryInstrumentPaperYear
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :StatutoryInstrumentPaper ;
@@ -4087,6 +4094,13 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "statutory instrument number" ;
 	rdfs:comment "Statutory instrument papers are given a number in the SI series which runs from number 1 each calendar year. SIs may be cited using prefix number and year e.g. SI 1986/935" ;
+.
+:treatyNumber
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty number" ;
 .
 :statutoryInstrumentPaperMadeDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
