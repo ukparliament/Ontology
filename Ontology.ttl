@@ -1037,7 +1037,42 @@ this:schema
 	rdfs:subClassOf :LaidThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Treaty" ;
-	rdfs:label "Treaty" ;
+.
+:InForceTreaty
+	a owl:Class ;
+	rdfs:subClassOf :Treaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "In force treaty" ;
+.
+:SeriesMembership
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Series membership" ;
+.
+:TreatySeriesMembership
+	a owl:Class ;
+	rdfs:subClassOf :SeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Treaty series membership" ;
+	rdfs:comment "The membership a Treaty has of the Treaty Series, the membership of which makes it an In Force treaty" ;
+.
+:CountrySeriesMembership
+	a owl:Class ;
+	rdfs:subClassOf :SeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Country series membership" ;
+.
+:EuropeanUnionSeriesMembership
+	a owl:Class ;
+	rdfs:subClassOf :SeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "European Union series membership" ;
+.
+:MiscellaneousSeriesMembership
+	a owl:Class ;
+	rdfs:subClassOf :SeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Miscellaneous series membership" ;
 .
 :ProposedNegativeStatutoryInstrumentPaper
 	a owl:Class ;
@@ -1076,6 +1111,104 @@ this:schema
 
 ##########################OBJECT PROPERTIES##############################
 
+:treatyHasLeadGovernmentOrganisation
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range :GovernmentOrganisation ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty has lead Government organisation" ;
+.
+:leadGovernmentOrganisationHasTreaty
+	a owl:ObjectProperty ;
+	owl:inverseOf :treatyHasLeadGovernmentOrganisation ;
+	rdfs:domain :GovernmentOrganisation ;
+	rdfs:range :Treaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "lead Government organisation has treaty" ;
+.
+:treatyHasSeriesMembership
+	a owl:ObjectProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range :SeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty has series membership" ;
+.
+:seriesMembershipHasTreaty
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :treatyHasSeriesMembership ;
+	rdfs:domain :SeriesMembership ;
+	rdfs:range :Treaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "series membership has treaty" ;
+.
+:inForceTreatyHasTreatySeriesMembership
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :treatyHasSeriesMembership ;
+	rdfs:domain :InForceTreaty ;
+	rdfs:range :TreatySeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "in force treaty has Treaty series membership" ;
+.
+:treatySeriesMembershipHasInForceTreaty
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesMembershipHasTreaty ;
+	owl:inverseOf :inForceTreatyHasTreatySeriesMembership ;
+	rdfs:domain :TreatySeriesMembership ;
+	rdfs:range :InForceTreaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Treaty series membership has in force treaty" ;
+.
+:treatyHasCountrySeriesMembership
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :treatyHasSeriesMembership ;
+	rdfs:domain :Treaty ;
+	rdfs:range :CountrySeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty has Country series membership" ;
+.
+:countrySeriesMembershipHasTreaty
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesMembershipHasTreaty ;
+	owl:inverseOf :treatyHasCountrySeriesMembership ;
+	rdfs:domain :CountrySeriesMembership ;
+	rdfs:range :Treaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Country series membership has treaty" ;
+.
+:treatyHasEuropeanUnionSeriesMembership
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :treatyHasSeriesMembership ;
+	rdfs:domain :Treaty ;
+	rdfs:range :EuropeanUnionSeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty has European Union series membership" ;
+.
+:europeanUnionSeriesMembershipHasTreaty
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesMembershipHasTreaty ;
+	owl:inverseOf :treatyHasEuropeanUnionSeriesMembership ;
+	rdfs:domain :EuropeanUnionSeriesMembership ;
+	rdfs:range :Treaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "European Union series membership has treaty" ;
+.
+:treatyHasMiscellaneousSeriesMembership
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf :treatyHasSeriesMembership ;
+	rdfs:domain :Treaty ;
+	rdfs:range :MiscellaneousSeriesMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty has Miscellaneous series membership" ;
+.
+:miscellaneousSeriesMembershipHasTreaty
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesMembershipHasTreaty ;
+	owl:inverseOf :treatyHasMiscellaneousSeriesMembership ;
+	rdfs:domain :MiscellaneousSeriesMembership ;
+	rdfs:range :Treaty ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Miscellaneous series membership has treaty" ;
+.
 :answerReplacesAnswer
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Answer ;
@@ -4132,6 +4265,41 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Indexing & Search URI" ;
+.
+:comingIntoForceDate
+	a owl:DatatypeProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "coming into force date" ;
+.
+:comingIntoForceNote
+	a owl:DatatypeProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "coming into force note" ;
+.
+:commandPaperPrefix
+	a owl:DatatypeProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "command paper prefix" ;
+.
+:commandPaperNumber
+	a owl:DatatypeProperty ;
+	rdfs:domain :Treaty ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "command paper number" ;
+.
+:seriesItemCitation
+	a owl:DatatypeProperty ;
+	rdfs:domain :SeriesMembership ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "series item citation" ;
 .
 
 ############################ANNOTATION PROPERTIES#######################
