@@ -4269,7 +4269,7 @@ geosparql:wktLiteral
 :treatyCommandPaperPrefix
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Treaty ;
-	rdfs:range xsd:string ;
+	rdfs:range xsd:integer ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "command paper prefix" ;
 .
@@ -4286,6 +4286,38 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "series item citation" ;
+.
+:countrySeriesItemCitation
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesItemCitation ;
+	rdfs:domain :CountrySeriesMembership ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "country series item citation" ;
+.
+:europeanUnionSeriesItemCitation
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesItemCitation ;
+	rdfs:domain :EuropeanUnionSeriesMembership ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "European Union series item citation" ;
+.
+:miscellaneousSeriesItemCitation
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesItemCitation ;
+	rdfs:domain :MiscellaneousSeriesMembership ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "miscellaneous series item citation" ;
+.
+:treatySeriesItemCitation
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :seriesItemCitation ;
+	rdfs:domain :TreatySeriesMembership ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "treaty series item citation" ;
 .
 
 ############################ANNOTATION PROPERTIES#######################
