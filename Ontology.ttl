@@ -4269,14 +4269,14 @@ geosparql:wktLiteral
 :treatyCommandPaperPrefix
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Treaty ;
-	rdfs:range xsd:integer ;
+	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "command paper prefix" ;
 .
 :treatyCommandPaperNumber
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :Treaty ;
-	rdfs:range xsd:string ;
+	rdfs:range xsd:integer ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "command paper number" ;
 .
