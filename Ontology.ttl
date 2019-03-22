@@ -962,6 +962,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure step" ;
 .
+:Publication
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Publication" ;
+.
 :BusinessItem
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -1111,6 +1116,28 @@ this:schema
 
 ##########################OBJECT PROPERTIES##############################
 
+:procedureStepHasPublication
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :Publication ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step has publication" ;
+.
+:publicationHasProcedureStep
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepHasPublication ;
+	rdfs:domain :Publication ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "publication has procedure step" ;
+.
+:procedureStepCommonlyActualisedAlongsideProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step commonly actualised alongside procedure step" ;
+.
 :treatyHasLeadGovernmentOrganisation
 	a owl:ObjectProperty, owl:FunctionalProperty ;
 	rdfs:domain :Treaty ;
@@ -4132,6 +4159,28 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step description" ;
+.
+:procedureStepScopeNote
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step scope note" ;
+.
+:procedureStepLinkNote
+	a owl:DatatypeProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step link note" ;
+.
+:procedureStepDateNote
+	a owl:DatatypeProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step date note" ;
 .
 :layingDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
