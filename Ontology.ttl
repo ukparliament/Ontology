@@ -962,10 +962,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure step" ;
 .
-:Publication
+:ProcedureStepPublication
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Publication" ;
+	rdfs:label "Procedure step publication" ;
+	rdfs:comment "The publication which contains the regular source of information about a given procedure step" ;
 .
 :BusinessItem
 	a owl:Class ;
@@ -1116,20 +1117,20 @@ this:schema
 
 ##########################OBJECT PROPERTIES##############################
 
-:procedureStepHasPublication
+:procedureStepHasProcedureStepPublication
 	a owl:ObjectProperty ;
 	rdfs:domain :ProcedureStep ;
-	rdfs:range :Publication ;
+	rdfs:range :ProcedureStepPublication ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "procedure step has publication" ;
+	rdfs:label "procedure step has procedure step publication" ;
 .
-:publicationHasProcedureStep
+:procedureStepPublicationHasProcedureStep
 	a owl:ObjectProperty ;
-	owl:inverseOf :procedureStepHasPublication ;
-	rdfs:domain :Publication ;
+	owl:inverseOf :procedureStepHasProcedureStepPublication ;
+	rdfs:domain :ProcedureStepPublication ;
 	rdfs:range :ProcedureStep ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "publication has procedure step" ;
+	rdfs:label "procedure step publication has procedure step" ;
 .
 :procedureStepCommonlyActualisedAlongsideProcedureStep
 	a owl:ObjectProperty ;
@@ -4367,6 +4368,21 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "treaty series item citation" ;
+.
+:procedureStepPublicationName
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :ProcedureStepPublication ;
+	rdfs:range xsd:string ;	
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step publication name" ;
+.
+:procedureStepPublicationUrl
+	a owl:DatatypeProperty ;
+	rdfs:domain :ProcedureStepPublication ;
+	rdfs:range xsd:string ;	
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step publication name" ;
 .
 
 ############################ANNOTATION PROPERTIES#######################
