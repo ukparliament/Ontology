@@ -1132,12 +1132,12 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step publication has procedure step" ;
 .
-:procedureStepCommonlyActualisedAlongsideProcedureStep
-	a owl:ObjectProperty ;
+:procedureStepIsCommonlyActualisedAlongsideProcedureStep
+	a owl:ObjectProperty, owl:SymmetricProperty ;
 	rdfs:domain :ProcedureStep ;
 	rdfs:range :ProcedureStep ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "procedure step commonly actualised alongside procedure step" ;
+	rdfs:label "procedure step is commonly actualised alongside procedure step" ;
 .
 :treatyHasLeadGovernmentOrganisation
 	a owl:ObjectProperty, owl:FunctionalProperty ;
