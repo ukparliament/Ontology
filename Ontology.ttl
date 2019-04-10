@@ -1795,7 +1795,7 @@ this:schema
 	rdfs:label "house seat has house" ;
 .
 :houseHasHouseSeat
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasHouse ;
 	rdfs:domain :House ;
 	rdfs:range :HouseSeat ;
@@ -1810,7 +1810,7 @@ this:schema
 	rdfs:label "house seat has constituency group" ;
 .
 :constituencyGroupHasHouseSeat
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasConstituencyGroup ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range :HouseSeat ;
@@ -1825,7 +1825,7 @@ this:schema
 	rdfs:label "house seat has house seat type" ;
 .
 :houseSeatTypeHasHouseSeat
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :houseSeatHasHouseSeatType ;
 	rdfs:domain :HouseSeatType ;
 	rdfs:range :HouseSeat ;
@@ -1840,7 +1840,7 @@ this:schema
 	rdfs:label "seat incumbency has house seat" ;
 .
 :houseSeatHasSeatIncumbency
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :seatIncumbencyHasHouseSeat ;
 	rdfs:domain :HouseSeat ;
 	rdfs:range :SeatIncumbency ;
@@ -1886,7 +1886,7 @@ this:schema
 	rdfs:label "parliamentary incumbency has member" ;
 .
 :memberHasParliamentaryIncumbency
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :parliamentaryIncumbencyHasMember ;
 	rdfs:subPropertyOf :personHasIncumbency ;
 	rdfs:domain :Member ;
@@ -1902,7 +1902,7 @@ this:schema
 	rdfs:label "gender identity has person" ;
 .
 :personHasGenderIdentity
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasPerson ;
 	rdfs:domain :Person ;
 	rdfs:range :GenderIdentity ;
@@ -1917,7 +1917,7 @@ this:schema
 	rdfs:label "gender identity has gender" ;
 .
 :genderHasGenderIdentity
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :genderIdentityHasGender ;
 	rdfs:domain :Gender ;
 	rdfs:range :GenderIdentity ;
@@ -1962,7 +1962,7 @@ this:schema
 	rdfs:label "party membership has party member" ;
 .
 :partyMemberHasPartyMembership
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :partyMembershipHasPartyMember ;
 	rdfs:domain :PartyMember ;
 	rdfs:range :PartyMembership ;
@@ -1977,7 +1977,7 @@ this:schema
 	rdfs:label "party membership has party" ;
 .
 :partyHasPartyMembership
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :partyMembershipHasParty ;
 	rdfs:domain :Party ;
 	rdfs:range :PartyMembership ;
@@ -1992,7 +1992,7 @@ this:schema
 	rdfs:label "candidacy has candidate" ;
 .
 :candidateHasCandidacy
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasCandidate ;
 	rdfs:domain :Candidate ;
 	rdfs:range :Candidacy ;
@@ -2007,7 +2007,7 @@ this:schema
 	rdfs:label "candidacy has party" ;
 .
 :partyhasCandidacy
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasParty ;
 	rdfs:domain :Party ;
 	rdfs:range :Candidacy ;
@@ -2037,7 +2037,7 @@ this:schema
 	rdfs:label "candidacy has election" ;
 .
 :electionHasCandidacy
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :candidacyHasElection ;
 	rdfs:domain :Election ;
 	rdfs:range :Candidacy ;
@@ -2052,7 +2052,7 @@ this:schema
 	rdfs:label "election has electorate" ;
 .
 :electorateHasElection
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :electionHasElectorate ;
 	rdfs:domain :Electorate ;
 	rdfs:range :Election ;
@@ -2067,7 +2067,7 @@ this:schema
 	rdfs:label "election has election type" ;
 .
 :electionTypeHasElection
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :electionHasElectionType ;
 	rdfs:domain :ElectionType ;
 	rdfs:range :Election ;
@@ -2082,7 +2082,7 @@ this:schema
 	rdfs:label "electorate has constitutency group" ;
 .
 :constituencyGroupHasElectorate
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :electorateHasConstitutencyGroup ;
 	rdfs:domain :ConstituencyGroup ;
 	rdfs:range :Electorate ;
@@ -2097,7 +2097,7 @@ this:schema
 	rdfs:label "electoral incumbency has candidacy result" ;
 .
 :candidacyResultHasElectoralIncumbency
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :electoralIncumbencyHasCandidacyResult ;
 	rdfs:domain :CandidacyResult ;
 	rdfs:range :ElectoralIncumbency ;
@@ -2112,7 +2112,7 @@ this:schema
 	rdfs:label "constituency group has constituency area" ;
 .
 :constituencyAreaHasConstituencyGroup
-	a owl:InverseFunctionalProperty ;
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :constituencyGroupHasConstituencyArea ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range :ConstituencyGroup ;
