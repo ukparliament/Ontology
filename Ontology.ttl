@@ -70,7 +70,7 @@ this:schema
 .
 :WikidataResource
 	a owl:Class ;
-	rdfs:subClassOf wd:Q35120 ;
+#	rdfs:subClassOf wd:Q35120 ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Wikidata resource" ;
 	rdfs:comment "Something with a URI from Wikidata, equivalent to a :WikidataThing with an https://id.parliament.uk/ URI" ;
@@ -477,7 +477,7 @@ this:schema
 .
 :Concept
 	a owl:Class ;
-	rdfs:subClassOf skos:Concept ;
+#	rdfs:subClassOf skos:Concept ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Concept" ;
 .
