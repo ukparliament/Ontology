@@ -4162,7 +4162,7 @@ geosparql:wktLiteral
 	rdfs:label "procedure step description" ;
 .
 :procedureStepScopeNote
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
 	rdfs:domain :ProcedureStep ;
 	rdfs:range xsd:string ;
@@ -4170,14 +4170,14 @@ geosparql:wktLiteral
 	rdfs:label "procedure step scope note" ;
 .
 :procedureStepLinkNote
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ProcedureStep ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step link note" ;
 .
 :procedureStepDateNote
-	a owl:DatatypeProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ProcedureStep ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
