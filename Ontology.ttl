@@ -2,25 +2,18 @@
 
 @prefix : <https://id.parliament.uk/schema/> .
 @prefix this: <https://id.parliament.uk/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix wd: <http://www.wikidata.org/entity/> .
-@prefix admingeo: <http://data.ordnancesurvey.co.uk/ontology/admingeo/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
 #################################ONTOLOGY#################################
 
 this:schema
 	a owl:Ontology ;
 	rdfs:isDefinedBy this:schema ;
-	dcterms:title "The UK Parliament vocabulary" ;
-	rdfs:label "The UK Parliament vocabulary" ;
+	rdfs:label "The UK Parliament ontology" ;
 .
 
 #################################CLASSES##################################
@@ -70,7 +63,7 @@ this:schema
 .
 :WikidataResource
 	a owl:Class ;
-#	rdfs:subClassOf wd:Q35120 ;
+#	rdfs:subClassOf <http://www.wikidata.org/entity/Q35120> ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Wikidata resource" ;
 	rdfs:comment "Something with a URI from Wikidata, equivalent to a :WikidataThing with an https://id.parliament.uk/ URI" ;
@@ -345,7 +338,7 @@ this:schema
 .
 :OnsConstituencyGroup
 	a owl:Class ;
-	rdfs:seeAlso admingeo:WestminsterConstituency ;
+	rdfs:seeAlso <http://data.ordnancesurvey.co.uk/ontology/admingeo/WestminsterConstituency> ;
 	rdfs:subClassOf :ConstituencyGroup ;
 #	rdfs:subClassOf :OnsThing ;
 	rdfs:isDefinedBy this:schema ;
@@ -477,7 +470,6 @@ this:schema
 .
 :Concept
 	a owl:Class ;
-#	rdfs:subClassOf skos:Concept ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Concept" ;
 .
@@ -1773,7 +1765,6 @@ this:schema
 .
 :thingWithLogoHasLogo
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf foaf:hasLogo ;
 	rdfs:domain :ThingWithLogo ;
 	rdfs:range :Logo ;
 	rdfs:isDefinedBy this:schema ;
@@ -2172,7 +2163,6 @@ this:schema
 .
 :conceptualisedThingHasConcept
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf foaf:focus ;
 	rdfs:domain :ConceptualisedThing ;
 	rdfs:range :Concept ;
 	rdfs:isDefinedBy this:schema ;
@@ -2188,7 +2178,6 @@ this:schema
 .
 :subjectTaggedThingHasConcept
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf dcterms:subject ;
 	rdfs:domain :SubjectTaggedThing ;
 	rdfs:range :Concept ;
 	rdfs:isDefinedBy this:schema ;
@@ -2458,7 +2447,6 @@ this:schema
 .
 :conceptHasBroaderConcept
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf skos:broader ;
 	rdfs:domain :Concept ;
 	rdfs:range :Concept ;
 	rdfs:isDefinedBy this:schema ;
@@ -2467,7 +2455,6 @@ this:schema
 :conceptHasNarrowerConcept
 	a owl:ObjectProperty ;
 	owl:inverseOf :conceptHasBroaderConcept ;
-	rdfs:subPropertyOf skos:narrower ;
 	a owl:ObjectProperty ;
 	rdfs:domain :Concept ;
 	rdfs:range :Concept ;
@@ -3311,7 +3298,6 @@ this:schema
 	a owl:DatatypeProperty ;
 	rdfs:domain :ConstituencyArea ;
 	rdfs:range geosparql:wktLiteral ;
-	rdfs:seeAlso schema:polygon ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "constituency area extent" ;
 .
@@ -4011,7 +3997,6 @@ geosparql:wktLiteral
 .
 :conceptScopeNote
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf skos:scopeNote ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
@@ -4019,7 +4004,6 @@ geosparql:wktLiteral
 .
 :conceptDefinition
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf skos:definition ;
 	rdfs:domain :Concept ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
@@ -4163,7 +4147,6 @@ geosparql:wktLiteral
 .
 :procedureStepScopeNote
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
-	rdfs:subPropertyOf skos:scopeNote ;
 	rdfs:domain :ProcedureStep ;
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
