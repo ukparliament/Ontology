@@ -3058,6 +3058,22 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "parliamentary incumbency start date" ;
 .
+:procedureRouteStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :ProcedureRoute ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure route start date" ;
+.
+:procedureRouteEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :ProcedureRoute ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure route end date" ;
+.
 :startDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :date ;
