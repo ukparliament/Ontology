@@ -1024,9 +1024,20 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Withdrawn thing" ;
 .
+:StatutoryEnabledThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Statutory Enabled Thing" ;
+.
+:ActOfParliament
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Act of Parliament" ;
+.
 :StatutoryInstrumentPaper
 	a owl:Class ;
 	rdfs:subClassOf :LaidThing ;
+	rdfs:subClassOf :StatutoryEnabledThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Statutory instrument paper" ;
 .
@@ -1075,6 +1086,7 @@ this:schema
 :ProposedNegativeStatutoryInstrumentPaper
 	a owl:Class ;
 	rdfs:subClassOf :LaidThing ;
+	rdfs:subClassOf :StatutoryEnabledThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Proposed negative statutory instrument paper" ;
 .
@@ -4440,4 +4452,51 @@ geosparql:wktLiteral
 	owl:onProperty :formalBodyTypeName ;
 	owl:hasValue "Informally Constituted" ;
 	rdfs:label "Informally-constituted committee type" ;
+.
+:enabledBy
+	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	owl:inverseOf :enabling;
+	rdfs:domain :StatutoryEnabledThing;
+	rdfs:range :ActOfParliament;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Enabled by" ;
+	rdfs:comment "Enabled by." ;
+.
+:actOfParliamentName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ActOfParliament ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "act of parliament name" ;
+.
+:actOfParliamentRoyalAssentDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ActOfParliament ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "act of Parliament royal assent date" ;
+	rdfs:comment "act of Parliament royal assent date." ;
+.
+:actOfParliamentUrl
+	a owl:DatatypeProperty ;
+	rdfs:domain :ActOfParliament ;
+	rdfs:range xsd:string ;	
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Act of Parliament url." ;
+.
+:actOfParliamentYear
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ActOfParliament ;
+	rdfs:range xsd:gYear ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Act of Parliament year" ;
+	rdfs:comment "Act of Parliament year." ;
+.
+:actOfParliamentNumber
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :ActOfParliament ;
+	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Act of Parliament number" ;
+	rdfs:comment "Act of Parliament number." ;
 .
