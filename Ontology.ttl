@@ -4462,6 +4462,15 @@ geosparql:wktLiteral
 	rdfs:label "Enabled by" ;
 	rdfs:comment "Enabled by." ;
 .
+:enabling
+	a owl:ObjectProperty, owl:FunctionalProperty ;
+	owl:inverseOf :enabledBy;
+	rdfs:domain :ActOfParliament ;
+	rdfs:range :StatutoryEnabledThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Enabling" ;
+	rdfs:comment "Enabling." ;
+.
 :actOfParliamentName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :ActOfParliament ;
