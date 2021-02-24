@@ -4454,7 +4454,7 @@ geosparql:wktLiteral
 	rdfs:label "Informally-constituted committee type" ;
 .
 :enabledBy
-	a owl:ObjectProperty, owl:InverseFunctionalProperty ;
+	a owl:DatatypeProperty, owl:InverseFunctionalProperty ;
 	owl:inverseOf :enabling;
 	rdfs:domain :StatutoryEnabledThing;
 	rdfs:range :ActOfParliament;
@@ -4463,7 +4463,7 @@ geosparql:wktLiteral
 	rdfs:comment "Enabled by." ;
 .
 :enabling
-	a owl:ObjectProperty, owl:FunctionalProperty ;
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	owl:inverseOf :enabledBy;
 	rdfs:domain :ActOfParliament ;
 	rdfs:range :StatutoryEnabledThing ;
