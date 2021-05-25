@@ -1834,10 +1834,6 @@
 	:websiteLabel "proposed negative statutory instrument paper name" ;
 	:websiteDescription ":proposedNegativeStatutoryInstrumentPaperName no website description provided" ;
 .
-:proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper
-	:websiteLabel "proposed negative statutory instrument paper precedes statutory instrument paper" ;
-	:websiteDescription ":proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper no website description provided" ;
-.
 :proposedStartDate
 	:websiteLabel "proposed start date" ;
 	:websiteDescription ":proposedStartDate no website description provided" ;
@@ -2033,10 +2029,6 @@
 :StatutoryInstrumentPaper
 	:websiteLabel "Statutory instrument paper" ;
 	:websiteDescription ":StatutoryInstrumentPaper no website description provided" ;
-.
-:statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper
-	:websiteLabel "statutory instrument paper follows proposed negative statutory instrument paper" ;
-	:websiteDescription ":statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper no website description provided" ;
 .
 :statutoryInstrumentPaperName
 	:websiteLabel "statutory instrument paper name" ;

@@ -1024,20 +1024,26 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Withdrawn thing" ;
 .
-:StatutoryEnabledThing
+:EnabledThing
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Statutory Enabled Thing" ;
+	rdfs:label "Enabled Thing" ;
+.
+:EnablingThing
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Enabling thing" ;
 .
 :ActOfParliament
 	a owl:Class ;
+	rdfs:subClassOf :EnablingThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Act of Parliament" ;
 .
 :StatutoryInstrumentPaper
 	a owl:Class ;
 	rdfs:subClassOf :LaidThing ;
-	rdfs:subClassOf :StatutoryEnabledThing ;
+	rdfs:subClassOf :EnabledThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Statutory instrument paper" ;
 .
@@ -1086,10 +1092,19 @@ this:schema
 :ProposedNegativeStatutoryInstrumentPaper
 	a owl:Class ;
 	rdfs:subClassOf :LaidThing ;
-	rdfs:subClassOf :StatutoryEnabledThing ;
+	rdfs:subClassOf :EnabledThing ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Proposed negative statutory instrument paper" ;
 .
+
+:PublishedDraftUnderEUWA
+	a owl:Class ;
+	rdfs:subClassOf :EnabledThing ;
+	rdfs:subClassOf :WorkPackagedThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Published draft under EUWA" ;
+.
+ 
 :MadeStatutoryInstrumentPaper
 	a owl:Class ;
 	rdfs:subClassOf :StatutoryInstrumentPaper ;
@@ -2964,20 +2979,20 @@ this:schema
 	rdfs:label "work packaged thing has work package" ;
 	rdfs:comment "A work packaged thing can be the focus of one work package." ;
 .
-:proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper
+:followedBy 
 	a owl:ObjectProperty ;
-	rdfs:domain :ProposedNegativeStatutoryInstrumentPaper ;
-	rdfs:range :StatutoryInstrumentPaper ;
+	rdfs:domain :EnabledThing ;
+	rdfs:range :EnabledThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "proposed negative statutory instrument paper precedes statutory instrument paper" ;
+	rdfs:label "Enabled thing is followed by enabled thing" ;
 .
-:statutoryInstrumentPaperFollowsProposedNegativeStatutoryInstrumentPaper
+:precededBy
 	a owl:ObjectProperty ;
-	owl:inverseOf :proposedNegativeStatutoryInstrumentPaperPrecedesStatutoryInstrumentPaper ;
-	rdfs:domain :StatutoryInstrumentPaper ;
-	rdfs:range :ProposedNegativeStatutoryInstrumentPaper ;
+	owl:inverseOf :followedBy ;
+	rdfs:domain :EnabledThing ;
+	rdfs:range :EnabledThing ;
 	rdfs:isDefinedBy this:schema ;
-	rdfs:label "statutory instrument paper follows proposed negative statutory instrument paper" ;
+	rdfs:label "Enabled thing is preceded by enabled thing" ;
 .
 :wikidataThingHasEquivalentWikidataResource
 	a owl:ObjectProperty ;
@@ -4242,6 +4257,14 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "proposed negative statutory instrument paper name" ;
 .
+:PublishedDraftUnderEUWAName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :workPackagedThingName ;
+	rdfs:domain :PublishedDraftUnderEUWA ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Published draft under EUWA name" ;
+.
 :statutoryInstrumentPaperName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :laidThingName ;
@@ -4456,16 +4479,16 @@ geosparql:wktLiteral
 :enabling
     a owl:ObjectProperty ;
     owl:inverseOf :enabledBy;
-    rdfs:domain :ActOfParliament;
-    rdfs:range :StatutoryEnabledThing;
+    rdfs:domain :EnablingThing;
+    rdfs:range :EnabledThing;
     rdfs:isDefinedBy this:schema ;
     rdfs:label "Enabling" ;
     rdfs:comment "Enabling." ;
 .
 :enabledBy
     a owl:ObjectProperty;
-    rdfs:domain :StatutoryEnabledThing;
-    rdfs:range :ActOfParliament;
+    rdfs:domain :EnabledThing;
+    rdfs:range :EnablingThing;
     rdfs:isDefinedBy this:schema ;
     rdfs:label "Enabled by" ;
     rdfs:comment "Enabled by." ;
