@@ -4257,7 +4257,7 @@ geosparql:wktLiteral
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "proposed negative statutory instrument paper name" ;
 .
-:PublishedDraftUnderEUWAName
+:publishedDraftUnderEUWAName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :workPackagedThingName ;
 	rdfs:domain :PublishedDraftUnderEUWA ;
