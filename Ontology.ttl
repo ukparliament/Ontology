@@ -960,6 +960,11 @@ this:schema
 	rdfs:label "Procedure step publication" ;
 	rdfs:comment "The publication which contains the regular source of information about a given procedure step" ;
 .
+:ProcedureStepType
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Procedure step type" ;
+.
 :BusinessItem
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -1150,6 +1155,21 @@ this:schema
 	rdfs:range :ProcedureStep ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step publication has procedure step" ;
+.
+:procedureStepHasProcedureStepType
+	a owl:ObjectProperty ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :ProcedureStepType ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step has procedure step type" ;
+.
+:procedureStepTypeHasProcedureStep
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepHasProcedureStepType ;
+	rdfs:domain :ProcedureStepType ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step type has procedure step" ;
 .
 :procedureStepIsCommonlyActualisedAlongsideProcedureStep
 	a owl:ObjectProperty, owl:SymmetricProperty ;
