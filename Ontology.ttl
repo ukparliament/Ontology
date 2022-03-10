@@ -975,30 +975,6 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure route" ;
 .
-:AllowedProcedureRoute
-	a owl:Class ;
-	rdfs:subClassOf :ProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Allowed procedure route" ;
-.
-:RequiredProcedureRoute
-	a owl:Class ;
-	rdfs:subClassOf :ProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Required procedure route" ;
-.
-:CausedProcedureRoute
-	a owl:Class ;
-	rdfs:subClassOf :ProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Caused procedure route" ;
-.
-:PrecludedProcedureRoute
-	a owl:Class ;
-	rdfs:subClassOf :ProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "Precluded procedure route" ;
-.
 :Laying
 	a owl:Class ;
 	rdfs:subClassOf :BusinessItem ;
@@ -2868,74 +2844,6 @@ this:schema
 	rdfs:range :ProcedureRoute ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step is to procedure route" ;
-.
-:procedureStepCausesCausedProcedureRoute
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
-	rdfs:domain :ProcedureStep ;
-	rdfs:range :CausedProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "procedure step causes caused procedure route" ;
-.
-:causedProcedureRouteIsCausedByProcedureStep
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
-	owl:inverseOf :procedureStepCausesCausedProcedureRoute ;
-	rdfs:domain :CausedProcedureRoute ;
-	rdfs:range :ProcedureStep ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "caused procedure route is caused by procedure step" ;
-.
-:procedureStepAllowsAllowedProcedureRoute
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
-	rdfs:domain :ProcedureStep ;
-	rdfs:range :AllowedProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "procedure step allows allowed procedure route" ;
-.
-:allowedProcedureRouteIsAllowedByProcedureStep
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
-	owl:inverseOf :procedureStepAllowsAllowedProcedureRoute ;
-	rdfs:domain :AllowedProcedureRoute ;
-	rdfs:range :ProcedureStep ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "allowed procedure route is allowed by procedure step" ;
-.
-:procedureStepRequiresRequiredProcedureRoute
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
-	rdfs:domain :ProcedureStep ;
-	rdfs:range :RequiredProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "procedure step requires required procedure route" ;
-.
-:requiredProcedureRouteIsRequiredByProcedureStep
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
-	owl:inverseOf :procedureStepRequiresRequiredProcedureRoute ;
-	rdfs:domain :RequiredProcedureRoute ;
-	rdfs:range :ProcedureStep ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "required procedure route is required by procedure step" ;
-.
-:procedureStepPrecludesPrecludedProcedureRoute
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureStepIsToProcedureRoute ;
-	rdfs:domain :ProcedureStep ;
-	rdfs:range :PrecludedProcedureRoute ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "procedure step precludes precluded procedure route" ;
-.
-:precludedProcedureRouteIsPrecludedByProcedureStep
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf :procedureRouteIsFromProcedureStep ;
-	owl:inverseOf :procedureStepPrecludesPrecludedProcedureRoute ;
-	rdfs:domain :PrecludedProcedureRoute ;
-	rdfs:range :ProcedureStep ;
-	rdfs:isDefinedBy this:schema ;
-	rdfs:label "precluded procedure route is precluded by procedure step" ;
 .
 :procedureRouteHasProcedure
 	a owl:ObjectProperty ;

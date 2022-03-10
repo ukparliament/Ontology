@@ -134,14 +134,6 @@
 	:websiteLabel "address line 5" ;
 	:websiteDescription ":addressLine5 no website description provided" ;
 .
-:AllowedProcedureRoute
-	:websiteLabel "Allowed procedure route" ;
-	:websiteDescription ":AllowedProcedureRoute no website description provided" ;
-.
-:allowedProcedureRouteIsAllowedByProcedureStep
-	:websiteLabel "allowed procedure route is allowed by procedure step" ;
-	:websiteDescription ":allowedProcedureRouteIsAllowedByProcedureStep no website description provided" ;
-.
 :AlternateMembership
 	:websiteLabel "Alternate membership" ;
 	:websiteDescription ":AlternateMembership no website description provided" ;
@@ -353,14 +345,6 @@
 :candidateHasCandidacy
 	:websiteLabel "candidate has candidacy" ;
 	:websiteDescription ":candidateHasCandidacy no website description provided" ;
-.
-:CausedProcedureRoute
-	:websiteLabel "Caused procedure route" ;
-	:websiteDescription ":CausedProcedureRoute no website description provided" ;
-.
-:causedProcedureRouteIsCausedByProcedureStep
-	:websiteLabel "caused procedure route is caused by procedure step" ;
-	:websiteDescription ":causedProcedureRouteIsCausedByProcedureStep no website description provided" ;
 .
 :closedAt
 	:websiteLabel "closed at" ;
@@ -1738,14 +1722,6 @@
 	:websiteLabel "postcode" ;
 	:websiteDescription ":postCode no website description provided" ;
 .
-:PrecludedProcedureRoute
-	:websiteLabel "Precluded procedure route" ;
-	:websiteDescription ":PrecludedProcedureRoute no website description provided" ;
-.
-:precludedProcedureRouteIsPrecludedByProcedureStep
-	:websiteLabel "precluded procedure route is precluded by procedure step" ;
-	:websiteDescription ":precludedProcedureRouteIsPrecludedByProcedureStep no website description provided" ;
-.
 :Procedure
 	:websiteLabel "Procedure" ;
 	:websiteDescription ":Procedure no website description provided" ;
@@ -1782,14 +1758,6 @@
 	:websiteLabel "Procedure step" ;
 	:websiteDescription ":ProcedureStep no website description provided" ;
 .
-:procedureStepAllowsAllowedProcedureRoute
-	:websiteLabel "procedure step allows allowed procedure route" ;
-	:websiteDescription ":procedureStepAllowsAllowedProcedureRoute no website description provided" ;
-.
-:procedureStepCausesCausedProcedureRoute
-	:websiteLabel "procedure step causes caused procedure route" ;
-	:websiteDescription ":procedureStepCausesCausedProcedureRoute no website description provided" ;
-.
 :procedureStepDescription
 	:websiteLabel "procedure step description" ;
 	:websiteDescription ":procedureStepDescription no website description provided" ;
@@ -1813,14 +1781,6 @@
 :procedureStepName
 	:websiteLabel "procedure step name" ;
 	:websiteDescription ":procedureStepName no website description provided" ;
-.
-:procedureStepPrecludesPrecludedProcedureRoute
-	:websiteLabel "procedure step precludes precluded procedure route" ;
-	:websiteDescription ":procedureStepPrecludesPrecludedProcedureRoute no website description provided" ;
-.
-:procedureStepRequiresRequiredProcedureRoute
-	:websiteLabel "procedure step requires required procedure route" ;
-	:websiteDescription ":procedureStepRequiresRequiredProcedureRoute no website description provided" ;
 .
 :proposedEndDate
 	:websiteLabel "proposed end date" ;
@@ -1957,14 +1917,6 @@
 :rejectionHasRejectionCode
 	:websiteLabel "rejection has rejection code" ;
 	:websiteDescription ":rejectionHasRejectionCode no website description provided" ;
-.
-:RequiredProcedureRoute
-	:websiteLabel "Required procedure route" ;
-	:websiteDescription ":RequiredProcedureRoute no website description provided" ;
-.
-:requiredProcedureRouteIsRequiredByProcedureStep
-	:websiteLabel "required procedure route is required by procedure step" ;
-	:websiteDescription ":requiredProcedureRouteIsRequiredByProcedureStep no website description provided" ;
 .
 :resultPosition
 	:websiteLabel "result position" ;
