@@ -1077,7 +1077,13 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Proposed negative statutory instrument paper" ;
 .
-
+:ProposedDraftRemedialOrderPaper
+	a owl:Class ;
+	rdfs:subClassOf :LaidThing ;
+	rdfs:subClassOf :EnabledThing ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Proposed draft remedial order paper" ;
+.
 :PublishedDraftUnderEUWA
 	a owl:Class ;
 	rdfs:subClassOf :EnabledThing ;
@@ -4199,6 +4205,14 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "proposed negative statutory instrument paper name" ;
+.
+:proposedDraftRemedialOrderPaperName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :laidThingName ;
+	rdfs:domain :ProposedDraftRemedialOrderPaper ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "proposed draft remedial order paper name" ;
 .
 :publishedDraftUnderEUWAName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
