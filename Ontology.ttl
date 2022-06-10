@@ -965,6 +965,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure step type" ;
 .
+:StepDisplayDepthInProcedure
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Procedure step display depth in procedure" ;
+.
 :BusinessItem
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -1123,6 +1128,43 @@ this:schema
 
 ##########################OBJECT PROPERTIES##############################
 
+:stepDisplayDepthInProcedureHasProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :StepDisplayDepthInProcedure ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "step display depth in procedure has procedure step" ;
+.
+:procedureStepHasStepDisplayDepthInProcedure
+	a owl:ObjectProperty ;
+	owl:inverseOf :stepDisplayDepthInProcedureHasProcedureStep ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :StepDisplayDepthInProcedure ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step has step display depth in procedure" ;
+.
+:stepDisplayDepthInProcedureHasProcedure
+	a owl:ObjectProperty ;
+	rdfs:domain :StepDisplayDepthInProcedure ;
+	rdfs:range :Procedure ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "step display depth in procedure has procedure" ;
+.
+:procedureHasStepDisplayDepthInProcedure
+	a owl:ObjectProperty ;
+	owl:inverseOf :stepDisplayDepthInProcedureHasProcedure ;
+	rdfs:domain :Procedure ;
+	rdfs:range :StepDisplayDepthInProcedure ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure has step display depth in procedure" ;
+.
+:stepDisplayDepth
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :StepDisplayDepthInProcedure ;
+	rdfs:range xsd:float ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "step display depth in procedure has value" ;
+.
 :procedureStepHasProcedureStepPublication
 	a owl:ObjectProperty ;
 	rdfs:domain :ProcedureStep ;
