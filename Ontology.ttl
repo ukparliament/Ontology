@@ -1158,7 +1158,7 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure has step display depth in procedure" ;
 .
-:stepDisplayDepth
+:stepDisplayDepthInProcedureHasDepth
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :StepDisplayDepthInProcedure ;
 	rdfs:range xsd:decimal ;
