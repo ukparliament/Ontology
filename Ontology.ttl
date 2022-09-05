@@ -949,6 +949,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure" ;
 .
+:Legislature
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Legislature" ;
+.
 :ProcedureStep
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -2863,6 +2868,38 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step has business item" ;
 .
+:houseInLegislature
+	a owl:ObjectProperty ;
+	owl:inverseOf :legislatureHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :Legislature ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "house in legislature" ;
+.
+:legislatureHasHouse
+	a owl:ObjectProperty ;
+	owl:inverseOf :houseInLegislature ;
+	rdfs:domain :Legislature ;
+	rdfs:range :House ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "legislature has house" ;
+.
+:procedureStepInLegislature
+	a owl:ObjectProperty ;
+	owl:inverseOf :legislatureHasProcedureStep ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :Legislature ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step in legislature" ;
+.
+:legislatureHasProcedureStep
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepInLegislature ;
+	rdfs:domain :Legislature ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "legislature has procedure step" ;
+.
 :procedureRouteIsToProcedureStep
 	a owl:ObjectProperty ;
 	rdfs:domain :ProcedureRoute ;
@@ -4171,6 +4208,14 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure step name" ;
+.
+:legislatureName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :Legislature ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "legislature name" ;
 .
 :procedureStepDescription
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
