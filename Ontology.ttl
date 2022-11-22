@@ -959,6 +959,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure step" ;
 .
+:ProcedureStepCollection
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Procedure step collection" ;
+.
 :ProcedureStepPublication
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -2884,6 +2889,38 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "legislature has house" ;
 .
+:houseHasProcedureStepCollection
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepCollectionHasHouse ;
+	rdfs:domain :House ;
+	rdfs:range :ProcedureStepCollection ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "house has procedure step collection" ;
+.
+:procedureStepCollectionHasHouse
+	a owl:ObjectProperty ;
+	owl:inverseOf :houseHasProcedureStepCollection ;
+	rdfs:domain :ProcedureStepCollection ;
+	rdfs:range :House ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step collection has house" ;
+.
+:procedureHasProcedureStepCollection
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepCollectionHasProcedure ;
+	rdfs:domain :Procedure ;
+	rdfs:range :ProcedureStepCollection ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure has procedure step collection" ;
+.
+:procedureStepCollectionHasProcedure
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureHasProcedureStepCollection ;
+	rdfs:domain :ProcedureStepCollection ;
+	rdfs:range :Procedure ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step collection has procedure" ;
+.
 :procedureStepInLegislature
 	a owl:ObjectProperty ;
 	owl:inverseOf :legislatureHasProcedureStep ;
@@ -4216,6 +4253,14 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "legislature name" ;
+.
+:procedureStepCollectionName
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :ProcedureStepCollection ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step collection name" ;
 .
 :procedureStepDescription
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
