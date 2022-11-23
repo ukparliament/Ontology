@@ -964,6 +964,11 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "Procedure step collection" ;
 .
+:ProcedureStepCollectionMembership
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Procedure step collection membership" ;
+.
 :ProcedureStepPublication
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -2888,6 +2893,38 @@ this:schema
 	rdfs:range :House ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "legislature has house" ;
+.
+:procedureStepHasProcedureStepCollectionMembership
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepCollectionMembershipHasProcedureStep;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :ProcedureStepCollectionMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step has procedure step collection membership" ;
+.
+:procedureStepCollectionMembershipHasProcedureStep
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepHasProcedureStepCollectionMembership ;
+	rdfs:domain :ProcedureStepCollectionMembership ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step collection membership has procedure step" ;
+.
+:procedureStepCollectionHasProcedureStepCollectionMembership
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepCollectionMembershipHasProcedureStepCollection;
+	rdfs:domain :ProcedureStepCollection ;
+	rdfs:range :ProcedureStepCollectionMembership ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step collection has procedure step collection membership" ;
+.
+:procedureStepCollectionMembershipHasProcedureStepCollection
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureStepCollectionHasProcedureStepCollectionMembership ;
+	rdfs:domain :ProcedureStepCollectionMembership ;
+	rdfs:range :ProcedureStepCollection ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure step collection membership has procedure step collection" ;
 .
 :houseHasProcedureStepCollection
 	a owl:ObjectProperty ;
