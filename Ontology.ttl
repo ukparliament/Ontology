@@ -4552,6 +4552,14 @@ geosparql:wktLiteral
 	rdfs:label "clock day count" ;
 .
 
+:calculationStyleEggTimerId
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :CalculationStyle ;
+	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "calculation style egg timer Id" ;
+.
+
 :workPackageDayCount 
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :WorkPackage ;
