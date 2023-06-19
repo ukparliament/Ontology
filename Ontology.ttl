@@ -3047,8 +3047,8 @@ this:schema
 :endProcedureStepOfClock
 	a owl:ObjectProperty ;
 	owl:inverseOf :clockHasEndProcedureStep;
-	rdfs:domain :Clock ;
-	rdfs:range :ProcedureStep ;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :Clock ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "end procedure step of a clock" ;
 .
