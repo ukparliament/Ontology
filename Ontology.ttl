@@ -100,6 +100,16 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "House" ;
 .
+:Clock
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Clock" ;
+.
+:CalculationStyle
+	a owl:Class ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "Calculation style " ;
+.
 :HouseSeat
 	a owl:Class ;
 	rdfs:isDefinedBy this:schema ;
@@ -2974,6 +2984,92 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "legislature has procedure step" ;
 .
+
+:procedureHasCalculationStyle
+	a owl:ObjectProperty ;
+	rdfs:domain :Procedure ;
+	rdfs:range :CalculationStyle ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure has calculation style" ;
+.
+
+:calculationStyleHasProcedure
+	a owl:ObjectProperty ;
+	owl:inverseOf :procedureHasCalculationStyle;
+	rdfs:domain :CalculationStyle ;
+	rdfs:range :Procedure ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "calculation style has procedure" ;
+.
+
+:workPackageHasCalculationStyle
+	a owl:ObjectProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range :CalculationStyle ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "work package has calculation style" ;
+.
+
+:calculationStyleHasWorkPackage
+	a owl:ObjectProperty ;
+	owl:inverseOf :workPackageHasCalculationStyle;
+	rdfs:domain :CalculationStyle ;
+	rdfs:range :WorkPackage ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "calculation style has work package" ;
+.
+
+:clockHasStartProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :Clock ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "clock has start procedure step" ;
+.
+
+:startProcedureStepOfClock
+	a owl:ObjectProperty ;
+	owl:inverseOf :clockHasStartProcedureStep;
+	rdfs:domain :ProcedureStep ;
+	rdfs:range :Clock ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "start procedure step of a clock" ;
+.
+
+:clockHasEndProcedureStep
+	a owl:ObjectProperty ;
+	rdfs:domain :Clock ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "clock has end procedure step" ;
+.
+
+:endProcedureStepOfClock
+	a owl:ObjectProperty ;
+	owl:inverseOf :clockHasEndProcedureStep;
+	rdfs:domain :Clock ;
+	rdfs:range :ProcedureStep ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "end procedure step of a clock" ;
+.
+
+:clockFormsPartOfProcedure
+	a owl:ObjectProperty ;
+	rdfs:domain :Clock ;
+	rdfs:range :Procedure ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "clock forms part of a procedure" ;
+.
+
+:procedureHasClock
+	a owl:ObjectProperty ;
+	owl:inverseOf :clockFormsPartOfProcedure;
+	rdfs:domain :Procedure ;
+	rdfs:range :Clock ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure has a clock" ;
+.
+
 :procedureRouteIsToProcedureStep
 	a owl:ObjectProperty ;
 	rdfs:domain :ProcedureRoute ;
@@ -3592,6 +3688,22 @@ geosparql:wktLiteral
 	rdfs:range xsd:string ;
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "house name" ;
+.
+:clockLabel
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :Clock ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "clock label" ;
+.
+:calculationStyleLabel
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :name ;
+	rdfs:domain :CalculationStyle ;
+	rdfs:range xsd:string ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "calculation style label" ;
 .
 :houseSeatName
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
@@ -4431,6 +4543,31 @@ geosparql:wktLiteral
 	rdfs:label "statutory instrument number" ;
 	rdfs:comment "Statutory instrument papers are given a number in the SI series which runs from number 1 each calendar year. SIs may be cited using prefix number and year e.g. SI 1986/935" ;
 .
+
+:clockDayCount
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Clock ;
+	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "clock day count" ;
+.
+
+:workPackageDayCount 
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "work package day count" ;
+.
+
+:workPackageIsClockFrozen
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :WorkPackage ;
+	rdfs:range xsd:boolean ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "work package is clock frozen" ;
+.
+
 :statutoryInstrumentPaperMadeDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:domain :MadeStatutoryInstrumentPaper ;
