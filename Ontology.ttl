@@ -3284,6 +3284,29 @@ this:schema
 	rdfs:isDefinedBy this:schema ;
 	rdfs:label "procedure route end date" ;
 .
+:procedureStartDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :startDate ;
+	rdfs:domain :Procedure ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure start date" ;
+.
+:procedureEndDate
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:subPropertyOf :endDate ;
+	rdfs:domain :Procedure ;
+	rdfs:range xsd:date ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure end date" ;
+.
+:procedureDisplayOrder
+	a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:domain :Procedure ;
+	rdfs:range xsd:integer ;
+	rdfs:isDefinedBy this:schema ;
+	rdfs:label "procedure display order" ;
+.
 :startDate
 	a owl:DatatypeProperty, owl:FunctionalProperty ;
 	rdfs:subPropertyOf :date ;
